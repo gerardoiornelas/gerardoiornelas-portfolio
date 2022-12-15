@@ -1,8 +1,8 @@
 import React from "react"
-import { Home } from "../components/Home"
+import { ScrollContainer } from "../components/ScrollContainer"
 
-const HomePage = () => {
-  return <Home />
+const ScrollContainerPage = () => {
+  return <ScrollContainer />
 }
 
-export default HomePage
+export default ScrollContainerPage

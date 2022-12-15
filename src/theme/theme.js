@@ -1,5 +1,5 @@
-import { createTheme } from "@mui/material/styles";
-import { lighten, darken } from "polished";
+import { createTheme } from "@mui/material/styles"
+import { lighten, darken } from "polished"
 
 import {
   primaryColor,
@@ -10,12 +10,12 @@ import {
   commonColorStyles,
   bodyFont,
   customColorStyles,
-} from "./theme.config";
+} from "./theme.config"
 
 // A custom theme for this app
 const theme = createTheme({
   palette: {
-    mode: "dark",
+    // mode: "dark",
     primary: {
       light: lighten(0.1, primaryColor),
       main: primaryColor,
@@ -39,17 +39,19 @@ const theme = createTheme({
   typography: {
     fontFamily: fontFamilies,
     h1: {
-      ...headlineFontStyles,
+      fontFamily: bodyFont,
+      fontWeight: 700,
     },
     h2: {
-      ...headlineFontStyles,
+      fontFamily: bodyFont,
+      fontWeight: 400,
     },
     h3: {
-      ...headlineFontStyles,
+      fontFamily: bodyFont,
+      fontWeight: 400,
     },
     h4: {
-      fontFamily: bodyFont,
-      fontWeight: 500,
+      ...headlineFontStyles,
     },
     h5: {
       fontFamily: bodyFont,
@@ -65,6 +67,7 @@ const theme = createTheme({
     },
     body1: {
       fontFamily: bodyFont,
+      color: commonColorStyles.grey,
     },
     body2: {
       fontFamily: bodyFont,
@@ -86,6 +89,6 @@ const theme = createTheme({
       fontFamily: bodyFont,
     },
   },
-});
+})
 
-export default theme;
+export default theme

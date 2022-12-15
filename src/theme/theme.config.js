@@ -1,37 +1,42 @@
-const primaryColor = "#E0FF00";
-const secondaryColor = "#01FBFF";
-const accentColor = "#EE00FE";
+import { lighten, darken } from "polished"
 
-const appTitle = "React Hardhat Template";
-const metaDescription = "Boilerplate for Web3 development";
-const metaKeywords = "react, hardhat, solidity, web3";
+const primaryColor = "#03002D"
+const secondaryColor = "#F7218C"
+const tertiaryColor = "#4BBDD2"
+const accentColor = "#AB28A4"
+
+const appTitle = "React Hardhat Template"
+const metaDescription = "Boilerplate for Web3 development"
+const metaKeywords = "react, hardhat, solidity, web3"
 
 const googleFonts =
-  "https://fonts.googleapis.com/css2?family=Space+Mono&display=swap";
+  "https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap"
 
-const fontFamilies = "'Space Mono', monospace";
-const headlineFont = "'Space Mono', monospace";
-const bodyFont = "'Space Mono', monospace";
+const fontFamilies = "'PT Sans', sans-serif,'p22-arts-and-crafts', sans-serif "
+const headlineFont = "'p22-arts-and-crafts', sans-serif"
+const bodyFont = "'PT Sans', sans-serif"
 
 const headlineFontStyles = {
   fontFamily: headlineFont,
-  fontWeight: 800,
+  fontWeight: [400, 700],
   fontStyle: "normal",
   // letterSpacing: "-0.02em",
-};
+}
 
 const commonColorStyles = {
   white: "#fff",
   black: "#000",
   grey: "#696a6c",
   lightGrey: "#fafafa",
-};
+}
 
 const customColorStyles = {
-  wunBlue: {
-    main: "#15133f",
+  tertiary: {
+    light: lighten(0.1, tertiaryColor),
+    main: tertiaryColor,
+    dark: darken(0.1, tertiaryColor),
   },
-};
+}
 
 export {
   googleFonts,
@@ -47,4 +52,4 @@ export {
   metaKeywords,
   appTitle,
   customColorStyles,
-};
+}
