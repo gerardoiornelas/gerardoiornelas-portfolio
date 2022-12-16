@@ -1,21 +1,65 @@
+import React from "react"
+import cuid from "cuid"
+import PropTypes from "prop-types"
+import { Container, Box } from "@mui/material"
 
-    import React from 'react';
-    import PropTypes from 'prop-types';
+import { RowCol, Row, Col } from "../RowCol"
+import { Title } from "../Title"
 
-    import { StyledProjects } from './Projects.styled';
+import ProjectCard from "./ProjectCard"
 
+import ImgGenerativeNfts from "../../images/projects/generative-nft.jpg"
 
-    const Projects = ({children}) => {
-        return (
-            <StyledProjects>
-                {children}
-            </StyledProjects>
-        )
-    }
+const projectsData = [
+  {
+    id: cuid(),
+    title: `Generative NFT Drop`,
+    description: ["Create an NFT from scratch and an NFT minting website."],
+    imgSrc: ImgGenerativeNfts,
+    imgAlt: "dj boombox remix crew",
+  },
+  {
+    id: cuid(),
+    title: `Crowdfunding App`,
+    description: ["Create an NFT from scratch and an NFT minting website."],
+    imgSrc: ImgGenerativeNfts,
+    imgAlt: "dj boombox remix crew",
+  },
+  {
+    id: cuid(),
+    title: `DAO`,
+    description: ["Create an NFT from scratch and an NFT minting website."],
+    imgSrc: ImgGenerativeNfts,
+    imgAlt: "dj boombox remix crew",
+  },
+]
 
-    Projects.propTypes = {
-      children: PropTypes.node
-    }
+const Projects = ({ children }) => {
+  return (
+    <Container>
+      <RowCol mb={4}>
+        <Title variant="segment" align="center">
+          Projects
+        </Title>
+      </RowCol>
+      <RowCol>
+        <Box
+          display="flex"
+          flexDirection="row"
+          flexWrap="wrap"
+          justifyContent={`space-evenly`}
+        >
+          {projectsData.map(data => (
+            <ProjectCard {...data} />
+          ))}
+        </Box>
+      </RowCol>
+    </Container>
+  )
+}
 
-    export default Projects
-  
+Projects.propTypes = {
+  children: PropTypes.node,
+}
+
+export default Projects

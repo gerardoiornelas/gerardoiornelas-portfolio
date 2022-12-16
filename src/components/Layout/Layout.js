@@ -6,10 +6,10 @@ import { Header } from "../Header"
 
 const Layout = ({ children }) => {
   return (
-    <StyledLayout>
+    <>
       <Header />
       {children}
-    </StyledLayout>
+    </>
   )
 }
 

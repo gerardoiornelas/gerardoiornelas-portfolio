@@ -38,8 +38,10 @@ const ScrollContainer = () => {
         yAxisProjects={posProjects}
         yAxisContact={posContact}
       >
-        <Home />
-        <Segment variant="alternate" segmentDecoration>
+        <Segment segmentDecoration>
+          <Home />
+        </Segment>
+        <Segment variant="primary">
           <Box sx={{ position: "relative" }} ref={refProjects}>
             <Box id="projects" sx={{ position: "absolute", top: topPos }}></Box>
             <Projects />
