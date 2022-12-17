@@ -13,48 +13,37 @@ import Robot04 from "../../images/gallery/04.jpg"
 import Robot05 from "../../images/gallery/05.jpg"
 import Robot06 from "../../images/gallery/06.jpg"
 
+const imageSizePatterns = {
+  id: cuid(),
+  width: 1,
+  height: 1,
+  sizes: ["(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw"],
+}
+
 const robotArt = [
   {
-    id: cuid(),
     src: Robot01,
-    sizes: ["(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw"],
-    width: 1,
-    height: 1,
+    ...imageSizePatterns,
   },
   {
-    id: cuid(),
     src: Robot02,
-    sizes: ["(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw"],
-    width: 1,
-    height: 1,
+    ...imageSizePatterns,
   },
   {
-    id: cuid(),
     src: Robot03,
-    sizes: ["(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw"],
-    width: 1,
-    height: 1,
+    ...imageSizePatterns,
   },
   {
-    id: cuid(),
     src: Robot04,
-    sizes: ["(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw"],
-    width: 1,
-    height: 1,
+    ...imageSizePatterns,
   },
   {
-    id: cuid(),
     src: Robot05,
-    sizes: ["(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw"],
-    width: 1,
-    height: 1,
+    ...imageSizePatterns,
   },
   {
-    id: cuid(),
     src: Robot06,
-    sizes: ["(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw"],
-    width: 1,
-    height: 1,
+    ...imageSizePatterns,
   },
 ]
 

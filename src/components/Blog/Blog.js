@@ -5,6 +5,7 @@ import { Container, Box } from "@mui/material"
 
 import { RowCol, Row, Col } from "../RowCol"
 import { Title } from "../Title"
+import { AnimateOnScroll } from "../AnimateOnScroll"
 
 import BlogCard from "./BlogCard"
 
@@ -36,25 +37,31 @@ const blogData = [
 
 const Blog = ({ children }) => {
   return (
-    <Container>
-      <RowCol mb={4}>
-        <Title variant="segment" align="center">
-          Blog
-        </Title>
-      </RowCol>
-      <RowCol>
-        <Box
-          display="flex"
-          flexDirection="row"
-          flexWrap="wrap"
-          justifyContent={`space-evenly`}
-        >
-          {blogData.map(data => (
-            <BlogCard {...data} />
-          ))}
-        </Box>
-      </RowCol>
-    </Container>
+    <Box py={6}>
+      <Container>
+        <RowCol mb={4}>
+          <AnimateOnScroll animateIn={`fadeInUp`}>
+            <Title variant="segment" align="center">
+              Blog
+            </Title>
+          </AnimateOnScroll>
+        </RowCol>
+        <RowCol>
+          <Box
+            display="flex"
+            flexDirection="row"
+            flexWrap="wrap"
+            justifyContent={`space-evenly`}
+          >
+            {blogData.map((data, index) => (
+              <AnimateOnScroll animateIn="fadeInUp" delay={index * 200}>
+                <BlogCard {...data} />
+              </AnimateOnScroll>
+            ))}
+          </Box>
+        </RowCol>
+      </Container>
+    </Box>
   )
 }
 

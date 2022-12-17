@@ -37,31 +37,33 @@ const projectsData = [
 
 const Projects = ({ children }) => {
   return (
-    <Container>
-      <RowCol mb={4}>
-        <AnimateOnScroll animateIn="fadeInUp">
-          <Box>
-            <Title variant="segment" align="center">
-              Projects
-            </Title>
+    <Box py={6}>
+      <Container>
+        <RowCol mb={4}>
+          <AnimateOnScroll animateIn="fadeInUp">
+            <Box>
+              <Title variant="segment" align="center">
+                Projects
+              </Title>
+            </Box>
+          </AnimateOnScroll>
+        </RowCol>
+        <RowCol>
+          <Box
+            display="flex"
+            flexDirection="row"
+            flexWrap="wrap"
+            justifyContent={`space-evenly`}
+          >
+            {projectsData.map((data, index) => (
+              <AnimateOnScroll animateIn="fadeInUp" delay={index * 200}>
+                <ProjectCard {...data} />
+              </AnimateOnScroll>
+            ))}
           </Box>
-        </AnimateOnScroll>
-      </RowCol>
-      <RowCol>
-        <Box
-          display="flex"
-          flexDirection="row"
-          flexWrap="wrap"
-          justifyContent={`space-evenly`}
-        >
-          {projectsData.map((data, index) => (
-            <AnimateOnScroll animateIn="fadeInUp" delay={index * 200}>
-              <ProjectCard {...data} />
-            </AnimateOnScroll>
-          ))}
-        </Box>
-      </RowCol>
-    </Container>
+        </RowCol>
+      </Container>
+    </Box>
   )
 }
 
