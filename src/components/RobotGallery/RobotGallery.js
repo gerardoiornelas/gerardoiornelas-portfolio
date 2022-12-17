@@ -1,8 +1,10 @@
 import React from "react"
-import { Box } from "@mui/material"
+import { Box, useTheme } from "@mui/material"
 import cuid from "cuid"
 import PropTypes from "prop-types"
 import Gallery from "react-photo-gallery"
+
+import { AnimateOnScroll } from "../AnimateOnScroll"
 
 import Robot01 from "../../images/gallery/01.jpg"
 import Robot02 from "../../images/gallery/02.jpg"
@@ -57,9 +59,12 @@ const robotArt = [
 ]
 
 const RobotGallery = ({ children }) => {
+  const theme = useTheme()
   return (
-    <Box sx={{ width: "100%" }}>
-      <Gallery photos={robotArt} margin={0} />
+    <Box sx={{ width: "100%", backgroundColor: theme.palette.accent.main }}>
+      <AnimateOnScroll animateIn="fadeInUp">
+        <Gallery photos={robotArt} margin={0} />
+      </AnimateOnScroll>
     </Box>
   )
 }
