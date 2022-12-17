@@ -6,6 +6,7 @@ import { useTheme } from "@mui/material/styles"
 import { RowCol, Row, Col } from "../RowCol"
 import { Title } from "../Title"
 import { StyledHome } from "./Home.styled"
+import { AnimateOnScroll } from "../AnimateOnScroll"
 
 import ImgLostwunHero from "../../images/hero-lostwun.png"
 
@@ -28,15 +29,20 @@ const Home = ({ children }) => {
                     <Title variant="hero" color="primary">
                       What's good!
                     </Title>
-                    <Title variant="hero" color="primary">
-                      I'm{" "}
-                      <Box
-                        component="span"
-                        sx={{ color: theme.palette.secondary.main }}
-                      >
-                        Gerardo
-                      </Box>
-                    </Title>
+                    <AnimateOnScroll
+                      animateIn="fadeInUp"
+                      animateOut="fadeInDown"
+                    >
+                      <Title variant="hero" color="primary">
+                        I'm
+                        <Box
+                          component="span"
+                          sx={{ color: theme.palette.secondary.main }}
+                        >
+                          Gerardo
+                        </Box>
+                      </Title>
+                    </AnimateOnScroll>
                   </RowCol>
                   <RowCol>
                     <Typography>
