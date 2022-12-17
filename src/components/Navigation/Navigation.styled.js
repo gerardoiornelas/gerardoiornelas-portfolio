@@ -25,7 +25,7 @@ const StyledNavElement = styled(Scrollchor)(({ isactivelink, theme }) => ({
   backgroundColor: "transparent",
   border: 0,
   fontSize: `${rem(16)}`,
-  color: theme.palette.secondary.light,
+  color: theme.palette.primary.main,
   padding: `${rem(10)} ${rem(22)}`,
   textDecoration: "none",
   transition: "all 500ms",
@@ -35,7 +35,7 @@ const StyledNavElement = styled(Scrollchor)(({ isactivelink, theme }) => ({
   justifyContent: "center",
   "&:after": {
     content: "''",
-    height: "2px",
+    height: "4px",
     position: "absolute",
     bottom: "0",
     left: "0",
@@ -45,7 +45,7 @@ const StyledNavElement = styled(Scrollchor)(({ isactivelink, theme }) => ({
     clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
   },
   "&:hover": {
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.light,
     cursor: "pointer",
     "&:after": {
       clipPath: "polygon(10% 0, 90% 0, 90% 100%, 10% 100%)",

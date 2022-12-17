@@ -110,10 +110,7 @@ const Navigation = ({ yAxisHome, yAxisProjects, yAxisBlog, yAxisContact }) => {
                   textDecoration: "none",
                 }}
               >
-                <Title
-                  variant="segmentAlt"
-                  color={isSmall ? "common.white" : "primary"}
-                >
+                <Title variant="segmentAlt" color="primary">
                   Lostwun
                 </Title>
               </Scrollchor>
@@ -173,7 +170,9 @@ const Navigation = ({ yAxisHome, yAxisProjects, yAxisBlog, yAxisContact }) => {
         anchor="right"
         open={drawerIsOpen}
         onClose={() => setDrawerIsOpen(false)}
-        PaperProps={{ sx: { backgroundColor: theme.palette.primary.light } }}
+        PaperProps={{
+          sx: { backgroundColor: theme.palette.primary.main, width: "50%" },
+        }}
       >
         <List>
           {navElements.map(({ id, route, anchor, title }) => (
