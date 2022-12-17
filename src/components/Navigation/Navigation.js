@@ -12,15 +12,13 @@ import {
   Drawer,
   ListItem,
   List,
-  Button,
   useMediaQuery,
 } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 import MenuIcon from "@mui/icons-material/Menu"
 
+import { Title } from "../Title"
 import { StyledNavElement, StyledScheduleCall } from "./Navigation.styled"
-
-// import { useMenuQuery } from "../../hooks/useMenuQuery"
 
 import { navElements } from "./Navigation.api"
 
@@ -78,8 +76,13 @@ const Navigation = ({ yAxisHome, yAxisProjects, yAxisBlog, yAxisContact }) => {
         color="transparent"
         elevation={0}
         sx={{
-          backgroundColor: appBarColorChange ? "rgba(3,0,45,0.85)" : "initial",
+          backgroundColor: appBarColorChange
+            ? "rgba(255,255,255,0.75)"
+            : "initial",
           transition: "all 500ms",
+          borderBottom: `1px solid ${
+            appBarColorChange ? `#fafafa` : "transparent"
+          }`,
         }}
       >
         <Container disableGutters maxWidth="lg">
@@ -102,13 +105,18 @@ const Navigation = ({ yAxisHome, yAxisProjects, yAxisBlog, yAxisContact }) => {
                 animate={{ duration: 1000, easing: easeOutQuad }}
                 isactivelink={activeLink === "home"}
                 style={{
-                  color: theme.palette.primary.main,
+                  color: appBarColorChange
+                    ? theme.palette.common.white
+                    : theme.palette.primary.main,
                   textDecoration: "none",
                 }}
               >
-                <Typography variant="h4" sx={{ fontSize: "2rem" }}>
+                <Title
+                  variant="segmentAlt"
+                  color={isSmall ? "common.white" : "primary"}
+                >
                   Lostwun
-                </Typography>
+                </Title>
               </Scrollchor>
             </Box>
             <Box

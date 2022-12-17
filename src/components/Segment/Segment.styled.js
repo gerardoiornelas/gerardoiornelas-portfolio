@@ -20,11 +20,13 @@ function setDecorationPadding(decorated, decoratedAlt) {
   return pb
 }
 
-const StyledSegment = styled(Box)(({ theme, decorated, decoratedAlt }) => ({
-  position: "relative",
-  paddingBottom: setDecorationPadding(decorated, decoratedAlt),
-  paddingTop: 4,
-}))
+const StyledSegment = styled(Box)(
+  ({ theme, decorated, decoratedAlt, noPadding }) => ({
+    position: "relative",
+    paddingBottom: setDecorationPadding(decorated, decoratedAlt),
+    paddingTop: noPadding ? 0 : 4,
+  })
+)
 
 const StyledSegmentDecoration = styled(Box)({
   backgroundImage: `url(${ImgCurvy})`,
@@ -47,17 +49,21 @@ const StyledSegmentDecorationAlt = styled(Box)({
 })
 
 const StyledPad = styled(Box)(
-  ({ theme, segmentDecoration, segmentDecorationAlt }) => ({
-    paddingTop: `${rem(50)}`,
-    paddingRight: `${rem(50)}`,
-    paddingBottom: segmentDecorationAlt ? `${rem(115)}` : `${rem(50)}`,
-    paddingLeft: `${rem(50)}`,
+  ({ theme, segmentDecoration, segmentDecorationAlt, noPadding }) => ({
+    paddingTop: `${noPadding ? 0 : rem(50)}`,
+    paddingRight: `${noPadding ? 0 : rem(50)}`,
+    paddingBottom: segmentDecorationAlt
+      ? `${rem(115)}`
+      : `${noPadding ? 0 : rem(50)}`,
+    paddingLeft: `${noPadding ? 0 : rem(50)}`,
     [theme.breakpoints.down("sm")]: {
-      paddingTop: `${rem(10)}`,
-      paddingRight: `${rem(10)}`,
+      paddingTop: `${noPadding ? 0 : rem(10)}`,
+      paddingRight: `${noPadding ? 0 : rem(10)}`,
       paddingBottom:
-        segmentDecoration || segmentDecorationAlt ? `${rem(15)}` : `${rem(10)}`,
-      paddingLeft: `${rem(10)}`,
+        segmentDecoration || segmentDecorationAlt
+          ? `${rem(15)}`
+          : `${noPadding ? 0 : rem(10)}`,
+      paddingLeft: `${noPadding ? 0 : rem(10)}`,
     },
   })
 )

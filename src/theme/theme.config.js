@@ -36,6 +36,11 @@ const customColorStyles = {
     main: tertiaryColor,
     dark: darken(0.1, tertiaryColor),
   },
+  accent: {
+    light: lighten(0.1, tertiaryColor),
+    main: accentColor,
+    dark: darken(0.1, tertiaryColor),
+  },
 }
 
 export {

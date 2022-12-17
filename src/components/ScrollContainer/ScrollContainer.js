@@ -6,21 +6,26 @@ import { Segment } from "../Segment"
 import { Layout } from "../Layout"
 import { Home } from "../Home"
 import { Projects } from "../Projects"
+import { Blog } from "../Blog"
+import { RobotGallery } from "../RobotGallery"
 import { Contact } from "../Contact"
 
 const ScrollContainer = () => {
   const refHome = useRef()
   const refProjects = useRef()
+  const refBlog = useRef()
   const refContact = useRef()
 
   const [posHome, setPosHome] = useState(null)
   const [posProjects, setPosProjects] = useState(null)
+  const [posBlog, setPosBlog] = useState(null)
   const [posContact, setPosContact] = useState(null)
 
   useLayoutEffect(() => {
     function updatePosition() {
       setPosHome(refHome.current.offsetTop)
       setPosProjects(refProjects.current.offsetTop)
+      setPosBlog(refBlog.current.offsetTop)
       setPosContact(refContact.current.offsetTop)
     }
     window.addEventListener("resize", updatePosition)
@@ -36,20 +41,27 @@ const ScrollContainer = () => {
       <Layout
         yAxisHome={posHome}
         yAxisProjects={posProjects}
+        yAxisBlog={posBlog}
         yAxisContact={posContact}
       >
         <Segment segmentDecoration>
           <Home />
         </Segment>
-        <Segment variant="primary">
+        <Segment variant="primary" noPadding>
           <Box sx={{ position: "relative" }} ref={refProjects}>
             <Box id="projects" sx={{ position: "absolute", top: topPos }}></Box>
             <Projects />
           </Box>
         </Segment>
         <Segment variant="gradient">
-          <section></section>
+          <Box
+            id="blog"
+            sx={{ position: "absolute", top: topPos }}
+            ref={refBlog}
+          ></Box>
+          <Blog />
         </Segment>
+        <RobotGallery />
         <Segment>
           <Box sx={{ position: "relative" }} ref={refContact}>
             <Box id="contact" sx={{ position: "absolute", top: topPos }}></Box>

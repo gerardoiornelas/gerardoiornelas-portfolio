@@ -14,6 +14,7 @@ const Segment = ({
   variant,
   segmentDecoration,
   segmentDecorationAlt,
+  noPadding,
 }) => {
   const theme = useTheme()
   const bg = getBackground(theme, variant)
@@ -22,12 +23,14 @@ const Segment = ({
       sx={{ background: bg }}
       decorated={segmentDecoration}
       decoratedAlt={segmentDecorationAlt}
+      noPadding={noPadding}
     >
       <Grid container>
         <Grid item xs={12}>
           <StyledPad
             segmentDecoration={segmentDecoration}
             segmentDecorationAlt={segmentDecorationAlt}
+            noPadding={noPadding}
           >
             {children}
           </StyledPad>
@@ -40,12 +43,14 @@ const Segment = ({
 }
 
 Segment.propTypes = {
+  noPadding: PropTypes.bool,
   variant: PropTypes.oneOf([
     "primary",
     "primaryLight",
     "secondary",
     "tertiary",
     "gradient",
+    "accent",
   ]),
 }
 

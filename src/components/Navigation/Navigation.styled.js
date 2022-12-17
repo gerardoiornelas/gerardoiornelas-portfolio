@@ -1,7 +1,6 @@
 import { styled } from "@mui/system"
 import { rem } from "polished"
 import { Box, AppBar } from "@mui/material"
-import ButtonUnstyled from "@mui/base/ButtonUnstyled"
 import { Scrollchor } from "react-scrollchor"
 
 const StyledSocialNav = styled(Box)(({ theme }) => ({
