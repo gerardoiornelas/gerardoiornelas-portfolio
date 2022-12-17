@@ -28,7 +28,6 @@
     "react-helmet": "latest",
     "react-hook-form": "^7.41.0",
     "react-intersection-observer": "^9.4.1",
-    "react-photo-gallery": "^8.0.0",
     "react-scrollchor": "^7.0.2"
   },
   "devDependencies": {

@@ -1,8 +1,8 @@
 import React from "react"
 import { Box, useTheme } from "@mui/material"
+import Masonry from "@mui/lab/Masonry"
 import cuid from "cuid"
 import PropTypes from "prop-types"
-import Gallery from "react-photo-gallery"
 
 import { AnimateOnScroll } from "../AnimateOnScroll"
 
@@ -52,7 +52,11 @@ const RobotGallery = ({ children }) => {
   return (
     <Box sx={{ width: "100%", backgroundColor: theme.palette.accent.main }}>
       <AnimateOnScroll animateIn="fadeInUp">
-        <Gallery photos={robotArt} margin={0} />
+        <Masonry columns={robotArt.length} spacing={0}>
+          {robotArt.map(({ id, src }) => (
+            <Box component="img" src={src} alt={id} />
+          ))}
+        </Masonry>
       </AnimateOnScroll>
     </Box>
   )
