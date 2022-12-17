@@ -5,6 +5,7 @@ import { Container, Box } from "@mui/material"
 
 import { RowCol } from "../RowCol"
 import { Title } from "../Title"
+import { AnimateOnScroll } from "../AnimateOnScroll"
 
 import ProjectCard from "./ProjectCard"
 
@@ -38,9 +39,13 @@ const Projects = ({ children }) => {
   return (
     <Container>
       <RowCol mb={4}>
-        <Title variant="segment" align="center">
-          Projects
-        </Title>
+        <AnimateOnScroll animateIn="fadeInUp">
+          <Box>
+            <Title variant="segment" align="center">
+              Projects
+            </Title>
+          </Box>
+        </AnimateOnScroll>
       </RowCol>
       <RowCol>
         <Box
@@ -49,8 +54,10 @@ const Projects = ({ children }) => {
           flexWrap="wrap"
           justifyContent={`space-evenly`}
         >
-          {projectsData.map(data => (
-            <ProjectCard {...data} />
+          {projectsData.map((data, index) => (
+            <AnimateOnScroll animateIn="fadeInUp" delay={index * 200}>
+              <ProjectCard {...data} />
+            </AnimateOnScroll>
           ))}
         </Box>
       </RowCol>

@@ -26,15 +26,12 @@ const Home = ({ children }) => {
               >
                 <Box>
                   <RowCol mb={2}>
-                    <Title variant="hero" color="primary">
-                      What's good!
-                    </Title>
-                    <AnimateOnScroll
-                      animateIn="fadeInUp"
-                      animateOut="fadeInDown"
-                    >
+                    <AnimateOnScroll animateIn="fadeIn">
                       <Title variant="hero" color="primary">
-                        I'm
+                        What's good!
+                      </Title>
+                      <Title variant="hero" color="primary">
+                        I'm{" "}
                         <Box
                           component="span"
                           sx={{ color: theme.palette.secondary.main }}
@@ -45,23 +42,27 @@ const Home = ({ children }) => {
                     </AnimateOnScroll>
                   </RowCol>
                   <RowCol>
-                    <Typography>
-                      aka Lostwun. I'm a digital architect of user-interfaces. I
-                      have a passion for Blockchain and Web3 and can help bridge
-                      your product to these next-gen technologies.{" "}
-                    </Typography>
+                    <AnimateOnScroll animateIn="fadeIn" delay={500}>
+                      <Typography>
+                        aka Lostwun. I'm a digital architect of user-interfaces.
+                        I have a passion for Blockchain and Web3 and can help
+                        bridge your product to these next-gen technologies.{" "}
+                      </Typography>
+                    </AnimateOnScroll>
                   </RowCol>
                 </Box>
               </Box>
             </Col>
             <Col xs={12} md={6}>
               <Box display="flex" justifyContent={`center`}>
-                <Box
-                  component="img"
-                  sx={{ maxHeight: "500px" }}
-                  src={ImgLostwunHero}
-                  alt="digital illustration of gerardo ornelas"
-                />
+                <AnimateOnScroll animateIn={"fadeIn"}>
+                  <Box
+                    component="img"
+                    sx={{ maxHeight: "500px" }}
+                    src={ImgLostwunHero}
+                    alt="digital illustration of gerardo ornelas"
+                  />
+                </AnimateOnScroll>
               </Box>
             </Col>
           </Row>
