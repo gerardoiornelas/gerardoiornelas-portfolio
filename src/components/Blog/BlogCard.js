@@ -1,12 +1,10 @@
 import React from "react"
 import {
-  Box,
   Typography,
   Card,
   CardActions,
   CardContent,
   CardMedia,
-  Button,
   IconButton,
 } from "@mui/material"
 import { useTheme } from "@mui/material/styles"

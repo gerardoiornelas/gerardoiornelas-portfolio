@@ -6,7 +6,7 @@ import { ThemeProvider } from "@mui/material/styles"
 
 import { theme } from "../../src/theme"
 import {
-  googleFontsCdn,
+  googleFonts,
   metaDescription,
   metaKeywords,
   appTitle,
@@ -22,16 +22,12 @@ export default function TopLayout(props) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href={googleFontsCdn} rel="stylesheet" />
+        <link href={googleFonts} rel="stylesheet" />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
         ></link>
         <link rel="stylesheet" href="https://use.typekit.net/wme2bdf.css" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
-        />
       </Helmet>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}

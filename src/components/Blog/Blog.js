@@ -3,7 +3,7 @@ import cuid from "cuid"
 import PropTypes from "prop-types"
 import { Container, Box } from "@mui/material"
 
-import { RowCol, Row, Col } from "../RowCol"
+import { RowCol } from "../RowCol"
 import { Title } from "../Title"
 import { AnimateOnScroll } from "../AnimateOnScroll"
 

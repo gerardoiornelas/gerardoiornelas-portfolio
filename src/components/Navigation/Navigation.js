@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react"
 import { Scrollchor, easeOutQuad } from "react-scrollchor"
-import { Typography, theme } from "@mui/material"
 import PropTypes from "prop-types"
 
 import {
@@ -18,7 +17,7 @@ import { useTheme } from "@mui/material/styles"
 import MenuIcon from "@mui/icons-material/Menu"
 
 import { Title } from "../Title"
-import { StyledNavElement, StyledScheduleCall } from "./Navigation.styled"
+import { StyledNavElement } from "./Navigation.styled"
 
 import { navElements } from "./Navigation.api"
 
@@ -67,7 +66,7 @@ const Navigation = ({ yAxisHome, yAxisProjects, yAxisBlog, yAxisContact }) => {
     if (yPos + 235 >= yAxisBlog) {
       setActiveLink("contact")
     }
-  }, [yAxisHome, yAxisProjects, yAxisBlog, yPos])
+  }, [yAxisHome, yAxisProjects, yAxisBlog, yPos, yAxisContact])
 
   return (
     <>

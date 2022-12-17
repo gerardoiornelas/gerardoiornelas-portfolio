@@ -1,14 +1,34 @@
-import React from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
-import ScrollAnimation from "react-animate-on-scroll"
-import { Box, useMediaQuery } from "@mui/material"
-import { useTheme } from "@mui/material/styles"
+import { motion, useAnimation } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+
+const boxVariant = {
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, scale: 1 },
+}
 
 const AnimateOnScroll = ({ children, ...otherProps }) => {
-  const theme = useTheme()
-  const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
-  const component = isSmall ? Box : ScrollAnimation
-  return React.createElement(component, { ...otherProps }, children)
+  const control = useAnimation()
+  const [ref, inView] = useInView()
+
+  useEffect(() => {
+    if (inView) {
+      control.start("visible")
+    } else {
+      control.start("hidden")
+    }
+  }, [control, inView])
+  return (
+    <motion.div
+      variants={boxVariant}
+      initial="hidden"
+      animate={control}
+      ref={ref}
+    >
+      {children}
+    </motion.div>
+  )
 }
 
 AnimateOnScroll.propTypes = {
