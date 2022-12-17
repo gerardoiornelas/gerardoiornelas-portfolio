@@ -11,6 +11,8 @@ import ProjectCard from "./ProjectCard"
 
 import ImgGenerativeNfts from "../../images/projects/generative-nft.jpg"
 
+const GITHUB_LOSTWUN = `https://github.com/lostwun`
+
 const projectsData = [
   {
     id: cuid(),
@@ -18,6 +20,8 @@ const projectsData = [
     description: ["Create an NFT from scratch and an NFT minting website."],
     imgSrc: ImgGenerativeNfts,
     imgAlt: "dj boombox remix crew",
+    url: null,
+    github: `${GITHUB_LOSTWUN}/nft`,
   },
   {
     id: cuid(),
@@ -25,6 +29,8 @@ const projectsData = [
     description: ["Create an NFT from scratch and an NFT minting website."],
     imgSrc: ImgGenerativeNfts,
     imgAlt: "dj boombox remix crew",
+    url: null,
+    github: `${GITHUB_LOSTWUN}/crowdsale`,
   },
   {
     id: cuid(),
@@ -32,6 +38,8 @@ const projectsData = [
     description: ["Create an NFT from scratch and an NFT minting website."],
     imgSrc: ImgGenerativeNfts,
     imgAlt: "dj boombox remix crew",
+    url: null,
+    github: `${GITHUB_LOSTWUN}/dao`,
   },
 ]
 

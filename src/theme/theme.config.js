@@ -5,9 +5,10 @@ const secondaryColor = "#F7218C"
 const tertiaryColor = "#4BBDD2"
 const accentColor = "#AB28A4"
 
-const appTitle = "React Hardhat Template"
-const metaDescription = "Boilerplate for Web3 development"
-const metaKeywords = "react, hardhat, solidity, web3"
+const appTitle = "Gerardo I. Ornelas aka Lostwun - Web3 Developer"
+const metaDescription =
+  "Digital architect of user-interfaces with a passion for Blockchain and Web3."
+const metaKeywords = "react, hardhat, solidity, web3, UX, UI, blockchain"
 
 const googleFonts =
   "https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap"

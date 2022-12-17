@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, useTheme } from "@mui/material"
+import { Box, useTheme, useMediaQuery } from "@mui/material"
 import Masonry from "@mui/lab/Masonry"
 import cuid from "cuid"
 import PropTypes from "prop-types"
@@ -49,10 +49,11 @@ const robotArt = [
 
 const RobotGallery = ({ children }) => {
   const theme = useTheme()
+  const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
   return (
     <Box sx={{ width: "100%", backgroundColor: theme.palette.accent.main }}>
       <AnimateOnScroll animateIn="fadeInUp">
-        <Masonry columns={robotArt.length} spacing={0}>
+        <Masonry columns={isSmall ? 2 : 6} spacing={0}>
           {robotArt.map(({ id, src }) => (
             <Box component="img" src={src} alt={id} />
           ))}

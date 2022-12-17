@@ -1,18 +1,28 @@
 import React from "react"
+import _ from "lodash"
 import {
   Typography,
   Card,
   CardActions,
   CardContent,
   CardMedia,
-  IconButton,
+  Button,
+  Box,
 } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 import { rem } from "polished"
 import OpenInBrowserTwoToneIcon from "@mui/icons-material/OpenInBrowserTwoTone"
 import CodeTwoToneIcon from "@mui/icons-material/CodeTwoTone"
 
-const ProjectCard = ({ id, title, description, imgSrc, imgAlt }) => {
+const ProjectCard = ({
+  id,
+  title,
+  description,
+  imgSrc,
+  imgAlt,
+  url,
+  github,
+}) => {
   const theme = useTheme()
   console.log({ theme })
   return (
@@ -46,12 +56,26 @@ const ProjectCard = ({ id, title, description, imgSrc, imgAlt }) => {
         ))}
       </CardContent>
       <CardActions sx={{ display: "flex", justifyContent: `space-between` }}>
-        <IconButton size="small">
-          <OpenInBrowserTwoToneIcon sx={{ color: `#fff` }} />
-        </IconButton>
-        <IconButton size="small">
-          <CodeTwoToneIcon sx={{ color: `#fff` }} />
-        </IconButton>
+        <Box>
+          {!_.isNil(url) && (
+            <Button
+              component="href"
+              href={url}
+              target="_blank"
+              rel="noreferrer"
+              size="small"
+            >
+              <OpenInBrowserTwoToneIcon sx={{ color: `#fff` }} />
+            </Button>
+          )}
+        </Box>
+        <Box>
+          {!_.isNil(github) && (
+            <Button href={github} target="_blank" rel="noreferrer" size="small">
+              <CodeTwoToneIcon sx={{ color: `#fff` }} />
+            </Button>
+          )}
+        </Box>
       </CardActions>
     </Card>
   )
