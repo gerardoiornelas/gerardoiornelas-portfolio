@@ -23,10 +23,6 @@ export default function TopLayout(props) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href={googleFonts} rel="stylesheet" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
-        ></link>
         <link rel="stylesheet" href="https://use.typekit.net/wme2bdf.css" />
       </Helmet>
       <ThemeProvider theme={theme}>
