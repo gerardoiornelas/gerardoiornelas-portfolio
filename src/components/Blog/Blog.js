@@ -1,5 +1,6 @@
 import React from "react"
 import cuid from "cuid"
+import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import { Container, Box } from "@mui/material"
 
@@ -35,7 +36,23 @@ const blogData = [
   },
 ]
 
-const Blog = ({ children }) => {
+const Blog = () => {
+  const {
+    allMarkdownRemark: { nodes },
+  } = useStaticQuery(graphql`
+    query MyQuery {
+      allMarkdownRemark {
+        nodes {
+          frontmatter {
+            author
+            slug
+            title
+          }
+          html
+        }
+      }
+    }
+  `)
   return (
     <Box py={6}>
       <Container>
@@ -53,11 +70,17 @@ const Blog = ({ children }) => {
             flexWrap="wrap"
             justifyContent={`space-evenly`}
           >
-            {blogData.map((data, index) => (
-              <AnimateOnScroll animateIn="fadeInUp" delay={index * 200}>
-                <BlogCard {...data} />
-              </AnimateOnScroll>
-            ))}
+            {nodes.map((data, index) => {
+              return (
+                <AnimateOnScroll
+                  animateIn="fadeInUp"
+                  delay={index * 200}
+                  key={index}
+                >
+                  <BlogCard {...data} />
+                </AnimateOnScroll>
+              )
+            })}
           </Box>
         </RowCol>
       </Container>
