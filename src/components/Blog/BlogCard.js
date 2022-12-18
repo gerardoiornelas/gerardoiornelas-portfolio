@@ -28,22 +28,25 @@ const BlogCard = ({ frontmatter: { author, slug, title }, html }) => {
     >
       {/* <CardMedia component="img" alt={imgAlt} height="100" image={imgSrc} /> */}
       <CardContent>
-        <Typography gutterBottom variant="h6" component="div">
+        <Typography gutterBottom variant="h6" component="div" color="primary">
           {title}
         </Typography>
-        <ClampLines
-          text={html}
-          lines={4}
-          ellipsis="..."
-          buttons={false}
-          innerElement="p"
-        />
+        <Typography color="common.grey">
+          <ClampLines
+            text={html}
+            lines={4}
+            ellipsis="..."
+            buttons={false}
+            innerElement="p"
+          />
+        </Typography>
         <Button onClick={() => navigate(`/blog/${slug}`)}></Button>
       </CardContent>
       <CardActions sx={{ display: "flex", justifyContent: `center` }}>
         <Button
           endIcon={<ReadMoreIcon />}
           size="small"
+          color="secondary"
           onClick={() => navigate(`/blog${slug}`)}
         >
           Read More
