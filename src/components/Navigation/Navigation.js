@@ -76,7 +76,7 @@ const Navigation = ({ yAxisHome, yAxisProjects, yAxisBlog, yAxisContact }) => {
         elevation={0}
         sx={{
           backgroundColor: appBarColorChange
-            ? "rgba(255,255,255,0.75)"
+            ? "rgba(255,255,255,0.85)"
             : "initial",
           transition: "all 500ms",
           borderBottom: `1px solid ${
