@@ -21,7 +21,7 @@ const projectsData = [
     imgSrc: ImgGenerativeNfts,
     imgAlt: "dj boombox remix crew",
     url: null,
-    github: `${GITHUB_LOSTWUN}/nft`,
+    github: `${GITHUB_LOSTWUN}/wunpunks`,
   },
   {
     id: cuid(),

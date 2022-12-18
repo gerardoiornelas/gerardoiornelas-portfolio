@@ -6,6 +6,8 @@ import { Grid, Box, Button, Container, Typography, Link } from "@mui/material"
 import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone"
 import TwitterIcon from "@mui/icons-material/Twitter"
 
+import { Footer } from "../Footer"
+
 import { Title } from "../Title"
 
 const BlogPostTemplate = ({
@@ -17,23 +19,25 @@ const BlogPostTemplate = ({
   const twitterShare = `https://twitter.com/share?text=I%20just%20read%20%22${transformTitle}%22%20by%20@lostswun&url=https://www.lostwun.com/blog${frontmatter.slug}/`
   const linkedInShare = `https://www.linkedin.com/shareArticle?mini=true&url=https://www.lostwun.com/blog${frontmatter.slug}/`
   return (
-    <Container>
-      <Grid container justifyContent="center">
-        <Grid item xs={12} md={8}>
-          <Box>
-            <Button
-              startIcon={<ArrowBackTwoToneIcon />}
-              onClick={() => navigate("/#blog")}
-            >
-              Back
-            </Button>
-          </Box>
-          <Title variant="segmentAlt">{frontmatter.title}</Title>
-          <Typography
-            variant="h6"
-            color="primary"
-          >{`${frontmatter.date} by ${frontmatter.author}`}</Typography>
-          {/* <Box>
+    <>
+      <Box py={5}>
+        <Container>
+          <Grid container justifyContent="center">
+            <Grid item xs={12} md={8}>
+              <Box mb={5}>
+                <Button
+                  startIcon={<ArrowBackTwoToneIcon />}
+                  onClick={() => navigate("/#blog")}
+                >
+                  Back
+                </Button>
+              </Box>
+              <Title variant="segmentAlt">{frontmatter.title}</Title>
+              <Typography
+                variant="h6"
+                color="primary"
+              >{`${frontmatter.date} by ${frontmatter.author}`}</Typography>
+              {/* <Box>
             <Button
               startIcon={<TwitterIcon />}
               href="https://twitter.com/intent/follow?screen_name=lostwun"
@@ -45,23 +49,26 @@ const BlogPostTemplate = ({
               Follow me on Twitter
             </Button>
           </Box> */}
-          <Box my={4}>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
-          </Box>
-          <Box>
-            <Button
-              href={twitterShare}
-              target="_blank"
-              rel="noreferrer"
-              size="small"
-              variant="outlined"
-            >
-              Share on Twitter
-            </Button>
-          </Box>
-        </Grid>
-      </Grid>
-    </Container>
+              <Box my={4}>
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+              </Box>
+              <Box>
+                <Button
+                  href={twitterShare}
+                  target="_blank"
+                  rel="noreferrer"
+                  size="small"
+                  variant="outlined"
+                >
+                  Share on Twitter
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+      <Footer />
+    </>
   )
 }
 
