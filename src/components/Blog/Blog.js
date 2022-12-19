@@ -12,30 +12,6 @@ import BlogCard from "./BlogCard"
 
 import ImgGenerativeNfts from "../../images/projects/generative-nft.jpg"
 
-const blogData = [
-  {
-    id: cuid(),
-    title: `Generative NFT Drop`,
-    description: ["Create an NFT from scratch and an NFT minting website."],
-    imgSrc: ImgGenerativeNfts,
-    imgAlt: "dj boombox remix crew",
-  },
-  {
-    id: cuid(),
-    title: `Crowdfunding App`,
-    description: ["Create an NFT from scratch and an NFT minting website."],
-    imgSrc: ImgGenerativeNfts,
-    imgAlt: "dj boombox remix crew",
-  },
-  {
-    id: cuid(),
-    title: `DAO`,
-    description: ["Create an NFT from scratch and an NFT minting website."],
-    imgSrc: ImgGenerativeNfts,
-    imgAlt: "dj boombox remix crew",
-  },
-]
-
 const Blog = () => {
   const {
     allMarkdownRemark: { nodes },
@@ -47,6 +23,11 @@ const Blog = () => {
             author
             slug
             title
+            featuredImage {
+              childImageSharp {
+                gatsbyImageData(width: 512)
+              }
+            }
           }
           html
         }

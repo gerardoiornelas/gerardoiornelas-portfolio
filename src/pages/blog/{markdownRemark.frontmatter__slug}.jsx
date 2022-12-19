@@ -13,6 +13,11 @@ export const pageQuery = graphql`
         slug
         title
         author
+        featuredImage {
+          childImageSharp {
+            gatsbyImageData(width: 512)
+          }
+        }
       }
     }
   }

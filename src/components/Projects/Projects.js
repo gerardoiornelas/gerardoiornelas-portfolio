@@ -10,6 +10,8 @@ import { AnimateOnScroll } from "../AnimateOnScroll"
 import ProjectCard from "./ProjectCard"
 
 import ImgGenerativeNfts from "../../images/projects/generative-nft.jpg"
+import ImgCrowdfunding from "../../images/projects/crowdfunding.jpg"
+import ImgDao from "../../images/projects/dao.jpg"
 
 const GITHUB_LOSTWUN = `https://github.com/lostwun`
 
@@ -27,7 +29,7 @@ const projectsData = [
     id: cuid(),
     title: `Crowdfunding App`,
     description: ["Create an NFT from scratch and an NFT minting website."],
-    imgSrc: ImgGenerativeNfts,
+    imgSrc: ImgCrowdfunding,
     imgAlt: "dj boombox remix crew",
     url: null,
     github: `${GITHUB_LOSTWUN}/crowdsale`,
@@ -36,7 +38,7 @@ const projectsData = [
     id: cuid(),
     title: `DAO`,
     description: ["Create an NFT from scratch and an NFT minting website."],
-    imgSrc: ImgGenerativeNfts,
+    imgSrc: ImgDao,
     imgAlt: "dj boombox remix crew",
     url: null,
     github: `${GITHUB_LOSTWUN}/dao`,

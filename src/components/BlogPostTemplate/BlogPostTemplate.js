@@ -4,7 +4,7 @@ import { navigate } from "gatsby"
 import PropTypes from "prop-types"
 import { Grid, Box, Button, Container, Typography, Link } from "@mui/material"
 import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone"
-import TwitterIcon from "@mui/icons-material/Twitter"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { Footer } from "../Footer"
 
@@ -15,22 +15,28 @@ const BlogPostTemplate = ({
 }) => {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark
+  let featuredImg = getImage(
+    frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
+  )
   const transformTitle = _.replace(frontmatter.title, " ", "%20")
-  const twitterShare = `https://twitter.com/share?text=I%20just%20read%20%22${transformTitle}%22%20by%20@lostswun&url=https://www.lostwun.com/blog${frontmatter.slug}/`
+  const twitterShare = `https://twitter.com/share?text=I%20just%20read%20%22${transformTitle}%22%20by%20@lostwun&url=https://www.lostwun.com/blog${frontmatter.slug}/`
   const linkedInShare = `https://www.linkedin.com/shareArticle?mini=true&url=https://www.lostwun.com/blog${frontmatter.slug}/`
   return (
     <>
       <Box py={5}>
         <Container>
           <Grid container justifyContent="center">
-            <Grid item xs={12} md={8}>
-              <Box mb={5}>
+            <Grid item xs={12} md={6}>
+              <Box mb={2}>
                 <Button
                   startIcon={<ArrowBackTwoToneIcon />}
                   onClick={() => navigate("/#blog")}
                 >
                   Back
                 </Button>
+              </Box>
+              <Box mb={3}>
+                <GatsbyImage image={featuredImg} />
               </Box>
               <Title variant="segmentAlt">{frontmatter.title}</Title>
               <Typography

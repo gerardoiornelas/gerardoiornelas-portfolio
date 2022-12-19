@@ -13,12 +13,15 @@ import {
 } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 import { rem } from "polished"
-import OpenInBrowserTwoToneIcon from "@mui/icons-material/OpenInBrowserTwoTone"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import ReadMoreIcon from "@mui/icons-material/ReadMore"
 
-const BlogCard = ({ frontmatter: { author, slug, title }, html }) => {
+const BlogCard = ({ frontmatter, html }) => {
   const theme = useTheme()
   const parsedHtmlText = parse(html)
+  let featuredImg = getImage(
+    frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
+  )
   return (
     <Card
       sx={{
@@ -26,10 +29,10 @@ const BlogCard = ({ frontmatter: { author, slug, title }, html }) => {
         marginBottom: `2rem`,
       }}
     >
-      {/* <CardMedia component="img" alt={imgAlt} height="100" image={imgSrc} /> */}
+      <GatsbyImage image={featuredImg} fullWidth />
       <CardContent>
         <Typography gutterBottom variant="h6" component="div" color="primary">
-          {title}
+          {frontmatter.title}
         </Typography>
         <Typography color="common.grey">
           <ClampLines
@@ -40,14 +43,14 @@ const BlogCard = ({ frontmatter: { author, slug, title }, html }) => {
             innerElement="p"
           />
         </Typography>
-        <Button onClick={() => navigate(`/blog/${slug}`)}></Button>
+        <Button onClick={() => navigate(`/blog/${frontmatter.slug}`)}></Button>
       </CardContent>
       <CardActions sx={{ display: "flex", justifyContent: `center` }}>
         <Button
           endIcon={<ReadMoreIcon />}
           size="small"
           color="secondary"
-          onClick={() => navigate(`/blog${slug}`)}
+          onClick={() => navigate(`/blog${frontmatter.slug}`)}
         >
           Read More
         </Button>
