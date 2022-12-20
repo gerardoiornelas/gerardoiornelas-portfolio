@@ -19,11 +19,11 @@ const Contact = ({ children }) => {
     <Container>
       <RowCol mb={4}>
         <Title variant="segmentAlt" color="primary" align="center">
-          Contact
+          Get in touch
         </Title>
       </RowCol>
       <Row justifyContent="center">
-        <Col xs={12} md={8}>
+        <Col xs={12} md={6}>
           <form
             name="contact"
             method="POST"
@@ -77,7 +77,7 @@ const Contact = ({ children }) => {
                 variant="contained"
                 color="secondary"
               >
-                Send Your Message
+                Send Message
               </Button>
             </Box>
           </form>
