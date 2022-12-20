@@ -111,7 +111,7 @@ const Navigation = ({ yAxisHome, yAxisProjects, yAxisBlog, yAxisContact }) => {
                 }}
               >
                 <Title variant="segmentAlt" color="primary">
-                  Gerardo I. ornelas
+                  {isSmall ? "GIOrnelas" : "Gerardo I. ornelas"}
                 </Title>
               </Scrollchor>
             </Box>

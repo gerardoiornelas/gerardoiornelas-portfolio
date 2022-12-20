@@ -1,17 +1,24 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Container, Typography, Box } from "@mui/material"
-import { useTheme } from "@mui/material/styles"
+import {
+  Container,
+  Typography,
+  Box,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material"
 
 import { RowCol, Row, Col } from "../RowCol"
 import { Title } from "../Title"
 import { StyledHome } from "./Home.styled"
 import { AnimateOnScroll } from "../AnimateOnScroll"
+import { Social } from "../Social"
 
 import ImgLostwunHero from "../../images/hero-lostwun.png"
 
 const Home = ({ children }) => {
   const theme = useTheme()
+  const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
   return (
     <StyledHome>
       <Container>
@@ -49,6 +56,17 @@ const Home = ({ children }) => {
                         your product to these next-gen technologies.{" "}
                       </Typography>
                     </AnimateOnScroll>
+                  </RowCol>
+                  <RowCol my={2}>
+                    <Typography align="cente">Lets connect!</Typography>
+                    <Box
+                      display="flex"
+                      justifyContent={isSmall ? "center" : "flex-start"}
+                    >
+                      <Box>
+                        <Social />
+                      </Box>
+                    </Box>
                   </RowCol>
                 </Box>
               </Box>
