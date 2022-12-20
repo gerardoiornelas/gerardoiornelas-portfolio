@@ -111,7 +111,7 @@ const Navigation = ({ yAxisHome, yAxisProjects, yAxisBlog, yAxisContact }) => {
                 }}
               >
                 <Title variant="segmentAlt" color="primary">
-                  Lostwun
+                  Gerardo I. ornelas
                 </Title>
               </Scrollchor>
             </Box>

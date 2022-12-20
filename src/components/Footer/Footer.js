@@ -1,6 +1,7 @@
 import React from "react"
+import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import { Box, Container, Typography, Divider, Link } from "@mui/material"
+import { Box, Container, Typography, Divider } from "@mui/material"
 
 const Footer = ({ children }) => {
   return (
@@ -15,7 +16,7 @@ const Footer = ({ children }) => {
           <Box>
             <Box display="flex" justifyContent={`flex-end`}>
               <Box>
-                <Link>Privacy & Terms</Link>
+                <Link to="/privacy-policy">Privacy Policy</Link>
               </Box>
             </Box>
           </Box>

@@ -1,2 +1,4 @@
+import Layout from "./Layout"
+import LayoutAlt from "./LayoutAlt"
 
-export { default as Layout } from './Layout'
+export { Layout, LayoutAlt }

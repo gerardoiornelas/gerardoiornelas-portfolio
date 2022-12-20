@@ -44,9 +44,9 @@ const Home = ({ children }) => {
                   <RowCol>
                     <AnimateOnScroll animateIn="fadeIn" delay={500}>
                       <Typography>
-                        aka Lostwun. I'm a digital architect of user-interfaces.
-                        I have a passion for Blockchain and Web3 and can help
-                        bridge your product to these next-gen technologies.{" "}
+                        I'm a digital architect of user-interfaces. I have a
+                        passion for UI, Blockchain, and Web3! Let me help bridge
+                        your product to these next-gen technologies.{" "}
                       </Typography>
                     </AnimateOnScroll>
                   </RowCol>
