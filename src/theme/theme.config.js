@@ -5,7 +5,7 @@ const secondaryColor = "#F7218C"
 const tertiaryColor = "#4BBDD2"
 const accentColor = "#AB28A4"
 
-const appTitle = "Gerardo I. Ornelas aka Lostwun - Web3 Developer"
+const appTitle = "Gerardo I. Ornelas - Web3 Developer"
 const metaDescription =
   "Digital architect of user-interfaces with a passion for Blockchain and Web3."
 const metaKeywords = "react, hardhat, solidity, web3, UX, UI, blockchain"
