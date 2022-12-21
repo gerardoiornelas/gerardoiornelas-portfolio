@@ -19,7 +19,7 @@ const BlogPostTemplate = ({
     frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
   )
   const transformTitle = _.replace(frontmatter.title, " ", "%20")
-  const twitterShare = `https://twitter.com/share?text=I%20just%20read%20%22${transformTitle}%22%20by%20@lostwun&url=https://www.gerardoiornelas.com/blog${frontmatter.slug}/`
+  const twitterShare = `https://twitter.com/share?text=I%20just%20read%20%22${transformTitle}%22%20by%20@gerardoiornelas&url=https://www.gerardoiornelas.com/blog${frontmatter.slug}/`
   const linkedInShare = `https://www.linkedin.com/shareArticle?mini=true&url=https://www.gerardoiornelas.com/blog${frontmatter.slug}/`
   return (
     <>
