@@ -24,7 +24,7 @@ const ProjectCard = ({
   github,
 }) => {
   const theme = useTheme()
-  console.log({ theme })
+
   return (
     <Card
       sx={{

@@ -1,7 +1,7 @@
 import React from "react"
 import cuid from "cuid"
 import PropTypes from "prop-types"
-import { Container, Box } from "@mui/material"
+import { Grid, Container, Box } from "@mui/material"
 
 import { RowCol } from "../RowCol"
 import { Title } from "../Title"
@@ -45,7 +45,11 @@ const projectsData = [
   },
 ]
 
-const Projects = ({ children }) => {
+interface Props {
+  children: React.ReactNode
+}
+
+const Projects = ({ children }: Props) => {
   return (
     <Box py={6}>
       <Container>
