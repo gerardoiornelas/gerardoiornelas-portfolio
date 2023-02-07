@@ -1,18 +1,13 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
-/**
- * @type {import(`gatsby`).GatsbyConfig}
- */
 module.exports = {
   siteMetadata: {
-    title: `Lostwun Portfolio Site`,
+    title: `Gerardo I. Ornelas Portfolio Site`,
     description: `Hardhat portfolio project on Gatsby.js`,
-    author: `@lostwun`,
-    siteUrl: `https://www.lostwun.com/`,
+    author: `@gerardoiornelas`,
+    siteUrl: `https://www.gerardoiornelas.com/`,
   },
   plugins: [
     `gatsby-plugin-top-layout`,

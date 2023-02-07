@@ -1,24 +1,18 @@
 import React from "react"
 import { navigate } from "gatsby"
-import parse from "html-react-parser"
 import ClampLines from "react-clamp-lines"
 import {
   Typography,
   Card,
   CardActions,
   CardContent,
-  CardMedia,
-  IconButton,
   Button,
 } from "@mui/material"
-import { useTheme } from "@mui/material/styles"
 import { rem } from "polished"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import ReadMoreIcon from "@mui/icons-material/ReadMore"
 
 const BlogCard = ({ frontmatter, html }) => {
-  const theme = useTheme()
-  const parsedHtmlText = parse(html)
   let featuredImg = getImage(
     frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
   )

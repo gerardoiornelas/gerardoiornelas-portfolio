@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Box } from "@mui/material"
 
 import { Segment } from "../Segment"
-import { Layout } from "../Layout"
+import { UIShell } from "../UIShell"
 import { Home } from "../Home"
 import { Projects } from "../Projects"
 import { Blog } from "../Blog"
@@ -38,7 +38,7 @@ const ScrollContainer = () => {
   return (
     <>
       <section id="home" ref={refHome}></section>
-      <Layout
+      <UIShell
         yAxisHome={posHome}
         yAxisProjects={posProjects}
         yAxisBlog={posBlog}
@@ -68,7 +68,7 @@ const ScrollContainer = () => {
             <Contact />
           </Box>
         </Segment>
-      </Layout>
+      </UIShell>
     </>
   )
 }

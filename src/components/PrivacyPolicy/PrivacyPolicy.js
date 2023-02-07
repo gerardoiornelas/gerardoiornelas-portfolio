@@ -1,12 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Container, Typography, Box, Button } from "@mui/material"
+import { Container, Typography, Box } from "@mui/material"
 
-import { LayoutAlt } from "../Layout"
+import { UIShell } from "../UIShell"
 
 const PrivacyPolicy = () => {
   return (
-    <LayoutAlt>
+    <UIShell variant="alt">
       <Container>
         <Typography variant="h5">Privacy Policy</Typography>
         <Typography>
@@ -189,7 +189,7 @@ const PrivacyPolicy = () => {
           </Typography>
         </Box>
       </Container>
-    </LayoutAlt>
+    </UIShell>
   )
 }
 

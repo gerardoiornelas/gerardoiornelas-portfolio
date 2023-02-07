@@ -13,7 +13,7 @@ import {
 
 import { Social } from "../Social"
 
-const Footer = ({ children }) => {
+const UIShellFooter = ({ children }) => {
   const theme = useTheme()
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
   return (
@@ -47,8 +47,8 @@ const Footer = ({ children }) => {
   )
 }
 
-Footer.propTypes = {
+UIShellFooter.propTypes = {
   children: PropTypes.node,
 }
 
-export default Footer
+export default UIShellFooter

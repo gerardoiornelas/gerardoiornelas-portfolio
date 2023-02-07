@@ -1,5 +1,4 @@
 import React from "react"
-import cuid from "cuid"
 import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import { Container, Box } from "@mui/material"
@@ -9,8 +8,6 @@ import { Title } from "../Title"
 import { AnimateOnScroll } from "../AnimateOnScroll"
 
 import BlogCard from "./BlogCard"
-
-import ImgGenerativeNfts from "../../images/projects/generative-nft.jpg"
 
 const Blog = () => {
   const {

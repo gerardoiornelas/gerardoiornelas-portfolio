@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/
  */
+import wrapWithProvider from "./wrap-with-provider"
 
 // You can delete this file if you're not using it
 export const onClientEntry = () => {
@@ -12,3 +13,11 @@ export const onClientEntry = () => {
     console.log(`# IntersectionObserver is polyfilled!`)
   }
 }
+
+/**
+ * Implement Gatsby's Browser APIs in this file.
+ *
+ * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/
+ */
+
+export const wrapRootElement = wrapWithProvider

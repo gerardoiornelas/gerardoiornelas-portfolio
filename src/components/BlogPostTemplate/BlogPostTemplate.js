@@ -2,11 +2,11 @@ import React from "react"
 import _ from "lodash"
 import { navigate } from "gatsby"
 import PropTypes from "prop-types"
-import { Grid, Box, Button, Container, Typography, Link } from "@mui/material"
+import { Grid, Box, Button, Container, Typography } from "@mui/material"
 import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import { Footer } from "../Footer"
+import { UIShell } from "../UIShell"
 
 import { Title } from "../Title"
 
@@ -20,9 +20,9 @@ const BlogPostTemplate = ({
   )
   const transformTitle = _.replace(frontmatter.title, " ", "%20")
   const twitterShare = `https://twitter.com/share?text=I%20just%20read%20%22${transformTitle}%22%20by%20@gerardoiornelas&url=https://www.gerardoiornelas.com/blog${frontmatter.slug}/`
-  const linkedInShare = `https://www.linkedin.com/shareArticle?mini=true&url=https://www.gerardoiornelas.com/blog${frontmatter.slug}/`
+  // const linkedInShare = `https://www.linkedin.com/shareArticle?mini=true&url=https://www.gerardoiornelas.com/blog${frontmatter.slug}/`
   return (
-    <>
+    <UIShell variant="blog">
       <Box py={5}>
         <Container>
           <Grid container justifyContent="center">
@@ -73,8 +73,7 @@ const BlogPostTemplate = ({
           </Grid>
         </Container>
       </Box>
-      <Footer />
-    </>
+    </UIShell>
   )
 }
 
