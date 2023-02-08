@@ -1,17 +1,22 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Typography, Box, useTheme } from "@mui/material"
 
+interface Props {
+  children: React.ReactNode
+  textShadowColor: string
+}
+
 const SegmentTitleAlt = ({
-  subtitle,
   children,
   textShadowColor,
   ...otherProps
-}) => {
+}: Props) => {
   const theme = useTheme()
   return (
     <Box mb={2}>
       <Typography
+        variant="h4"
+        color="primary"
         {...otherProps}
         sx={{ textShadow: `${theme.palette.secondary.main} 2px 2px` }}
       >
@@ -19,16 +24,6 @@ const SegmentTitleAlt = ({
       </Typography>
     </Box>
   )
-}
-
-SegmentTitleAlt.defaultProps = {
-  variant: "h4",
-  color: "primary",
-}
-
-SegmentTitleAlt.propTypes = {
-  children: PropTypes.node,
-  textShadowColor: PropTypes.string,
 }
 
 export default SegmentTitleAlt

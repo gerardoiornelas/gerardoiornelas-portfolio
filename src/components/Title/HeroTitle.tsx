@@ -1,8 +1,11 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Typography } from "@mui/material"
 
-const HeroTitle = ({ white, children, ...props }) => {
+interface Props {
+  children: React.ReactNode
+}
+
+const HeroTitle = ({ children, ...props }: Props) => {
   return (
     <Typography
       variant="h1"
@@ -17,10 +20,6 @@ const HeroTitle = ({ white, children, ...props }) => {
       {children}
     </Typography>
   )
-}
-
-HeroTitle.propTypes = {
-  children: PropTypes.node,
 }
 
 export default HeroTitle

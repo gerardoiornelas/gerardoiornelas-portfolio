@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 import PropTypes from "prop-types"
 
 import HeroTitle from "./HeroTitle"
@@ -13,13 +13,17 @@ const TitleComponents = {
   section: SectionTitle,
 }
 
-const Title = ({ variant, children, ...props }) => {
-  return React.createElement(TitleComponents[variant], { ...props }, children)
+interface Props {
+  variant: "hero" | "segment" | "segmentAlt" | "section"
+  children?: React.ReactNode
 }
 
-Title.propTypes = {
-  variant: PropTypes.oneOf(["hero", "segment", "segmentAlt", "section"]),
-  children: PropTypes.node,
+const Title = ({ variant, children, ...props }: Props) => {
+  return React.createElement(
+    TitleComponents[variant] as FC,
+    { ...props },
+    children
+  )
 }
 
 export default Title
