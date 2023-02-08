@@ -1,12 +1,12 @@
 {
-  "name": "lostwun-portfolio",
+  "name": "gerardoiornelas-portfolio",
   "private": true,
-  "description": "Portfolio site for Gerardo Ornelas <lostwun@gmail.com>",
+  "description": "Portfolio site for Gerardo Ornelas <gerardo@ornelastechnologies.com>",
   "version": "0.1.0",
   "engines": {
     "node": "18.12.1"
   },
-  "author": "Gerardo Ornelas <lostwun@gmail.com>",
+  "author": "Gerardo Ornelas <gerardo@ornelastechnologies.com>",
   "dependencies": {
     "@emotion/react": "latest",
     "@emotion/server": "latest",
