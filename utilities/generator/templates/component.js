@@ -1,24 +1,22 @@
-module.exports = (componentName) => ({
+module.exports = componentName => ({
   content: `
-    import React from 'react';
-    import PropTypes from 'prop-types';
+import React from 'react';
 
-    import { Styled${componentName} } from './${componentName}.styled';
+import { Styled${componentName} } from './${componentName}.styled';
 
+interface Props {
+  children: React.ReactNode
+}
 
-    const ${componentName} = ({children}) => {
-        return (
-            <Styled${componentName}>
-                {children}
-            </Styled${componentName}>
-        )
-    }
+const ${componentName} = ({children} : Props) => {
+    return (
+        <Styled${componentName}>
+            {children}
+        </Styled${componentName}>
+    )
+}
 
-    ${componentName}.propTypes = {
-      children: PropTypes.node
-    }
-
-    export default ${componentName}
+export default ${componentName}
   `,
-  extension: `.js`,
-});
+  extension: `.tsx`,
+})
