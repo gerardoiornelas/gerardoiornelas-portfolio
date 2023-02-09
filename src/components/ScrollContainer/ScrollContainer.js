@@ -63,6 +63,14 @@ const ScrollContainer = () => {
         </Segment>
         <RobotGallery />
         <Segment>
+          <Box
+            id="about"
+            sx={{ position: "absolute", top: topPos }}
+            ref={refAbout}
+          ></Box>
+          <About />
+        </Segment>
+        <Segment>
           <Box sx={{ position: "relative" }} ref={refContact}>
             <Box id="contact" sx={{ position: "absolute", top: topPos }}></Box>
             <Contact />
