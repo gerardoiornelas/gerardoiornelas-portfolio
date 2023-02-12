@@ -13,17 +13,17 @@ import ImgGenerativeNfts from "../../images/projects/generative-nft.jpg"
 import ImgCrowdfunding from "../../images/projects/crowdfunding.jpg"
 import ImgDao from "../../images/projects/dao.jpg"
 
-const GITHUB_LOSTWUN = `https://github.com/lostwun`
+const GITHUB_GERARDOIORNELAS = `https://github.com/gerardoiornelas`
 
 const projectsData = [
   {
     id: cuid(),
-    title: `Generative NFT Drop`,
-    description: ["Create an NFT from scratch and an NFT minting website."],
+    title: `AI NFT Minter`,
+    description: ["AI generated NFT"],
     imgSrc: ImgGenerativeNfts,
     imgAlt: "dj boombox remix crew",
-    url: null,
-    github: `${GITHUB_LOSTWUN}/wunpunks`,
+    url: `https://ai-nft-minter.netlify.app/`,
+    github: `${GITHUB_GERARDOIORNELAS}/ai-nft-minter`,
   },
   {
     id: cuid(),
@@ -32,7 +32,7 @@ const projectsData = [
     imgSrc: ImgCrowdfunding,
     imgAlt: "dj boombox remix crew",
     url: null,
-    github: `${GITHUB_LOSTWUN}/crowdsale`,
+    github: `${GITHUB_GERARDOIORNELAS}/crowdsale`,
   },
   {
     id: cuid(),
@@ -41,7 +41,7 @@ const projectsData = [
     imgSrc: ImgDao,
     imgAlt: "dj boombox remix crew",
     url: null,
-    github: `${GITHUB_LOSTWUN}/dao`,
+    github: `${GITHUB_GERARDOIORNELAS}/dao`,
   },
 ]
 

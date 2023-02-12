@@ -35,12 +35,16 @@
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+    "@types/node": "^18.13.0",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
     "colors": "^1.4.0",
     "cuid": "^2.1.8",
     "fs": "^0.0.1-security",
     "lodash": "^4.17.21",
     "polished": "^4.2.2",
-    "prettier": "^2.8.0"
+    "prettier": "^2.8.0",
+    "typescript": "^4.9.5"
   },
   "keywords": [
     "gatsby"
