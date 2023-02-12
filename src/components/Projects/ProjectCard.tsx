@@ -68,15 +68,29 @@ const ProjectCard = ({
       <CardActions sx={{ display: "flex", justifyContent: `space-between` }}>
         <Box>
           {!_.isNil(url) && (
-            <Button href={url} target="_blank" rel="noreferrer" size="small">
-              <OpenInBrowserTwoToneIcon sx={{ color: `#fff` }} />
+            <Button
+              startIcon={<OpenInBrowserTwoToneIcon sx={{ color: `#fff` }} />}
+              href={url}
+              target="_blank"
+              rel="noreferrer"
+              size="small"
+              sx={{ color: "#fff" }}
+            >
+              Website
             </Button>
           )}
         </Box>
         <Box>
           {!_.isNil(github) && (
-            <Button href={github} target="_blank" rel="noreferrer" size="small">
-              <CodeTwoToneIcon sx={{ color: `#fff` }} />
+            <Button
+              startIcon={<CodeTwoToneIcon sx={{ color: `#fff` }} />}
+              href={github}
+              target="_blank"
+              rel="noreferrer"
+              size="small"
+              sx={{ color: "#fff" }}
+            >
+              Source Code
             </Button>
           )}
         </Box>
