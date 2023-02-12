@@ -32,7 +32,7 @@ const Role = ({
       </Box>
       <Box>
         <Typography color="white" align="center">
-          {title}
+          <strong>{title}</strong>
         </Typography>
       </Box>
       <Box>

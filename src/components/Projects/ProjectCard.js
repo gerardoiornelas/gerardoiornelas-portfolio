@@ -58,13 +58,7 @@ const ProjectCard = ({
       <CardActions sx={{ display: "flex", justifyContent: `space-between` }}>
         <Box>
           {!_.isNil(url) && (
-            <Button
-              component="href"
-              href={url}
-              target="_blank"
-              rel="noreferrer"
-              size="small"
-            >
+            <Button href={url} target="_blank" rel="noreferrer" size="small">
               <OpenInBrowserTwoToneIcon sx={{ color: `#fff` }} />
             </Button>
           )}

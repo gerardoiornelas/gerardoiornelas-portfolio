@@ -19,7 +19,9 @@ const projectsData = [
   {
     id: cuid(),
     title: `AI NFT Minter`,
-    description: ["AI generated NFT"],
+    description: [
+      "An AI-powered NFT project bringing creativity to the blockchain with unique, generated digital art assets.",
+    ],
     imgSrc: ImgGenerativeNfts,
     imgAlt: "dj boombox remix crew",
     url: `https://ai-nft-minter.netlify.app/`,
@@ -28,7 +30,9 @@ const projectsData = [
   {
     id: cuid(),
     title: `Crowdfunding App`,
-    description: ["Create an NFT from scratch and an NFT minting website."],
+    description: [
+      "Revolutionary blockchain crowdfunding app connecting entrepreneurs with backers for secure, decentralized funding.",
+    ],
     imgSrc: ImgCrowdfunding,
     imgAlt: "dj boombox remix crew",
     url: null,
@@ -37,7 +41,9 @@ const projectsData = [
   {
     id: cuid(),
     title: `DAO`,
-    description: ["Create an NFT from scratch and an NFT minting website."],
+    description: [
+      "Empowering community decision making with decentralized, transparent governance through a blockchain-based DAO.",
+    ],
     imgSrc: ImgDao,
     imgAlt: "dj boombox remix crew",
     url: null,
