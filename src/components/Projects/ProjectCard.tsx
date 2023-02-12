@@ -14,6 +14,15 @@ import { rem } from "polished"
 import OpenInBrowserTwoToneIcon from "@mui/icons-material/OpenInBrowserTwoTone"
 import CodeTwoToneIcon from "@mui/icons-material/CodeTwoTone"
 
+interface Props {
+  id: string
+  title: string
+  description: string
+  imgSrc: HTMLImageElement
+  imgAlt: string
+  url: string
+  github: string
+}
 const ProjectCard = ({
   id,
   title,
@@ -22,11 +31,12 @@ const ProjectCard = ({
   imgAlt,
   url,
   github,
-}) => {
+}: Props) => {
   const theme = useTheme()
-  console.log({ theme })
+
   return (
     <Card
+      id={id}
       sx={{
         maxWidth: `${rem(345)}`,
         marginBottom: `2rem`,
