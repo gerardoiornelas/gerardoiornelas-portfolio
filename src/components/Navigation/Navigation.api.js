@@ -18,6 +18,13 @@ export const navElements = [
   },
   {
     id: cuid(),
+    route: "/cv",
+    title: "CV",
+    anchor: "#cv",
+    isActiveLink: false,
+  },
+  {
+    id: cuid(),
     route: "/contact",
     title: "Contact",
     anchor: "#contact",

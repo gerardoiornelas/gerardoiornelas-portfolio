@@ -21,7 +21,13 @@ import { StyledNavElement } from "./Navigation.styled"
 
 import { navElements } from "./Navigation.api"
 
-const Navigation = ({ yAxisHome, yAxisProjects, yAxisBlog, yAxisContact }) => {
+const Navigation = ({
+  yAxisHome,
+  yAxisProjects,
+  yAxisCv,
+  yAxisBlog,
+  yAxisContact,
+}) => {
   const theme = useTheme()
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
   const [appBarColorChange, setAppBarColorChange] = useState(false)
@@ -56,8 +62,11 @@ const Navigation = ({ yAxisHome, yAxisProjects, yAxisBlog, yAxisContact }) => {
     if (yPos < yAxisProjects) {
       setActiveLink("home")
     }
-    if (yPos > yAxisProjects - 150 && yPos < yAxisBlog) {
-      setActiveLink("process")
+    if (yPos > yAxisProjects - 150 && yPos < yAxisCv) {
+      setActiveLink("projects")
+    }
+    if (yPos > yAxisCv - 150 && yPos < yAxisBlog) {
+      setActiveLink("cv")
     }
 
     if (yPos > yAxisBlog - 150 && yPos < yAxisContact) {
@@ -66,7 +75,7 @@ const Navigation = ({ yAxisHome, yAxisProjects, yAxisBlog, yAxisContact }) => {
     if (yPos + 235 >= yAxisBlog) {
       setActiveLink("contact")
     }
-  }, [yAxisHome, yAxisProjects, yAxisBlog, yPos, yAxisContact])
+  }, [yAxisHome, yAxisProjects, yAxisCv, yAxisBlog, yPos, yAxisContact])
 
   return (
     <>

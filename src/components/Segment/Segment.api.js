@@ -13,6 +13,9 @@ const getBackground = (_theme, _variant) => {
     case "tertiary":
       bgColor = _theme.palette.tertiary.main
       break
+    case "accent":
+      bgColor = _theme.palette.accent.main
+      break
     case "gradient":
       bgColor = `linear-gradient(0deg, rgba(171,40,164,1) 0%, rgba(3, 0, 45, 1) 100%);`
       break

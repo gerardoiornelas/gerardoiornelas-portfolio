@@ -6,6 +6,7 @@ import { Segment } from "../Segment"
 import { Layout } from "../Layout"
 import { Home } from "../Home"
 import { Projects } from "../Projects"
+import { CurriculumVitae } from "../CurriculumVitae"
 import { Blog } from "../Blog"
 import { RobotGallery } from "../RobotGallery"
 import { Contact } from "../Contact"
@@ -14,10 +15,12 @@ const ScrollContainer = () => {
   const refHome = useRef()
   const refProjects = useRef()
   const refBlog = useRef()
+  const refCv = useRef()
   const refContact = useRef()
 
   const [posHome, setPosHome] = useState(null)
   const [posProjects, setPosProjects] = useState(null)
+  const [posCv, setPosCv] = useState(null)
   const [posBlog, setPosBlog] = useState(null)
   const [posContact, setPosContact] = useState(null)
 
@@ -25,6 +28,7 @@ const ScrollContainer = () => {
     function updatePosition() {
       setPosHome(refHome.current.offsetTop)
       setPosProjects(refProjects.current.offsetTop)
+      setPosCv(refCv.current.offsetTop)
       setPosBlog(refBlog.current.offsetTop)
       setPosContact(refContact.current.offsetTop)
     }
@@ -41,6 +45,7 @@ const ScrollContainer = () => {
       <Layout
         yAxisHome={posHome}
         yAxisProjects={posProjects}
+        yAxisCv={posCv}
         yAxisBlog={posBlog}
         yAxisContact={posContact}
       >
@@ -61,15 +66,16 @@ const ScrollContainer = () => {
           ></Box>
           <Blog />
         </Segment>
-        <RobotGallery />
-        <Segment>
+        <Segment variant="accent">
           <Box
-            id="about"
+            id="cv"
             sx={{ position: "absolute", top: topPos }}
-            ref={refAbout}
+            ref={refCv}
           ></Box>
-          <About />
+          <CurriculumVitae />
         </Segment>
+        <RobotGallery />
+
         <Segment>
           <Box sx={{ position: "relative" }} ref={refContact}>
             <Box id="contact" sx={{ position: "absolute", top: topPos }}></Box>
