@@ -26,7 +26,7 @@ const projectsData = [
     ],
     imgSrc: ImgCrowdfunding,
     imgAlt: "dj boombox remix crew",
-    url: null,
+    url: `https://extraordinary-bombolone-9dadc0.netlify.app/`,
     github: `${GITHUB_GERARDOIORNELAS}/crowdsale`,
   },
   {
