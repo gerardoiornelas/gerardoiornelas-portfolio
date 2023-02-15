@@ -37,7 +37,7 @@ const projectsData = [
     ],
     imgSrc: ImgDao,
     imgAlt: "dj boombox remix crew",
-    url: null,
+    url: `https://reliable-froyo-10b5cd.netlify.app/`,
     github: `${GITHUB_GERARDOIORNELAS}/dao`,
   },
 ]
