@@ -1,5 +1,4 @@
 import React, { useRef, useState, useLayoutEffect } from "react"
-import PropTypes from "prop-types"
 import { Box } from "@mui/material"
 
 import { Segment } from "../Segment"
@@ -11,26 +10,26 @@ import { Blog } from "../Blog"
 import { RobotGallery } from "../RobotGallery"
 import { Contact } from "../Contact"
 
-const ScrollContainer = () => {
-  const refHome = useRef()
-  const refProjects = useRef()
-  const refBlog = useRef()
-  const refCv = useRef()
-  const refContact = useRef()
+export const ScrollContainer: React.FC = () => {
+  const refHome = useRef<HTMLElement>(null)
+  const refProjects = useRef<HTMLElement>(null)
+  const refBlog = useRef<HTMLElement>(null)
+  const refCv = useRef<HTMLElement>(null)
+  const refContact = useRef<HTMLElement>(null)
 
-  const [posHome, setPosHome] = useState(null)
-  const [posProjects, setPosProjects] = useState(null)
-  const [posCv, setPosCv] = useState(null)
-  const [posBlog, setPosBlog] = useState(null)
-  const [posContact, setPosContact] = useState(null)
+  const [posHome, setPosHome] = useState<number | null>(null)
+  const [posProjects, setPosProjects] = useState<number | null>(null)
+  const [posCv, setPosCv] = useState<number | null>(null)
+  const [posBlog, setPosBlog] = useState<number | null>(null)
+  const [posContact, setPosContact] = useState<number | null>(null)
 
   useLayoutEffect(() => {
     function updatePosition() {
-      setPosHome(refHome.current.offsetTop)
-      setPosProjects(refProjects.current.offsetTop)
-      setPosCv(refCv.current.offsetTop)
-      setPosBlog(refBlog.current.offsetTop)
-      setPosContact(refContact.current.offsetTop)
+      if (refHome.current) setPosHome(refHome.current.offsetTop)
+      if (refProjects.current) setPosProjects(refProjects.current.offsetTop)
+      if (refCv.current) setPosCv(refCv.current.offsetTop)
+      if (refBlog.current) setPosBlog(refBlog.current.offsetTop)
+      if (refContact.current) setPosContact(refContact.current.offsetTop)
     }
     window.addEventListener("resize", updatePosition)
     updatePosition()
@@ -86,9 +85,3 @@ const ScrollContainer = () => {
     </>
   )
 }
-
-ScrollContainer.propTypes = {
-  children: PropTypes.node,
-}
-
-export default ScrollContainer
