@@ -16,7 +16,7 @@ import { Social } from "../Social"
 
 import ImgLostwunHero from "../../images/hero-lostwun.png"
 
-const Home = ({ children }) => {
+export const Home: React.FC = () => {
   const theme = useTheme()
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
   return (
@@ -89,9 +89,3 @@ const Home = ({ children }) => {
     </StyledHome>
   )
 }
-
-Home.propTypes = {
-  children: PropTypes.node,
-}
-
-export default Home
