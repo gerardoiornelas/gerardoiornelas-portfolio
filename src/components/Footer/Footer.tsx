@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import {
   Grid,
   Box,
@@ -13,7 +12,7 @@ import {
 
 import { Social } from "../Social"
 
-const Footer = ({ children }) => {
+export const Footer: React.FC = () => {
   const theme = useTheme()
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
   return (
@@ -46,9 +45,3 @@ const Footer = ({ children }) => {
     </Box>
   )
 }
-
-Footer.propTypes = {
-  children: PropTypes.node,
-}
-
-export default Footer
