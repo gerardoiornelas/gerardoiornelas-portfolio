@@ -1,9 +1,9 @@
 import React from "react"
-import { Box, Container, Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 
-interface Props {
+interface RoleProps {
   id: string
-  logo: HTMLImageElement
+  logo: string
   title: string
   employer: string
   dates: string
@@ -11,7 +11,7 @@ interface Props {
   description: string
 }
 
-const Role = ({
+export const Role: React.FC<RoleProps> = ({
   id,
   logo,
   title,
@@ -19,7 +19,7 @@ const Role = ({
   dates,
   location,
   description,
-}: Props) => {
+}) => {
   return (
     <Box id={id}>
       <Box display="flex" justifyContent="center" mb={3}>
@@ -58,5 +58,3 @@ const Role = ({
     </Box>
   )
 }
-
-export default Role

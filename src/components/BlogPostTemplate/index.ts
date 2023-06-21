@@ -1,0 +1,1 @@
+export { BlogPostTemplate } from "./BlogPostTemplate"

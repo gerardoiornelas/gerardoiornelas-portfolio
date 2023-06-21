@@ -14,16 +14,17 @@ import { rem } from "polished"
 import OpenInBrowserTwoToneIcon from "@mui/icons-material/OpenInBrowserTwoTone"
 import CodeTwoToneIcon from "@mui/icons-material/CodeTwoTone"
 
-interface Props {
+interface ProjectCardProps {
   id: string
   title: string
-  description: string
-  imgSrc: HTMLImageElement
+  description: string[]
+  imgSrc: string
   imgAlt: string
-  url: string
-  github: string
+  url?: string
+  github?: string
 }
-const ProjectCard = ({
+
+export const ProjectCard: React.FC<ProjectCardProps> = ({
   id,
   title,
   description,
@@ -31,7 +32,7 @@ const ProjectCard = ({
   imgAlt,
   url,
   github,
-}: Props) => {
+}) => {
   const theme = useTheme()
 
   return (
@@ -54,8 +55,9 @@ const ProjectCard = ({
         >
           {title}
         </Typography>
-        {description.map(el => (
+        {description.map((el, index) => (
           <Typography
+            key={index}
             variant="body2"
             sx={{
               color: `${theme.palette.tertiary.main}`,
@@ -67,7 +69,7 @@ const ProjectCard = ({
       </CardContent>
       <CardActions sx={{ display: "flex", justifyContent: `space-between` }}>
         <Box>
-          {!_.isNil(url) && (
+          {url && (
             <Button
               startIcon={<OpenInBrowserTwoToneIcon sx={{ color: `#fff` }} />}
               href={url}
@@ -81,7 +83,7 @@ const ProjectCard = ({
           )}
         </Box>
         <Box>
-          {!_.isNil(github) && (
+          {github && (
             <Button
               startIcon={<CodeTwoToneIcon sx={{ color: `#fff` }} />}
               href={github}
@@ -98,5 +100,3 @@ const ProjectCard = ({
     </Card>
   )
 }
-
-export default ProjectCard

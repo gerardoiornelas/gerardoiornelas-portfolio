@@ -5,7 +5,7 @@ import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf"
 import { AnimateOnScroll } from "../AnimateOnScroll"
 import { Title } from "../Title"
 import { RowCol, Row, Col } from "../RowCol"
-import Role from "./Role"
+import { Role } from "./Role"
 
 import CvPdf from "../../pdf/Gerardo_Ornelas_Resume_02_12_2023.pdf"
 
@@ -15,7 +15,7 @@ interface Props {
   children: React.ReactNode
 }
 
-const CurriculumVitae = ({ children }: Props) => {
+export const CurriculumVitae = ({ children }: Props) => {
   return (
     <Box py={6}>
       <Container>
@@ -96,5 +96,3 @@ const CurriculumVitae = ({ children }: Props) => {
     </Box>
   )
 }
-
-export default CurriculumVitae
