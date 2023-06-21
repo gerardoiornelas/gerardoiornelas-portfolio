@@ -6,7 +6,17 @@ import ImgDao from "../../images/projects/dao.jpg"
 
 const GITHUB_GERARDOIORNELAS = `https://github.com/gerardoiornelas`
 
-const projectsData = [
+interface ProjectData {
+  id: string
+  title: string
+  description: string[]
+  imgSrc: string
+  imgAlt: string
+  url: string
+  github: string
+}
+
+const projectsData: ProjectData[] = [
   {
     id: cuid(),
     title: `AI NFT Minter`,
