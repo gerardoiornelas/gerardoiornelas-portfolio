@@ -1,7 +1,6 @@
 import React from "react"
 import cuid from "cuid"
 import { useStaticQuery, graphql } from "gatsby"
-import PropTypes from "prop-types"
 import { Container, Box } from "@mui/material"
 
 import { RowCol } from "../RowCol"
@@ -12,7 +11,23 @@ import BlogCard from "./BlogCard"
 
 import ImgGenerativeNfts from "../../images/projects/generative-nft.jpg"
 
-const Blog = () => {
+interface BlogData {
+  frontmatter: {
+    author: string
+    slug: string
+    title: string
+    featuredImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          width: number
+        }
+      }
+    }
+  }
+  html: string
+}
+
+export const Blog: React.FC = () => {
   const {
     allMarkdownRemark: { nodes },
   } = useStaticQuery(graphql`
@@ -34,6 +49,7 @@ const Blog = () => {
       }
     }
   `)
+
   return (
     <Box py={6}>
       <Container>
@@ -51,12 +67,12 @@ const Blog = () => {
             flexWrap="wrap"
             justifyContent={`space-evenly`}
           >
-            {nodes.map((data, index) => {
+            {nodes.map((data: BlogData, index: number) => {
               return (
                 <AnimateOnScroll
                   animateIn="fadeInUp"
                   delay={index * 200}
-                  key={index}
+                  key={cuid()}
                 >
                   <BlogCard {...data} />
                 </AnimateOnScroll>
@@ -68,9 +84,3 @@ const Blog = () => {
     </Box>
   )
 }
-
-Blog.propTypes = {
-  children: PropTypes.node,
-}
-
-export default Blog
