@@ -1,8 +1,12 @@
 import React from "react"
-import PropTypes from "prop-types"
-import { Typography, Box, useTheme } from "@mui/material"
+import { Typography, Box, TypographyProps, useTheme } from "@mui/material"
 
-const SegmentTitleAlt = ({
+interface SegmentTitleAltProps extends TypographyProps {
+  subtitle?: React.ReactNode
+  textShadowColor?: string
+}
+
+export const SegmentTitleAlt: React.FC<SegmentTitleAltProps> = ({
   subtitle,
   children,
   textShadowColor,
@@ -25,10 +29,3 @@ SegmentTitleAlt.defaultProps = {
   variant: "h4",
   color: "primary",
 }
-
-SegmentTitleAlt.propTypes = {
-  children: PropTypes.node,
-  textShadowColor: PropTypes.string,
-}
-
-export default SegmentTitleAlt

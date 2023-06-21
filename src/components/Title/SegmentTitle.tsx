@@ -1,8 +1,12 @@
 import React from "react"
-import PropTypes from "prop-types"
-import { Typography, Box } from "@mui/material"
+import { Typography, Box, TypographyProps } from "@mui/material"
 
-const SegmentTitle = ({
+interface SegmentTitleProps extends TypographyProps {
+  subtitle?: React.ReactNode
+  textShadowColor?: string
+}
+
+export const SegmentTitle: React.FC<SegmentTitleProps> = ({
   subtitle,
   children,
   textShadowColor,
@@ -23,11 +27,4 @@ const SegmentTitle = ({
 SegmentTitle.defaultProps = {
   variant: "h4",
   color: "secondary",
-}
-
-SegmentTitle.propTypes = {
-  children: PropTypes.node,
-  textShadowColor: PropTypes.string,
-}
-
-export default SegmentTitle
+} as Partial<SegmentTitleProps>
