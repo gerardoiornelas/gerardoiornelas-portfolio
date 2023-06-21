@@ -1,7 +1,7 @@
 import React from "react"
 import { ScrollContainer } from "../components/ScrollContainer"
 
-const ScrollContainerPage = () => {
+const ScrollContainerPage: React.FC = () => {
   return <ScrollContainer />
 }
 

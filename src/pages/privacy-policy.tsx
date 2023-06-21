@@ -1,7 +1,7 @@
 import React from "react"
 import { PrivacyPolicy } from "../components/PrivacyPolicy"
 
-const PrivacyPolicyPage = () => {
+const PrivacyPolicyPage: React.FC = () => {
   return <PrivacyPolicy />
 }
 

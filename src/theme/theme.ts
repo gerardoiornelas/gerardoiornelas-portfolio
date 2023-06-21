@@ -82,11 +82,14 @@ const theme = createTheme({
       fontFamily: bodyFont,
     },
   },
-
   components: {
-    button: {
-      borderRadius: 0,
-      fontFamily: bodyFont,
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 0,
+          fontFamily: bodyFont,
+        },
+      },
     },
   },
 })

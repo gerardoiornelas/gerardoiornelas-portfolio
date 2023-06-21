@@ -1,7 +1,7 @@
 import React from "react"
 import { Thanks } from "../components/Thanks"
 
-const ThanksPage = () => {
+const ThanksPage: React.FC = () => {
   return <Thanks />
 }
 
