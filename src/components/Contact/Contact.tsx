@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import {
   Container,
   Box,
@@ -12,7 +11,7 @@ import {
 import { RowCol, Row, Col } from "../RowCol"
 import { Title } from "../Title"
 
-const Contact = ({ children }) => {
+export const Contact: React.FC = () => {
   const theme = useTheme()
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
   return (
@@ -86,9 +85,3 @@ const Contact = ({ children }) => {
     </Container>
   )
 }
-
-Contact.propTypes = {
-  children: PropTypes.node,
-}
-
-export default Contact
