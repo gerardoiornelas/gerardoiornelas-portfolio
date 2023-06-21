@@ -1,10 +1,16 @@
 import React from "react"
 import cuid from "cuid"
 import { IconButton } from "@mui/material"
-
 import GitHubIcon from "@mui/icons-material/GitHub"
 import TwitterIcon from "@mui/icons-material/Twitter"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
+
+interface SocialData {
+  id: string
+  url: string
+  icon: keyof typeof SocialIconMap
+  title: string
+}
 
 const SocialIconMap = {
   github: GitHubIcon,
@@ -12,7 +18,7 @@ const SocialIconMap = {
   linkedin: LinkedInIcon,
 }
 
-const socialData = [
+const socialData: SocialData[] = [
   {
     id: cuid(),
     url: "https://www.github.com/gerardoiornelas",
@@ -33,7 +39,7 @@ const socialData = [
   },
 ]
 
-const Social = ({ ...props }) => {
+export const Social: React.FC = ({ ...props }) => {
   return (
     <>
       {socialData.map(({ id, url, icon }) => (
@@ -45,11 +51,9 @@ const Social = ({ ...props }) => {
           color="secondary"
           size="large"
         >
-          {React.createElement(SocialIconMap[icon], null, null)}
+          {React.createElement(SocialIconMap[icon])}
         </IconButton>
       ))}
     </>
   )
 }
-
-export default Social
