@@ -47,7 +47,7 @@ const robotArt = [
   },
 ]
 
-const RobotGallery = ({ children }) => {
+export const RobotGallery: React.FC = () => {
   const theme = useTheme()
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
   return (
@@ -55,16 +55,10 @@ const RobotGallery = ({ children }) => {
       <AnimateOnScroll animateIn="fadeInUp">
         <Masonry columns={isSmall ? 2 : 6} spacing={0}>
           {robotArt.map(({ id, src }) => (
-            <Box component="img" src={src} alt={id} />
+            <Box component="img" src={src} alt={id} key={id} />
           ))}
         </Masonry>
       </AnimateOnScroll>
     </Box>
   )
 }
-
-RobotGallery.propTypes = {
-  children: PropTypes.node,
-}
-
-export default RobotGallery
