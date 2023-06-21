@@ -15,14 +15,14 @@ import { LayoutAlt } from "../Layout"
 
 import ImgThanks from "../../images/thanks.jpg"
 
-const Thanks = () => {
+export const Thanks: React.FC = () => {
   const theme = useTheme()
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
 
   return (
     <LayoutAlt>
       <Container>
-        <Box mb={4} display="flex" justifyContent={`center`}>
+        <Box mb={4} display="flex" justifyContent="center">
           <Box component="img" src={ImgThanks} alt="robot saying thank you" />
         </Box>
         <Box mb={4}>
@@ -47,9 +47,3 @@ const Thanks = () => {
     </LayoutAlt>
   )
 }
-
-Thanks.propTypes = {
-  children: PropTypes.node,
-}
-
-export default Thanks
