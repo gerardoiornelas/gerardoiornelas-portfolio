@@ -3,6 +3,8 @@ import { Typography, TypographyProps } from "@mui/material"
 
 export interface SectionTitleProps extends TypographyProps {
   children: React.ReactNode
+  subtitle?: boolean
+  align?: "inherit" | "left" | "center" | "right" | "justify"
 }
 
 export const SectionTitle: React.FC<SectionTitleProps> = ({
