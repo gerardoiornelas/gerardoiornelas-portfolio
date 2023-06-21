@@ -14,7 +14,7 @@ import {
 import { Title } from "../Title"
 import { Footer } from "../Footer"
 
-const LayoutAlt = ({ children }) => {
+export const LayoutAlt: React.FC = () => {
   const theme = useTheme()
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
 
@@ -84,9 +84,3 @@ const LayoutAlt = ({ children }) => {
     </Box>
   )
 }
-
-LayoutAlt.propTypes = {
-  children: PropTypes.node,
-}
-
-export default LayoutAlt

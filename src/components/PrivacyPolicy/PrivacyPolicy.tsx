@@ -1,10 +1,9 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Container, Typography, Box, Button } from "@mui/material"
 
 import { LayoutAlt } from "../Layout"
 
-const PrivacyPolicy = () => {
+export const PrivacyPolicy: React.FC = () => {
   return (
     <LayoutAlt>
       <Container>
@@ -192,9 +191,3 @@ const PrivacyPolicy = () => {
     </LayoutAlt>
   )
 }
-
-PrivacyPolicy.propTypes = {
-  children: PropTypes.node,
-}
-
-export default PrivacyPolicy

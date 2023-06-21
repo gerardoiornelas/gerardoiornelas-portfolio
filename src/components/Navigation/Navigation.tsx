@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react"
 import { Scrollchor, easeOutQuad } from "react-scrollchor"
-import PropTypes from "prop-types"
 
 import {
   AppBar,
@@ -21,7 +20,15 @@ import { StyledNavElement } from "./Navigation.styled"
 
 import { navElements } from "./Navigation.api"
 
-const Navigation = ({
+interface NavigationProps {
+  yAxisHome: number
+  yAxisProjects: number
+  yAxisCv: number
+  yAxisBlog: number
+  yAxisContact: number
+}
+
+export const Navigation: React.FC<NavigationProps> = ({
   yAxisHome,
   yAxisProjects,
   yAxisCv,
@@ -32,7 +39,7 @@ const Navigation = ({
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
   const [appBarColorChange, setAppBarColorChange] = useState(false)
   const [drawerIsOpen, setDrawerIsOpen] = useState(false)
-  const [yPos, setYPos] = useState(null)
+  const [yPos, setYPos] = useState<number | null>(null)
   const [activeLink, setActiveLink] = useState("home")
 
   const openDrawer = () => {
@@ -45,35 +52,31 @@ const Navigation = ({
   }, [])
 
   useEffect(() => {
-    // Update the document title using the browser API
     window.addEventListener("scroll", handleScroll)
     return () => {
-      if (typeof window !== `undefined`) {
+      if (typeof window !== "undefined") {
         window.removeEventListener("scroll", handleScroll)
       }
     }
   }, [handleScroll])
 
   useEffect(() => {
-    yPos > 10 ? setAppBarColorChange(true) : setAppBarColorChange(false)
+    yPos && yPos > 10 ? setAppBarColorChange(true) : setAppBarColorChange(false)
   }, [yPos])
 
   useEffect(() => {
-    if (yPos < yAxisProjects) {
-      setActiveLink("home")
-    }
-    if (yPos > yAxisProjects - 150 && yPos < yAxisCv) {
-      setActiveLink("projects")
-    }
-    if (yPos > yAxisCv - 150 && yPos < yAxisBlog) {
-      setActiveLink("cv")
-    }
-
-    if (yPos > yAxisBlog - 150 && yPos < yAxisContact) {
-      setActiveLink("blog")
-    }
-    if (yPos + 235 >= yAxisBlog) {
-      setActiveLink("contact")
+    if (yPos !== null) {
+      if (yPos < yAxisProjects) {
+        setActiveLink("home")
+      } else if (yPos > yAxisProjects - 150 && yPos < yAxisCv) {
+        setActiveLink("projects")
+      } else if (yPos > yAxisCv - 150 && yPos < yAxisBlog) {
+        setActiveLink("cv")
+      } else if (yPos > yAxisBlog - 150 && yPos < yAxisContact) {
+        setActiveLink("blog")
+      } else if (yPos + 235 >= yAxisBlog) {
+        setActiveLink("contact")
+      }
     }
   }, [yAxisHome, yAxisProjects, yAxisCv, yAxisBlog, yPos, yAxisContact])
 
@@ -89,7 +92,7 @@ const Navigation = ({
             : "initial",
           transition: "all 500ms",
           borderBottom: `1px solid ${
-            appBarColorChange ? `#fafafa` : "transparent"
+            appBarColorChange ? "#fafafa" : "transparent"
           }`,
         }}
       >
@@ -193,7 +196,7 @@ const Navigation = ({
                 beforeAnimate={() => setDrawerIsOpen(false)}
               >
                 {title}
-              </StyledNavElement>{" "}
+              </StyledNavElement>
             </ListItem>
           ))}
         </List>
@@ -201,9 +204,3 @@ const Navigation = ({
     </>
   )
 }
-
-Navigation.propTypes = {
-  children: PropTypes.node,
-}
-
-export default Navigation

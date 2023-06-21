@@ -1,6 +1,15 @@
 import cuid from "cuid"
 
-export const navElements = [
+interface NavElement {
+  id: string
+  route: string
+  title: string
+  anchor: string
+  isActiveLink: boolean
+  subNav?: boolean
+}
+
+export const navElements: NavElement[] = [
   {
     id: cuid(),
     route: "/projects",
