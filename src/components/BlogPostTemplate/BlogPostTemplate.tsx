@@ -1,19 +1,35 @@
 import React from "react"
 import _ from "lodash"
 import { navigate } from "gatsby"
-import PropTypes from "prop-types"
 import { Grid, Box, Button, Container, Typography, Link } from "@mui/material"
 import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 
 import { Footer } from "../Footer"
 
 import { Title } from "../Title"
 
-const BlogPostTemplate = ({
-  data, // this prop will be injected by the GraphQL query below.
-}) => {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
+interface BlogPostTemplateProps {
+  data: {
+    markdownRemark: {
+      frontmatter: {
+        title: string
+        date: string
+        author: string
+        slug: string
+        featuredImage: {
+          childImageSharp: {
+            gatsbyImageData: any
+          }
+        }
+      }
+      html: string
+    }
+  }
+}
+
+export const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data }) => {
+  const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
   let featuredImg = getImage(
     frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
@@ -36,7 +52,7 @@ const BlogPostTemplate = ({
                 </Button>
               </Box>
               <Box mb={3}>
-                <GatsbyImage image={featuredImg} />
+                <GatsbyImage image={featuredImg} alt="" />
               </Box>
               <Title variant="segmentAlt">{frontmatter.title}</Title>
               <Typography
@@ -77,9 +93,3 @@ const BlogPostTemplate = ({
     </>
   )
 }
-
-BlogPostTemplate.propTypes = {
-  children: PropTypes.node,
-}
-
-export default BlogPostTemplate
