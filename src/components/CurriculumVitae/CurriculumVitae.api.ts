@@ -3,7 +3,18 @@ import cuid from "cuid"
 import LogoAmfam from "../../images/cv/logo-amfam.png"
 import LogoOrnelasTech from "../../images/cv/logo-ornelastechnologies.png"
 
-const roles = [
+interface Role {
+  id: string
+  logo: string
+  imgAlt: string
+  title: string
+  employer: string
+  dates: string
+  location: string
+  description: string
+}
+
+const roles: Role[] = [
   {
     id: cuid(),
     logo: LogoAmfam,

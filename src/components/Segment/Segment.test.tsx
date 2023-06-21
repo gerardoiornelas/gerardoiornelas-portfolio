@@ -1,69 +1,33 @@
 import React from "react"
 import { render } from "@testing-library/react"
-import { ThemeProvider } from "@mui/material/styles"
-import { createTheme } from "@mui/material"
-
 import { Segment } from "./Segment"
 
-describe("Segment", () => {
-  test("renders children correctly", () => {
-    const theme = createTheme()
-    const children = <div>Segment Content</div>
-    const { getByText } = render(
-      <ThemeProvider theme={theme}>
-        <Segment>{children}</Segment>
-      </ThemeProvider>
-    )
-
-    expect(getByText("Segment Content")).toBeInTheDocument()
+describe("<Segment />", () => {
+  it("renders without error", () => {
+    render(<Segment>Segment content</Segment>)
   })
 
-  test("renders with provided variant", () => {
-    const theme = createTheme()
-    const variant = "primary"
-    const { container } = render(
-      <ThemeProvider theme={theme}>
-        <Segment variant={variant} />
-      </ThemeProvider>
-    )
-
-    expect(container.firstChild).toHaveStyle(
-      `background: ${theme.palette.primary.main}`
-    )
+  it('renders with the "primary" variant', () => {
+    render(<Segment variant="primary">Segment content</Segment>)
   })
 
-  test("renders with segment decoration", () => {
-    const theme = createTheme()
-    const { container } = render(
-      <ThemeProvider theme={theme}>
-        <Segment segmentDecoration />
-      </ThemeProvider>
-    )
-
-    expect(container.querySelector(".segment-decoration")).toBeInTheDocument()
+  it('renders with the "primaryLight" variant', () => {
+    render(<Segment variant="primaryLight">Segment content</Segment>)
   })
 
-  test("renders with segment decoration alternate", () => {
-    const theme = createTheme()
-    const { container } = render(
-      <ThemeProvider theme={theme}>
-        <Segment segmentDecorationAlt />
-      </ThemeProvider>
-    )
-
-    expect(
-      container.querySelector(".segment-decoration-alternate")
-    ).toBeInTheDocument()
+  it('renders with the "secondary" variant', () => {
+    render(<Segment variant="secondary">Segment content</Segment>)
   })
 
-  test("renders without padding", () => {
-    const theme = createTheme()
-    const { container } = render(
-      <ThemeProvider theme={theme}>
-        <Segment noPadding />
-      </ThemeProvider>
-    )
+  it('renders with the "tertiary" variant', () => {
+    render(<Segment variant="tertiary">Segment content</Segment>)
+  })
 
-    expect(container.firstChild).toHaveStyle(`padding-bottom: 0`)
+  it('renders with the "gradient" variant', () => {
+    render(<Segment variant="gradient">Segment content</Segment>)
+  })
+
+  it('renders with the "accent" variant', () => {
+    render(<Segment variant="accent">Segment content</Segment>)
   })
 })

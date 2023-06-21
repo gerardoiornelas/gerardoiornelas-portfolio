@@ -20,15 +20,9 @@ import { StyledNavElement } from "./Navigation.styled"
 
 import { navElements } from "./Navigation.api"
 
-interface NavigationProps {
-  yAxisHome: number
-  yAxisProjects: number
-  yAxisCv: number
-  yAxisBlog: number
-  yAxisContact: number
-}
+import type { YAxisProps } from "../Layout/Layout"
 
-export const Navigation: React.FC<NavigationProps> = ({
+export const Navigation: React.FC<YAxisProps> = ({
   yAxisHome,
   yAxisProjects,
   yAxisCv,

@@ -1,9 +1,12 @@
 import React from "react"
 import { render } from "@testing-library/react"
+
 import { Home } from "./Home"
 
-describe("<Home/> spec", () => {
-  test("should render <Home/>", () => {
-    render(<Home />)
+describe("Home", () => {
+  it("renders without error", () => {
+    const { container } = render(<Home />)
+
+    expect(container).toBeInTheDocument()
   })
 })

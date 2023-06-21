@@ -1,17 +1,36 @@
 import React from "react"
-import PropTypes from "prop-types"
-
 import { Header } from "../Header"
 import { Footer } from "../Footer"
 
-interface LayoutProps {
+export interface YAxisProps {
+  yAxisHome?: number | null
+  yAxisProjects?: number | null
+  yAxisCv?: number | null
+  yAxisBlog?: number | null
+  yAxisContact?: number | null
+}
+
+interface LayoutProps extends YAxisProps {
   children: React.ReactNode
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children }) => {
+export const Layout: React.FC<LayoutProps> = ({
+  children,
+  yAxisHome,
+  yAxisProjects,
+  yAxisCv,
+  yAxisBlog,
+  yAxisContact,
+}) => {
   return (
     <>
-      <Header />
+      <Header
+        yAxisHome={yAxisHome}
+        yAxisProjects={yAxisProjects}
+        yAxisCv={yAxisCv}
+        yAxisBlog={yAxisBlog}
+        yAxisContact={yAxisContact}
+      />
       {children}
       <Footer />
     </>

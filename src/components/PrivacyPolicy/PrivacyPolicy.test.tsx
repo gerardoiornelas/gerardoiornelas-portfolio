@@ -1,9 +1,12 @@
 import React from "react"
 import { render } from "@testing-library/react"
+
 import { PrivacyPolicy } from "./PrivacyPolicy"
 
-describe("<PrivacyPolicy/> spec", () => {
-  test("should render <PrivacyPolicy/>", () => {
-    render(<PrivacyPolicy />)
+describe("PrivacyPolicy", () => {
+  it("renders without error", () => {
+    const { container } = render(<PrivacyPolicy />)
+
+    expect(container).toBeInTheDocument()
   })
 })
