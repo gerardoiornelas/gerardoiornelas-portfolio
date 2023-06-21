@@ -6,19 +6,16 @@ import {
   StyledSegmentDecorationAlt,
 } from "./Segment.styled"
 
-const SegmentDecoration = ({ alternate }) => {
+interface SegmentDecorationProps {
+  alternate: boolean
+}
+
+export const SegmentDecoration: React.FC<SegmentDecorationProps> = ({
+  alternate = false,
+}) => {
   return alternate ? (
     <StyledSegmentDecorationAlt />
   ) : (
     <StyledSegmentDecoration />
   )
 }
-
-SegmentDecoration.defaultProps = {
-  alternate: false,
-}
-SegmentDecoration.propTypes = {
-  alternate: PropTypes.bool,
-}
-
-export default SegmentDecoration

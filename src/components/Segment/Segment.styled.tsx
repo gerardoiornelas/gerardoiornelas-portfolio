@@ -8,8 +8,8 @@ import ImgCurvyAlt from "../../images/curvy-segment-alt.svg"
 const segmentDecorationHeight = 130
 const segmentDecorationAltHeight = 170
 
-function setDecorationPadding(decorated, decoratedAlt) {
-  let pb
+function setDecorationPadding(decorated: boolean, decoratedAlt: boolean) {
+  let pb: number | string
   if (decorated) {
     pb = `${rem(segmentDecorationHeight)}`
   } else if (decoratedAlt) {

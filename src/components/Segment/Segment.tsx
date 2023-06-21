@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Grid } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 
@@ -9,7 +8,21 @@ import { StyledSegment, StyledPad } from "./Segment.styled"
 
 import { getBackground } from "./Segment.api"
 
-const Segment = ({
+interface SegmentProps {
+  children: React.ReactNode
+  variant?:
+    | "primary"
+    | "primaryLight"
+    | "secondary"
+    | "tertiary"
+    | "gradient"
+    | "accent"
+  segmentDecoration?: boolean
+  segmentDecorationAlt?: boolean
+  noPadding?: boolean
+}
+
+export const Segment: React.FC<SegmentProps> = ({
   children,
   variant,
   segmentDecoration,
@@ -41,17 +54,3 @@ const Segment = ({
     </StyledSegment>
   )
 }
-
-Segment.propTypes = {
-  noPadding: PropTypes.bool,
-  variant: PropTypes.oneOf([
-    "primary",
-    "primaryLight",
-    "secondary",
-    "tertiary",
-    "gradient",
-    "accent",
-  ]),
-}
-
-export default Segment
