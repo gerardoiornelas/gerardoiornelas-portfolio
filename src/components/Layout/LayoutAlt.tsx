@@ -14,7 +14,11 @@ import {
 import { Title } from "../Title"
 import { Footer } from "../Footer"
 
-export const LayoutAlt: React.FC = () => {
+interface LayoutAltProps {
+  children: React.ReactNode
+}
+
+export const LayoutAlt: React.FC<LayoutAltProps> = ({ children }) => {
   const theme = useTheme()
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
 

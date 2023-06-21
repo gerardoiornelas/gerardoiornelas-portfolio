@@ -1,1 +1,1 @@
-export { AnimateOnScroll } from "./AnimateOnScroll"
+export { AnimateOnScroll } from "./AnimateOnScroll";

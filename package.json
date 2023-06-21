@@ -60,7 +60,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "generate:component": "node ./utilities/generator/generate-component"
+    "generate:component": "node ./generators/generator/generate-component"
   },
   "repository": {
     "type": "git",

@@ -5,7 +5,7 @@ import { RowCol } from "../RowCol"
 import { Title } from "../Title"
 import { AnimateOnScroll } from "../AnimateOnScroll"
 
-import ProjectCard from "./ProjectCard"
+import { ProjectCard } from "./ProjectCard"
 
 import { projectsData } from "./Projects.api"
 

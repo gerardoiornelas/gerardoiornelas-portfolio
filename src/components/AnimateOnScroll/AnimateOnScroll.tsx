@@ -1,35 +1,31 @@
-import React from "react"
-import { motion, useAnimation, Variants } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-
-interface AnimateOnScrollProps {
-  children?: React.ReactNode
-  animateIn: string // Add the animateIn prop
-  delay?: number
-  key?: string
-}
+import React, { useEffect, ReactNode } from "react";
+import { motion, useAnimation, Variants } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const boxVariant: Variants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
   hidden: { opacity: 0, scale: 1 },
+};
+
+interface AnimateOnScrollProps {
+  children: ReactNode;
+  [key: string]: any;
 }
 
 export const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
   children,
-  animateIn, // Update the prop name here
-  delay = 0,
-  key,
+  ...otherProps
 }) => {
-  const control = useAnimation()
-  const [ref, inView] = useInView()
+  const control = useAnimation();
+  const [ref, inView] = useInView();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (inView) {
-      control.start(animateIn) // Use the animateIn prop here
+      control.start("visible");
     } else {
-      control.start("hidden")
+      control.start("hidden");
     }
-  }, [control, inView, animateIn]) // Add animateIn as a dependency
+  }, [control, inView]);
 
   return (
     <motion.div
@@ -37,9 +33,9 @@ export const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
       initial="hidden"
       animate={control}
       ref={ref}
-      {...{ key }} // Use object shorthand for key prop
+      {...otherProps}
     >
       {children}
     </motion.div>
-  )
-}
+  );
+};

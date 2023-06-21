@@ -1,2 +1,1 @@
-
-export { default as ScrollContainer } from './ScrollContainer'
+export { ScrollContainer } from "./ScrollContainer"
