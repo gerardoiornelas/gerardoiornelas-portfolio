@@ -4,8 +4,6 @@ import ImgGenerativeNfts from "../../images/projects/generative-nft.jpg"
 import ImgCrowdfunding from "../../images/projects/crowdfunding.jpg"
 import ImgDao from "../../images/projects/dao.jpg"
 
-const GITHUB_GERARDOIORNELAS = `https://github.com/gerardoiornelas`
-
 interface ProjectData {
   id: string
   title: string
@@ -19,36 +17,36 @@ interface ProjectData {
 const projectsData: ProjectData[] = [
   {
     id: cuid(),
-    title: `AI NFT Minter`,
+    title: `Crittora`,
     description: [
-      "An AI-powered NFT project bringing creativity to the blockchain with unique, generated digital art assets.",
+      "The cryptographic control point between AI agents and real systems, enforcing explicit, time-bound authority at execution.",
+      "Signed Proof-of-Action receipts make every action measurable, enforceable, and auditable.",
     ],
     imgSrc: ImgGenerativeNfts,
-    imgAlt: "dj boombox remix crew",
-    url: `https://ai-nft-minter.netlify.app/`,
-    github: `${GITHUB_GERARDOIORNELAS}/ai-nft-minter`,
+    imgAlt: "abstract cryptographic control layer",
+    url: `https://www.crittora.com/`,
   },
   {
     id: cuid(),
-    title: `Crowdfunding App`,
+    title: `Agent Permission Protocol (APP)`,
     description: [
-      "Revolutionary blockchain crowdfunding app connecting entrepreneurs with backers for secure, decentralized funding.",
+      "Execution-time authorization layer for AI agents that verifies a signed, time-bound permission envelope before any tool runs.",
+      "Prevents forged calls, replays, and over-broad actions while creating portable, verifiable receipts.",
     ],
     imgSrc: ImgCrowdfunding,
-    imgAlt: "dj boombox remix crew",
-    url: `https://extraordinary-bombolone-9dadc0.netlify.app/`,
-    github: `${GITHUB_GERARDOIORNELAS}/crowdsale`,
+    imgAlt: "execution-time authorization gate",
+    url: `https://www.crittora.com/app/whitepaper`,
   },
   {
     id: cuid(),
-    title: `DAO`,
+    title: `Qripton Verify`,
     description: [
-      "Empowering community decision making with decentralized, transparent governance through a blockchain-based DAO.",
+      "Enterprise-ready platform for securely sharing sensitive documents with identity-bound access control and zero setup.",
+      "Only the intended recipient can decrypt and view the file, with full auditability.",
     ],
     imgSrc: ImgDao,
-    imgAlt: "dj boombox remix crew",
-    url: `https://reliable-froyo-10b5cd.netlify.app/`,
-    github: `${GITHUB_GERARDOIORNELAS}/dao`,
+    imgAlt: "secure document verification",
+    url: `https://qriptonverify.com/`,
   },
 ]
 

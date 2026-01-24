@@ -1,12 +1,12 @@
 {
   "name": "gerardoiornelas-portfolio",
   "private": true,
-  "description": "Portfolio site for Gerardo Ornelas <gerardo@ornelastechnologies.com>",
+  "description": "Portfolio site for Gerardo Ornelas <gerardo@ornelas.tech>",
   "version": "0.1.0",
   "engines": {
     "node": "18.12.1"
   },
-  "author": "Gerardo I. Ornelas <gerardo@ornelastechnologies.com>",
+  "author": "Gerardo I. Ornelas <gerardo@ornelas.tech>",
   "dependencies": {
     "@emotion/react": "latest",
     "@emotion/server": "latest",
@@ -41,10 +41,9 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "colors": "^1.4.0",
-    "cuid": "^2.1.8",
+    "cuid": "^3.0.0",
     "fs": "^0.0.1-security",
-    "lodash": "^4.17.21",
-    "polished": "^4.2.2",
+    "polished": "^4.3.1",
     "prettier": "^2.8.0",
     "typescript": "^4.9.5"
   },

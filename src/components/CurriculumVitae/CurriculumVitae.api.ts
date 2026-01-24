@@ -1,6 +1,6 @@
 import cuid from "cuid"
 
-import LogoAmfam from "../../images/cv/logo-amfam.png"
+import LogoAmfam from "../../images/cv/logo-crittora.png"
 import LogoOrnelasTech from "../../images/cv/logo-ornelastechnologies.png"
 
 interface Role {
@@ -18,21 +18,21 @@ const roles: Role[] = [
   {
     id: cuid(),
     logo: LogoAmfam,
-    imgAlt: `american family insurance logo`,
-    title: `UI Architect`,
-    employer: `American Family Insurance - Full Time`,
-    dates: `May 2020 - Present`,
-    location: `Madison, Wisconsin`,
-    description: ``,
+    imgAlt: `crittora logo`,
+    title: `Co-founder & President`,
+    employer: `Crittora - Full Time`,
+    dates: `Jan 2025 - Present`,
+    location: `New Smyrna Beach, Florida`,
+    description: `Lead strategy, design, and development of Crittora's cryptographic experience stack. Build the execution-time authorization layer that verifies agents, scopes permissions, and emits signed Proof-of-Action receipts.`,
   },
   {
     id: cuid(),
     logo: LogoOrnelasTech,
     imgAlt: `ornelas technologies, llc logo`,
     title: `Principal`,
-    employer: `Ornelas Technologies, LLC - Consulting`,
+    employer: `Ornelas.tech - Consulting`,
     dates: ` July 2017 - Present`,
-    location: ` Austin, TX`,
+    location: `San Antonio, TX`,
     description: ``,
   },
 ]

@@ -32,12 +32,11 @@ export const CurriculumVitae = ({ children }: Props) => {
           <Box display="flex" justifyContent={`center`}>
             <Box sx={{ maxWidth: "640px" }}>
               <Typography color="white" align="center">
-                I'm a technology leader with a passion for building great teams,
-                solving business critical problems, and delivering innovative
-                products. I’ve successfully led cross-functional technology
-                teams in the startup and enterprise environments. I'm a firm
-                believer that the success of a project is built on great
-                communication, collaboration, and mentorship.
+                I'm a technology leader focused on execution-time security for
+                AI systems. I lead cross-functional teams building cryptographic
+                controls that make authority explicit, enforceable, and
+                auditable at runtime. I believe durable security comes from
+                clear policy, rigorous implementation, and strong collaboration.
               </Typography>
             </Box>
           </Box>

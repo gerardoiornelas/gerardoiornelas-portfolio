@@ -27,9 +27,9 @@ const socialData: SocialData[] = [
   },
   {
     id: cuid(),
-    url: "https://www.twitter.com/gerardoiornelas",
+    url: "https://x.com/gerardoiornelas",
     icon: "twitter",
-    title: "Twitter",
+    title: "X",
   },
   {
     id: cuid(),
