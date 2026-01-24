@@ -38,6 +38,7 @@ export const Home: React.FC = () => {
                         Co-founder at{" "}
                         <Box
                           component="span"
+                          display="inline-block"
                           sx={{ color: theme.palette.secondary.main }}
                         >
                           Crittora

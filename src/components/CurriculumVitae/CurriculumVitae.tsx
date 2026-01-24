@@ -76,7 +76,7 @@ export const CurriculumVitae = ({ children }: Props) => {
               </Row>
             </Col>
           </Row>
-          <RowCol mb={2}>
+          {/* <RowCol mb={2}>
             <Box display="flex" justifyContent="center" my={4}>
               <Button
                 startIcon={<PictureAsPdfIcon />}
@@ -89,7 +89,7 @@ export const CurriculumVitae = ({ children }: Props) => {
                 Download CV
               </Button>
             </Box>
-          </RowCol>
+          </RowCol> */}
         </RowCol>
       </Container>
     </Box>
