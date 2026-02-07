@@ -15,12 +15,7 @@ export const SegmentTitleAlt: React.FC<SegmentTitleAltProps> = ({
   const theme = useTheme()
   return (
     <Box mb={2}>
-      <Typography
-        {...otherProps}
-        sx={{ textShadow: `${theme.palette.secondary.main} 2px 2px` }}
-      >
-        {children}
-      </Typography>
+      <Typography {...otherProps}>{children}</Typography>
     </Box>
   )
 }

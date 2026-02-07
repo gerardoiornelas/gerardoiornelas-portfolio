@@ -130,9 +130,9 @@ export const Navigation: React.FC<YAxisProps> = ({
                   textDecoration: "none",
                 }}
               >
-                <Typography variant="h4" component="h3">
+                <Title variant="segment">
                   {isSmall ? "GIOrnelas" : "Gerardo I. Ornelas"}
-                </Typography>
+                </Title>
               </Scrollchor>
             </Box>
             <Box

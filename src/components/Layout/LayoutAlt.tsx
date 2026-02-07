@@ -51,7 +51,7 @@ export const LayoutAlt: React.FC<LayoutAltProps> = ({ children }) => {
               >
                 <ButtonBase onClick={() => navigate("/")}>
                   <Title variant="segmentAlt" color="primary">
-                    Gerardo I. ornelas
+                    Gerardo I. Ornelas
                   </Title>
                 </ButtonBase>
               </Box>
