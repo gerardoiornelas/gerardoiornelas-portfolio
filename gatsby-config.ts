@@ -43,7 +43,7 @@ export default {
         name: `lostwun-portfolio`,
         short_name: `lostwun`,
         start_url: `/`,
-        background_color: `#03002d`,
+        background_color: `#0d0c2b`,
         display: `minimal-ui`,
         icon: `src/images/lostwun-icon.png`, // This path is relative to the root of the site.
       },

@@ -2,10 +2,10 @@ import { Box } from "@mui/material"
 import { styled } from "@mui/system"
 import { rem } from "polished"
 
-import ImgCurvy from "../../images/curvy-segment.svg"
+import ImgCurvy from "../../images/skyline-segment.svg"
 import ImgCurvyAlt from "../../images/curvy-segment-alt.svg"
 
-const segmentDecorationHeight = 130
+const segmentDecorationHeight = 482
 const segmentDecorationAltHeight = 170
 
 function setDecorationPadding(decorated: boolean, decoratedAlt: boolean) {
@@ -21,7 +21,7 @@ function setDecorationPadding(decorated: boolean, decoratedAlt: boolean) {
 }
 
 const StyledSegment = styled(Box, {
-  shouldForwardProp: (prop) =>
+  shouldForwardProp: prop =>
     prop !== "decorated" && prop !== "decoratedAlt" && prop !== "noPadding",
 })<{ decorated?: boolean; decoratedAlt?: boolean; noPadding?: boolean }>(
   ({ decorated = false, decoratedAlt = false, noPadding }) => ({
@@ -52,7 +52,7 @@ const StyledSegmentDecorationAlt = styled(Box)({
 })
 
 const StyledPad = styled(Box, {
-  shouldForwardProp: (prop) =>
+  shouldForwardProp: prop =>
     prop !== "segmentDecoration" &&
     prop !== "segmentDecorationAlt" &&
     prop !== "noPadding",

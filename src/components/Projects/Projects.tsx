@@ -4,6 +4,7 @@ import { Container, Box } from "@mui/material"
 import { RowCol } from "../RowCol"
 import { Title } from "../Title"
 import { AnimateOnScroll } from "../AnimateOnScroll"
+import { Segment } from "../Segment"
 
 import { ProjectCard } from "./ProjectCard"
 
@@ -11,7 +12,7 @@ import { projectsData } from "./Projects.api"
 
 export const Projects: React.FC = () => {
   return (
-    <Box py={6}>
+    <Segment variant="gradient" segmentDecorationAlt>
       <Container>
         <RowCol mb={4}>
           <AnimateOnScroll animateIn="fadeInUp">
@@ -43,6 +44,6 @@ export const Projects: React.FC = () => {
           </Box>
         </RowCol>
       </Container>
-    </Box>
+    </Segment>
   )
 }

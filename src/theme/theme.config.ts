@@ -1,9 +1,18 @@
 import { lighten, darken } from "polished"
 
-const primaryColor: string = "#230046"
-const secondaryColor: string = "#320064"
-const tertiaryColor: string = "#282828"
-const accentColor: string = "#141414"
+// Brand palette
+const brandOffWhite: string = "#D8D8D8"
+const brandNavy: string = "#09053F"
+const brandViolet: string = "#6F4B9B"
+const brandLime: string = "#D4DF1E"
+const brandCyan: string = "#38B4C6"
+const brandBg: string = "#0D0C2B"
+const brandSurface: string = "#13123D"
+
+const primaryColor: string = brandCyan
+const secondaryColor: string = brandViolet
+const tertiaryColor: string = brandLime
+const accentColor: string = brandNavy
 
 const appTitle: string = "Gerardo I. Ornelas - Web3 Developer"
 const metaDescription: string =
@@ -26,15 +35,15 @@ const headlineFontStyles: React.CSSProperties = {
 }
 
 const commonColorStyles: { [key: string]: string } = {
-  white: "#fff",
+  white: brandOffWhite,
   black: "#000",
-  grey: "#B3B3B3",
-  lightGrey: "#141414",
+  grey: "#B8BCC7",
+  lightGrey: brandBg,
 }
 
 const customColorStyles: {
-  tertiary: { light: string, main: string, dark: string },
-  accent: { light: string, main: string, dark: string },
+  tertiary: { light: string; main: string; dark: string }
+  accent: { light: string; main: string; dark: string }
 } = {
   tertiary: {
     light: lighten(0.1, tertiaryColor),
@@ -42,14 +51,21 @@ const customColorStyles: {
     dark: darken(0.1, tertiaryColor),
   },
   accent: {
-    light: lighten(0.1, tertiaryColor),
+    light: lighten(0.1, accentColor),
     main: accentColor,
-    dark: darken(0.1, tertiaryColor),
+    dark: darken(0.1, accentColor),
   },
 }
 
 export {
   googleFonts,
+  brandBg,
+  brandSurface,
+  brandOffWhite,
+  brandNavy,
+  brandViolet,
+  brandLime,
+  brandCyan,
   primaryColor,
   secondaryColor,
   accentColor,

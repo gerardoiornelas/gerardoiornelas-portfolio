@@ -1,35 +1,96 @@
 import { createTheme } from "@mui/material/styles"
+import { lighten, darken } from "polished"
 
 import {
+  primaryColor,
+  secondaryColor,
   fontFamilies,
   headlineFontStyles,
-  commonColorStyles,
   bodyFont,
+  commonColorStyles,
+  customColorStyles,
+  brandBg,
+  brandSurface,
+  brandOffWhite,
 } from "./theme.config"
 
 // A custom theme for this app
 const theme = createTheme({
   palette: {
-    mode: "light",
+    mode: "dark",
     primary: {
-      main: "#401e87",
+      light: lighten(0.1, primaryColor),
+      main: primaryColor,
+      dark: darken(0.1, primaryColor),
+      contrastText: brandOffWhite,
     },
     secondary: {
-      main: "#945be2",
+      light: lighten(0.1, secondaryColor),
+      main: secondaryColor,
+      dark: darken(0.1, secondaryColor),
+      contrastText: "#101214",
     },
-
-    tertiary: {
-      light: "#90caf9",
-      main: "#42a5f5",
-      dark: "#1565c0",
+    common: {
+      ...commonColorStyles,
     },
-    accent: {
-      light: "#ce93d8",
-      main: "#ab47bc",
-      dark: "#7b1fa2",
+    background: {
+      default: brandBg,
+      paper: brandSurface,
+    },
+    text: {
+      primary: brandOffWhite,
+      secondary: commonColorStyles.grey,
+    },
+    ...customColorStyles,
+  },
+  typography: {
+    fontFamily: fontFamilies,
+    h1: {
+      fontFamily: bodyFont,
+      fontWeight: 700,
+    },
+    h2: {
+      fontFamily: bodyFont,
+      fontWeight: 400,
+    },
+    h3: {
+      fontFamily: bodyFont,
+      fontWeight: 400,
+    },
+    h4: {
+      ...headlineFontStyles,
+    },
+    h5: {
+      fontFamily: bodyFont,
+    },
+    h6: {
+      fontFamily: bodyFont,
+    },
+    subtitle1: {
+      fontFamily: bodyFont,
+    },
+    subtitle2: {
+      fontFamily: bodyFont,
+    },
+    body1: {
+      fontFamily: bodyFont,
+      color: commonColorStyles.grey,
+    },
+    body2: {
+      fontFamily: bodyFont,
+    },
+    button: {
+      fontFamily: bodyFont,
+      textTransform: "none",
+      fontWeight: 600,
+    },
+    caption: {
+      fontFamily: bodyFont,
+    },
+    overline: {
+      fontFamily: bodyFont,
     },
   },
-
   components: {
     MuiButton: {
       styleOverrides: {

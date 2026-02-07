@@ -19,7 +19,7 @@ const getBackground = (theme: Theme, variant: string): string => {
       bgColor = theme.palette.accent.main
       break
     case "gradient":
-      bgColor = `linear-gradient(0deg, rgba(171,40,164,1) 0%, rgba(3, 0, 45, 1) 100%);`
+      bgColor = `linear-gradient(0deg, rgb(100, 75, 221) 0%, #0d0c2b 100%);`
       break
     default:
       bgColor = theme.palette.background.default
