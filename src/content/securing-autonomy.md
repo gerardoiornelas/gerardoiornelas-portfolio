@@ -100,3 +100,9 @@ To move from "experimental" to "production-ready," your LangGraph agents should 
 ## Conclusion: Intelligence is Not Authority
 
 From my perspective, LangGraph gives us orchestration power, but **APP supplies the authority controls** required for safe autonomy. When reasoning and authority are separated, risk becomes measurable, enforcement becomes auditable, and autonomous execution becomes governable.
+
+---
+
+## Related Reading
+
+- [Verifiably Human — Part I: Everything Is Synthetic by Default](/blog/verifiably-human-part-1/)

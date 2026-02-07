@@ -34,18 +34,117 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
   const slug = post.frontmatter.slug
   const pathname = `/blog${slug}`
   const image = post.frontmatter.featuredImage?.publicURL
+  const absoluteImage = image ? `${seoDefaults.siteUrl}${image}` : undefined
+
+  const topicConfig: Record<
+    string,
+    {
+      keywords: string[]
+      about: string[]
+      faq?: Array<{ q: string; a: string }>
+      extraImages?: string[]
+    }
+  > = {
+    "/securing-autonomy": {
+      keywords: [
+        "agentic AI security",
+        "execution-time authorization",
+        "Agent Permission Protocol",
+        "LangGraph security",
+        "AI agent governance",
+      ],
+      about: [
+        "Agent Permission Protocol",
+        "LangGraph",
+        "execution-time authority",
+        "cryptographic policy verification",
+      ],
+      faq: [
+        {
+          q: "What is APP in one line?",
+          a: "APP is a cryptographic authorization layer for autonomous agent actions.",
+        },
+        {
+          q: "Can LangGraph alone secure autonomy?",
+          a: "No. LangGraph orchestrates reasoning and flow, while APP enforces execution-time authority.",
+        },
+        {
+          q: "What is the core enforcement rule?",
+          a: "No tool action should execute without an explicit, verifiable, encrypted policy.",
+        },
+      ],
+      extraImages: [
+        `${seoDefaults.siteUrl}/images/blog/securing-autonomy-authority-flow.svg`,
+        `${seoDefaults.siteUrl}/images/blog/securing-autonomy-langgraph-vs-app.svg`,
+      ],
+    },
+    "/verifiably-human-part-1": {
+      keywords: [
+        "verifiable human content",
+        "AI content provenance",
+        "synthetic media authenticity",
+        "human provenance infrastructure",
+        "blockchain and AI trust",
+      ],
+      about: [
+        "content provenance",
+        "synthetic media",
+        "human authenticity verification",
+        "agentic trust infrastructure",
+      ],
+      faq: [
+        {
+          q: "What problem does Verifiably Human solve?",
+          a: "It addresses provenance by making human presence at creation explicit and verifiable.",
+        },
+        {
+          q: "Why is detection alone not enough?",
+          a: "Detection is an arms race. Provenance requires explicit proof of origin, not inference.",
+        },
+        {
+          q: "What does provably human require?",
+          a: "Proof at capture, cryptographic sealing, lineage through edits, and visible tool intervention.",
+        },
+      ],
+    },
+  }
+
+  const topic = topicConfig[slug] ?? {
+    keywords: ["AI security", "blockchain", "agentic systems"],
+    about: ["AI security", "cryptographic controls"],
+  }
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.frontmatter.title,
     datePublished: post.frontmatter.datePublished,
+    dateModified: post.frontmatter.datePublished,
+    inLanguage: "en-US",
+    description: post.excerpt,
+    keywords: topic.keywords.join(", "),
     author: {
       "@type": "Person",
       name: post.frontmatter.author,
     },
+    publisher: {
+      "@type": "Organization",
+      name: "Gerardo I. Ornelas",
+      url: seoDefaults.siteUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${seoDefaults.siteUrl}/lone-star-gs.png`,
+      },
+    },
     mainEntityOfPage: `${seoDefaults.siteUrl}${pathname}`,
-    image: image ? `${seoDefaults.siteUrl}${image}` : undefined,
+    image: [
+      absoluteImage,
+      ...(topic.extraImages ?? []),
+    ].filter(Boolean),
+    about: topic.about.map((name) => ({
+      "@type": "Thing",
+      name,
+    })),
   }
 
   const breadcrumbSchema = {
@@ -73,6 +172,21 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
     ],
   }
 
+  const faqSchema = topic.faq
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: topic.faq.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.a,
+          },
+        })),
+      }
+    : null
+
   return (
     <Seo
       title={post.frontmatter.title}
@@ -80,7 +194,7 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
       pathname={pathname}
       image={image}
       type="article"
-      jsonLd={[articleSchema, breadcrumbSchema]}
+      jsonLd={[articleSchema, breadcrumbSchema, faqSchema].filter(Boolean)}
     />
   )
 }

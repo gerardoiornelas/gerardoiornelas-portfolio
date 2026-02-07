@@ -35,7 +35,9 @@ export const Footer: React.FC = () => {
               display="flex"
               justifyContent={isSmall ? `center` : `flex-end`}
             >
-              <Box>
+              <Box display="flex" gap={2}>
+                <Link to="/blog/">Blog</Link>
+                <Link to="/author/gerardo-i-ornelas/">Author</Link>
                 <Link to="/privacy-policy">Privacy Policy</Link>
               </Box>
             </Box>

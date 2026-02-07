@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Link } from "gatsby"
 import {
   Container,
   Typography,
@@ -56,6 +57,14 @@ export const Home: React.FC = () => {
                         is allowed to act, before action happens. My work
                         combines cryptographic policy enforcement, verifiable
                         provenance, and production-grade controls for AI agents.
+                      </Typography>
+                      <Typography sx={{ mt: 2 }}>
+                        Explore my <Link to="/blog/">blog</Link> and{" "}
+                        <Link to="/author/gerardo-i-ornelas/">
+                          author profile
+                        </Link>{" "}
+                        for detailed frameworks on AI security, cryptographic
+                        authorization, and provenance infrastructure.
                       </Typography>
                     </AnimateOnScroll>
                   </RowCol>

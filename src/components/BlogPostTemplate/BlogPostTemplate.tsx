@@ -1,7 +1,7 @@
 import React from "react"
 import replace from "lodash/replace"
-import { navigate } from "gatsby"
-import { Grid, Box, Button, Container, Typography, Link } from "@mui/material"
+import { Link, navigate } from "gatsby"
+import { Grid, Box, Button, Container, Typography } from "@mui/material"
 import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
@@ -64,6 +64,9 @@ export const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data }) => {
                 variant="h6"
                 color="primary"
               >{`${frontmatter.date} by ${frontmatter.author}`}</Typography>
+              <Typography variant="body2" sx={{ mt: 1 }}>
+                <Link to="/author/gerardo-i-ornelas/">Author profile</Link>
+              </Typography>
               {/* <Box>
             <Button
               startIcon={<TwitterIcon />}

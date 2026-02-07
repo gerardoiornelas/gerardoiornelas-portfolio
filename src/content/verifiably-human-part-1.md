@@ -234,3 +234,9 @@ We don’t have an AI problem.
 We have a provenance problem.
 
 And until humanity itself becomes something we can explicitly verify, authenticity will always lag synthesis.
+
+---
+
+## Related Reading
+
+- [Securing Autonomy: Applying APP to LangGraph Patterns](/blog/securing-autonomy/)
