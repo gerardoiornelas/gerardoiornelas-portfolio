@@ -1,9 +1,9 @@
 import React from "react"
-import { StyledBase } from "./Section.styled"
+import { Box } from "@mui/material"
 
 interface BaseProps {
   children: React.ReactNode
 }
 export const Base: React.FC<BaseProps> = ({ children, ...props }) => (
-  <StyledBase {...props}>{children}</StyledBase>
+  <Box {...props}>{children}</Box>
 )

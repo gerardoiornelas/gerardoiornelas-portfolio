@@ -19,8 +19,9 @@
     "gatsby": "latest",
     "gatsby-plugin-image": "^3.2.0",
     "gatsby-plugin-manifest": "^5.2.0",
-    "gatsby-plugin-react-helmet": "latest",
+    "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sharp": "^5.2.0",
+    "gatsby-plugin-sitemap": "^6.16.0",
     "gatsby-source-filesystem": "^5.2.0",
     "gatsby-transformer-remark": "^6.3.1",
     "gatsby-transformer-sharp": "^5.2.0",
@@ -29,7 +30,6 @@
     "react": "latest",
     "react-clamp-lines": "^3.0.3",
     "react-dom": "latest",
-    "react-helmet": "latest",
     "react-hook-form": "^7.41.0",
     "react-intersection-observer": "^9.4.1",
     "react-scrollchor": "^7.0.2"

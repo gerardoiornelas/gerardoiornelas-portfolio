@@ -1,13 +1,11 @@
 import React from "react"
-import PropTypes from "prop-types"
-
 import {
   StyledSegmentDecoration,
   StyledSegmentDecorationAlt,
 } from "./Segment.styled"
 
 interface SegmentDecorationProps {
-  alternate: boolean
+  alternate?: boolean
 }
 
 export const SegmentDecoration: React.FC<SegmentDecorationProps> = ({

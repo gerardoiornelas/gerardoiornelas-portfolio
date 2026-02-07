@@ -7,16 +7,15 @@
 /**
  * @type {import(`gatsby`).GatsbyConfig}
  */
-module.exports = {
+export default {
   siteMetadata: {
-    title: `Lostwun Portfolio Site`,
-    description: `Hardhat portfolio project on Gatsby.js`,
-    author: `@lostwun`,
-    siteUrl: `https://www.lostwun.com/`,
+    title: `Gerardo I. Ornelas | Secure AI Agent Systems`,
+    description: `Technology leader building execution-time security and cryptographic controls for AI systems.`,
+    author: `Gerardo I. Ornelas`,
+    siteUrl: `https://www.gerardoiornelas.com`,
   },
   plugins: [
     `gatsby-plugin-top-layout`,
-    `gatsby-plugin-react-helmet`,
     // If you want to use styled components you should add the plugin here.
     // `gatsby-plugin-styled-components`,
     `gatsby-plugin-mui-emotion`,
@@ -47,6 +46,15 @@ module.exports = {
         background_color: `#03002d`,
         display: `minimal-ui`,
         icon: `src/images/lostwun-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: `https://www.gerardoiornelas.com`,
+        sitemap: `https://www.gerardoiornelas.com/sitemap-index.xml`,
+        policy: [{ userAgent: `*`, allow: `/` }],
       },
     },
   ],

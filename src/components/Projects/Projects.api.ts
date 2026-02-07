@@ -11,7 +11,7 @@ interface ProjectData {
   imgSrc: string
   imgAlt: string
   url: string
-  github: string
+  github?: string
 }
 
 const projectsData: ProjectData[] = [

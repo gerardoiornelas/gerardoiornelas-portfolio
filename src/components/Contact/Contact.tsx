@@ -70,7 +70,6 @@ export const Contact: React.FC = () => {
             <Box display="flex" justifyContent={`flex-end`}>
               <Button
                 type="submit"
-                required
                 size="large"
                 fullWidth={isSmall}
                 variant="contained"

@@ -1,51 +1,82 @@
 import React from "react"
 import { navigate } from "gatsby"
-import parse from "html-react-parser"
 import ClampLines from "react-clamp-lines"
 import {
   Typography,
   Card,
   CardActions,
   CardContent,
-  CardMedia,
-  IconButton,
   Button,
 } from "@mui/material"
-import { useTheme } from "@mui/material/styles"
 import { rem } from "polished"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
 import ReadMoreIcon from "@mui/icons-material/ReadMore"
 
-const BlogCard = ({ frontmatter, html }) => {
-  const theme = useTheme()
-  const parsedHtmlText = parse(html)
-  let featuredImg = getImage(
-    frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
+interface BlogCardProps {
+  frontmatter: {
+    date: string
+    title: string
+    slug: string
+    featuredImage?: {
+      childImageSharp?: {
+        gatsbyImageData: IGatsbyImageData
+      }
+    }
+  }
+  excerpt: string
+}
+
+const BlogCard: React.FC<BlogCardProps> = ({ frontmatter, excerpt }) => {
+  const featuredImg = getImage(
+    frontmatter.featuredImage?.childImageSharp?.gatsbyImageData ?? null
   )
   return (
     <Card
       sx={{
-        maxWidth: `${rem(345)}`,
-        marginBottom: `2rem`,
+        width: `${rem(345)}`,
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
       }}
     >
-      <GatsbyImage image={featuredImg} fullWidth />
-      <CardContent>
+      {featuredImg && (
+        <GatsbyImage
+          image={featuredImg}
+          alt={frontmatter.title}
+          style={{ height: rem(210) }}
+          imgStyle={{ objectFit: "cover" }}
+        />
+      )}
+      <CardContent sx={{ flexGrow: 1 }}>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{ marginBottom: rem(8) }}
+        >
+          {frontmatter.date}
+        </Typography>
         <Typography gutterBottom variant="h6" component="div" color="primary">
-          {frontmatter.title}
+          <ClampLines
+            text={frontmatter.title}
+            lines={2}
+            ellipsis="..."
+            buttons={false}
+            innerElement="span"
+          />
         </Typography>
         <Typography color="common.grey">
           <ClampLines
-            text={html}
+            text={excerpt}
             lines={4}
             ellipsis="..."
             buttons={false}
             innerElement="p"
           />
         </Typography>
-        <Button onClick={() => navigate(`/blog/${frontmatter.slug}`)}></Button>
       </CardContent>
-      <CardActions sx={{ display: "flex", justifyContent: `center` }}>
+      <CardActions
+        sx={{ display: "flex", justifyContent: `center`, marginTop: "auto" }}
+      >
         <Button
           endIcon={<ReadMoreIcon />}
           size="small"

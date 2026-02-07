@@ -7,7 +7,9 @@ const StyledSocialNav = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.light,
 }))
 
-const StyledAppBar = styled(AppBar)(({ appBarWhite, theme }) => ({
+const StyledAppBar = styled(AppBar, {
+  shouldForwardProp: (prop) => prop !== "appBarWhite",
+})<{ appBarWhite?: boolean }>(({ appBarWhite, theme }) => ({
   backgroundColor: appBarWhite ? "white" : "initial",
   transition: "all 500ms",
   [theme.breakpoints.down("xs")]: {
@@ -21,7 +23,9 @@ const StyledNavigation = styled(Box)({
   padding: `${rem(1)}`,
 })
 
-const StyledNavElement = styled(Scrollchor)(({ isactivelink, theme }) => ({
+const StyledNavElement = styled(Scrollchor, {
+  shouldForwardProp: (prop) => prop !== "isactivelink",
+})<{ isactivelink?: boolean }>(({ theme }) => ({
   backgroundColor: "transparent",
   border: 0,
   fontSize: `${rem(16)}`,

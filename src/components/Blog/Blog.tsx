@@ -9,22 +9,20 @@ import { AnimateOnScroll } from "../AnimateOnScroll"
 
 import BlogCard from "./BlogCard"
 
-import ImgGenerativeNfts from "../../images/projects/generative-nft.jpg"
-
 interface BlogData {
   frontmatter: {
     author: string
+    date: string
     slug: string
     title: string
-    featuredImage: {
-      childImageSharp: {
-        gatsbyImageData: {
-          width: number
-        }
+    featuredImage?: {
+      childImageSharp?: {
+        gatsbyImageData: any
       }
     }
   }
   html: string
+  excerpt: string
 }
 
 export const Blog: React.FC = () => {
@@ -32,10 +30,11 @@ export const Blog: React.FC = () => {
     allMarkdownRemark: { nodes },
   } = useStaticQuery(graphql`
     query MyQuery {
-      allMarkdownRemark {
+      allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
         nodes {
           frontmatter {
             author
+            date(formatString: "MMMM DD, YYYY")
             slug
             title
             featuredImage {
@@ -45,6 +44,7 @@ export const Blog: React.FC = () => {
             }
           }
           html
+          excerpt(pruneLength: 200)
         }
       }
     }
@@ -66,6 +66,7 @@ export const Blog: React.FC = () => {
             flexDirection="row"
             flexWrap="wrap"
             justifyContent={`space-evenly`}
+            alignItems="stretch"
           >
             {nodes.map((data: BlogData, index: number) => {
               return (
@@ -73,6 +74,7 @@ export const Blog: React.FC = () => {
                   animateIn="fadeInUp"
                   delay={index * 200}
                   key={cuid()}
+                  style={{ display: "flex", marginBottom: "2rem" }}
                 >
                   <BlogCard {...data} />
                 </AnimateOnScroll>

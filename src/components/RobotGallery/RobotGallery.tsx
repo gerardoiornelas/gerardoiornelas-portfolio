@@ -2,8 +2,6 @@ import React from "react"
 import { Box, useTheme, useMediaQuery } from "@mui/material"
 import Masonry from "@mui/lab/Masonry"
 import cuid from "cuid"
-import PropTypes from "prop-types"
-
 import { AnimateOnScroll } from "../AnimateOnScroll"
 
 import Robot01 from "../../images/gallery/01.jpg"

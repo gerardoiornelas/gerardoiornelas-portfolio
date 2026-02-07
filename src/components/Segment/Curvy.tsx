@@ -1,12 +1,14 @@
 import React from "react"
-import PropTypes from "prop-types"
 
-import { StyledCurvy, StyledCurvyAlt } from "./Segment.styled"
+import {
+  StyledSegmentDecoration,
+  StyledSegmentDecorationAlt,
+} from "./Segment.styled"
 
 interface CurvyProps {
-  alternate: boolean
+  alternate?: boolean
 }
 
 export const Curvy: React.FC<CurvyProps> = ({ alternate = false }) => {
-  return alternate ? <StyledCurvyAlt /> : <StyledCurvy />
+  return alternate ? <StyledSegmentDecorationAlt /> : <StyledSegmentDecoration />
 }

@@ -1,9 +1,9 @@
 import React from "react"
-import _ from "lodash"
+import replace from "lodash/replace"
 import { navigate } from "gatsby"
 import { Grid, Box, Button, Container, Typography, Link } from "@mui/material"
 import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone"
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { Footer } from "../Footer"
 
@@ -17,8 +17,8 @@ interface BlogPostTemplateProps {
         date: string
         author: string
         slug: string
-        featuredImage: {
-          childImageSharp: {
+        featuredImage?: {
+          childImageSharp?: {
             gatsbyImageData: any
           }
         }
@@ -31,18 +31,18 @@ interface BlogPostTemplateProps {
 export const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data }) => {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
-  let featuredImg = getImage(
-    frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
+  const featuredImg = getImage(
+    frontmatter.featuredImage?.childImageSharp?.gatsbyImageData ?? null
   )
-  const transformTitle = _.replace(frontmatter.title, " ", "%20")
+  const transformTitle = replace(frontmatter.title, " ", "%20")
   const twitterShare = `https://twitter.com/share?text=I%20just%20read%20%22${transformTitle}%22%20by%20@gerardoiornelas&url=https://www.gerardoiornelas.com/blog${frontmatter.slug}/`
   const linkedInShare = `https://www.linkedin.com/shareArticle?mini=true&url=https://www.gerardoiornelas.com/blog${frontmatter.slug}/`
   return (
     <>
       <Box py={5}>
-        <Container>
+        <Container maxWidth="sm">
           <Grid container justifyContent="center">
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12}>
               <Box mb={2}>
                 <Button
                   startIcon={<ArrowBackTwoToneIcon />}
@@ -51,9 +51,14 @@ export const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data }) => {
                   Back
                 </Button>
               </Box>
-              <Box mb={3}>
-                <GatsbyImage image={featuredImg} alt="" />
-              </Box>
+              {featuredImg && (
+                <Box mb={3}>
+                  <GatsbyImage
+                    image={featuredImg}
+                    alt={`Featured image for ${frontmatter.title}`}
+                  />
+                </Box>
+              )}
               <Title variant="segmentAlt">{frontmatter.title}</Title>
               <Typography
                 variant="h6"
@@ -71,7 +76,18 @@ export const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data }) => {
               Follow me on Twitter
             </Button>
           </Box> */}
-              <Box my={4}>
+              <Box
+                my={4}
+                sx={{
+                  "& img": {
+                    display: "block",
+                    width: "100%",
+                    maxWidth: 512,
+                    height: "auto",
+                    margin: "1rem auto",
+                  },
+                }}
+              >
                 <div dangerouslySetInnerHTML={{ __html: html }} />
               </Box>
               <Box>

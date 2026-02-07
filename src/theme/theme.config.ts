@@ -14,9 +14,8 @@ const metaKeywords: string =
 const googleFonts: string =
   "https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap"
 
-const fontFamilies: string =
-  "'PT Sans', sans-serif,'p22-arts-and-crafts', sans-serif "
-const headlineFont: string = "'p22-arts-and-crafts', sans-serif"
+const fontFamilies: string = "'PT Sans', sans-serif"
+const headlineFont: string = "'PT Sans', sans-serif"
 const bodyFont: string = "'PT Sans', sans-serif"
 
 const headlineFontStyles: React.CSSProperties = {

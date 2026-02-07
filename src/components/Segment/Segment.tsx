@@ -30,7 +30,7 @@ export const Segment: React.FC<SegmentProps> = ({
   noPadding,
 }) => {
   const theme = useTheme()
-  const bg = getBackground(theme, variant)
+  const bg = getBackground(theme, variant ?? "")
   return (
     <StyledSegment
       sx={{ background: bg }}

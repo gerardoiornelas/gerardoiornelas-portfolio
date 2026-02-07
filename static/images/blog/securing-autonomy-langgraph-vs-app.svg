@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="780" viewBox="0 0 1400 780" role="img" aria-labelledby="title desc">
+  <title id="title">LangGraph path versus LangGraph with APP enforcement</title>
+  <desc id="desc">Side-by-side architecture comparing a standard LangGraph flow using ambient authority and a hardened flow with APP verifier checks and fail-closed denial.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { fill: #0f172a; font-family: Helvetica, Arial, sans-serif; font-size: 40px; font-weight: 700; }
+      .panelL { fill: #fff7ed; stroke: #9a3412; stroke-width: 2; rx: 14; }
+      .panelR { fill: #eff6ff; stroke: #1d4ed8; stroke-width: 2; rx: 14; }
+      .node { fill: #ffffff; stroke: #0f172a; stroke-width: 2; rx: 12; }
+      .text { fill: #0f172a; font-family: Helvetica, Arial, sans-serif; font-size: 24px; }
+      .small { fill: #334155; font-family: Helvetica, Arial, sans-serif; font-size: 20px; }
+      .warning { fill: #9a3412; font-family: Helvetica, Arial, sans-serif; font-size: 21px; font-weight: 700; }
+      .safe { fill: #1d4ed8; font-family: Helvetica, Arial, sans-serif; font-size: 21px; font-weight: 700; }
+      .line { stroke: #1e293b; stroke-width: 3; fill: none; }
+      .lineWarn { stroke: #9a3412; stroke-width: 2; fill: none; stroke-dasharray: 7 7; }
+      .lineSafe { stroke: #1d4ed8; stroke-width: 2; fill: none; stroke-dasharray: 7 7; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="780"/>
+  <text class="title" x="40" y="58">LangGraph Pattern vs LangGraph + APP Enforcement</text>
+
+  <rect class="panelL" x="40" y="100" width="640" height="620"/>
+  <text class="warning" x="70" y="150">Standard LangGraph Path (Ambient Authority Risk)</text>
+
+  <rect class="node" x="90" y="210" width="140" height="70"/>
+  <text class="text" x="130" y="255">User</text>
+
+  <rect class="node" x="280" y="210" width="160" height="70"/>
+  <text class="text" x="316" y="255">Router</text>
+
+  <rect class="node" x="500" y="210" width="160" height="70"/>
+  <text class="text" x="536" y="255">Worker</text>
+
+  <rect class="node" x="500" y="350" width="160" height="70"/>
+  <text class="text" x="558" y="395">Tool</text>
+
+  <rect class="node" x="500" y="490" width="160" height="70"/>
+  <text class="text" x="558" y="535">Tool</text>
+
+  <line class="line" x1="230" y1="245" x2="280" y2="245" marker-end="url(#arrow)"/>
+  <line class="line" x1="440" y1="245" x2="500" y2="245" marker-end="url(#arrow)"/>
+  <line class="line" x1="580" y1="280" x2="580" y2="350" marker-end="url(#arrow)"/>
+  <line class="lineWarn" x1="580" y1="280" x2="580" y2="490" marker-end="url(#arrow)"/>
+
+  <text class="small" x="70" y="620">Risk: mounted tools can be reached without explicit execution-time grants.</text>
+
+  <rect class="panelR" x="720" y="100" width="640" height="620"/>
+  <text class="safe" x="750" y="150">LangGraph + APP Path (Deterministic Enforcement)</text>
+
+  <rect class="node" x="770" y="210" width="140" height="70"/>
+  <text class="text" x="810" y="255">User</text>
+
+  <rect class="node" x="960" y="210" width="160" height="70"/>
+  <text class="text" x="996" y="255">Router</text>
+
+  <rect class="node" x="1180" y="210" width="160" height="70"/>
+  <text class="text" x="1216" y="255">Worker</text>
+
+  <rect class="node" x="1110" y="350" width="230" height="90"/>
+  <text class="text" x="1160" y="392">APP Verifier</text>
+  <text class="small" x="1135" y="418">Allow or deny</text>
+
+  <rect class="node" x="1110" y="510" width="230" height="80"/>
+  <text class="text" x="1196" y="558">Tool</text>
+
+  <rect class="node" x="820" y="350" width="230" height="90"/>
+  <text class="warning" x="870" y="392">Deny</text>
+  <text class="small" x="845" y="418">invalid or expired policy</text>
+
+  <line class="line" x1="910" y1="245" x2="960" y2="245" marker-end="url(#arrow)"/>
+  <line class="line" x1="1120" y1="245" x2="1180" y2="245" marker-end="url(#arrow)"/>
+  <line class="line" x1="1260" y1="280" x2="1260" y2="350" marker-end="url(#arrow)"/>
+  <line class="lineSafe" x1="1225" y1="440" x2="1225" y2="510" marker-end="url(#arrow)"/>
+  <line class="lineWarn" x1="1110" y1="395" x2="1050" y2="395" marker-end="url(#arrow)"/>
+
+  <text class="small" x="750" y="620">Control: no tool invocation occurs without cryptographic policy verification.</text>
+</svg>

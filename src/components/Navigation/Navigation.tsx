@@ -60,15 +60,15 @@ export const Navigation: React.FC<YAxisProps> = ({
 
   useEffect(() => {
     if (yPos !== null) {
-      if (yPos < yAxisProjects) {
+      if (yAxisProjects != null && yPos < yAxisProjects) {
         setActiveLink("home")
-      } else if (yPos > yAxisProjects - 150 && yPos < yAxisCv) {
+      } else if (yAxisProjects != null && yAxisCv != null && yPos > yAxisProjects - 150 && yPos < yAxisCv) {
         setActiveLink("projects")
-      } else if (yPos > yAxisCv - 150 && yPos < yAxisBlog) {
+      } else if (yAxisCv != null && yAxisBlog != null && yPos > yAxisCv - 150 && yPos < yAxisBlog) {
         setActiveLink("cv")
-      } else if (yPos > yAxisBlog - 150 && yPos < yAxisContact) {
+      } else if (yAxisBlog != null && yAxisContact != null && yPos > yAxisBlog - 150 && yPos < yAxisContact) {
         setActiveLink("blog")
-      } else if (yPos + 235 >= yAxisBlog) {
+      } else if (yAxisBlog != null && yPos + 235 >= yAxisBlog) {
         setActiveLink("contact")
       }
     }
@@ -117,7 +117,7 @@ export const Navigation: React.FC<YAxisProps> = ({
                 }}
               >
                 <Title variant="segmentAlt" color="primary">
-                  {isSmall ? "GIOrnelas" : "Gerardo I. ornelas"}
+                  {isSmall ? "GIOrnelas" : "Gerardo I. Ornelas"}
                 </Title>
               </Scrollchor>
             </Box>

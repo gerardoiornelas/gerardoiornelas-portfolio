@@ -4,7 +4,6 @@ import { lighten, darken } from "polished"
 import {
   primaryColor,
   secondaryColor,
-  accentColor,
   fontFamilies,
   headlineFontStyles,
   commonColorStyles,
@@ -25,11 +24,6 @@ const theme = createTheme({
       light: lighten(0.1, secondaryColor),
       main: secondaryColor,
       dark: darken(0.1, secondaryColor),
-    },
-    accent: {
-      light: lighten(0.1, accentColor),
-      main: accentColor,
-      dark: darken(0.1, accentColor),
     },
     common: {
       ...commonColorStyles,

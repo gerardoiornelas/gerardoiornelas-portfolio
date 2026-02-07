@@ -20,8 +20,11 @@ function setDecorationPadding(decorated: boolean, decoratedAlt: boolean) {
   return pb
 }
 
-const StyledSegment = styled(Box)(
-  ({ theme, decorated, decoratedAlt, noPadding }) => ({
+const StyledSegment = styled(Box, {
+  shouldForwardProp: (prop) =>
+    prop !== "decorated" && prop !== "decoratedAlt" && prop !== "noPadding",
+})<{ decorated?: boolean; decoratedAlt?: boolean; noPadding?: boolean }>(
+  ({ decorated = false, decoratedAlt = false, noPadding }) => ({
     position: "relative",
     paddingBottom: setDecorationPadding(decorated, decoratedAlt),
     paddingTop: noPadding ? 0 : 4,
@@ -48,25 +51,32 @@ const StyledSegmentDecorationAlt = styled(Box)({
   bottom: "0",
 })
 
-const StyledPad = styled(Box)(
-  ({ theme, segmentDecoration, segmentDecorationAlt, noPadding }) => ({
-    paddingTop: `${noPadding ? 0 : rem(50)}`,
-    paddingRight: `${noPadding ? 0 : rem(50)}`,
-    paddingBottom: segmentDecorationAlt
-      ? `${rem(115)}`
-      : `${noPadding ? 0 : rem(50)}`,
-    paddingLeft: `${noPadding ? 0 : rem(50)}`,
-    [theme.breakpoints.down("sm")]: {
-      paddingTop: `${noPadding ? 0 : rem(10)}`,
-      paddingRight: `${noPadding ? 0 : rem(10)}`,
-      paddingBottom:
-        segmentDecoration || segmentDecorationAlt
-          ? `${rem(15)}`
-          : `${noPadding ? 0 : rem(10)}`,
-      paddingLeft: `${noPadding ? 0 : rem(10)}`,
-    },
-  })
-)
+const StyledPad = styled(Box, {
+  shouldForwardProp: (prop) =>
+    prop !== "segmentDecoration" &&
+    prop !== "segmentDecorationAlt" &&
+    prop !== "noPadding",
+})<{
+  segmentDecoration?: boolean
+  segmentDecorationAlt?: boolean
+  noPadding?: boolean
+}>(({ theme, segmentDecorationAlt, segmentDecoration, noPadding }) => ({
+  paddingTop: `${noPadding ? 0 : rem(50)}`,
+  paddingRight: `${noPadding ? 0 : rem(50)}`,
+  paddingBottom: segmentDecorationAlt
+    ? `${rem(115)}`
+    : `${noPadding ? 0 : rem(50)}`,
+  paddingLeft: `${noPadding ? 0 : rem(50)}`,
+  [theme.breakpoints.down("sm")]: {
+    paddingTop: `${noPadding ? 0 : rem(10)}`,
+    paddingRight: `${noPadding ? 0 : rem(10)}`,
+    paddingBottom:
+      segmentDecoration || segmentDecorationAlt
+        ? `${rem(15)}`
+        : `${noPadding ? 0 : rem(10)}`,
+    paddingLeft: `${noPadding ? 0 : rem(10)}`,
+  },
+}))
 
 export {
   StyledSegment,

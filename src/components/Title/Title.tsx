@@ -4,7 +4,7 @@ import { SegmentTitle } from "./SegmentTitle"
 import { SegmentTitleAlt } from "./SegmentTitleAlt"
 import { SectionTitle, SectionTitleProps } from "./SectionTitle"
 
-interface TitleProps extends SectionTitleProps {
+interface TitleProps extends Omit<SectionTitleProps, "variant"> {
   variant: "hero" | "segment" | "segmentAlt" | "section"
   children: React.ReactNode
 }

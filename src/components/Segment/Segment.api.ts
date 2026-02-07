@@ -1,7 +1,7 @@
 import { Theme } from "@mui/material/styles"
 
 const getBackground = (theme: Theme, variant: string): string => {
-  let bgColor: string | null = null
+  let bgColor: string = theme.palette.common.white
   switch (variant) {
     case "primary":
       bgColor = theme.palette.primary.main

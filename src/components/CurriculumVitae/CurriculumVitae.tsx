@@ -7,15 +7,9 @@ import { Title } from "../Title"
 import { RowCol, Row, Col } from "../RowCol"
 import { Role } from "./Role"
 
-import CvPdf from "../../pdf/Gerardo_Ornelas_Resume_02_12_2023.pdf"
-
 import { roles } from "./CurriculumVitae.api"
 
-interface Props {
-  children: React.ReactNode
-}
-
-export const CurriculumVitae = ({ children }: Props) => {
+export const CurriculumVitae: React.FC = () => {
   return (
     <Box py={6}>
       <Container>
