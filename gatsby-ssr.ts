@@ -7,6 +7,22 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({
 }) => {
   setHtmlAttributes({ lang: `en` })
   setHeadComponents([
+    React.createElement("script", {
+      key: "gtag-src",
+      async: true,
+      src: "https://www.googletagmanager.com/gtag/js?id=G-J0ENF326VF",
+    }),
+    React.createElement("script", {
+      key: "gtag-inline",
+      dangerouslySetInnerHTML: {
+        __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-J0ENF326VF');
+        `,
+      },
+    }),
     React.createElement("meta", {
       key: "viewport",
       name: "viewport",
