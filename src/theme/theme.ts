@@ -1,81 +1,35 @@
 import { createTheme } from "@mui/material/styles"
-import { lighten, darken } from "polished"
 
 import {
-  primaryColor,
-  secondaryColor,
   fontFamilies,
   headlineFontStyles,
   commonColorStyles,
   bodyFont,
-  customColorStyles,
 } from "./theme.config"
 
 // A custom theme for this app
 const theme = createTheme({
   palette: {
-    // mode: "dark",
+    mode: "light",
     primary: {
-      light: lighten(0.1, primaryColor),
-      main: primaryColor,
-      dark: darken(0.1, primaryColor),
+      main: "#401e87",
     },
     secondary: {
-      light: lighten(0.1, secondaryColor),
-      main: secondaryColor,
-      dark: darken(0.1, secondaryColor),
+      main: "#945be2",
     },
-    common: {
-      ...commonColorStyles,
+
+    tertiary: {
+      light: "#90caf9",
+      main: "#42a5f5",
+      dark: "#1565c0",
     },
-    ...customColorStyles,
-  },
-  typography: {
-    fontFamily: fontFamilies,
-    h1: {
-      fontFamily: bodyFont,
-      fontWeight: 700,
-    },
-    h2: {
-      fontFamily: bodyFont,
-      fontWeight: 400,
-    },
-    h3: {
-      fontFamily: bodyFont,
-      fontWeight: 400,
-    },
-    h4: {
-      ...headlineFontStyles,
-    },
-    h5: {
-      fontFamily: bodyFont,
-    },
-    h6: {
-      fontFamily: bodyFont,
-    },
-    subtitle1: {
-      fontFamily: bodyFont,
-    },
-    subtitle2: {
-      fontFamily: bodyFont,
-    },
-    body1: {
-      fontFamily: bodyFont,
-      color: commonColorStyles.grey,
-    },
-    body2: {
-      fontFamily: bodyFont,
-    },
-    button: {
-      fontFamily: bodyFont,
-    },
-    caption: {
-      fontFamily: bodyFont,
-    },
-    overline: {
-      fontFamily: bodyFont,
+    accent: {
+      light: "#ce93d8",
+      main: "#ab47bc",
+      dark: "#7b1fa2",
     },
   },
+
   components: {
     MuiButton: {
       styleOverrides: {

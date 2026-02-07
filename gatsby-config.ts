@@ -9,8 +9,8 @@
  */
 export default {
   siteMetadata: {
-    title: `Gerardo I. Ornelas | Secure AI Agent Systems`,
-    description: `Technology leader building execution-time security and cryptographic controls for AI systems.`,
+    title: `Gerardo I. Ornelas | Tech Futurist in Blockchain & Agentic AI Security`,
+    description: `Founder and technologist building blockchain-backed provenance and execution-time security for AI agents. Co-Author of the Agent Permission Protocol.`,
     author: `Gerardo I. Ornelas`,
     siteUrl: `https://www.gerardoiornelas.com`,
   },

@@ -30,8 +30,8 @@ export const LayoutAlt: React.FC<LayoutAltProps> = ({ children }) => {
           color="transparent"
           elevation={0}
           sx={{
-            backgroundColor: "#fff",
-            borderBottom: `1px solid #fafafa`,
+            backgroundColor: theme.palette.background.default,
+            borderBottom: `1px solid ${theme.palette.divider}`,
           }}
         >
           <Container disableGutters maxWidth="lg">

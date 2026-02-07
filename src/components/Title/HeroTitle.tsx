@@ -12,16 +12,7 @@ export const HeroTitle: React.FC<HeroTitleProps> = ({
   ...props
 }) => {
   return (
-    <Typography
-      variant="h1"
-      sx={{
-        fontSize: {
-          xs: "4rem",
-          md: "5rem",
-        },
-      }}
-      {...props}
-    >
+    <Typography variant="h2" {...props}>
       {children}
     </Typography>
   )

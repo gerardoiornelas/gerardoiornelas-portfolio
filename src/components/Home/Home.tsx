@@ -34,29 +34,28 @@ export const Home: React.FC = () => {
                 <Box>
                   <RowCol mb={2}>
                     <AnimateOnScroll animateIn="fadeIn">
-                      <Title variant="hero" color="primary">
-                        Co-founder at{" "}
-                        <Box
-                          component="span"
-                          display="inline-block"
-                          sx={{ color: theme.palette.secondary.main }}
-                        >
-                          Crittora
+                      <Typography variant="h5" component="h1">
+                        Tech Futurist in
+                        <br />
+                        <Box component="span">
+                          Blockchain + Agentic AI Security
                         </Box>
-                      </Title>
-                      <Title variant="hero" color="primary">
-                        Secure AI agents in production
-                      </Title>
+                      </Typography>
+
+                      <Typography variant="h3" component="h2" color="primary">
+                        I design trust infrastructure for autonomous systems
+                      </Typography>
                     </AnimateOnScroll>
                   </RowCol>
                   <RowCol>
                     <AnimateOnScroll animateIn="fadeIn" delay={500}>
                       <Typography>
-                        I lead strategy, design, and development of Crittora's
-                        cryptographic experience stack — the trust layer that
-                        authorizes what agents can do at the moment they act. We
-                        enforce explicit, time-bound authority and signed
-                        Proof-of-Action receipts for every action.
+                        I’m Gerardo I. Ornelas, Co-Founder at Crittora and
+                        Co-Author of the Agent Permission Protocol. I build
+                        execution-time security systems that verify who or what
+                        is allowed to act, before action happens. My work
+                        combines cryptographic policy enforcement, verifiable
+                        provenance, and production-grade controls for AI agents.
                       </Typography>
                     </AnimateOnScroll>
                   </RowCol>

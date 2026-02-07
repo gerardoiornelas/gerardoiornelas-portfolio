@@ -31,29 +31,21 @@ export const Role: React.FC<RoleProps> = ({
         />
       </Box>
       <Box>
-        <Typography color="white" align="center">
+        <Typography align="center">
           <strong>{title}</strong>
         </Typography>
       </Box>
       <Box>
-        <Typography color="white" align="center">
-          {employer}
-        </Typography>
+        <Typography align="center">{employer}</Typography>
       </Box>
       <Box>
-        <Typography color="white" align="center">
-          {dates}
-        </Typography>
+        <Typography align="center">{dates}</Typography>
       </Box>
       <Box>
-        <Typography color="white" align="center">
-          {location}
-        </Typography>
+        <Typography align="center">{location}</Typography>
       </Box>
       <Box>
-        <Typography color="white" align="center">
-          {description}
-        </Typography>
+        <Typography align="center">{description}</Typography>
       </Box>
     </Box>
   )

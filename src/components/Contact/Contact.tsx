@@ -17,7 +17,7 @@ export const Contact: React.FC = () => {
   return (
     <Container>
       <RowCol mb={4}>
-        <Title variant="segmentAlt" color="primary" align="center">
+        <Title variant="segment" align="center">
           Get in touch
         </Title>
       </RowCol>

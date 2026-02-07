@@ -1,9 +1,9 @@
 import { lighten, darken } from "polished"
 
-const primaryColor: string = "#03002D"
-const secondaryColor: string = "#F7218C"
-const tertiaryColor: string = "#4BBDD2"
-const accentColor: string = "#AB28A4"
+const primaryColor: string = "#230046"
+const secondaryColor: string = "#320064"
+const tertiaryColor: string = "#282828"
+const accentColor: string = "#141414"
 
 const appTitle: string = "Gerardo I. Ornelas - Web3 Developer"
 const metaDescription: string =
@@ -12,11 +12,11 @@ const metaKeywords: string =
   "react, hardhat, solidity, web3, UX, UI, blockchain"
 
 const googleFonts: string =
-  "https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap"
+  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
 
-const fontFamilies: string = "'PT Sans', sans-serif"
-const headlineFont: string = "'PT Sans', sans-serif"
-const bodyFont: string = "'PT Sans', sans-serif"
+const fontFamilies: string = "'Inter', sans-serif"
+const headlineFont: string = "'Space Grotesk', sans-serif"
+const bodyFont: string = "'Inter', sans-serif"
 
 const headlineFontStyles: React.CSSProperties = {
   fontFamily: headlineFont,
@@ -28,8 +28,8 @@ const headlineFontStyles: React.CSSProperties = {
 const commonColorStyles: { [key: string]: string } = {
   white: "#fff",
   black: "#000",
-  grey: "#696a6c",
-  lightGrey: "#fafafa",
+  grey: "#B3B3B3",
+  lightGrey: "#141414",
 }
 
 const customColorStyles: {

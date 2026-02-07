@@ -9,6 +9,7 @@ import {
   Toolbar,
   Drawer,
   ListItem,
+  Typography,
   List,
   useMediaQuery,
 } from "@mui/material"
@@ -62,11 +63,26 @@ export const Navigation: React.FC<YAxisProps> = ({
     if (yPos !== null) {
       if (yAxisProjects != null && yPos < yAxisProjects) {
         setActiveLink("home")
-      } else if (yAxisProjects != null && yAxisCv != null && yPos > yAxisProjects - 150 && yPos < yAxisCv) {
+      } else if (
+        yAxisProjects != null &&
+        yAxisCv != null &&
+        yPos > yAxisProjects - 150 &&
+        yPos < yAxisCv
+      ) {
         setActiveLink("projects")
-      } else if (yAxisCv != null && yAxisBlog != null && yPos > yAxisCv - 150 && yPos < yAxisBlog) {
+      } else if (
+        yAxisCv != null &&
+        yAxisBlog != null &&
+        yPos > yAxisCv - 150 &&
+        yPos < yAxisBlog
+      ) {
         setActiveLink("cv")
-      } else if (yAxisBlog != null && yAxisContact != null && yPos > yAxisBlog - 150 && yPos < yAxisContact) {
+      } else if (
+        yAxisBlog != null &&
+        yAxisContact != null &&
+        yPos > yAxisBlog - 150 &&
+        yPos < yAxisContact
+      ) {
         setActiveLink("blog")
       } else if (yAxisBlog != null && yPos + 235 >= yAxisBlog) {
         setActiveLink("contact")
@@ -82,11 +98,11 @@ export const Navigation: React.FC<YAxisProps> = ({
         elevation={0}
         sx={{
           backgroundColor: appBarColorChange
-            ? "rgba(255,255,255,0.85)"
+            ? "rgba(255,255,255,0.5)"
             : "initial",
           transition: "all 500ms",
           borderBottom: `1px solid ${
-            appBarColorChange ? "#fafafa" : "transparent"
+            appBarColorChange ? theme.palette.divider : "transparent"
           }`,
         }}
       >
@@ -110,15 +126,13 @@ export const Navigation: React.FC<YAxisProps> = ({
                 animate={{ duration: 1000, easing: easeOutQuad }}
                 isactivelink={activeLink === "home"}
                 style={{
-                  color: appBarColorChange
-                    ? theme.palette.common.white
-                    : theme.palette.primary.main,
+                  color: theme.palette.text.primary,
                   textDecoration: "none",
                 }}
               >
-                <Title variant="segmentAlt" color="primary">
+                <Typography variant="h4" component="h3">
                   {isSmall ? "GIOrnelas" : "Gerardo I. Ornelas"}
-                </Title>
+                </Typography>
               </Scrollchor>
             </Box>
             <Box

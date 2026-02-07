@@ -6,10 +6,6 @@ author: "Gerardo I. Ornelas"
 featuredImage: "../images/blog/verifiably-human-part-1.png"
 ---
 
-# Verifiably Human — Part I
-
-## Everything Is Synthetic by Default
-
 I started thinking about this after watching a video that felt completely real.
 
 No glitches. No weird eyes. No obvious artifacts.

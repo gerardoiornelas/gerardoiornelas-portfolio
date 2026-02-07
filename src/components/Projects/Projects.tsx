@@ -28,9 +28,15 @@ export const Projects: React.FC = () => {
             flexDirection="row"
             flexWrap="wrap"
             justifyContent={`space-evenly`}
+            alignItems="stretch"
           >
             {projectsData.map((data, index) => (
-              <AnimateOnScroll animateIn="fadeInUp" delay={index * 200}>
+              <AnimateOnScroll
+                animateIn="fadeInUp"
+                delay={index * 200}
+                key={data.id}
+                style={{ display: "flex", marginBottom: "2rem" }}
+              >
                 <ProjectCard {...data} />
               </AnimateOnScroll>
             ))}

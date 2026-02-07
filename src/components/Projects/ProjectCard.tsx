@@ -38,44 +38,41 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     <Card
       id={id}
       sx={{
-        maxWidth: `${rem(345)}`,
-        marginBottom: `2rem`,
-        background: `transparent`,
-        border: `1px solid ${theme.palette.secondary.main}`,
+        width: `${rem(345)}`,
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
       }}
     >
-      <CardMedia component="img" alt={imgAlt} height="100" image={imgSrc} />
-      <CardContent>
-        <Typography
-          gutterBottom
-          variant="h6"
-          component="div"
-          color="common.white"
-        >
+      <CardMedia component="img" alt={imgAlt} image={imgSrc} />
+      <CardContent sx={{ flexGrow: 1 }}>
+        <Typography gutterBottom variant="h6" component="div">
           {title}
         </Typography>
         {description.map((el, index) => (
-          <Typography
-            key={index}
-            variant="body2"
-            sx={{
-              color: `${theme.palette.tertiary.main}`,
-            }}
-          >
+          <Typography key={index} variant="body2" color="text.secondary">
             {el}
           </Typography>
         ))}
       </CardContent>
-      <CardActions sx={{ display: "flex", justifyContent: `space-between` }}>
+      <CardActions
+        sx={{
+          display: "flex",
+          justifyContent: `space-between`,
+          marginTop: "auto",
+        }}
+      >
         <Box>
           {url && (
             <Button
-              startIcon={<OpenInBrowserTwoToneIcon sx={{ color: `#fff` }} />}
+              startIcon={
+                <OpenInBrowserTwoToneIcon sx={{ color: "secondary" }} />
+              }
               href={url}
               target="_blank"
               rel="noreferrer"
               size="small"
-              sx={{ color: "#fff" }}
+              color="secondary"
             >
               Website
             </Button>
@@ -89,7 +86,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               target="_blank"
               rel="noreferrer"
               size="small"
-              sx={{ color: "#fff" }}
             >
               Source Code
             </Button>

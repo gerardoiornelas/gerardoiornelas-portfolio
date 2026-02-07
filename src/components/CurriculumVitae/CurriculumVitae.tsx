@@ -16,7 +16,7 @@ export const CurriculumVitae: React.FC = () => {
         <RowCol mb={4}>
           <AnimateOnScroll animateIn="fadeInUp">
             <Box>
-              <Title variant="segment" align="center" color="common.white">
+              <Title variant="segment" align="center">
                 Curriculum Vitae
               </Title>
             </Box>
@@ -25,19 +25,19 @@ export const CurriculumVitae: React.FC = () => {
         <RowCol mb={6}>
           <Box display="flex" justifyContent={`center`}>
             <Box sx={{ maxWidth: "640px" }}>
-              <Typography color="white" align="center">
-                I'm a technology leader focused on execution-time security for
-                AI systems. I lead cross-functional teams building cryptographic
-                controls that make authority explicit, enforceable, and
-                auditable at runtime. I believe durable security comes from
-                clear policy, rigorous implementation, and strong collaboration.
+              <Typography align="center">
+                I work at the frontier of blockchain and agentic AI security. My
+                focus is turning trust from an assumption into infrastructure:
+                explicit authority, cryptographic proof, and auditable
+                execution. I lead teams that translate these ideas into
+                deployable systems used in real production workflows.
               </Typography>
             </Box>
           </Box>
         </RowCol>
         <RowCol mb={2}>
           <RowCol mb={2}>
-            <Typography align="center" color="white">
+            <Typography align="center">
               <strong> Current Roles</strong>
             </Typography>
           </RowCol>

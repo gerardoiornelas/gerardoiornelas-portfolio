@@ -2,9 +2,10 @@ import React from "react"
 
 const SITE_NAME = "Gerardo I. Ornelas"
 const SITE_URL = "https://www.gerardoiornelas.com"
-const DEFAULT_TITLE = "Gerardo I. Ornelas | Secure AI Agent Systems"
+const DEFAULT_TITLE =
+  "Gerardo I. Ornelas | Tech Futurist in Blockchain & Agentic AI Security"
 const DEFAULT_DESCRIPTION =
-  "Technology leader building execution-time security and cryptographic controls for AI systems."
+  "Founder and technologist building blockchain-backed provenance and execution-time security for AI agents. Co-Author of the Agent Permission Protocol."
 const DEFAULT_IMAGE = "/lone-star-gs.png"
 
 interface SeoProps {

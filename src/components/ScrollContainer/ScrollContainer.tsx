@@ -48,16 +48,16 @@ export const ScrollContainer: React.FC = () => {
         yAxisBlog={posBlog}
         yAxisContact={posContact}
       >
-        <Segment segmentDecoration>
+        <Segment>
           <Home />
         </Segment>
-        <Segment variant="primary" noPadding>
+        <Segment noPadding>
           <Box sx={{ position: "relative" }} ref={refProjects}>
             <Box id="projects" sx={{ position: "absolute", top: topPos }}></Box>
             <Projects />
           </Box>
         </Segment>
-        <Segment variant="gradient">
+        <Segment>
           <Box
             id="blog"
             sx={{ position: "absolute", top: topPos }}
@@ -65,7 +65,7 @@ export const ScrollContainer: React.FC = () => {
           ></Box>
           <Blog />
         </Segment>
-        <Segment variant="accent">
+        <Segment>
           <Box
             id="cv"
             sx={{ position: "absolute", top: topPos }}

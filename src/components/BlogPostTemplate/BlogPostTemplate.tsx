@@ -59,7 +59,7 @@ export const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data }) => {
                   />
                 </Box>
               )}
-              <Title variant="segmentAlt">{frontmatter.title}</Title>
+              <Title variant="segment">{frontmatter.title}</Title>
               <Typography
                 variant="h6"
                 color="primary"

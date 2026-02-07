@@ -1,7 +1,7 @@
 import { Theme } from "@mui/material/styles"
 
 const getBackground = (theme: Theme, variant: string): string => {
-  let bgColor: string = theme.palette.common.white
+  let bgColor: string = theme.palette.background.default
   switch (variant) {
     case "primary":
       bgColor = theme.palette.primary.main
@@ -22,7 +22,7 @@ const getBackground = (theme: Theme, variant: string): string => {
       bgColor = `linear-gradient(0deg, rgba(171,40,164,1) 0%, rgba(3, 0, 45, 1) 100%);`
       break
     default:
-      bgColor = theme.palette.common.white
+      bgColor = theme.palette.background.default
   }
   return bgColor
 }

@@ -1,8 +1,8 @@
 import cuid from "cuid"
 
-import ImgGenerativeNfts from "../../images/projects/generative-nft.jpg"
-import ImgCrowdfunding from "../../images/projects/crowdfunding.jpg"
-import ImgDao from "../../images/projects/dao.jpg"
+import ImgCrittora from "../../images/projects/crittora.png"
+import ImgQVerify from "../../images/projects/qverify.png"
+import ImgAPP from "../../images/projects/app.png"
 
 interface ProjectData {
   id: string
@@ -19,10 +19,10 @@ const projectsData: ProjectData[] = [
     id: cuid(),
     title: `Crittora`,
     description: [
-      "The cryptographic control point between AI agents and real systems, enforcing explicit, time-bound authority at execution.",
-      "Signed Proof-of-Action receipts make every action measurable, enforceable, and auditable.",
+      "Trust infrastructure for autonomous software, where execution-time authority is explicit, bounded, and enforceable.",
+      "Signed Proof-of-Action receipts make autonomous decisions measurable, verifiable, and auditable.",
     ],
-    imgSrc: ImgGenerativeNfts,
+    imgSrc: ImgCrittora,
     imgAlt: "abstract cryptographic control layer",
     url: `https://www.crittora.com/`,
   },
@@ -30,10 +30,10 @@ const projectsData: ProjectData[] = [
     id: cuid(),
     title: `Agent Permission Protocol (APP)`,
     description: [
-      "Execution-time authorization layer for AI agents that verifies a signed, time-bound permission envelope before any tool runs.",
-      "Prevents forged calls, replays, and over-broad actions while creating portable, verifiable receipts.",
+      "Open protocol for cryptographic agent permissions at execution time, verified before any tool invocation.",
+      "Prevents forged calls, replayed actions, and over-broad execution while producing portable verification receipts.",
     ],
-    imgSrc: ImgCrowdfunding,
+    imgSrc: ImgAPP,
     imgAlt: "execution-time authorization gate",
     url: `https://www.crittora.com/app/whitepaper`,
   },
@@ -41,10 +41,10 @@ const projectsData: ProjectData[] = [
     id: cuid(),
     title: `Qripton Verify`,
     description: [
-      "Enterprise-ready platform for securely sharing sensitive documents with identity-bound access control and zero setup.",
-      "Only the intended recipient can decrypt and view the file, with full auditability.",
+      "Human provenance and secure document authenticity pipeline for high-trust workflows.",
+      "Identity-bound decryption ensures only intended recipients can access sensitive files with full auditability.",
     ],
-    imgSrc: ImgDao,
+    imgSrc: ImgQVerify,
     imgAlt: "secure document verification",
     url: `https://qriptonverify.com/`,
   },

@@ -10,13 +10,13 @@ const StyledSocialNav = styled(Box)(({ theme }) => ({
 const StyledAppBar = styled(AppBar, {
   shouldForwardProp: (prop) => prop !== "appBarWhite",
 })<{ appBarWhite?: boolean }>(({ appBarWhite, theme }) => ({
-  backgroundColor: appBarWhite ? "white" : "initial",
+  backgroundColor: appBarWhite ? theme.palette.background.default : "initial",
   transition: "all 500ms",
   [theme.breakpoints.down("xs")]: {
-    backgroundColor: "white",
+    backgroundColor: theme.palette.background.default,
   },
   [theme.breakpoints.up("sm")]: {
-    backgroundColor: "white",
+    backgroundColor: theme.palette.background.default,
   },
 }))
 const StyledNavigation = styled(Box)({
@@ -29,7 +29,7 @@ const StyledNavElement = styled(Scrollchor, {
   backgroundColor: "transparent",
   border: 0,
   fontSize: `${rem(16)}`,
-  color: theme.palette.primary.main,
+  color: theme.palette.text.primary,
   padding: `${rem(10)} ${rem(22)}`,
   textDecoration: "none",
   transition: "all 500ms",
@@ -49,14 +49,14 @@ const StyledNavElement = styled(Scrollchor, {
     clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
   },
   "&:hover": {
-    color: theme.palette.primary.light,
+    color: theme.palette.secondary.light,
     cursor: "pointer",
     "&:after": {
       clipPath: "polygon(10% 0, 90% 0, 90% 100%, 10% 100%)",
     },
   },
   [theme.breakpoints.down("sm")]: {
-    color: "#fff",
+    color: theme.palette.text.primary,
   },
 }))
 
