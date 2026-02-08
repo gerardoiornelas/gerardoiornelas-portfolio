@@ -97,9 +97,7 @@ export const Navigation: React.FC<YAxisProps> = ({
         color="transparent"
         elevation={0}
         sx={{
-          backgroundColor: appBarColorChange
-            ? "rgba(255,255,255,0.5)"
-            : "initial",
+          backgroundColor: appBarColorChange ? "rrgb(9, 5, 63)" : "initial",
           transition: "all 500ms",
           borderBottom: `1px solid ${
             appBarColorChange ? theme.palette.divider : "transparent"
@@ -130,9 +128,14 @@ export const Navigation: React.FC<YAxisProps> = ({
                   textDecoration: "none",
                 }}
               >
-                <Title variant="segment">
+                <Typography
+                  variant="h5"
+                  component="h2"
+                  sx={{ fontWeight: 700 }}
+                  textTransform={`uppercase`}
+                >
                   {isSmall ? "GIOrnelas" : "Gerardo I. Ornelas"}
-                </Title>
+                </Typography>
               </Scrollchor>
             </Box>
             <Box

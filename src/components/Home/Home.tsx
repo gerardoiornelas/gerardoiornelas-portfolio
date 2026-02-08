@@ -25,6 +25,19 @@ export const Home: React.FC = () => {
       <Container>
         <Box py={4}>
           <Row>
+            {" "}
+            <Col xs={12} md={6}>
+              <Box display="flex" justifyContent={`center`}>
+                <AnimateOnScroll animateIn={"fadeIn"}>
+                  <Box
+                    component="img"
+                    width={`100%`}
+                    src={ImgLostwunHero}
+                    alt="digital illustration of gerardo ornelas"
+                  />
+                </AnimateOnScroll>
+              </Box>
+            </Col>
             <Col xs={12} md={6}>
               <Box
                 height={`565px`}
@@ -43,7 +56,12 @@ export const Home: React.FC = () => {
                         </Box>
                       </Typography>
 
-                      <Typography variant="h3" component="h2" color="primary">
+                      <Typography
+                        variant="h4"
+                        component="h2"
+                        color="primary"
+                        textTransform="uppercase"
+                      >
                         I design trust infrastructure for autonomous systems
                       </Typography>
                     </AnimateOnScroll>
@@ -80,18 +98,6 @@ export const Home: React.FC = () => {
                     </Box>
                   </RowCol>
                 </Box>
-              </Box>
-            </Col>
-            <Col xs={12} md={6}>
-              <Box display="flex" justifyContent={`center`}>
-                <AnimateOnScroll animateIn={"fadeIn"}>
-                  <Box
-                    component="img"
-                    sx={{ maxHeight: "500px" }}
-                    src={ImgLostwunHero}
-                    alt="digital illustration of gerardo ornelas"
-                  />
-                </AnimateOnScroll>
               </Box>
             </Col>
           </Row>

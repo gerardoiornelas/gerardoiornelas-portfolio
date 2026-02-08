@@ -2,7 +2,7 @@ import { lighten, darken } from "polished"
 
 // Brand palette
 const brandOffWhite: string = "#D8D8D8"
-const brandNavy: string = "#09053F"
+const brandNavy: string = "rgb(9, 5, 63)"
 const brandViolet: string = "#6F4B9B"
 const brandLime: string = "#D4DF1E"
 const brandCyan: string = "#38B4C6"
