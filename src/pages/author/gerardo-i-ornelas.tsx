@@ -1,42 +1,57 @@
 import * as React from "react"
 import { Link, type HeadFC } from "gatsby"
-import { Box, Container, Typography } from "@mui/material"
+import { Box, Container, Grid, Typography } from "@mui/material"
 import { LayoutAlt } from "../../components/Layout"
 import { Seo, seoDefaults } from "../../components/Seo"
 import { Title } from "../../components/Title"
+import ImgAuthor from "../../images/hero-author.png"
 
 const AuthorPage: React.FC = () => {
   return (
     <LayoutAlt>
       <Box py={6}>
         <Container maxWidth="md">
-          <Title variant="segmentAlt">Gerardo I. Ornelas</Title>
-          <Typography variant="h6" color="text.secondary" sx={{ mb: 2 }}>
-            Tech Futurist in Blockchain and Agentic AI Security
-          </Typography>
-          <Typography paragraph>
-            I build trust infrastructure for autonomous systems. My work focuses
-            on execution-time authorization, cryptographic policy enforcement,
-            and verifiable provenance for AI actions and digital content.
-          </Typography>
-          <Typography paragraph>
-            I am Co-Founder at Crittora and Co-Author of the Agent Permission
-            Protocol (APP), where I work on production controls that make AI
-            agent authority explicit, enforceable, and auditable at runtime.
-          </Typography>
-          <Typography paragraph>
-            Core areas: agentic AI security, blockchain-based provenance, policy
-            verification, cryptographic sealing, and governance for autonomous
-            execution.
-          </Typography>
-          <Typography>
-            Read: <Link to="/blog/securing-autonomy/">Securing Autonomy</Link>{" "}
-            and{" "}
-            <Link to="/blog/verifiably-human-part-1/">
-              Verifiably Human — Part I
-            </Link>
-            .
-          </Typography>
+          <Grid container spacing={4} alignItems="center">
+            <Grid item xs={12} md={7}>
+              <Title variant="segmentAlt">Gerardo I. Ornelas</Title>
+              <Typography variant="h6" color="text.secondary" sx={{ mb: 2 }}>
+                Tech Futurist in Blockchain and Agentic AI Security
+              </Typography>
+              <Typography paragraph>
+                I build trust infrastructure for autonomous systems. My work
+                focuses on execution-time authorization, cryptographic policy
+                enforcement, and verifiable provenance for AI actions and digital
+                content.
+              </Typography>
+              <Typography paragraph>
+                I am Co-Founder at Crittora and Co-Author of the Agent Permission
+                Protocol (APP), where I work on production controls that make AI
+                agent authority explicit, enforceable, and auditable at runtime.
+              </Typography>
+              <Typography paragraph>
+                Core areas: agentic AI security, blockchain-based provenance,
+                policy verification, cryptographic sealing, and governance for
+                autonomous execution.
+              </Typography>
+              <Typography>
+                Read:{" "}
+                <Link to="/blog/securing-autonomy/">Securing Autonomy</Link>{" "}
+                and{" "}
+                <Link to="/blog/verifiably-human-part-1/">
+                  Verifiably Human — Part I
+                </Link>
+                .
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={5}>
+              <Box
+                component="img"
+                src={ImgAuthor}
+                alt="Gerardo I. Ornelas"
+                sx={{ width: "100%", borderRadius: 2 }}
+              />
+            </Grid>
+          </Grid>
         </Container>
       </Box>
     </LayoutAlt>

@@ -107,6 +107,41 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/verifiably-human-part-2": {
+      keywords: [
+        "ambient authority",
+        "human provenance",
+        "Agent Permission Protocol",
+        "execution-time authorization",
+        "content provenance infrastructure",
+        "scoped human authority",
+      ],
+      about: [
+        "ambient authority",
+        "Agent Permission Protocol",
+        "human provenance as authority",
+        "capability-based trust",
+        "content origin verification",
+      ],
+      faq: [
+        {
+          q: "What is ambient authority and why is it dangerous?",
+          a: "Ambient authority is the assumption that identity implies permission. In agentic AI systems, it allows agents to act indefinitely under human credentials without per-action authorization.",
+        },
+        {
+          q: "How does APP address human provenance?",
+          a: "APP treats human origin as an explicit, scoped, time-bound, cryptographically sealed claim—governed by authority, not identity.",
+        },
+        {
+          q: "What are human provenance scopes?",
+          a: "Graded authority levels such as human.captured, human.authored, human.approved, and ai.assisted that make hybrid workflows transparent instead of deceptive.",
+        },
+        {
+          q: "Why must human provenance claims expire?",
+          a: "Because permanent claims are indistinguishable from ambient authority. Keys can be compromised, devices resold, and consent can change.",
+        },
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {
