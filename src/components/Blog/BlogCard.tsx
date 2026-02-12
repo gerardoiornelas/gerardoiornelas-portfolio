@@ -55,7 +55,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ frontmatter, excerpt }) => {
         >
           {frontmatter.date}
         </Typography>
-        <Typography gutterBottom variant="h6" component="div" color="primary">
+        <Typography gutterBottom variant="h6" component="div">
           <ClampLines
             text={frontmatter.title}
             lines={2}

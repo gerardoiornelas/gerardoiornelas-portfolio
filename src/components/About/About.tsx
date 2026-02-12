@@ -33,7 +33,7 @@ export const About: React.FC = () => {
           <RowCol>
             <Container maxWidth="md">
               <AnimateOnScroll animateIn="fadeInUp">
-                <Box textAlign={`center`} mt={8} mb={4}>
+                <Box textAlign={`center`} mt={isSmall ? 0 : 8} mb={4}>
                   <Typography
                     variant="overline"
                     sx={{ letterSpacing: 2, opacity: 0.7 }}

@@ -129,7 +129,7 @@ export const Navigation: React.FC<YAxisProps> = ({
                 }}
               >
                 <Typography variant="h5" component="h1">
-                  {isSmall ? "GIOrnelas" : "Gerardo I. Ornelas"}
+                  {isSmall ? "Gerardo I. Ornelas" : "Gerardo I. Ornelas"}
                 </Typography>
               </Scrollchor>
             </Box>

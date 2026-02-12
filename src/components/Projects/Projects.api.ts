@@ -21,22 +21,23 @@ const projectsData: ProjectData[] = [
     id: cuid(),
     title: `Crittora`,
     description: [
-      "Cryptographic policy layer for zero-trust enterprises.",
-      "Signed Proof-of-Action receipts make every autonomous decision auditable.",
+      "Security platform that makes execution-time authority explicit, ensuring AI agents, users, and systems can only do exactly what they are permitted to do—nothing more. ",
     ],
-    signal: "Zero-trust migration lead at Verizon; enterprise rollouts in progress.",
+    signal:
+      "Zero-trust migration lead at Verizon; enterprise rollouts in progress.",
     imgSrc: ImgCrittora,
     imgAlt: "abstract cryptographic control layer",
     url: `https://www.crittora.com/`,
   },
   {
     id: cuid(),
-    title: `Agent Permission Protocol (APP)`,
+    title: `Agent Permission Protocol`,
     description: [
       "Open protocol for cryptographic agent permissions at execution time.",
       "Prevents forged calls, replays, and over-broad execution with portable receipts.",
     ],
-    signal: "Agent actions verified before invocation; fraud-review latency cut by 42% (placeholder).",
+    signal:
+      "Agent actions verified before invocation; fraud-review latency cut by 42% (placeholder).",
     imgSrc: ImgAPP,
     imgAlt: "execution-time authorization gate",
     url: `https://www.crittora.com/app/whitepaper`,
@@ -46,10 +47,10 @@ const projectsData: ProjectData[] = [
     id: cuid(),
     title: `Qripton Verify`,
     description: [
-      "Human provenance and secure document authenticity pipeline for high-trust workflows.",
-      "Identity-bound decryption ensures only intended recipients can access sensitive files with full auditability.",
+      "Trust, protect, and prove every document exchange. Future-proof identity bound encryption for document and data.",
     ],
-    signal: "Adopted for regulated document flows; attestations issued per transaction (placeholder metric).",
+    signal:
+      "Adopted for regulated document flows; attestations issued per transaction (placeholder metric).",
     imgSrc: ImgQVerify,
     imgAlt: "secure document verification",
     url: `https://qriptonverify.com/`,

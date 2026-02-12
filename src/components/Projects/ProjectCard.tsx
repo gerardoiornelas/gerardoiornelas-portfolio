@@ -46,43 +46,32 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         display: "flex",
         flexDirection: "column",
         height: "100%",
+        backgroundColor: `transparent`,
       }}
     >
-      <CardMedia component="img" alt={imgAlt} image={imgSrc} />
+      <Box display="flex" justifyContent="center">
+        <Box component="img" alt={imgAlt} src={imgSrc} width={128} m={2} />
+      </Box>
       <CardContent sx={{ flexGrow: 1 }}>
-        <Typography gutterBottom variant="h6" component="div">
-          {title}
-        </Typography>
-        {description.map((el, index) => (
-          <Typography key={index} variant="body2" color="text.secondary">
-            {el}
+        <Box textAlign={`center`}>
+          <Typography gutterBottom variant="h6" component="div">
+            {title}
           </Typography>
-        ))}
-        <Typography variant="subtitle2" color="text.secondary" sx={{ mt: 1 }}>
-          {signal}
-        </Typography>
+          {description.map((el, index) => (
+            <Typography key={index} variant="body2" color="text.secondary">
+              {el}
+            </Typography>
+          ))}
+        </Box>
       </CardContent>
       <CardActions
         sx={{
           display: "flex",
-          justifyContent: "flex-start",
+          justifyContent: "center",
           gap: 1.5,
           marginTop: "auto",
         }}
       >
-        {anchor && (
-          <Button href={anchor} size="small" color="primary" variant="outlined">
-            View APP Flow
-          </Button>
-        )}
-        <Button
-          href="#contact"
-          size="small"
-          color="secondary"
-          variant="contained"
-        >
-          Request Briefing
-        </Button>
         {url && (
           <Button
             startIcon={<OpenInBrowserTwoToneIcon sx={{ color: "secondary" }} />}
@@ -90,7 +79,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             target="_blank"
             rel="noreferrer"
             size="small"
-            color="primary"
+            color="secondary"
             variant="text"
           >
             Visit
