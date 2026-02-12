@@ -9,10 +9,12 @@ import {
   useTheme,
   useMediaQuery,
   ButtonBase,
+  Typography,
 } from "@mui/material"
 
 import { Title } from "../Title"
 import { Footer } from "../Footer"
+import { useIsSmall } from "../../hooks/useIsSmall"
 
 interface LayoutAltProps {
   children: React.ReactNode
@@ -50,9 +52,9 @@ export const LayoutAlt: React.FC<LayoutAltProps> = ({ children }) => {
                 }}
               >
                 <ButtonBase onClick={() => navigate("/")}>
-                  <Title variant="segmentAlt" color="primary">
-                    Gerardo I. Ornelas
-                  </Title>
+                  <Typography variant="h5" component="h1">
+                    {isSmall ? "Gerardo I. Ornelas" : "Gerardo I. Ornelas"}
+                  </Typography>
                 </ButtonBase>
               </Box>
               <Box

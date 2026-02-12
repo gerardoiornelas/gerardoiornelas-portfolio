@@ -92,11 +92,29 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        a: {
+          color: primaryColor,
+          textDecorationColor: primaryColor,
+          textDecorationThickness: "0.08em",
+          textDecorationSkipInk: "auto",
+        },
+        "a:hover": {
+          color: secondaryColor,
+          textDecorationColor: secondaryColor,
+        },
+        "a:focus-visible": {
+          outline: `2px solid ${secondaryColor}`,
+          outlineOffset: "2px",
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
           borderRadius: 0,
-          fontFamily: bodyFont,
+          fontFamily: headlineFontStyles.fontFamily,
         },
       },
     },

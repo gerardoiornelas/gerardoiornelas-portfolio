@@ -13,20 +13,23 @@ const AuthorPage: React.FC = () => {
         <Container maxWidth="md">
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12} md={7}>
-              <Title variant="segmentAlt">Gerardo I. Ornelas</Title>
-              <Typography variant="h6" color="text.secondary" sx={{ mb: 2 }}>
+              <Typography variant="h4" component="h3">
+                Gerardo I. Ornelas
+              </Typography>
+              <Typography variant="h6" color="primary" sx={{ mb: 2 }}>
                 Tech Futurist in Blockchain and Agentic AI Security
               </Typography>
               <Typography paragraph>
                 I build trust infrastructure for autonomous systems. My work
                 focuses on execution-time authorization, cryptographic policy
-                enforcement, and verifiable provenance for AI actions and digital
-                content.
+                enforcement, and verifiable provenance for AI actions and
+                digital content.
               </Typography>
               <Typography paragraph>
-                I am Co-Founder at Crittora and Co-Author of the Agent Permission
-                Protocol (APP), where I work on production controls that make AI
-                agent authority explicit, enforceable, and auditable at runtime.
+                I am Co-Founder at Crittora and Co-Author of the Agent
+                Permission Protocol (APP), where I work on production controls
+                that make AI agent authority explicit, enforceable, and
+                auditable at runtime.
               </Typography>
               <Typography paragraph>
                 Core areas: agentic AI security, blockchain-based provenance,
@@ -35,8 +38,7 @@ const AuthorPage: React.FC = () => {
               </Typography>
               <Typography>
                 Read:{" "}
-                <Link to="/blog/securing-autonomy/">Securing Autonomy</Link>{" "}
-                and{" "}
+                <Link to="/blog/securing-autonomy/">Securing Autonomy</Link> and{" "}
                 <Link to="/blog/verifiably-human-part-1/">
                   Verifiably Human — Part I
                 </Link>
