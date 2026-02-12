@@ -17,9 +17,11 @@ interface ProjectCardProps {
   id: string
   title: string
   description: string[]
+  signal: string
   imgSrc: string
   imgAlt: string
   url?: string
+  anchor?: string
   github?: string
 }
 
@@ -27,9 +29,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   id,
   title,
   description,
+  signal,
   imgSrc,
   imgAlt,
   url,
+  anchor,
   github,
 }) => {
   const theme = useTheme()
@@ -54,43 +58,55 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             {el}
           </Typography>
         ))}
+        <Typography variant="subtitle2" color="text.secondary" sx={{ mt: 1 }}>
+          {signal}
+        </Typography>
       </CardContent>
       <CardActions
         sx={{
           display: "flex",
-          justifyContent: `space-between`,
+          justifyContent: "flex-start",
+          gap: 1.5,
           marginTop: "auto",
         }}
       >
-        <Box>
-          {url && (
-            <Button
-              startIcon={
-                <OpenInBrowserTwoToneIcon sx={{ color: "secondary" }} />
-              }
-              href={url}
-              target="_blank"
-              rel="noreferrer"
-              size="small"
-              color="secondary"
-            >
-              Website
-            </Button>
-          )}
-        </Box>
-        <Box>
-          {github && (
-            <Button
-              startIcon={<CodeTwoToneIcon sx={{ color: `#fff` }} />}
-              href={github}
-              target="_blank"
-              rel="noreferrer"
-              size="small"
-            >
-              Source Code
-            </Button>
-          )}
-        </Box>
+        {anchor && (
+          <Button href={anchor} size="small" color="primary" variant="outlined">
+            View APP Flow
+          </Button>
+        )}
+        <Button
+          href="#contact"
+          size="small"
+          color="secondary"
+          variant="contained"
+        >
+          Request Briefing
+        </Button>
+        {url && (
+          <Button
+            startIcon={<OpenInBrowserTwoToneIcon sx={{ color: "secondary" }} />}
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            size="small"
+            color="primary"
+            variant="text"
+          >
+            Visit
+          </Button>
+        )}
+        {github && (
+          <Button
+            startIcon={<CodeTwoToneIcon sx={{ color: `#fff` }} />}
+            href={github}
+            target="_blank"
+            rel="noreferrer"
+            size="small"
+          >
+            Source
+          </Button>
+        )}
       </CardActions>
     </Card>
   )

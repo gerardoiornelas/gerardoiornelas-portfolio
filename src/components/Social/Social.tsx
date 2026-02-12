@@ -48,7 +48,7 @@ export const Social: React.FC = ({ ...props }) => {
           target="_blank"
           rel="noreferrer"
           key={id}
-          color="secondary"
+          color="primary"
           size="large"
         >
           {React.createElement(SocialIconMap[icon])}

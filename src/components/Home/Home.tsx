@@ -5,17 +5,23 @@ import {
   Container,
   Typography,
   Box,
+  Button,
+  Stack,
+  Tooltip,
   useTheme,
   useMediaQuery,
 } from "@mui/material"
 
 import { RowCol, Row, Col } from "../RowCol"
-import { Title } from "../Title"
 import { StyledHome } from "./Home.styled"
 import { AnimateOnScroll } from "../AnimateOnScroll"
 import { Social } from "../Social"
 
 import ImgLostwunHero from "../../images/hero-gerardo-i-ornelas.png"
+import LogoVerizon from "../../images/xp/verizon.svg"
+import LogoGE from "../../images/xp/ge.svg"
+import LogoAmfam from "../../images/xp/amfam.svg"
+import LogoBCBS from "../../images/xp/bcbsfl.svg"
 
 export const Home: React.FC = () => {
   const theme = useTheme()
@@ -33,7 +39,7 @@ export const Home: React.FC = () => {
                     component="img"
                     width={`100%`}
                     src={ImgLostwunHero}
-                    alt="digital illustration of gerardo ornelas"
+                    alt="editorial portrait placeholder of Gerardo I. Ornelas"
                   />
                 </AnimateOnScroll>
               </Box>
@@ -48,46 +54,47 @@ export const Home: React.FC = () => {
                 <Box>
                   <RowCol mb={2}>
                     <AnimateOnScroll animateIn="fadeIn">
-                      <Typography variant="h5" component="h1">
-                        Tech Futurist in
-                        <br />
-                        <Box component="span">
-                          Blockchain + Agentic AI Security
-                        </Box>
+                      <Typography variant="h4" component="h1">
+                        Architect of Agentic Trust.
                       </Typography>
 
-                      <Typography
-                        variant="h4"
-                        component="h2"
-                        color="primary"
-                        textTransform="uppercase"
-                      >
-                        I design trust infrastructure for autonomous systems
+                      <Typography component="h2" textTransform="none">
+                        I design verifiable systems where humans and agents
+                        operate under cryptographic guarantees.
                       </Typography>
                     </AnimateOnScroll>
                   </RowCol>
-                  <RowCol>
-                    <AnimateOnScroll animateIn="fadeIn" delay={500}>
-                      <Typography>
-                        I’m Gerardo I. Ornelas, Co-Founder at Crittora and
-                        Co-Author of the Agent Permission Protocol. I build
-                        execution-time security systems that verify who or what
-                        is allowed to act, before action happens. My work
-                        combines cryptographic policy enforcement, verifiable
-                        provenance, and production-grade controls for AI agents.
-                      </Typography>
-                      <Typography sx={{ mt: 2 }}>
-                        Explore my <Link to="/blog/">blog</Link> and{" "}
-                        <Link to="/author/gerardo-i-ornelas/">
-                          author profile
-                        </Link>{" "}
-                        for detailed frameworks on AI security, cryptographic
-                        authorization, and provenance infrastructure.
-                      </Typography>
-                    </AnimateOnScroll>
+
+                  <RowCol my={2}>
+                    <Stack
+                      direction={isSmall ? "column" : "row"}
+                      spacing={2}
+                      alignItems={isSmall ? "stretch" : "flex-start"}
+                    >
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        href="#contact"
+                        fullWidth={isSmall}
+                        size="large"
+                      >
+                        Request a Briefing
+                      </Button>
+                      <Button
+                        variant="outlined"
+                        color="primary"
+                        href="/manifesto"
+                        fullWidth={isSmall}
+                        size="large"
+                      >
+                        Read the Manifesto
+                      </Button>
+                    </Stack>
                   </RowCol>
                   <RowCol my={2}>
-                    <Typography align="center">Let's connect!</Typography>
+                    {/* <Typography align="center">
+                      Watch the Agent Permission Protocol in motion.
+                    </Typography> */}
                     <Box
                       display="flex"
                       justifyContent={isSmall ? "center" : "flex-start"}

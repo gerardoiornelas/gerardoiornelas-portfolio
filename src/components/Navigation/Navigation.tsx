@@ -128,12 +128,7 @@ export const Navigation: React.FC<YAxisProps> = ({
                   textDecoration: "none",
                 }}
               >
-                <Typography
-                  variant="h5"
-                  component="h2"
-                  sx={{ fontWeight: 700 }}
-                  textTransform={`uppercase`}
-                >
+                <Typography variant="h5" component="h1">
                   {isSmall ? "GIOrnelas" : "Gerardo I. Ornelas"}
                 </Typography>
               </Scrollchor>

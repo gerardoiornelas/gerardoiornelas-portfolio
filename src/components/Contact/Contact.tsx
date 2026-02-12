@@ -18,7 +18,7 @@ export const Contact: React.FC = () => {
     <Container>
       <RowCol mb={4}>
         <Title variant="segment" align="center">
-          Get in touch
+          Request a Briefing
         </Title>
       </RowCol>
       <Row justifyContent="center">
@@ -37,7 +37,7 @@ export const Contact: React.FC = () => {
                 variant="filled"
                 fullWidth
                 id="name"
-                label="Your Name"
+                label="Name"
                 name="name"
                 required
               />
@@ -48,7 +48,7 @@ export const Contact: React.FC = () => {
                 variant="filled"
                 fullWidth
                 id="email"
-                label="Your Email"
+                label="Work Email"
                 name="email"
                 required
               />
@@ -58,13 +58,59 @@ export const Contact: React.FC = () => {
               <TextField
                 variant="filled"
                 fullWidth
-                id="message"
-                label="Message"
-                name="message"
-                multiline
-                rows={4}
+                id="organization"
+                label="Organization"
+                name="organization"
                 required
               />
+            </Box>
+
+            <Box mb={2}>
+              <TextField
+                variant="filled"
+                fullWidth
+                id="objective"
+                label="Objective"
+                name="objective"
+                multiline
+                rows={3}
+                required
+              />
+            </Box>
+
+            <Box mb={2}>
+              <TextField
+                variant="filled"
+                fullWidth
+                id="timeline"
+                label="Timeline"
+                name="timeline"
+              />
+            </Box>
+
+            <Box mb={2}>
+              <TextField
+                variant="filled"
+                fullWidth
+                id="security"
+                label="Security Requirements"
+                name="security"
+                multiline
+                rows={3}
+                required
+              />
+            </Box>
+
+            <Box mb={2}>
+              <label>
+                <input
+                  type="checkbox"
+                  name="newsletter"
+                  value="yes"
+                  style={{ marginRight: "0.5rem" }}
+                />
+                Add me to The Agentic Standard newsletter.
+              </label>
             </Box>
 
             <Box display="flex" justifyContent={`flex-end`}>
@@ -75,7 +121,7 @@ export const Contact: React.FC = () => {
                 variant="contained"
                 color="secondary"
               >
-                Send Message
+                Send Briefing Request
               </Button>
             </Box>
           </form>

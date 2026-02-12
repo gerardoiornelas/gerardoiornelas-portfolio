@@ -57,10 +57,10 @@ const faqSchema = {
 const homepageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "Gerardo I. Ornelas | Tech Futurist in Blockchain & Agentic AI Security",
+  name: "Gerardo I. Ornelas | Architect of Agentic Trust",
   url: "https://www.gerardoiornelas.com/",
   description:
-    "Founder and technologist building blockchain-backed provenance and execution-time security for AI agents.",
+    "Architect of Agentic Trust building cryptographic execution-time controls, provenance, and audit-ready autonomy.",
   about: [
     { "@type": "Thing", name: "Agentic AI security" },
     { "@type": "Thing", name: "Execution-time authorization" },
@@ -71,8 +71,8 @@ const homepageSchema = {
 
 export const Head: HeadFC = () => (
   <Seo
-    title="Secure AI Agent Systems"
-    description="Gerardo I. Ornelas leads strategy, design, and development of cryptographic controls that secure AI agents in production."
+    title="Architect of Agentic Trust"
+    description="Gerardo I. Ornelas designs verifiable systems where humans and agents operate under cryptographic guarantees."
     pathname="/"
     jsonLd={[faqSchema, homepageSchema]}
   />

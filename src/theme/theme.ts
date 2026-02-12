@@ -46,25 +46,25 @@ const theme = createTheme({
   typography: {
     fontFamily: fontFamilies,
     h1: {
-      fontFamily: bodyFont,
+      fontFamily: headlineFontStyles.fontFamily,
       fontWeight: 700,
     },
     h2: {
-      fontFamily: bodyFont,
-      fontWeight: 400,
+      fontFamily: headlineFontStyles.fontFamily,
+      fontWeight: 600,
     },
     h3: {
-      fontFamily: bodyFont,
-      fontWeight: 400,
+      fontFamily: headlineFontStyles.fontFamily,
+      fontWeight: 600,
     },
     h4: {
       ...headlineFontStyles,
     },
     h5: {
-      fontFamily: bodyFont,
+      fontFamily: headlineFontStyles.fontFamily,
     },
     h6: {
-      fontFamily: bodyFont,
+      fontFamily: headlineFontStyles.fontFamily,
     },
     subtitle1: {
       fontFamily: bodyFont,
@@ -80,7 +80,7 @@ const theme = createTheme({
       fontFamily: bodyFont,
     },
     button: {
-      fontFamily: bodyFont,
+      fontFamily: headlineFontStyles.fontFamily,
       textTransform: "none",
       fontWeight: 600,
     },

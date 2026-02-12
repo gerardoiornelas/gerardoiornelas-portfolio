@@ -4,6 +4,7 @@ import { Box } from "@mui/material"
 import { Segment } from "../Segment"
 import { Layout } from "../Layout"
 import { Home } from "../Home"
+import { About } from "../About"
 import { Projects } from "../Projects"
 import { CurriculumVitae } from "../CurriculumVitae"
 import { Blog } from "../Blog"
@@ -51,10 +52,27 @@ export const ScrollContainer: React.FC = () => {
         <Segment>
           <Home />
         </Segment>
+        <Segment variant="gradient" segmentDecorationAlt>
+          <About />
+        </Segment>
         <Segment noPadding>
           <Box sx={{ position: "relative" }} ref={refProjects}>
             <Box id="projects" sx={{ position: "absolute", top: topPos }}></Box>
             <Projects />
+          </Box>
+        </Segment>
+        <Segment>
+          <Box id="app-visualization" sx={{ position: "relative" }}>
+            <Box sx={{ maxWidth: 800, margin: "0 auto" }}>
+              <Box
+                component="div"
+                sx={{ color: "text.secondary", textAlign: "center" }}
+              >
+                Watch the Agent Permission Protocol in motion — animated flow of
+                Key Exchange → Scoped Permit → Revocation. (Placeholder anchor
+                for visualization.)
+              </Box>
+            </Box>
           </Box>
         </Segment>
         <Segment>

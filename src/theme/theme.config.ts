@@ -9,8 +9,8 @@ const brandCyan: string = "#38B4C6"
 const brandBg: string = "#0D0C2B"
 const brandSurface: string = "#13123D"
 
-const primaryColor: string = brandCyan
-const secondaryColor: string = brandViolet
+const primaryColor: string = brandViolet
+const secondaryColor: string = brandCyan
 const tertiaryColor: string = brandLime
 const accentColor: string = brandNavy
 
@@ -21,15 +21,15 @@ const metaKeywords: string =
   "react, hardhat, solidity, web3, UX, UI, blockchain"
 
 const googleFonts: string =
-  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+  "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Young+Serif&display=swap"
 
-const fontFamilies: string = "'Inter', sans-serif"
-const headlineFont: string = "'Space Grotesk', sans-serif"
-const bodyFont: string = "'Inter', sans-serif"
+const fontFamilies: string = "'JetBrains Mono', monospace"
+const headlineFont: string = "'Young Serif', 'JetBrains Mono', monospace"
+const bodyFont: string = "'JetBrains Mono', monospace"
 
 const headlineFontStyles: React.CSSProperties = {
   fontFamily: headlineFont,
-  fontWeight: "normal",
+  fontWeight: 600,
   fontStyle: "normal",
   // letterSpacing: "-0.02em",
 }

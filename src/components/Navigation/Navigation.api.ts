@@ -13,7 +13,7 @@ export const navElements: NavElement[] = [
   {
     id: cuid(),
     route: "/projects",
-    title: "Projects",
+    title: "Trust Stack",
     anchor: "#projects",
     isActiveLink: false,
   },

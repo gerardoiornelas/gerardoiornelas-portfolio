@@ -14,9 +14,7 @@ export const SegmentTitle: React.FC<SegmentTitleProps> = ({
 }) => {
   return (
     <Box>
-      <Typography {...otherProps} color="primary">
-        {children}
-      </Typography>
+      <Typography {...otherProps}>{children}</Typography>
     </Box>
   )
 }

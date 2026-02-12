@@ -12,13 +12,13 @@ import { projectsData } from "./Projects.api"
 
 export const Projects: React.FC = () => {
   return (
-    <Segment variant="gradient" segmentDecorationAlt>
+    <Segment>
       <Container>
         <RowCol mb={4}>
           <AnimateOnScroll animateIn="fadeInUp">
             <Box>
               <Title variant="segment" align="center">
-                Projects
+                The Trust Stack
               </Title>
             </Box>
           </AnimateOnScroll>
