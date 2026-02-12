@@ -3,7 +3,6 @@ import { Grid } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 
 import { SegmentDecoration } from "./SegmentDecoration"
-
 import { StyledSegment, StyledPad } from "./Segment.styled"
 
 import { getBackground } from "./Segment.api"

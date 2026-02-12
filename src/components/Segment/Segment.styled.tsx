@@ -2,10 +2,10 @@ import { Box } from "@mui/material"
 import { styled } from "@mui/system"
 import { rem } from "polished"
 
-import ImgCurvy from "../../images/skyline-segment.svg"
-import ImgCurvyAlt from "../../images/curvy-segment-digi.svg"
+import ImgCurvy from "../../images/curvy-segment.svg"
+import ImgCurvyAlt from "../../images/curvy-segment-alt.svg"
 
-const segmentDecorationHeight = 482
+const segmentDecorationHeight = 269
 const segmentDecorationAltHeight = 281
 
 function setDecorationPadding(decorated: boolean, decoratedAlt: boolean) {

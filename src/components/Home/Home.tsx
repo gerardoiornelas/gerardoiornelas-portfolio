@@ -82,7 +82,7 @@ export const Home: React.FC = () => {
                       </Button>
                       <Button
                         variant="outlined"
-                        color="primary"
+                        color="secondary"
                         href="/manifesto"
                         fullWidth={isSmall}
                         size="large"

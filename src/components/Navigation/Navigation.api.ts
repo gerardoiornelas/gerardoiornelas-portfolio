@@ -25,13 +25,13 @@ export const navElements: NavElement[] = [
     isActiveLink: false,
     subNav: false,
   },
-  {
-    id: cuid(),
-    route: "/cv",
-    title: "CV",
-    anchor: "#cv",
-    isActiveLink: false,
-  },
+  // {
+  //   id: cuid(),
+  //   route: "/cv",
+  //   title: "CV",
+  //   anchor: "#cv",
+  //   isActiveLink: false,
+  // },
   {
     id: cuid(),
     route: "/contact",

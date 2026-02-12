@@ -10,6 +10,7 @@ import { CurriculumVitae } from "../CurriculumVitae"
 import { Blog } from "../Blog"
 import { RobotGallery } from "../RobotGallery"
 import { Contact } from "../Contact"
+import { APP } from "../APP"
 
 export const ScrollContainer: React.FC = () => {
   const refHome = useRef<HTMLElement>(null)
@@ -52,7 +53,7 @@ export const ScrollContainer: React.FC = () => {
         <Segment>
           <Home />
         </Segment>
-        <Segment variant="gradient" segmentDecorationAlt>
+        <Segment variant="gradient" segmentDecoration>
           <About />
         </Segment>
         <Segment noPadding>
@@ -63,19 +64,10 @@ export const ScrollContainer: React.FC = () => {
         </Segment>
         <Segment>
           <Box id="app-visualization" sx={{ position: "relative" }}>
-            <Box sx={{ maxWidth: 800, margin: "0 auto" }}>
-              <Box
-                component="div"
-                sx={{ color: "text.secondary", textAlign: "center" }}
-              >
-                Watch the Agent Permission Protocol in motion — animated flow of
-                Key Exchange → Scoped Permit → Revocation. (Placeholder anchor
-                for visualization.)
-              </Box>
-            </Box>
+            <APP />
           </Box>
         </Segment>
-        <Segment>
+        <Segment variant="gradient" segmentDecorationAlt>
           <Box
             id="blog"
             sx={{ position: "absolute", top: topPos }}
@@ -83,7 +75,7 @@ export const ScrollContainer: React.FC = () => {
           ></Box>
           <Blog />
         </Segment>
-        <Segment>
+        {/* <Segment>
           <Box
             id="cv"
             sx={{ position: "absolute", top: topPos }}
@@ -91,7 +83,7 @@ export const ScrollContainer: React.FC = () => {
           ></Box>
           <CurriculumVitae />
         </Segment>
-        <RobotGallery />
+        <RobotGallery /> */}
 
         <Segment>
           <Box sx={{ position: "relative" }} ref={refContact}>
