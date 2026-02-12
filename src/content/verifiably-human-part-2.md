@@ -14,7 +14,7 @@ To understand how a "Verifiably Human" internet could exist at all, we must firs
 
 ---
 
-### Ambient Authority Is the Real Vulnerability
+## Ambient Authority Is the Real Vulnerability
 
 For decades, internet security has been built on a dangerous assumption:
 
@@ -36,7 +36,7 @@ Ambient authority turns long-lived credentials into standing permission slips—
 
 ---
 
-### The Identity Trap
+## The Identity Trap
 
 Identity answers the question _"who authenticated?"_
 It does **not** answer _"who authorized this action?"_
@@ -66,7 +66,7 @@ It cannot safely govern autonomous systems.
 
 ---
 
-### The APP Shift: From Implicit Trust to Explicit Authority
+## The APP Shift: From Implicit Trust to Explicit Authority
 
 APP introduces a different boundary:
 
@@ -86,7 +86,7 @@ To build a "Verifiably Human" internet, we must apply the same logic to **claims
 
 ---
 
-### Reframing the Problem: Origin as a Permissioned Claim
+## Reframing the Problem: Origin as a Permissioned Claim
 
 Content does not "contain" humanity.
 Humanity is not a property to be inferred.
@@ -112,7 +112,7 @@ In other words, **human provenance is authority**, not essence.
 
 ---
 
-### Humanity as a Scoped Capability (Not a Binary Badge)
+## Humanity as a Scoped Capability (Not a Binary Badge)
 
 "Verifiably Human" cannot be a yes/no label. Real workflows are hybrid by default.
 
@@ -132,7 +132,7 @@ This prevents provenance inflation and makes hybrid workflows transparent instea
 
 ---
 
-### Capture, Authorization, and Verification (Correctly Separated)
+## Capture, Authorization, and Verification (Correctly Separated)
 
 **At Capture**
 Secure capture devices may attest only to **conditions**, not intent:
@@ -161,7 +161,7 @@ No valid claim → no trust signal.
 
 ---
 
-### Expiry and Revocation Are Non-Optional
+## Expiry and Revocation Are Non-Optional
 
 Human provenance **expires by default**.
 
@@ -178,7 +178,17 @@ Revocation must be globally observable.
 
 ---
 
-### Conclusion: A New Trust Boundary
+## Quick Answers (AEO)
+
+- **What is ambient authority?** Ambient authority is when identity automatically implies permission for all downstream actions during a session.
+- **Why does ambient authority fail in agentic systems?** Agents can act asynchronously under long-lived credentials, so authentication no longer proves real-time human intent.
+- **What does APP change?** APP requires explicit, scoped, time-bound, cryptographically verifiable authority at execution time.
+- **Can identity prove human origin?** No. Identity proves who authenticated, not who authorized a specific action or origin claim.
+- **What is the core rule for Verifiably Human systems?** Human-origin claims must be explicit, scoped, revocable, and verified at distribution time.
+
+---
+
+## Conclusion: A New Trust Boundary
 
 We are not upgrading content moderation.
 We are replacing the internet's trust boundary.
@@ -191,3 +201,11 @@ The shift is fundamental:
 
 In Part III, we will move from theory to mechanics:
 how cryptographic sealing issues, scopes, expires, and revokes authority over claims of human origin—and only then, where an immutable ledger fits in the chain of custody.
+
+---
+
+## Related Reading
+
+- [Verifiably Human — Part I: Everything Is Synthetic by Default](/blog/verifiably-human-part-1/)
+- [Securing Autonomy: Applying APP to LangGraph Patterns](/blog/securing-autonomy/)
+- [Blog Index: Agentic AI Security + Provenance](/blog/)

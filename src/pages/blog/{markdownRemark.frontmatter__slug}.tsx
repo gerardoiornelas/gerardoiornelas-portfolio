@@ -196,7 +196,7 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: `${seoDefaults.siteUrl}/#blog`,
+        item: `${seoDefaults.siteUrl}/blog/`,
       },
       {
         "@type": "ListItem",
