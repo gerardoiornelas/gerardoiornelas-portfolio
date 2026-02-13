@@ -9,11 +9,15 @@ const boxVariant: Variants = {
 
 interface AnimateOnScrollProps {
   children: ReactNode;
+  animateIn?: string;
+  delay?: number;
   [key: string]: any;
 }
 
 export const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
   children,
+  animateIn, // currently unused but reserved for future variant selection
+  delay,
   ...otherProps
 }) => {
   const control = useAnimation();
@@ -32,6 +36,7 @@ export const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
       variants={boxVariant}
       initial="hidden"
       animate={control}
+      transition={delay ? { delay: delay / 1000 } : undefined}
       ref={ref}
       {...otherProps}
     >

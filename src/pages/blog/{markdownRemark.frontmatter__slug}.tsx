@@ -142,6 +142,40 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/verifiably-human-part-3": {
+      keywords: [
+        "human provenance policy",
+        "cryptographic sealing",
+        "sign then encrypt",
+        "revocation registry",
+        "agentic trust",
+        "capability-based authority",
+      ],
+      about: [
+        "human provenance",
+        "content authenticity",
+        "cryptographic receipts",
+        "revocation and expiry",
+      ],
+      faq: [
+        {
+          q: "What is a Human Provenance Policy (HPP)?",
+          a: "A cryptographically signed and encrypted artifact that grants scoped authority to assert a specific human-origin claim over a specific piece of content.",
+        },
+        {
+          q: "Why sign then encrypt?",
+          a: "Sign-then-encrypt preserves integrity, confidentiality, and non-repudiation; encrypting first makes signature verification ambiguous, signing without encryption leaks scope and metadata.",
+        },
+        {
+          q: "Why must human-origin claims expire?",
+          a: "Keys compromise, devices change hands, and consent shifts; permanent claims recreate ambient authority. Short TTLs force revalidation.",
+        },
+        {
+          q: "What triggers revocation?",
+          a: "Issuer key revocation, disputed artifact hashes, or scope downgrades; revocation must be globally observable.",
+        },
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {

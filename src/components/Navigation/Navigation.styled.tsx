@@ -24,8 +24,8 @@ const StyledNavigation = styled(Box)({
 })
 
 const StyledNavElement = styled(Scrollchor, {
-  shouldForwardProp: (prop) => prop !== "isactivelink",
-})<{ isactivelink?: boolean }>(({ theme }) => ({
+  shouldForwardProp: (prop) => prop !== "active",
+})<{ active?: boolean }>(({ theme }) => ({
   backgroundColor: "transparent",
   border: 0,
   fontSize: `${rem(16)}`,

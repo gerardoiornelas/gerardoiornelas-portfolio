@@ -122,7 +122,6 @@ export const Navigation: React.FC<YAxisProps> = ({
               <Scrollchor
                 to="#home"
                 animate={{ duration: 1000, easing: easeOutQuad }}
-                isactivelink={activeLink === "home"}
                 style={{
                   color: theme.palette.text.primary,
                   textDecoration: "none",
@@ -152,7 +151,7 @@ export const Navigation: React.FC<YAxisProps> = ({
                       to={anchor}
                       key={id}
                       animate={{ duration: 1000, easing: easeOutQuad }}
-                      isactivelink={activeLink === anchor.slice(1)}
+                      active={activeLink === anchor.slice(1)}
                     >
                       {title}
                     </StyledNavElement>
@@ -198,7 +197,7 @@ export const Navigation: React.FC<YAxisProps> = ({
               <StyledNavElement
                 to={anchor}
                 animate={{ duration: 1000, easing: easeOutQuad }}
-                isactivelink={activeLink === anchor.slice(1)}
+                active={activeLink === anchor.slice(1)}
                 beforeAnimate={() => setDrawerIsOpen(false)}
               >
                 {title}

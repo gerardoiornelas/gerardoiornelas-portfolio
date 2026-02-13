@@ -64,13 +64,13 @@ const BlogCard: React.FC<BlogCardProps> = ({ frontmatter, excerpt }) => {
             innerElement="span"
           />
         </Typography>
-        <Typography color="common.grey">
+        <Typography color="common.grey" component="div">
           <ClampLines
             text={excerpt}
             lines={4}
             ellipsis="..."
             buttons={false}
-            innerElement="p"
+            innerElement="span"
           />
         </Typography>
       </CardContent>
