@@ -38,8 +38,7 @@ export const About: React.FC = () => {
                     variant="overline"
                     sx={{ letterSpacing: 2, opacity: 0.7 }}
                   >
-                    Applying Fortune 100 architectural rigor to the autonomous
-                    era.
+                    From critical infrastructure to intelligent systems.
                   </Typography>
                 </Box>
                 <Box
@@ -117,31 +116,46 @@ export const About: React.FC = () => {
 
                       <Box mb={4}>
                         <Typography>
-                          I spent my career solving critical UX challenges and
-                          building the scalable, reusable software architectures
-                          that power the world’s largest infrastructures - and I
-                          learned a hard truth:{" "}
+                          My background spans large-scale software
+                          architecture, user experience, and security across
+                          enterprise and regulated environments. That work led
+                          to a consistent conclusion:{" "}
                           <Box component="span" fontWeight={`bold`}>
-                            Security is a UX failure
+                            authority is only trustworthy when it is explicit,
+                            bounded, and verifiable
                           </Box>
                           .
                         </Typography>
                       </Box>
 
+                      <Box mb={4}>
+                        <Typography>
+                          Today I apply that thinking to intelligent systems.
+                          Through{" "}
+                          <Box component="span" fontWeight={`bold`}>
+                            Violetek
+                          </Box>
+                          , I build ventures, products, and frameworks around
+                          authority boundaries, machine permissions,
+                          verification, and execution-runtime authorization.
+                        </Typography>
+                      </Box>
+
                       <Typography>
-                        Most protocols break because they ignore the
-                        human-machine interface. My transition into
-                        cybersecurity is the logical evolution of this work. I
-                        am now applying that same architectural rigor to{" "}
+                        My current work includes the{" "}
+                        <Box component="span" fontWeight={`bold`}>
+                          Agent Permission Protocol
+                        </Box>{" "}
+                        and selected ventures such as{" "}
                         <Box component="span" fontWeight={`bold`}>
                           Crittora
                         </Box>{" "}
-                        and the{" "}
+                        and{" "}
                         <Box component="span" fontWeight={`bold`}>
-                          Agent Permission Protocol
+                          Qripton Verify
                         </Box>
-                        (APP)—building execution-time security that isn't just
-                        unbreakable, but actually usable at enterprise scale.
+                        , which operationalize these ideas in production
+                        contexts.
                       </Typography>
                     </Box>
                   </AnimateOnScroll>

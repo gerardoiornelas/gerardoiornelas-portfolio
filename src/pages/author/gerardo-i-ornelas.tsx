@@ -17,24 +17,23 @@ const AuthorPage: React.FC = () => {
                 Gerardo I. Ornelas
               </Typography>
               <Typography variant="h6" color="primary" sx={{ mb: 2 }}>
-                Tech Futurist in Blockchain and Agentic AI Security
+                Founder of Violetek. Author of the Agent Permission Protocol.
               </Typography>
               <Typography paragraph>
-                I build trust infrastructure for autonomous systems. My work
-                focuses on execution-time authorization, cryptographic policy
-                enforcement, and verifiable provenance for AI actions and
-                digital content.
+                Gerardo I. Ornelas is a founder, author, and systems builder
+                focused on authority systems, machine permissions,
+                verification, and execution-runtime authorization.
               </Typography>
               <Typography paragraph>
-                I am Co-Founder at Crittora and Co-Author of the Agent
-                Permission Protocol (APP), where I work on production controls
-                that make AI agent authority explicit, enforceable, and
-                auditable at runtime.
+                He is the founder of Violetek, a venture platform building
+                products and ventures in this category, and the author of the
+                Agent Permission Protocol.
               </Typography>
               <Typography paragraph>
-                Core areas: agentic AI security, blockchain-based provenance,
-                policy verification, cryptographic sealing, and governance for
-                autonomous execution.
+                His writing explores how intelligent systems are granted,
+                constrained, and verified in execution, with a focus on
+                authority boundaries, machine permissions, and accountable
+                system behavior.
               </Typography>
               <Typography>
                 Read:{" "}
@@ -66,13 +65,15 @@ export const Head: HeadFC = () => {
     "@type": "Person",
     name: "Gerardo I. Ornelas",
     url: `${seoDefaults.siteUrl}/author/gerardo-i-ornelas/`,
-    jobTitle: "Tech Futurist in Blockchain and Agentic AI Security",
+    jobTitle: "Founder of Violetek",
+    description:
+      "Gerardo I. Ornelas is the founder of Violetek and the author of the Agent Permission Protocol. His work focuses on authority systems, machine permissions, verification, and execution-runtime authorization.",
     knowsAbout: [
-      "Agentic AI security",
+      "Authority systems",
       "Execution-time authorization",
-      "Blockchain provenance",
-      "Cryptographic policy enforcement",
-      "AI governance",
+      "Machine permissions",
+      "Verification",
+      "Agent permissions",
     ],
     sameAs: [
       "https://www.github.com/gerardoiornelas",
@@ -93,8 +94,8 @@ export const Head: HeadFC = () => {
 
   return (
     <Seo
-      title="Gerardo I. Ornelas: Blockchain + Agentic AI Security"
-      description="Author profile for Gerardo I. Ornelas, focused on execution-time AI agent security and blockchain-backed provenance infrastructure."
+      title="Gerardo I. Ornelas | Founder of Violetek"
+      description="Gerardo I. Ornelas is the founder of Violetek and the author of the Agent Permission Protocol. His work focuses on authority systems, machine permissions, verification, and execution-runtime authorization."
       pathname="/author/gerardo-i-ornelas/"
       jsonLd={[personSchema, profileSchema]}
     />

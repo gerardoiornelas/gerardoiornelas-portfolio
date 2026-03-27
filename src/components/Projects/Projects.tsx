@@ -18,8 +18,17 @@ export const Projects: React.FC = () => {
           <AnimateOnScroll animateIn="fadeInUp">
             <Box>
               <Title variant="segment" align="center">
-                The Trust Stack
+                What I&apos;m Building
               </Title>
+            </Box>
+          </AnimateOnScroll>
+        </RowCol>
+        <RowCol mb={4}>
+          <AnimateOnScroll animateIn="fadeInUp" delay={100}>
+            <Box textAlign="center" maxWidth="md" mx="auto">
+              My work spans company building, authored frameworks, and selected
+              ventures that operationalize authority and verification in real
+              systems.
             </Box>
           </AnimateOnScroll>
         </RowCol>

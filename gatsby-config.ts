@@ -9,8 +9,8 @@
  */
 export default {
   siteMetadata: {
-    title: `Gerardo I. Ornelas | Tech Futurist in Blockchain & Agentic AI Security`,
-    description: `Founder and technologist building blockchain-backed provenance and execution-time security for AI agents. Co-Author of the Agent Permission Protocol.`,
+    title: `Gerardo I. Ornelas | Founder of Violetek`,
+    description: `Gerardo I. Ornelas is the founder of Violetek and the author of the Agent Permission Protocol. His work focuses on authority systems, machine permissions, verification, and execution-runtime authorization.`,
     author: `Gerardo I. Ornelas`,
     siteUrl: `https://www.gerardoiornelas.com`,
   },

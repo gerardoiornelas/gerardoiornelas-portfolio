@@ -55,12 +55,14 @@ export const Home: React.FC = () => {
                   <RowCol mb={2}>
                     <AnimateOnScroll animateIn="fadeIn">
                       <Typography variant="h4" component="h1">
-                        Architect of Agentic Trust.
+                        Building the authority layer for intelligent systems.
                       </Typography>
 
                       <Typography component="h2" textTransform="none">
-                        I design verifiable systems where humans and agents
-                        operate under cryptographic guarantees.
+                        I&apos;m Gerardo I. Ornelas, founder of Violetek and
+                        author of the Agent Permission Protocol. My work
+                        focuses on authority systems, machine permissions,
+                        verification, and execution-runtime authorization.
                       </Typography>
                     </AnimateOnScroll>
                   </RowCol>
@@ -74,20 +76,20 @@ export const Home: React.FC = () => {
                       <Button
                         variant="contained"
                         color="primary"
-                        href="#contact"
-                        fullWidth={isSmall}
-                        size="large"
-                      >
-                        Request a Briefing
-                      </Button>
-                      <Button
-                        variant="outlined"
-                        color="secondary"
                         href="/manifesto"
                         fullWidth={isSmall}
                         size="large"
                       >
-                        Read the Manifesto
+                        Read the Thesis
+                      </Button>
+                      <Button
+                        variant="outlined"
+                        color="secondary"
+                        href="https://www.violetek.com/"
+                        fullWidth={isSmall}
+                        size="large"
+                      >
+                        Explore Violetek
                       </Button>
                     </Stack>
                   </RowCol>

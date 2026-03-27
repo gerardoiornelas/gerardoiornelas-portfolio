@@ -16,39 +16,39 @@ const faqSchema = {
       name: "Who is Gerardo I. Ornelas?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Gerardo I. Ornelas is a technology leader who builds execution-time security and cryptographic controls for AI systems. He is the Co-founder and President of Crittora, where he leads strategy, design, and development of the cryptographic experience stack that secures AI agents in production.",
+        text: "Gerardo I. Ornelas is the founder of Violetek and the author of the Agent Permission Protocol. His work focuses on authority systems, machine permissions, verification, and execution-runtime authorization.",
       },
     },
     {
       "@type": "Question",
-      name: "What is Crittora?",
+      name: "What is Violetek?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Crittora is a security company that builds the trust layer authorizing what AI agents can do at the moment they act. It enforces explicit, time-bound authority and provides signed Proof-of-Action receipts for every action, making authority explicit, enforceable, and auditable at runtime.",
+        text: "Violetek is the venture platform founded by Gerardo I. Ornelas to build products, systems, and ventures around authority systems, verification, and execution-runtime authorization.",
       },
     },
     {
       "@type": "Question",
-      name: "What are execution-time security controls for AI agents?",
+      name: "What is the Agent Permission Protocol?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Execution-time security controls are cryptographic mechanisms that enforce authorization policies at the exact moment an AI agent performs an action. Unlike static access controls, these controls verify authority in real time, ensuring agents only act within explicitly granted, time-bound permissions.",
+        text: "The Agent Permission Protocol is a framework authored by Gerardo I. Ornelas for defining and enforcing machine authority at execution time.",
       },
     },
     {
       "@type": "Question",
-      name: "What is a Proof-of-Action receipt?",
+      name: "What does Gerardo I. Ornelas work on?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A Proof-of-Action receipt is a cryptographically signed record generated each time an AI agent performs an authorized action. It provides an auditable trail that confirms what action was taken, by which agent, under what authority, and at what time.",
+        text: "His work focuses on authority boundaries, machine permissions, verification, and the systems required to make intelligent actions explicit and auditable.",
       },
     },
     {
       "@type": "Question",
-      name: "How does cryptographic authorization work for AI agents?",
+      name: "How are Gerardo I. Ornelas and Violetek related?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Cryptographic authorization for AI agents uses cryptographic primitives to enforce policies at runtime. Rather than relying on role-based access alone, it binds permissions to specific actions with time-bound validity, ensuring that every agent action is explicitly authorized, verifiable, and non-repudiable.",
+        text: "Gerardo I. Ornelas is the founder of Violetek. His personal site presents his ideas, writing, and current work, while Violetek is the company platform building ventures and products in this category.",
       },
     },
   ],
@@ -57,22 +57,22 @@ const faqSchema = {
 const homepageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "Gerardo I. Ornelas | Architect of Agentic Trust",
+  name: "Gerardo I. Ornelas | Building the Authority Layer for Intelligent Systems",
   url: "https://www.gerardoiornelas.com/",
   description:
-    "Architect of Agentic Trust building cryptographic execution-time controls, provenance, and audit-ready autonomy.",
+    "Founder of Violetek and author of the Agent Permission Protocol, building systems, ventures, and frameworks for authority, verification, and execution-runtime authorization.",
   about: [
-    { "@type": "Thing", name: "Agentic AI security" },
+    { "@type": "Thing", name: "Authority systems" },
     { "@type": "Thing", name: "Execution-time authorization" },
-    { "@type": "Thing", name: "Blockchain provenance" },
-    { "@type": "Thing", name: "Cryptographic policy enforcement" },
+    { "@type": "Thing", name: "Machine permissions" },
+    { "@type": "Thing", name: "Verification" },
   ],
 }
 
 export const Head: HeadFC = () => (
   <Seo
-    title="Architect of Agentic Trust"
-    description="Gerardo I. Ornelas designs verifiable systems where humans and agents operate under cryptographic guarantees."
+    title="Building the Authority Layer for Intelligent Systems"
+    description="Founder of Violetek and author of the Agent Permission Protocol. Gerardo I. Ornelas builds systems, ventures, and frameworks for authority, verification, and execution-runtime authorization."
     pathname="/"
     jsonLd={[faqSchema, homepageSchema]}
   />

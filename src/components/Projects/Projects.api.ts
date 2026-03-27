@@ -19,12 +19,24 @@ interface ProjectData {
 const projectsData: ProjectData[] = [
   {
     id: cuid(),
-    title: `Crittora`,
+    title: `Violetek`,
     description: [
-      "Security platform that makes execution-time authority explicit, ensuring AI agents, users, and systems can only do exactly what they are permitted to do—nothing more. ",
+      "The venture platform I founded to build products and systems around authority, verification, and execution-runtime authorization.",
     ],
     signal:
-      "Zero-trust migration lead at Verizon; enterprise rollouts in progress.",
+      "Institutional layer for ventures, protocols, and product development in machine permissions and runtime control.",
+    imgSrc: ImgQVerify,
+    imgAlt: "Violetek venture platform profile",
+    url: `https://www.violetek.com/`,
+  },
+  {
+    id: cuid(),
+    title: `Crittora`,
+    description: [
+      "A venture focused on making authority explicit and enforceable at the moment intelligent systems act.",
+    ],
+    signal:
+      "Selected venture applying execution-time controls and explicit permissions in production contexts.",
     imgSrc: ImgCrittora,
     imgAlt: "abstract cryptographic control layer",
     url: `https://www.crittora.com/`,
@@ -33,11 +45,11 @@ const projectsData: ProjectData[] = [
     id: cuid(),
     title: `Agent Permission Protocol`,
     description: [
-      "Open protocol for cryptographic agent permissions at execution time.",
-      "Prevents forged calls, replays, and over-broad execution with portable receipts.",
+      "A framework for defining and enforcing machine authority at execution time.",
+      "Authored to make intelligent actions explicit, constrained, and verifiable.",
     ],
     signal:
-      "Agent actions verified before invocation; fraud-review latency cut by 42% (placeholder).",
+      "Formal framework supporting the broader work on authority boundaries and runtime authorization.",
     imgSrc: ImgAPP,
     imgAlt: "execution-time authorization gate",
     url: `https://www.crittora.com/app/whitepaper`,
@@ -47,10 +59,10 @@ const projectsData: ProjectData[] = [
     id: cuid(),
     title: `Qripton Verify`,
     description: [
-      "Trust, protect, and prove every document exchange. Future-proof identity bound encryption for document and data.",
+      "A venture focused on trusted verification, protected exchange, and auditable proof in digital workflows.",
     ],
     signal:
-      "Adopted for regulated document flows; attestations issued per transaction (placeholder metric).",
+      "Selected venture extending the verification and trust layer across high-assurance document flows.",
     imgSrc: ImgQVerify,
     imgAlt: "secure document verification",
     url: `https://qriptonverify.com/`,

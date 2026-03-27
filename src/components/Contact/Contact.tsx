@@ -18,8 +18,14 @@ export const Contact: React.FC = () => {
     <Container>
       <RowCol mb={4}>
         <Title variant="segment" align="center">
-          Request a Briefing
+          Connect
         </Title>
+      </RowCol>
+      <RowCol mb={4}>
+        <Box textAlign="center" maxWidth="md" mx="auto">
+          For partnerships, speaking, strategic conversations, research, or
+          founder inquiries, reach out here.
+        </Box>
       </RowCol>
       <Row justifyContent="center">
         <Col xs={12} md={6}>
@@ -69,9 +75,9 @@ export const Contact: React.FC = () => {
               <TextField
                 variant="filled"
                 fullWidth
-                id="objective"
-                label="Objective"
-                name="objective"
+                id="reason"
+                label="Reason for reaching out"
+                name="reason"
                 multiline
                 rows={3}
                 required
@@ -92,9 +98,9 @@ export const Contact: React.FC = () => {
               <TextField
                 variant="filled"
                 fullWidth
-                id="security"
-                label="Security Requirements"
-                name="security"
+                id="message"
+                label="Message"
+                name="message"
                 multiline
                 rows={3}
                 required
@@ -109,7 +115,7 @@ export const Contact: React.FC = () => {
                   value="yes"
                   style={{ marginRight: "0.5rem" }}
                 />
-                Add me to The Agentic Standard newsletter.
+                Subscribe to updates.
               </label>
             </Box>
 
@@ -121,7 +127,7 @@ export const Contact: React.FC = () => {
                 variant="contained"
                 color="secondary"
               >
-                Send Briefing Request
+                Send Message
               </Button>
             </Box>
           </form>

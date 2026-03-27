@@ -21,9 +21,19 @@ export const Footer: React.FC = () => {
       <Container>
         <Grid container py={4}>
           <Grid item xs={12} md={4}>
-            <Typography align={isSmall ? "center" : "left"}>
-              © Gerardo I. Ornelas
-            </Typography>
+            <Box>
+              <Typography align={isSmall ? "center" : "left"}>
+                © Gerardo I. Ornelas
+              </Typography>
+              <Typography
+                variant="body2"
+                align={isSmall ? "center" : "left"}
+                sx={{ opacity: 0.8 }}
+              >
+                Founder of Violetek and author of the Agent Permission
+                Protocol.
+              </Typography>
+            </Box>
           </Grid>
           <Grid item xs={12} md={4}>
             <Box display="flex" justifyContent="center">
