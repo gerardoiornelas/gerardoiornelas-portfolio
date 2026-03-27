@@ -20,6 +20,8 @@ interface ProjectCardProps {
   signal: string
   imgSrc: string
   imgAlt: string
+  imgWidth?: number
+  imgHeight?: number
   url?: string
   anchor?: string
   github?: string
@@ -32,12 +34,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   signal,
   imgSrc,
   imgAlt,
+  imgWidth = 128,
+  imgHeight = 84,
   url,
   anchor,
   github,
 }) => {
-  const theme = useTheme()
-
   return (
     <Card
       id={id}
@@ -50,7 +52,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       }}
     >
       <Box display="flex" justifyContent="center">
-        <Box component="img" alt={imgAlt} src={imgSrc} width={128} m={2} />
+        <Box
+          component="img"
+          alt={imgAlt}
+          src={imgSrc}
+          sx={{
+            width: imgWidth,
+            height: imgHeight,
+            objectFit: "contain",
+            m: 2,
+          }}
+        />
       </Box>
       <CardContent sx={{ flexGrow: 1 }}>
         <Box textAlign={`center`}>

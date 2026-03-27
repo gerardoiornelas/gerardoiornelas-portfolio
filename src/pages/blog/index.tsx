@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql, Link, type HeadFC, type PageProps } from "gatsby"
-import { Box, Container, Divider, Typography } from "@mui/material"
+import { Box, Container, Divider, Grid, Typography } from "@mui/material"
 import { LayoutAlt } from "../../components/Layout"
 import { Seo, seoDefaults } from "../../components/Seo"
 import { Title } from "../../components/Title"
@@ -28,30 +28,75 @@ const BlogIndexPage: React.FC<PageProps<BlogIndexData>> = ({ data }) => {
           <Box mb={4}>
             <Title variant="segmentAlt">Blog</Title>
             <Typography color="text.secondary">
-              Writing about agentic AI security, blockchain-backed provenance,
-              cryptographic policy enforcement, and verifiable autonomy.
+              A body of work on the authority layer for agentic systems:
+              execution-time authorization, ambient authority, security UX, and
+              verifiable enforcement.
             </Typography>
           </Box>
 
           <Box mb={5}>
             <Typography variant="h6" gutterBottom>
-              Topic Clusters
+              Start Here
+            </Typography>
+            <Typography>
+              <Link to="/authority-layer/">
+                The Authority Layer for Agentic Systems
+              </Link>
+            </Typography>
+            <Typography>
+              <Link to="/manifesto/">
+                Verifiably Human Manifesto
+              </Link>
             </Typography>
             <Typography>
               <Link to="/blog/securing-autonomy/">
-                Agent Permission Protocol + LangGraph security patterns
+                Securing Autonomy: APP applied to real agent patterns
               </Link>
             </Typography>
             <Typography>
-              <Link to="/blog/verifiably-human-part-1/">
-                Verifiable human provenance for synthetic media
-              </Link>
+              <Link to="/#contact">Request a briefing</Link>
             </Typography>
-            <Typography>
-              <Link to="/author/gerardo-i-ornelas/">
-                Author profile: blockchain + agentic AI security focus
-              </Link>
+          </Box>
+
+          <Divider sx={{ mb: 3 }} />
+
+          <Box mb={5}>
+            <Typography variant="h6" gutterBottom>
+              Series
             </Typography>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={6}>
+                <Typography variant="subtitle1">Authority Layer</Typography>
+                <Typography color="text.secondary">
+                  Foundational essays on how intelligent systems should be
+                  allowed to act, how authority is bounded, and why reasoning
+                  must be separated from action.
+                </Typography>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Typography variant="subtitle1">
+                  Agent Permission Protocol
+                </Typography>
+                <Typography color="text.secondary">
+                  Applied patterns, control models, and implementation framing
+                  for execution-time authorization in agentic systems.
+                </Typography>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Typography variant="subtitle1">Security UX</Typography>
+                <Typography color="text.secondary">
+                  The human interface to authority: how permissions, review, and
+                  trust become legible in real products.
+                </Typography>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Typography variant="subtitle1">Verifiable Systems</Typography>
+                <Typography color="text.secondary">
+                  Provenance, receipts, attestations, and blockchain-backed
+                  proofs for systems that need durable trust.
+                </Typography>
+              </Grid>
+            </Grid>
           </Box>
 
           <Divider sx={{ mb: 3 }} />
@@ -84,7 +129,7 @@ export const Head: HeadFC<BlogIndexData> = ({ data }) => {
     name: "Blog | Gerardo I. Ornelas",
     url: `${seoDefaults.siteUrl}/blog/`,
     description:
-      "Articles on agentic AI security, blockchain provenance, and cryptographic authorization.",
+      "Series-based essays on the authority layer for agentic systems, including execution-time authorization, ambient authority, security UX, and verifiable enforcement.",
     hasPart: items.map((post) => ({
       "@type": "BlogPosting",
       headline: post.frontmatter.title,
@@ -114,8 +159,8 @@ export const Head: HeadFC<BlogIndexData> = ({ data }) => {
 
   return (
     <Seo
-      title="Blog: Agentic AI Security & Blockchain Provenance"
-      description="Technical essays on execution-time authorization, AI agent governance, and verifiable human provenance."
+      title="Blog: The Authority Layer for Agentic Systems"
+      description="Series-based essays on execution-time authorization, ambient authority, security UX, and verifiable enforcement."
       pathname="/blog/"
       jsonLd={[collectionSchema, breadcrumbSchema]}
     />

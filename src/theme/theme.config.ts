@@ -21,11 +21,11 @@ const metaKeywords: string =
   "react, hardhat, solidity, web3, UX, UI, blockchain"
 
 const googleFonts: string =
-  "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Young+Serif&display=swap"
+  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Young+Serif&display=swap"
 
-const fontFamilies: string = "'JetBrains Mono', monospace"
-const headlineFont: string = "'Young Serif', 'JetBrains Mono', monospace"
-const bodyFont: string = "'JetBrains Mono', monospace"
+const fontFamilies: string = "'Inter', sans-serif"
+const headlineFont: string = "'Young Serif', 'Inter', serif"
+const bodyFont: string = "'Inter', sans-serif"
 
 const headlineFontStyles: React.CSSProperties = {
   fontFamily: headlineFont,

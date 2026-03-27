@@ -41,7 +41,7 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({
     }),
     React.createElement("link", {
       key: "google-fonts",
-      href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Young+Serif&display=swap",
+      href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Young+Serif&display=swap",
       rel: "stylesheet",
     }),
   ])

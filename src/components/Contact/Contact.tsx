@@ -23,8 +23,10 @@ export const Contact: React.FC = () => {
       </RowCol>
       <RowCol mb={4}>
         <Box textAlign="center" maxWidth="md" mx="auto">
-          For partnerships, speaking, strategic conversations, research, or
-          founder inquiries, reach out here.
+          Request a briefing for your product, platform, or team. Use this form
+          for founder inquiries, strategic conversations, speaking, research,
+          or advisory work related to agentic security and trustworthy AI
+          experiences.
         </Box>
       </RowCol>
       <Row justifyContent="center">

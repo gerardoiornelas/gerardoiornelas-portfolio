@@ -2,9 +2,9 @@ import React from "react"
 
 const SITE_NAME = "Gerardo I. Ornelas"
 const SITE_URL = "https://www.gerardoiornelas.com"
-const DEFAULT_TITLE = "Gerardo I. Ornelas | Founder of Violetek"
+const DEFAULT_TITLE = "Gerardo I. Ornelas | The Authority Layer for Agentic Systems"
 const DEFAULT_DESCRIPTION =
-  "Gerardo I. Ornelas is the founder of Violetek and the author of the Agent Permission Protocol. His work focuses on authority systems, machine permissions, verification, and execution-runtime authorization."
+  "Gerardo I. Ornelas defines the authority layer for agentic systems through execution-time authorization, ambient authority, security UX, and verifiable enforcement."
 const DEFAULT_IMAGE = "/lone-star-gs.png"
 
 interface SeoProps {
@@ -63,10 +63,11 @@ export const Seo: React.FC<SeoProps> = ({
       jobTitle: "Founder of Violetek",
       description: DEFAULT_DESCRIPTION,
       knowsAbout: [
-        "Authority systems",
-        "Machine permissions",
-        "Verification",
-        "Execution-runtime authorization",
+        "Authority layer for agentic systems",
+        "Execution-time authorization",
+        "Ambient authority",
+        "Security UX",
+        "Verifiable enforcement",
         "Agent permissions",
       ],
       sameAs: [

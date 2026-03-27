@@ -12,8 +12,19 @@ const ManifestoPage: React.FC = () => {
       <Container maxWidth="md" sx={{ py: 8 }}>
         <Title variant="segmentAlt">Verifiably Human: A Doctrine of Sovereign Authority</Title>
         <Typography variant="h5" sx={{ mt: 2, mb: 4 }}>
-          A field doctrine for autonomous systems where accountability is a cryptographic guarantee—not a post-incident hope.
+          A practical thesis for the authority layer of agentic systems: how intelligent products are allowed to act, how trust is enforced at execution time, and how accountability becomes legible instead of implied.
         </Typography>
+
+        <Box mb={4}>
+          <Typography>
+            Most AI products still collapse reasoning and authority into the
+            same layer. Once a system has access, it can often act too broadly,
+            for too long, with too little proof. This manifesto argues for a
+            different architecture: eliminate ambient authority, authorize
+            actions at execution time, and design the human interface to
+            authority as carefully as the policy itself.
+          </Typography>
+        </Box>
 
         <Box mb={4}>
           <Typography variant="h6">The Pillars</Typography>
@@ -46,12 +57,18 @@ const ManifestoPage: React.FC = () => {
 
         <Box mb={4}>
           <Typography>
-            This doctrine codifies patterns from Crittora, the Agent Permission Protocol (APP), and lessons learned architecting for the world’s most critical infrastructures (Verizon, GE, regulated carriers). It is intentionally aggressive and operational: how to scope authority, instrument verifiability, and maintain human sovereignty without sacrificing the velocity of autonomy.
+            This doctrine codifies patterns from Crittora, the Agent Permission
+            Protocol, and lessons learned architecting for critical
+            infrastructure and regulated environments. It is intentionally
+            operational: how to scope authority, instrument verifiability,
+            design legible review surfaces, and maintain human sovereignty
+            without sacrificing the velocity of autonomy.
           </Typography>
         </Box>
 
         <Box display="flex" gap={2}>
-          <a href="#contact">Request a Briefing</a>
+          <a href="/#contact">Request a Briefing</a>
+          <a href="/authority-layer/">Start with the authority layer</a>
           <a href="/blog/">Read the research</a>
         </Box>
       </Container>
@@ -62,7 +79,7 @@ const ManifestoPage: React.FC = () => {
 export const Head: HeadFC = () => (
   <Seo
     title="Verifiably Human Manifesto"
-    description="Field doctrine for deterministic, audit-ready agentic systems."
+    description="A practical thesis for the authority layer of agentic systems: execution-time authorization, ambient-authority elimination, security UX, and verifiable accountability."
     pathname="/manifesto"
   />
 )

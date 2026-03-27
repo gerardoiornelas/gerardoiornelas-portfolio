@@ -3,6 +3,7 @@ import cuid from "cuid"
 import ImgCrittora from "../../images/projects/crittora.png"
 import ImgQVerify from "../../images/projects/qverify.png"
 import ImgAPP from "../../images/projects/app.png"
+import ImgVioletek from "../../images/projects/violetek.png"
 
 interface ProjectData {
   id: string
@@ -12,6 +13,8 @@ interface ProjectData {
   imgSrc: string
   imgAlt: string
   url: string
+  imgWidth?: number
+  imgHeight?: number
   anchor?: string
   github?: string
 }
@@ -25,8 +28,10 @@ const projectsData: ProjectData[] = [
     ],
     signal:
       "Institutional layer for ventures, protocols, and product development in machine permissions and runtime control.",
-    imgSrc: ImgQVerify,
+    imgSrc: ImgVioletek,
     imgAlt: "Violetek venture platform profile",
+    imgWidth: 112,
+    imgHeight: 84,
     url: `https://www.violetek.com/`,
   },
   {
@@ -39,6 +44,8 @@ const projectsData: ProjectData[] = [
       "Selected venture applying execution-time controls and explicit permissions in production contexts.",
     imgSrc: ImgCrittora,
     imgAlt: "abstract cryptographic control layer",
+    imgWidth: 128,
+    imgHeight: 84,
     url: `https://www.crittora.com/`,
   },
   {
@@ -52,6 +59,8 @@ const projectsData: ProjectData[] = [
       "Formal framework supporting the broader work on authority boundaries and runtime authorization.",
     imgSrc: ImgAPP,
     imgAlt: "execution-time authorization gate",
+    imgWidth: 128,
+    imgHeight: 84,
     url: `https://www.crittora.com/app/whitepaper`,
     anchor: "#app-visualization",
   },
@@ -65,6 +74,8 @@ const projectsData: ProjectData[] = [
       "Selected venture extending the verification and trust layer across high-assurance document flows.",
     imgSrc: ImgQVerify,
     imgAlt: "secure document verification",
+    imgWidth: 128,
+    imgHeight: 84,
     url: `https://qriptonverify.com/`,
   },
 ]

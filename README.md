@@ -12,6 +12,21 @@ Kick off your project with this default boilerplate. This starter ships with the
 
 _Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
 
+## Development
+
+This project is currently configured for Node `18.12.1`.
+
+If you run it with Node `22.x`, Gatsby may start in a broken develop state with missing page-data or StaticQuery results even though production builds still pass.
+
+Use the repo's Node version before installing or starting the dev server:
+
+```shell
+nvm use
+npm install
+GATSBY_TELEMETRY_DISABLED=1 npm run clean
+GATSBY_TELEMETRY_DISABLED=1 npm run develop
+```
+
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**

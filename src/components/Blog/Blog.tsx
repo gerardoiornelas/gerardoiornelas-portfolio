@@ -1,7 +1,8 @@
 import React from "react"
+import { Link } from "gatsby"
 import cuid from "cuid"
 import { useStaticQuery, graphql } from "gatsby"
-import { Container, Box } from "@mui/material"
+import { Container, Box, Typography } from "@mui/material"
 
 import { RowCol } from "../RowCol"
 import { Title } from "../Title"
@@ -56,8 +57,23 @@ export const Blog: React.FC = () => {
         <RowCol mb={4}>
           <AnimateOnScroll animateIn={`fadeInUp`}>
             <Title variant="segment" align="center">
-              Blog
+              Authority Engine
             </Title>
+          </AnimateOnScroll>
+        </RowCol>
+        <RowCol mb={4}>
+          <AnimateOnScroll animateIn="fadeInUp" delay={100}>
+            <Box textAlign="center" maxWidth="md" mx="auto">
+              <Typography color="text.secondary" sx={{ mb: 1.5 }}>
+                A growing body of work on the authority layer for agentic
+                systems: ambient authority, execution-time authorization,
+                security UX, and verifiable enforcement.
+              </Typography>
+              <Typography>
+                Start with <Link to="/authority-layer/">The Authority Layer</Link>
+                {" "}or explore the full <Link to="/blog/">series archive</Link>.
+              </Typography>
+            </Box>
           </AnimateOnScroll>
         </RowCol>
         <RowCol>

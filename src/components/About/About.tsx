@@ -1,23 +1,16 @@
 import React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
 import {
   Container,
   Typography,
   Box,
-  Button,
-  Stack,
   Tooltip,
   useTheme,
   useMediaQuery,
 } from "@mui/material"
 
-import { RowCol, Row, Col } from "../RowCol"
+import { RowCol } from "../RowCol"
 import { StyledHome } from "../Home/Home.styled"
 import { AnimateOnScroll } from "../AnimateOnScroll"
-import { Social } from "../Social"
-
-import ImgLostwunHero from "../../images/hero-gerardo-i-ornelas.png"
 import LogoVerizon from "../../images/xp/verizon.svg"
 import LogoGE from "../../images/xp/ge.svg"
 import LogoAmfam from "../../images/xp/amfam.svg"
@@ -121,8 +114,8 @@ export const About: React.FC = () => {
                           enterprise and regulated environments. That work led
                           to a consistent conclusion:{" "}
                           <Box component="span" fontWeight={`bold`}>
-                            authority is only trustworthy when it is explicit,
-                            bounded, and verifiable
+                            intelligent systems are only trustworthy when
+                            authority is explicit, bounded, and verifiable
                           </Box>
                           .
                         </Typography>
@@ -136,8 +129,9 @@ export const About: React.FC = () => {
                             Violetek
                           </Box>
                           , I build ventures, products, and frameworks around
-                          authority boundaries, machine permissions,
-                          verification, and execution-runtime authorization.
+                          the authority layer for agentic systems: execution-time
+                          authorization, ambient-authority elimination, security
+                          UX, and verifiable enforcement.
                         </Typography>
                       </Box>
 
@@ -155,7 +149,8 @@ export const About: React.FC = () => {
                           Qripton Verify
                         </Box>
                         , which operationalize these ideas in production
-                        contexts.
+                        contexts through explicit permissions, provenance, and
+                        human-legible trust boundaries.
                       </Typography>
                     </Box>
                   </AnimateOnScroll>

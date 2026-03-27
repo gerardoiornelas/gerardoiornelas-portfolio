@@ -1,13 +1,10 @@
 import React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
 import {
   Container,
   Typography,
   Box,
   Button,
   Stack,
-  Tooltip,
   useTheme,
   useMediaQuery,
 } from "@mui/material"
@@ -18,10 +15,6 @@ import { AnimateOnScroll } from "../AnimateOnScroll"
 import { Social } from "../Social"
 
 import ImgLostwunHero from "../../images/hero-gerardo-i-ornelas.png"
-import LogoVerizon from "../../images/xp/verizon.svg"
-import LogoGE from "../../images/xp/ge.svg"
-import LogoAmfam from "../../images/xp/amfam.svg"
-import LogoBCBS from "../../images/xp/bcbsfl.svg"
 
 export const Home: React.FC = () => {
   const theme = useTheme()
@@ -55,14 +48,29 @@ export const Home: React.FC = () => {
                   <RowCol mb={2}>
                     <AnimateOnScroll animateIn="fadeIn">
                       <Typography variant="h4" component="h1">
-                        Building the authority layer for intelligent systems.
+                        The authority layer for agentic systems.
                       </Typography>
 
                       <Typography component="h2" textTransform="none">
                         I&apos;m Gerardo I. Ornelas, founder of Violetek and
-                        author of the Agent Permission Protocol. My work
-                        focuses on authority systems, machine permissions,
-                        verification, and execution-runtime authorization.
+                        author of the Agent Permission Protocol. I write about
+                        execution-time authorization, ambient authority,
+                        security UX, and verifiable enforcement so founders can
+                        build AI products that are safe to use in production.
+                      </Typography>
+                    </AnimateOnScroll>
+                  </RowCol>
+
+                  <RowCol my={2}>
+                    <AnimateOnScroll animateIn="fadeIn" delay={150}>
+                      <Typography color="text.secondary">
+                        Most AI products still rely on ambient authority:
+                        systems can act because they have access, not because a
+                        specific action was explicitly authorized. My work
+                        focuses on the missing layer: how intelligent systems
+                        are actually allowed to act, how those permissions are
+                        enforced at execution time, and how that trust becomes
+                        legible to humans.
                       </Typography>
                     </AnimateOnScroll>
                   </RowCol>
@@ -72,31 +80,41 @@ export const Home: React.FC = () => {
                       direction={isSmall ? "column" : "row"}
                       spacing={2}
                       alignItems={isSmall ? "stretch" : "flex-start"}
+                      flexWrap={isSmall ? "nowrap" : "wrap"}
                     >
                       <Button
                         variant="contained"
                         color="primary"
-                        href="/manifesto"
+                        href="/authority-layer"
                         fullWidth={isSmall}
                         size="large"
+                        sx={{ whiteSpace: "nowrap" }}
                       >
-                        Read the Thesis
+                        Read Authority Layer
                       </Button>
                       <Button
                         variant="outlined"
+                        color="primary"
+                        href="/#contact"
+                        fullWidth={isSmall}
+                        size="large"
+                        sx={{ whiteSpace: "nowrap" }}
+                      >
+                        Request Briefing
+                      </Button>
+                      <Button
+                        variant="text"
                         color="secondary"
                         href="https://www.violetek.com/"
                         fullWidth={isSmall}
                         size="large"
+                        sx={{ whiteSpace: "nowrap" }}
                       >
-                        Explore Violetek
+                        Violetek
                       </Button>
                     </Stack>
                   </RowCol>
                   <RowCol my={2}>
-                    {/* <Typography align="center">
-                      Watch the Agent Permission Protocol in motion.
-                    </Typography> */}
                     <Box
                       display="flex"
                       justifyContent={isSmall ? "center" : "flex-start"}
