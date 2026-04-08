@@ -11,6 +11,7 @@ import { Blog } from "../Blog"
 import { RobotGallery } from "../RobotGallery"
 import { Contact } from "../Contact"
 import { APP } from "../APP"
+import { MicroMedia } from "../MicroMedia"
 
 export const ScrollContainer: React.FC = () => {
   const refHome = useRef<HTMLElement>(null)
@@ -74,6 +75,9 @@ export const ScrollContainer: React.FC = () => {
             ref={refBlog}
           ></Box>
           <Blog />
+        </Segment>
+        <Segment variant="secondary" segmentDecoration>
+          <MicroMedia />
         </Segment>
         {/* <Segment>
           <Box

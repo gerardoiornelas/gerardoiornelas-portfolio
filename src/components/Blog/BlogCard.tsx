@@ -1,5 +1,5 @@
 import React from "react"
-import { navigate } from "gatsby"
+import { Link } from "gatsby"
 import ClampLines from "react-clamp-lines"
 import {
   Typography,
@@ -81,7 +81,8 @@ const BlogCard: React.FC<BlogCardProps> = ({ frontmatter, excerpt }) => {
           endIcon={<ReadMoreIcon />}
           size="small"
           color="secondary"
-          onClick={() => navigate(`/blog${frontmatter.slug}`)}
+          component={Link}
+          to={`/blog${frontmatter.slug}`}
         >
           Read More
         </Button>
