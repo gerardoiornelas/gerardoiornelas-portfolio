@@ -4,6 +4,7 @@ import ImgCrittora from "../../images/projects/crittora.png"
 import ImgQVerify from "../../images/projects/qverify.png"
 import ImgAPP from "../../images/projects/app.png"
 import ImgVioletek from "../../images/projects/violetek.png"
+import ImgWUN from "../../images/projects/wun.png"
 
 interface ProjectData {
   id: string
@@ -77,6 +78,21 @@ const projectsData: ProjectData[] = [
     imgWidth: 128,
     imgHeight: 84,
     url: `https://qriptonverify.com/`,
+  },
+  {
+    id: cuid(),
+    title: `WUN.ai`,
+    description: [
+      "Built for teams that need to do more with less.",
+      "WUN helps SMBs, nonprofits, startups, and lean teams turn manual bottlenecks into secure agent systems that improve follow-through, reduce operational drag, and create more room to grow.",
+    ],
+    signal:
+      "Secure Agent Systems built to diagnose and solve real operational bottlenecks with Crittora-backed protection.",
+    imgSrc: ImgWUN,
+    imgAlt: "secure agent systems",
+    imgWidth: 128,
+    imgHeight: 84,
+    url: `https://www.wun.ai/`,
   },
 ]
 
