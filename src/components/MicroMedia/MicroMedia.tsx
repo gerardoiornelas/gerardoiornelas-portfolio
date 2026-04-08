@@ -21,21 +21,12 @@ interface YouTubeVideo {
   url: string
   date: string
   videoId: string
+  platform: "YouTube"
 }
 
 const CHANNEL_ID = "UCLKKfZvlPkyJGVRO3IIUPRg"
 const RSS_FEED_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`
 const RSS_TO_JSON_API = "https://api.rss2json.com/v1/api.json"
-
-const platformLabel: Record<string, string> = {
-  YouTube: "YouTube Short",
-  X: "X post",
-}
-
-const platformColor: Record<string, "error" | "info"> = {
-  YouTube: "error",
-  X: "info",
-}
 
 const MicroMediaCard: React.FC<{ item: YouTubeVideo }> = ({ item }) => {
   return (
@@ -48,11 +39,17 @@ const MicroMediaCard: React.FC<{ item: YouTubeVideo }> = ({ item }) => {
         height: "100%",
         backgroundColor: "transparent",
         border: 0,
-        boxShadow: 0
+        boxShadow: 0,
       }}
     >
       <CardContent sx={{ flexGrow: 1 }}>
         <Stack spacing={1} mb={1}>
+          <Box display="flex" justifyContent="space-between" alignItems="center">
+            <Chip label="YouTube Short" color="error" size="small" />
+            <Typography variant="body2" color="text.secondary">
+              {item.date}
+            </Typography>
+          </Box>
 
           <Box
             sx={{
@@ -80,9 +77,27 @@ const MicroMediaCard: React.FC<{ item: YouTubeVideo }> = ({ item }) => {
             />
           </Box>
 
+          <Typography variant="h6" component="h3">
+            {item.title}
+          </Typography>
+
+          <Typography variant="body2" color="text.secondary">
+            {item.description}
+          </Typography>
         </Stack>
       </CardContent>
 
+      <CardActions sx={{ justifyContent: "flex-end" }}>
+        <Button
+          size="small"
+          endIcon={<OpenInNewIcon />}
+          href={item.url}
+          target="_blank"
+          rel="noreferrer"
+        >
+          View
+        </Button>
+      </CardActions>
     </Card>
   )
 }
@@ -101,7 +116,7 @@ export const MicroMedia: React.FC = () => {
         const data = await response.json()
 
         if (data.status === "ok" && data.items) {
-          const youtubeVideos: YouTubeVideo[] = data.items
+          const fetchedVideos: YouTubeVideo[] = data.items
             .slice(0, 3)
             .map((item: { title: string; description: string; link: string; pubDate: string }) => {
               const videoIdMatch = item.link.match(/(?:shorts\/|watch\?v=)([a-zA-Z0-9_-]+)/)
@@ -115,9 +130,10 @@ export const MicroMedia: React.FC = () => {
                   year: "numeric",
                 }),
                 videoId: videoIdMatch ? videoIdMatch[1] : "",
+                platform: "YouTube" as const,
               }
             })
-          setVideos(youtubeVideos)
+          setVideos(fetchedVideos)
         } else {
           setError("Failed to fetch videos")
         }
@@ -137,9 +153,8 @@ export const MicroMedia: React.FC = () => {
         <Box mb={3} textAlign="center">
           <Title variant="segment">Micro-Media</Title>
           <Typography color="text.secondary">
-            Frequent short-form insights—YouTube Shorts, X notes, and spontaneous
-            runs—highlight how authority still matters inside every automation
-            patrol.
+            Frequent short-form insights—YouTube Shorts—highlight how authority still
+            matters inside every automation patrol.
           </Typography>
         </Box>
         {loading ? (
