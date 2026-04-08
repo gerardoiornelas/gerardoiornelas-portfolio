@@ -11,6 +11,7 @@ tags:
   - Ambient Authority
   - Execution-Time Authorization
   - Silent Failure
+featuredImage: "../images/blog/the-most-dangerous-ai-failures-still-look-normal.webp"
 ---
 
 The most dangerous AI failures do not look dramatic at first.
