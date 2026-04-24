@@ -10,5 +10,9 @@ interface CurvyProps {
 }
 
 export const Curvy: React.FC<CurvyProps> = ({ alternate = false }) => {
-  return alternate ? <StyledSegmentDecorationAlt /> : <StyledSegmentDecoration />
+  return alternate ? (
+    <StyledSegmentDecorationAlt />
+  ) : (
+    <StyledSegmentDecoration />
+  )
 }

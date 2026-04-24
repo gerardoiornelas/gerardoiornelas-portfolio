@@ -44,9 +44,7 @@ const BlogIndexPage: React.FC<PageProps<BlogIndexData>> = ({ data }) => {
               </Link>
             </Typography>
             <Typography>
-              <Link to="/manifesto/">
-                Verifiably Human Manifesto
-              </Link>
+              <Link to="/manifesto/">Verifiably Human Manifesto</Link>
             </Typography>
             <Typography>
               <Link to="/blog/securing-autonomy/">
@@ -101,7 +99,7 @@ const BlogIndexPage: React.FC<PageProps<BlogIndexData>> = ({ data }) => {
 
           <Divider sx={{ mb: 3 }} />
 
-          {posts.map((post) => (
+          {posts.map(post => (
             <Box key={post.frontmatter.slug} mb={4}>
               <Typography variant="body2" color="text.secondary">
                 {post.frontmatter.date}
@@ -130,7 +128,7 @@ export const Head: HeadFC<BlogIndexData> = ({ data }) => {
     url: `${seoDefaults.siteUrl}/blog/`,
     description:
       "Series-based essays on the authority layer for agentic systems, including execution-time authorization, ambient authority, security UX, and verifiable enforcement.",
-    hasPart: items.map((post) => ({
+    hasPart: items.map(post => ({
       "@type": "BlogPosting",
       headline: post.frontmatter.title,
       url: `${seoDefaults.siteUrl}/blog${post.frontmatter.slug}`,

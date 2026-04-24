@@ -1,6 +1,14 @@
 import * as React from "react"
 import { Link, type HeadFC } from "gatsby"
-import { Box, Button, Container, Divider, Grid, Stack, Typography } from "@mui/material"
+import {
+  Box,
+  Button,
+  Container,
+  Divider,
+  Grid,
+  Stack,
+  Typography,
+} from "@mui/material"
 import { LayoutAlt } from "../components/Layout"
 import { Seo, seoDefaults } from "../components/Seo"
 import { Title } from "../components/Title"
@@ -25,11 +33,15 @@ const AuthorityLayerPage: React.FC = () => {
             because it has access to a tool, credential, or workflow, not
             because this specific action was explicitly authorized. The
             authority layer is the missing control plane that decides what an
-            agent is allowed to do, under what constraints, with what proof,
-            and with what accountability.
+            agent is allowed to do, under what constraints, with what proof, and
+            with what accountability.
           </Typography>
 
-          <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mb: 5 }}>
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={2}
+            sx={{ mb: 5 }}
+          >
             <Button variant="contained" color="primary" href="/#contact">
               Request A Briefing
             </Button>
@@ -100,9 +112,9 @@ const AuthorityLayerPage: React.FC = () => {
             </Typography>
             <Typography paragraph>
               <strong>Execution-time authorization:</strong> the enforcement
-              step that evaluates whether a proposed action is allowed right now,
-              for the intended scope, audience, and duration, before the action
-              is executed.
+              step that evaluates whether a proposed action is allowed right
+              now, for the intended scope, audience, and duration, before the
+              action is executed.
             </Typography>
           </Box>
 
@@ -114,9 +126,7 @@ const AuthorityLayerPage: React.FC = () => {
             </Typography>
             <Stack spacing={1}>
               <Typography>
-                <Link to="/manifesto/">
-                  Verifiably Human Manifesto
-                </Link>
+                <Link to="/manifesto/">Verifiably Human Manifesto</Link>
               </Typography>
               <Typography>
                 <Link to="/blog/securing-autonomy/">

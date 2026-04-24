@@ -1,4 +1,4 @@
-module.exports = (componentName) => ({
+module.exports = componentName => ({
   content: `
   import React from 'react';
   import { Box, Typography } from '@mui/material';
@@ -16,4 +16,4 @@ module.exports = (componentName) => ({
   }
   `,
   extension: `.tsx`,
-});
+})

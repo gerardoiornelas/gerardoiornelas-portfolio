@@ -6,8 +6,17 @@ import { LayoutAlt } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { Title } from "../components/Title"
 
-const StatItem: React.FC<{ label: string; target: string }> = ({ label, target }) => (
-  <Box sx={{ p: 3, border: (theme) => `1px solid ${theme.palette.divider}`, borderRadius: 2 }}>
+const StatItem: React.FC<{ label: string; target: string }> = ({
+  label,
+  target,
+}) => (
+  <Box
+    sx={{
+      p: 3,
+      border: theme => `1px solid ${theme.palette.divider}`,
+      borderRadius: 2,
+    }}
+  >
     <Typography variant="subtitle2" color="text.secondary">
       {label}
     </Typography>
@@ -29,7 +38,10 @@ const StatsPage: React.FC = () => {
         <Stack spacing={3}>
           <StatItem label="Performance" target="100/100 Lighthouse (mobile)" />
           <StatItem label="Accessibility" target="WCAG 2.2 AA" />
-          <StatItem label="Security" target="Strict CSP; zero third-party trackers except newsletter" />
+          <StatItem
+            label="Security"
+            target="Strict CSP; zero third-party trackers except newsletter"
+          />
         </Stack>
       </Container>
     </LayoutAlt>

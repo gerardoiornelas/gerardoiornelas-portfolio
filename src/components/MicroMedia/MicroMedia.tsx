@@ -44,7 +44,11 @@ const MicroMediaCard: React.FC<{ item: YouTubeVideo }> = ({ item }) => {
     >
       <CardContent sx={{ flexGrow: 1 }}>
         <Stack spacing={1} mb={1}>
-          <Box display="flex" justifyContent="space-between" alignItems="center">
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+          >
             <Chip label="YouTube Short" color="error" size="small" />
             <Typography variant="body2" color="text.secondary">
               {item.date}
@@ -118,21 +122,32 @@ export const MicroMedia: React.FC = () => {
         if (data.status === "ok" && data.items) {
           const fetchedVideos: YouTubeVideo[] = data.items
             .slice(0, 3)
-            .map((item: { title: string; description: string; link: string; pubDate: string }) => {
-              const videoIdMatch = item.link.match(/(?:shorts\/|watch\?v=)([a-zA-Z0-9_-]+)/)
-              return {
-                title: item.title,
-                description: item.description.replace(/<[^>]*>/g, "").slice(0, 100),
-                url: item.link,
-                date: new Date(item.pubDate).toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                }),
-                videoId: videoIdMatch ? videoIdMatch[1] : "",
-                platform: "YouTube" as const,
+            .map(
+              (item: {
+                title: string
+                description: string
+                link: string
+                pubDate: string
+              }) => {
+                const videoIdMatch = item.link.match(
+                  /(?:shorts\/|watch\?v=)([a-zA-Z0-9_-]+)/
+                )
+                return {
+                  title: item.title,
+                  description: item.description
+                    .replace(/<[^>]*>/g, "")
+                    .slice(0, 100),
+                  url: item.link,
+                  date: new Date(item.pubDate).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  }),
+                  videoId: videoIdMatch ? videoIdMatch[1] : "",
+                  platform: "YouTube" as const,
+                }
               }
-            })
+            )
           setVideos(fetchedVideos)
         } else {
           setError("Failed to fetch videos")
@@ -153,8 +168,8 @@ export const MicroMedia: React.FC = () => {
         <Box mb={3} textAlign="center">
           <Title variant="segment">Micro-Media</Title>
           <Typography color="text.secondary">
-            Frequent short-form insights—YouTube Shorts—highlight how authority still
-            matters inside every automation patrol.
+            Frequent short-form insights—YouTube Shorts—highlight how authority
+            still matters inside every automation patrol.
           </Typography>
         </Box>
         {loading ? (
@@ -167,7 +182,7 @@ export const MicroMedia: React.FC = () => {
           </Typography>
         ) : (
           <Grid container spacing={3} justifyContent="center">
-            {videos.map((video) => (
+            {videos.map(video => (
               <Grid item key={video.url} xs={12} sm={6} md={4}>
                 <MicroMediaCard item={video} />
               </Grid>

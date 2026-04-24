@@ -44,7 +44,11 @@ export const APP: React.FC = () => {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="outlined" color="primary" href="/authority-layer">
+              <Button
+                variant="outlined"
+                color="primary"
+                href="/authority-layer"
+              >
                 Start With The Authority Layer
               </Button>
               <Button

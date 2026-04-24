@@ -78,12 +78,12 @@ To move from "experimental" to "production-ready," your LangGraph agents should 
 
 ## Diagram 3: Risk-to-Control Matrix (APP)
 
-| Agentic Security Risk | APP Control | Why It Works |
-| :-------------------- | :---------- | :----------- |
-| Privilege Creep | Time-bounded, task-scoped policy | Authority expires by default and does not silently accumulate |
-| Confused Deputy | Audience binding + explicit grant | The acting agent must match the authorized audience |
-| Ambient Authority Leakage | No action without policy verification | Mounted tools are not callable without explicit permission |
-| Unverifiable Audit Trails | Deterministic verifier pipeline | Every allow/deny decision is reproducible and auditable |
+| Agentic Security Risk     | APP Control                           | Why It Works                                                  |
+| :------------------------ | :------------------------------------ | :------------------------------------------------------------ |
+| Privilege Creep           | Time-bounded, task-scoped policy      | Authority expires by default and does not silently accumulate |
+| Confused Deputy           | Audience binding + explicit grant     | The acting agent must match the authorized audience           |
+| Ambient Authority Leakage | No action without policy verification | Mounted tools are not callable without explicit permission    |
+| Unverifiable Audit Trails | Deterministic verifier pipeline       | Every allow/deny decision is reproducible and auditable       |
 
 **What this shows:** Each common autonomy risk maps to a concrete APP control, enabling measurable governance.
 

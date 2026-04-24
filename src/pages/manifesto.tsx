@@ -10,9 +10,14 @@ const ManifestoPage: React.FC = () => {
   return (
     <LayoutAlt>
       <Container maxWidth="md" sx={{ py: 8 }}>
-        <Title variant="segmentAlt">Verifiably Human: A Doctrine of Sovereign Authority</Title>
+        <Title variant="segmentAlt">
+          Verifiably Human: A Doctrine of Sovereign Authority
+        </Title>
         <Typography variant="h5" sx={{ mt: 2, mb: 4 }}>
-          A practical thesis for the authority layer of agentic systems: how intelligent products are allowed to act, how trust is enforced at execution time, and how accountability becomes legible instead of implied.
+          A practical thesis for the authority layer of agentic systems: how
+          intelligent products are allowed to act, how trust is enforced at
+          execution time, and how accountability becomes legible instead of
+          implied.
         </Typography>
 
         <Box mb={4}>
@@ -31,17 +36,23 @@ const ManifestoPage: React.FC = () => {
           <ul>
             <li>
               <Typography>
-                Deterministic Authority: permissions are scoped, logged, and revocable at execution-time. We move from ambient authority to explicit, bounded control.
+                Deterministic Authority: permissions are scoped, logged, and
+                revocable at execution-time. We move from ambient authority to
+                explicit, bounded control.
               </Typography>
             </li>
             <li>
               <Typography>
-                Security–UX Convergence: safety is engineered into the interface, not bolted on. If a human cannot audit a permission in 300ms, the system is a liability.
+                Security–UX Convergence: safety is engineered into the
+                interface, not bolted on. If a human cannot audit a permission
+                in 300ms, the system is a liability.
               </Typography>
             </li>
             <li>
               <Typography>
-                Operational Provenance: every action generates an immutable receipt. If your stack cannot attest to its own integrity in real time, it is a prototype—not production infrastructure.
+                Operational Provenance: every action generates an immutable
+                receipt. If your stack cannot attest to its own integrity in
+                real time, it is a prototype—not production infrastructure.
               </Typography>
             </li>
           </ul>
@@ -51,7 +62,8 @@ const ManifestoPage: React.FC = () => {
 
         <Box mb={4}>
           <Typography variant="body1" sx={{ fontStyle: "italic" }}>
-            “In the era of agents, trust is no longer a feeling—it is an infrastructure.”
+            “In the era of agents, trust is no longer a feeling—it is an
+            infrastructure.”
           </Typography>
         </Box>
 

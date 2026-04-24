@@ -2,7 +2,8 @@ import React from "react"
 
 const SITE_NAME = "Gerardo I. Ornelas"
 const SITE_URL = "https://www.gerardoiornelas.com"
-const DEFAULT_TITLE = "Gerardo I. Ornelas | The Authority Layer for Agentic Systems"
+const DEFAULT_TITLE =
+  "Gerardo I. Ornelas | The Authority Layer for Agentic Systems"
 const DEFAULT_DESCRIPTION =
   "Gerardo I. Ornelas defines the authority layer for agentic systems through execution-time authorization, ambient authority, security UX, and verifiable enforcement."
 const DEFAULT_IMAGE = "/lone-star-gs.png"

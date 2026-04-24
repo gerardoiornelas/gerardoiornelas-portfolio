@@ -1,4 +1,4 @@
-module.exports = (componentName) => ({
+module.exports = componentName => ({
   content: `
   import React from 'react';
   import { render } from '@testing-library/react';
@@ -14,4 +14,4 @@ module.exports = (componentName) => ({
 
   `,
   extension: `.test.tsx`,
-});
+})

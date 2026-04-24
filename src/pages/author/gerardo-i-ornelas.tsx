@@ -32,9 +32,9 @@ const AuthorPage: React.FC = () => {
                 bounded, and auditable permissions.
               </Typography>
               <Typography paragraph>
-                His writing helps founders and builders rethink trust
-                boundaries in AI products, especially where machine action,
-                human review, provenance, and secure user experience intersect.
+                His writing helps founders and builders rethink trust boundaries
+                in AI products, especially where machine action, human review,
+                provenance, and secure user experience intersect.
               </Typography>
               <Box sx={{ mt: 3 }}>
                 <Typography variant="h6" sx={{ mb: 1 }}>

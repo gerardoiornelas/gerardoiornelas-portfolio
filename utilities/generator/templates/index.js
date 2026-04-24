@@ -1,5 +1,5 @@
-const component = require('./component');
-const componentStyled = require('./component.styled');
-const componentTest = require('./component.test');
+const component = require("./component")
+const componentStyled = require("./component.styled")
+const componentTest = require("./component.test")
 
-module.exports = [component, componentStyled, componentTest];
+module.exports = [component, componentStyled, componentTest]

@@ -70,8 +70,9 @@ export const Blog: React.FC = () => {
                 security UX, and verifiable enforcement.
               </Typography>
               <Typography>
-                Start with <Link to="/authority-layer/">The Authority Layer</Link>
-                {" "}or explore the full <Link to="/blog/">series archive</Link>.
+                Start with{" "}
+                <Link to="/authority-layer/">The Authority Layer</Link> or
+                explore the full <Link to="/blog/">series archive</Link>.
               </Typography>
             </Box>
           </AnimateOnScroll>

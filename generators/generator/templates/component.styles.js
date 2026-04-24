@@ -1,4 +1,4 @@
-module.exports = (componentName) => ({
+module.exports = componentName => ({
   content: `
   import { rem } from 'polished';
 
@@ -16,4 +16,4 @@ module.exports = (componentName) => ({
 
       `,
   extension: `.styles.tsx`,
-});
+})

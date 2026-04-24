@@ -1,40 +1,38 @@
-require("colors");
-const fs = require("fs");
-const templatesSrc = require("./templates");
+require("colors")
+const fs = require("fs")
+const templatesSrc = require("./templates")
 
-const componentName = process.argv[2];
-const componentType = process.argv[3] || "components";
-const componentDirectory = `./src/${componentType}/${componentName}`;
-const generatedSrcTemplates = templatesSrc.map((template) =>
+const componentName = process.argv[2]
+const componentType = process.argv[3] || "components"
+const componentDirectory = `./src/${componentType}/${componentName}`
+const generatedSrcTemplates = templatesSrc.map(template =>
   template(componentName)
-);
+)
 const indexFile = `
 export { ${componentName} } from './${componentName}'
-`;
+`
 
 if (!componentName) {
-  console.error("Please supply a valid component name".red);
-  process.exit(1);
+  console.error("Please supply a valid component name".red)
+  process.exit(1)
 }
 
-console.log("Creating Component Templates with name: " + componentName.blue);
+console.log("Creating Component Templates with name: " + componentName.blue)
 
 if (fs.existsSync(componentDirectory)) {
-  console.error(`Component ${componentName} already exists.`.red);
-  process.exit(1);
+  console.error(`Component ${componentName} already exists.`.red)
+  process.exit(1)
 }
 
-fs.mkdirSync(componentDirectory);
+fs.mkdirSync(componentDirectory)
 
-fs.writeFileSync(`${componentDirectory}/index.ts`, indexFile);
+fs.writeFileSync(`${componentDirectory}/index.ts`, indexFile)
 
-generatedSrcTemplates.forEach((template) => {
+generatedSrcTemplates.forEach(template => {
   fs.writeFileSync(
     `${componentDirectory}/${componentName}${template.extension}`,
     template.content
-  );
-});
+  )
+})
 
-console.log(
-  "Successfully created component under: " + componentDirectory.green
-);
+console.log("Successfully created component under: " + componentDirectory.green)

@@ -109,10 +109,10 @@ export const About: React.FC = () => {
 
                       <Box mb={4}>
                         <Typography>
-                          My background spans large-scale software
-                          architecture, user experience, and security across
-                          enterprise and regulated environments. That work led
-                          to a consistent conclusion:{" "}
+                          My background spans large-scale software architecture,
+                          user experience, and security across enterprise and
+                          regulated environments. That work led to a consistent
+                          conclusion:{" "}
                           <Box component="span" fontWeight={`bold`}>
                             intelligent systems are only trustworthy when
                             authority is explicit, bounded, and verifiable
@@ -129,9 +129,9 @@ export const About: React.FC = () => {
                             Violetek
                           </Box>
                           , I build ventures, products, and frameworks around
-                          the authority layer for agentic systems: execution-time
-                          authorization, ambient-authority elimination, security
-                          UX, and verifiable enforcement.
+                          the authority layer for agentic systems:
+                          execution-time authorization, ambient-authority
+                          elimination, security UX, and verifiable enforcement.
                         </Typography>
                       </Box>
 

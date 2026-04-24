@@ -176,6 +176,41 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/the-organizational-singularity": {
+      keywords: [
+        "Organizational Singularity",
+        "AI Strategy",
+        "Future of Work",
+        "Claudeonomics",
+        "AI Agents",
+        "Orchestrator",
+        "WUN.ai",
+        "Agent Permission Protocol",
+        "Sovereign Operator",
+      ],
+      about: [
+        "Organizational Singularity",
+        "AI Strategy",
+        "unit economics of AI",
+        "AI fleet orchestration",
+        "WUN.ai",
+        "Agent Permission Protocol",
+      ],
+      faq: [
+        {
+          q: "What is the Organizational Singularity?",
+          a: "The moment when one person plus a fleet of AI agents can outcompete a traditional organization with millions in overhead.",
+        },
+        {
+          q: "What is WUN.ai's role in the Organizational Singularity?",
+          a: "WUN.ai provides the infrastructure for the 'Sovereign Operator,' enabling solo entrepreneurs to run secure, bounded agent fleets.",
+        },
+        {
+          q: "How does the Agent Permission Protocol (APP) help?",
+          a: "APP provides execution-time certainty, cryptographically binding agent permissions to human intent to prevent authority drift.",
+        },
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {
@@ -206,11 +241,8 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
       },
     },
     mainEntityOfPage: `${seoDefaults.siteUrl}${pathname}`,
-    image: [
-      absoluteImage,
-      ...(topic.extraImages ?? []),
-    ].filter(Boolean),
-    about: topic.about.map((name) => ({
+    image: [absoluteImage, ...(topic.extraImages ?? [])].filter(Boolean),
+    about: topic.about.map(name => ({
       "@type": "Thing",
       name,
     })),
@@ -245,7 +277,7 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
     ? {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: topic.faq.map((item) => ({
+        mainEntity: topic.faq.map(item => ({
           "@type": "Question",
           name: item.q,
           acceptedAnswer: {

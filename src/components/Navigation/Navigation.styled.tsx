@@ -8,7 +8,7 @@ const StyledSocialNav = styled(Box)(({ theme }) => ({
 }))
 
 const StyledAppBar = styled(AppBar, {
-  shouldForwardProp: (prop) => prop !== "appBarWhite",
+  shouldForwardProp: prop => prop !== "appBarWhite",
 })<{ appBarWhite?: boolean }>(({ appBarWhite, theme }) => ({
   backgroundColor: appBarWhite ? theme.palette.background.default : "initial",
   transition: "all 500ms",
@@ -24,7 +24,7 @@ const StyledNavigation = styled(Box)({
 })
 
 const StyledNavElement = styled(Scrollchor, {
-  shouldForwardProp: (prop) => prop !== "active",
+  shouldForwardProp: prop => prop !== "active",
 })<{ active?: boolean }>(({ theme }) => ({
   backgroundColor: "transparent",
   border: 0,
