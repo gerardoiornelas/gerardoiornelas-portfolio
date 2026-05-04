@@ -11,6 +11,7 @@ tags:
   - Execution-Time Authorization
   - Prompt Injection
   - Authority Plane
+featuredImage: "../images/blog/ambient-authority-silent-killer.webp"
 ---
 
 One of the most dangerous phrases in modern engineering is: "The agent has the keys, so it can just do its job."
