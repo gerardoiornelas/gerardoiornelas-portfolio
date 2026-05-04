@@ -446,6 +446,8 @@ To keep the campaign sharp:
 - state what is structurally wrong, then define the replacement,
 - reuse the same terms until they become associated with you,
 - bias toward diagrams, models, and named concepts,
+- every weekly article should include a `## X Posts` section with exactly 2 post variants,
+- each X post should include hashtags and a `Source:` line pointing to the canonical article URL,
 - keep a high conviction tone,
 - avoid overexplaining basics to sophisticated readers.
 
