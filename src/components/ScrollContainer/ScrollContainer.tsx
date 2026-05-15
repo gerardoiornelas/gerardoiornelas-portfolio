@@ -12,6 +12,7 @@ import { RobotGallery } from "../RobotGallery"
 import { Contact } from "../Contact"
 import { APP } from "../APP"
 import { MicroMedia } from "../MicroMedia"
+// import { VerificationDemo } from "../VerificationDemo"
 
 export const ScrollContainer: React.FC = () => {
   const refHome = useRef<HTMLElement>(null)
@@ -68,6 +69,9 @@ export const ScrollContainer: React.FC = () => {
             <APP />
           </Box>
         </Segment>
+        {/* <Box id="verification-demo" sx={{ position: "relative" }}>
+          <VerificationDemo />
+        </Box> */}
         <Segment variant="gradient" segmentDecorationAlt>
           <Box
             id="blog"

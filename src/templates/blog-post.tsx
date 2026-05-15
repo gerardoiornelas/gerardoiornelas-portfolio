@@ -1,7 +1,7 @@
 import * as React from "react"
 import { graphql, type HeadFC, type PageProps } from "gatsby"
-import { BlogPostTemplate } from "../../components/BlogPostTemplate"
-import { Seo, seoDefaults } from "../../components/Seo"
+import { BlogPostTemplate } from "../components/BlogPostTemplate"
+import { Seo, seoDefaults } from "../components/Seo"
 
 interface BlogPostPageData {
   markdownRemark: {
