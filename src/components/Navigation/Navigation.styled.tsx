@@ -28,6 +28,7 @@ const StyledNavElement = styled(Scrollchor, {
 })<{ active?: boolean }>(({ theme }) => ({
   backgroundColor: "transparent",
   border: 0,
+  fontFamily: theme.typography.h6.fontFamily,
   fontSize: `${rem(16)}`,
   color: theme.palette.text.primary,
   padding: `${rem(10)} ${rem(22)}`,
@@ -64,6 +65,7 @@ const StyledScheduleCall = styled(Scrollchor)(({ theme }) => ({
   color: "white",
   borderRadius: "20px",
   backgroundColor: theme.palette.secondary.main,
+  fontFamily: theme.typography.button.fontFamily,
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",

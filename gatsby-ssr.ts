@@ -1,6 +1,8 @@
 import React from "react"
 import type { GatsbySSR } from "gatsby"
 
+import { googleFonts } from "./src/theme/theme.config"
+
 export const onRenderBody: GatsbySSR["onRenderBody"] = ({
   setHtmlAttributes,
   setHeadComponents,
@@ -41,7 +43,7 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({
     }),
     React.createElement("link", {
       key: "google-fonts",
-      href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Young+Serif&display=swap",
+      href: googleFonts,
       rel: "stylesheet",
     }),
   ])

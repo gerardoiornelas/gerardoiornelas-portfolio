@@ -21,10 +21,10 @@ const metaKeywords: string =
   "react, hardhat, solidity, web3, UX, UI, blockchain"
 
 const googleFonts: string =
-  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Young+Serif&display=swap"
+  "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
 
 const fontFamilies: string = "'Inter', sans-serif"
-const headlineFont: string = "'Young Serif', 'Inter', serif"
+const headlineFont: string = "'Bebas Neue', 'Inter', sans-serif"
 const bodyFont: string = "'Inter', sans-serif"
 
 const headlineFontStyles: React.CSSProperties = {
