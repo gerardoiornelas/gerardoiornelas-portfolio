@@ -47,40 +47,74 @@ export const Home: React.FC = () => {
                 <Box>
                   <RowCol mb={2}>
                     <AnimateOnScroll animateIn="fadeIn">
-                      <Typography variant="h4" component="h1">
-                        The authority layer for agentic systems.
+                      <Typography
+                        sx={{
+                          fontFamily: "monospace",
+                          fontSize: 10,
+                          fontWeight: 600,
+                          letterSpacing: "0.2em",
+                          color: "text.disabled",
+                          textTransform: "uppercase",
+                          mb: 2,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 1.5,
+                          "&::before": {
+                            content: '""',
+                            display: "inline-block",
+                            width: 24,
+                            height: 1,
+                            bgcolor: "text.disabled",
+                          },
+                        }}
+                      >
+                        Systems Architect — Authority Control
                       </Typography>
 
-                      <Typography component="h2" textTransform="none">
+                      <Typography
+                        variant="h1"
+                        component="h1"
+                        sx={{
+                          fontFamily: "'Bebas Neue', sans-serif",
+                          fontSize: { xs: "56px", md: "84px" },
+                          fontWeight: 400,
+                          lineHeight: 0.95,
+                          letterSpacing: "-0.02em",
+                          color: "text.primary",
+                          mb: 3,
+                        }}
+                      >
+                        THE AUTHORITY <Box component="span" sx={{ color: "secondary.main" }}>LAYER</Box>
+                        <br />
+                        FOR AGENTIC SYSTEMS
+                      </Typography>
+
+                      <Typography
+                        variant="h5"
+                        component="h2"
+                        sx={{
+                          color: "text.secondary",
+                          maxWidth: 560,
+                          lineHeight: 1.6,
+                          fontWeight: 300,
+                          mb: 3,
+                        }}
+                      >
                         I&apos;m Gerardo I. Ornelas, founder of Violetek and
-                        author of the Agent Permission Protocol. I write about
-                        execution-time authorization, ambient authority,
-                        security UX, and verifiable enforcement — and developed{" "}
+                        author of the Agent Permission Protocol. I build
+                        frameworks for execution-time authorization, ambient
+                        authority elimination, and developed{" "}
                         <a
                           href="/uig"
                           style={{
-                            color: "inherit",
-                            textDecorationColor: "secondary",
+                            color: "secondary.main",
+                            textDecoration: "underline",
+                            fontWeight: 400,
                           }}
                         >
                           UI-GATE
                         </a>
-                        , a methodology for shipping agentic features without
-                        compounding hidden failures.
-                      </Typography>
-                    </AnimateOnScroll>
-                  </RowCol>
-
-                  <RowCol my={2}>
-                    <AnimateOnScroll animateIn="fadeIn" delay={150}>
-                      <Typography color="text.secondary">
-                        Most AI products still rely on ambient authority:
-                        systems can act because they have access, not because a
-                        specific action was explicitly authorized. My work
-                        focuses on the missing layer: how intelligent systems
-                        are actually allowed to act, how those permissions are
-                        enforced at execution time, and how that trust becomes
-                        legible to humans.
+                        , a methodology for production-safe agentic engineering.
                       </Typography>
                     </AnimateOnScroll>
                   </RowCol>
@@ -90,35 +124,46 @@ export const Home: React.FC = () => {
                       direction={isSmall ? "column" : "row"}
                       spacing={2}
                       alignItems={isSmall ? "stretch" : "flex-start"}
-                      flexWrap={isSmall ? "nowrap" : "wrap"}
                     >
                       <Button
                         variant="contained"
-                        color="primary"
+                        color="secondary"
                         href="/authority-layer"
                         fullWidth={isSmall}
-                        size="large"
-                        sx={{ whiteSpace: "nowrap" }}
+                        sx={{
+                          fontFamily: "monospace",
+                          fontWeight: 600,
+                          fontSize: 12,
+                          px: 3,
+                        }}
                       >
-                        Read Authority Layer
+                        Explore Authority Layer
                       </Button>
                       <Button
                         variant="outlined"
-                        color="primary"
+                        color="secondary"
                         href="/#contact"
                         fullWidth={isSmall}
-                        size="large"
-                        sx={{ whiteSpace: "nowrap" }}
+                        sx={{
+                          fontFamily: "monospace",
+                          fontWeight: 600,
+                          fontSize: 12,
+                          px: 3,
+                        }}
                       >
                         Request Briefing
                       </Button>
                       <Button
                         variant="text"
-                        color="secondary"
                         href="https://www.violetek.com/"
                         fullWidth={isSmall}
-                        size="large"
-                        sx={{ whiteSpace: "nowrap" }}
+                        sx={{
+                          fontFamily: "monospace",
+                          fontWeight: 600,
+                          fontSize: 12,
+                          opacity: 0.7,
+                          color: "text.secondary",
+                        }}
                       >
                         Violetek
                       </Button>
