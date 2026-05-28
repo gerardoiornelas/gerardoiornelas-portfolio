@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UI-GATE — UI-Gated Agentic Task Engineering | Gerardo I. Ornelas</title>
+<meta name="description" content="UI-GATE is a structured agentic development methodology where every feature must pass a human UI validation checkpoint before the agent proceeds. Nothing ships blind.">
+<meta name="og:title" content="UI-GATE — UI-Gated Agentic Task Engineering">
+<meta name="og:description" content="Nothing ships blind. The agent builds one feature, you validate it in the UI, then it builds the next one.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a09;
+    --bg2: #111110;
+    --bg3: #1a1a18;
+    --border: rgba(255,255,255,0.08);
+    --border-mid: rgba(255,255,255,0.14);
+    --text: #e8e6e0;
+    --text-muted: #888880;
+    --text-faint: #444440;
+    --accent: #c8b89a;
+    --accent-dim: rgba(200,184,154,0.12);
+    --accent-border: rgba(200,184,154,0.3);
+    --green: #4a7c59;
+    --green-bg: rgba(74,124,89,0.12);
+    --green-text: #7db892;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,9,0.85);
+    backdrop-filter: blur(12px);
+  }
+  .nav-brand {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: .04em;
+  }
+  .nav-brand span { color: var(--accent); }
+  .nav-back {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: .06em;
+    transition: color .2s;
+  }
+  .nav-back:hover { color: var(--text-muted); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 0 2rem 5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: .75rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--text-faint);
+  }
+
+  .hero-title {
+    font-family: var(--mono);
+    font-size: clamp(52px, 9vw, 110px);
+    font-weight: 300;
+    line-height: .95;
+    letter-spacing: -.02em;
+    color: var(--text);
+    margin-bottom: 2rem;
+  }
+  .hero-title .accent { color: var(--accent); }
+
+  .hero-sub {
+    font-size: clamp(15px, 2vw, 18px);
+    color: var(--text-muted);
+    max-width: 560px;
+    line-height: 1.65;
+    margin-bottom: 3rem;
+  }
+
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: .75rem;
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: .04em;
+    color: var(--bg);
+    background: var(--accent);
+    padding: .75rem 1.5rem;
+    border-radius: 2px;
+    transition: opacity .2s, transform .15s;
+    cursor: pointer;
+    border: none;
+  }
+  .hero-cta:hover { opacity: .88; transform: translateY(-1px); }
+  .hero-cta:active { transform: translateY(0); }
+
+  .hero-scroll {
+    position: absolute; bottom: 2rem; right: 2rem;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--text-faint); letter-spacing: .1em;
+    writing-mode: vertical-rl;
+    display: flex; align-items: center; gap: .5rem;
+  }
+  .hero-scroll::after {
+    content: '';
+    display: block; width: 1px; height: 40px;
+    background: var(--text-faint);
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 100%; height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* SECTIONS */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    display: flex; align-items: center; gap: .75rem;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--text-faint);
+  }
+
+  /* DEFINITION BLOCK */
+  .definition {
+    border-left: 1px solid var(--accent-border);
+    padding: 1.5rem 2rem;
+    margin-bottom: 4rem;
+    background: var(--accent-dim);
+    border-radius: 0 2px 2px 0;
+  }
+  .definition-acronym {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+  }
+  .definition-text {
+    font-size: 17px;
+    color: var(--text);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* TWO COL */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+  @media (max-width: 680px) { .two-col { grid-template-columns: 1fr; gap: 2rem; } }
+
+  .col-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .col-text {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+  .col-text strong { color: var(--text); font-weight: 400; }
+
+  /* PRINCIPLE CARDS */
+  .principles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 4rem;
+  }
+  .principle {
+    background: var(--bg2);
+    padding: 2rem 1.75rem;
+    transition: background .2s;
+  }
+  .principle:hover { background: var(--bg3); }
+  .principle-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    margin-bottom: 1rem;
+  }
+  .principle-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: .5rem;
+    letter-spacing: .01em;
+  }
+  .principle-body {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* FLOW */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 4rem;
+  }
+  .flow-step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1.5rem;
+    position: relative;
+  }
+  .flow-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 23px; top: 48px; bottom: -24px;
+    width: 1px;
+    background: var(--border);
+  }
+  .flow-num {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--border-mid);
+    background: var(--bg2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    position: relative; z-index: 1;
+  }
+  .flow-content { padding: .75rem 0 3rem; }
+  .flow-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: .4rem;
+  }
+  .flow-body {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+  .flow-gate {
+    display: inline-flex; align-items: center; gap: .4rem;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--green-text);
+    background: var(--green-bg);
+    border: 1px solid rgba(74,124,89,.3);
+    padding: .2rem .6rem;
+    border-radius: 2px;
+    margin-top: .6rem;
+    letter-spacing: .04em;
+  }
+  .flow-gate::before { content: '▸'; font-size: 9px; }
+
+  /* VS BLOCK */
+  .vs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 4rem;
+  }
+  @media (max-width: 580px) { .vs-grid { grid-template-columns: 1fr; } }
+  .vs-col { background: var(--bg2); padding: 2rem; }
+  .vs-col.right { background: var(--bg3); }
+  .vs-header {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .vs-col .vs-header { color: var(--text-faint); }
+  .vs-col.right .vs-header { color: var(--accent); }
+  .vs-item {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    padding: .5rem 0;
+    border-bottom: 1px solid var(--border);
+    font-weight: 300;
+  }
+  .vs-item:last-child { border-bottom: none; }
+  .vs-col.right .vs-item { color: var(--text); }
+
+  /* DOWNLOAD */
+  .download-block {
+    border: 1px solid var(--accent-border);
+    border-radius: 2px;
+    background: var(--accent-dim);
+    padding: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .download-info {}
+  .download-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: .3rem;
+  }
+  .download-meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: .04em;
+  }
+  .download-meta span {
+    margin-right: 1.5rem;
+  }
+  .download-btn {
+    display: inline-flex; align-items: center; gap: .6rem;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .06em;
+    color: var(--accent);
+    background: transparent;
+    border: 1px solid var(--accent-border);
+    padding: .7rem 1.4rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+    white-space: nowrap;
+  }
+  .download-btn:hover {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+
+  /* COMPAT */
+  .compat {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 2rem;
+  }
+  .compat-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .06em;
+    color: var(--text-faint);
+    border: 1px solid var(--border);
+    padding: .3rem .75rem;
+    border-radius: 2px;
+    background: var(--bg2);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-left {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    letter-spacing: .06em;
+  }
+  .footer-left a { color: var(--text-faint); transition: color .2s; }
+  .footer-left a:hover { color: var(--text-muted); }
+  .footer-right {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    letter-spacing: .04em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp .6s ease both; }
+  .hero-title   { animation: fadeUp .6s .1s ease both; }
+  .hero-sub     { animation: fadeUp .6s .2s ease both; }
+  .hero-cta     { animation: fadeUp .6s .3s ease both; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand"><span>UI-GATE</span> / gerardoiornelas.com</div>
+  <a href="https://gerardoiornelas.com" class="nav-back">← back to site</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Methodology — Agentic Engineering</div>
+  <h1 class="hero-title">UI-<span class="accent">GATE</span></h1>
+  <p class="hero-sub">A structured agentic development methodology where every feature passes a human UI validation checkpoint before the agent proceeds. Nothing ships blind. Nothing stacks on top of unvalidated work.</p>
+  <button class="hero-cta" onclick="document.getElementById('download').scrollIntoView({behavior:'smooth'})">
+    Download the skill file ↓
+  </button>
+  <div class="hero-scroll">scroll</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT IT IS -->
+<section class="section">
+  <div class="section-label">Definition</div>
+
+  <div class="definition">
+    <div class="definition-acronym">UI-GATE — UI-Gated Agentic Task Engineering</div>
+    <div class="definition-text">A methodology for AI-assisted software development in which each feature is built by an agent, validated visually by a human in the actual UI, and marked approved before the agent is permitted to proceed to the next ticket.</div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="col-label">The problem it solves</div>
+      <div class="col-text">Most AI-generated codebases fail not because the agent wrote bad code — but because <strong>no one validated feature 3 before the agent built features 4 through 12 on top of it.</strong> By the time the UI breaks, the fix requires unwinding weeks of compounded work.</div>
+    </div>
+    <div>
+      <div class="col-label">The mechanism</div>
+      <div class="col-text">UI-GATE inserts a <strong>hard stop between every ticket.</strong> The agent completes one feature, outputs a stop signal, and waits. The human tests the feature in the live UI and explicitly marks it validated. Only then does the agent unlock the next ticket.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="section-label">The loop</div>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-num">01</div>
+      <div class="flow-content">
+        <div class="flow-title">Decompose requirements into atomic tickets</div>
+        <div class="flow-body">Every requirement becomes a single, independently testable feature with a precise agent instruction block and a human validation checklist. One ticket does exactly one thing.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">02</div>
+      <div class="flow-content">
+        <div class="flow-title">Agent builds the active ticket</div>
+        <div class="flow-body">The agent receives the ticket, builds only what is specified, and does not look ahead. It has no access to future tickets until the current one is validated.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">03</div>
+      <div class="flow-content">
+        <div class="flow-title">Agent emits a hard stop signal</div>
+        <div class="flow-body">On completion the agent outputs: <code style="font-family:var(--mono);font-size:12px;color:var(--accent)">FEAT-XXX COMPLETE — AWAITING HUMAN VALIDATION</code> and waits. It does not continue.</div>
+        <div class="flow-gate">gate active</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">04</div>
+      <div class="flow-content">
+        <div class="flow-title">Human validates in the live UI</div>
+        <div class="flow-body">The human runs through the validation checklist in the actual running interface — not in code review. Each item is a visual action with an exact expected result.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">05</div>
+      <div class="flow-content">
+        <div class="flow-title">Human unlocks the next ticket</div>
+        <div class="flow-body">On passing, the human responds: <code style="font-family:var(--mono);font-size:12px;color:var(--accent)">FEAT-XXX VALIDATED — PROCEED TO FEAT-YYY</code>. The gate opens. The loop repeats.</div>
+        <div class="flow-gate">gate cleared</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VS -->
+<section class="section">
+  <div class="section-label">Positioning</div>
+
+  <div class="vs-grid">
+    <div class="vs-col">
+      <div class="vs-header">Vibe coding</div>
+      <div class="vs-item">Agent runs until "done" — you see results at the end</div>
+      <div class="vs-item">Features compound before any are validated</div>
+      <div class="vs-item">Broken feature 3 is discovered at feature 12</div>
+      <div class="vs-item">Rework unwinds weeks of stacked work</div>
+      <div class="vs-item">Speed collapses at sprint 2 or 3</div>
+    </div>
+    <div class="vs-col right">
+      <div class="vs-header">UI-GATE</div>
+      <div class="vs-item">Agent runs one ticket, stops, waits for human approval</div>
+      <div class="vs-item">Nothing stacks on top of unvalidated work</div>
+      <div class="vs-item">Feature 3 is caught before feature 4 begins</div>
+      <div class="vs-item">Rework is scoped to one ticket, never a cascade</div>
+      <div class="vs-item">Velocity stays consistent across all sprints</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="col-label">Relationship to agentic engineering</div>
+      <div class="col-text">Andrej Karpathy coined "agentic engineering" in 2026 to describe the discipline of orchestrating AI agents as a developer. <strong>UI-GATE is a specific methodology within that discipline</strong> — the gate is the mechanism that makes agentic engineering production-safe.</div>
+    </div>
+    <div>
+      <div class="col-label">What UI-GATE is not</div>
+      <div class="col-text">It is not a testing framework. It is not slow — the gate takes minutes, the rework it prevents takes days. It is not only for Claude — <strong>the methodology works with any AI coding agent</strong> that can be instructed to stop and wait.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRINCIPLES -->
+<section class="section">
+  <div class="section-label">Six planning rules</div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="principle-num">01</div>
+      <div class="principle-title">UI-first sequencing</div>
+      <div class="principle-body">Every phase ends with something a human can see and click. Backend-only phases are not permitted unless a UI stub ships in the same phase.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">02</div>
+      <div class="principle-title">One ticket, one concern</div>
+      <div class="principle-body">Never bundle two features into one ticket. If the instinct arises, split. Atomicity is what makes the gate meaningful.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">03</div>
+      <div class="principle-title">Fail-fast surfaces</div>
+      <div class="principle-body">If a feature can break visually, the validation checklist must test that break explicitly. Unhappy paths are required checklist items, not optional.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">04</div>
+      <div class="principle-title">No assumed state</div>
+      <div class="principle-body">Agent instructions must not assume any state that hasn't been built and validated in a prior ticket. Each ticket is written to stand alone.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">05</div>
+      <div class="principle-title">Stop signals are mandatory</div>
+      <div class="principle-body">Every ticket ends with a hard stop. The agent must not auto-continue. Silence is not validation. The human must explicitly unlock the next ticket.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">06</div>
+      <div class="principle-title">Regression awareness</div>
+      <div class="principle-body">When a ticket touches a component used by a validated ticket, a regression check is added to the new ticket's checklist. Validated work is protected.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DOWNLOAD -->
+<section class="section" id="download">
+  <div class="section-label">Skill file</div>
+
+  <p style="font-size:15px;color:var(--text-muted);max-width:560px;margin-bottom:2.5rem;font-weight:300;line-height:1.75">
+    The UI-GATE skill file is a structured markdown document you add to your LLM context, agent framework, or Claude Projects. It instructs the model to decompose requirements into gated tickets, emit stop signals, and enforce the validation loop.
+  </p>
+
+  <div class="download-block">
+    <div class="download-info">
+      <div class="download-title">uigate-skill.md</div>
+      <div class="download-meta">
+        <span>Markdown</span>
+        <span>Plain text — works with any LLM</span>
+        <span>Claude-optimized</span>
+      </div>
+    </div>
+    <button class="download-btn" id="dlbtn" onclick="downloadSkill()">
+      ↓ Download skill file
+    </button>
+  </div>
+
+  <div class="compat">
+    <span class="compat-tag">Claude Projects</span>
+    <span class="compat-tag">Claude Code</span>
+    <span class="compat-tag">Cursor Rules</span>
+    <span class="compat-tag">ChatGPT Custom Instructions</span>
+    <span class="compat-tag">Gemini System Prompt</span>
+    <span class="compat-tag">LangGraph</span>
+    <span class="compat-tag">Any agent framework</span>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">
+    <a href="https://gerardoiornelas.com">Gerardo I. Ornelas</a>
+    &nbsp;·&nbsp;
+    UI-GATE methodology
+    &nbsp;·&nbsp;
+    <a href="https://gerardoiornelas.com/authority-layer">Authority Layer</a>
+  </div>
+  <div class="footer-right">#UIGATE &nbsp; #AgenticEngineering &nbsp; #UIGatedDev</div>
+</footer>
+
+<script>
+const skillContent = `---
+name: ui-gate
+description: Use this skill when the user wants to build software using the UI-GATE methodology (UI-Gated Agentic Task Engineering). Triggers include: any mention of "UI-GATE", "gated agentic", "human-in-the-loop development", or requests to create an implementation plan where a human validates each feature before the agent proceeds. Also use when the user asks to decompose software requirements into agent-ready tickets with UI validation checkpoints, or wants a methodical agentic build plan where nothing ships blind. Do NOT use for general software architecture, code review, or agentic tasks that do not involve sequential human-validated feature delivery.
+---
+
+# UI-GATE: UI-Gated Agentic Task Engineering
+
+UI-GATE is a structured agentic development methodology where every feature must pass a human UI validation checkpoint before the agent is allowed to proceed to the next ticket. Nothing ships blind. Nothing stacks on top of unvalidated work.
+
+**Core principle**: The agent builds one thing. You see it working. You approve. The agent builds the next thing.
+
+---
+
+## Your output structure
+
+Produce the following sections in order when given software requirements:
+
+### 1. Requirement decomposition
+
+Break every requirement into atomic, independently testable features. Each feature must:
+- Do exactly one thing
+- Be visually verifiable by a human (something appears, changes, or responds in the UI)
+- Have zero hidden dependencies on unbuilt features
+- Be labeled: FEAT-001, FEAT-002, etc.
+
+### 2. Dependency map
+
+List which features must exist before each feature can be built:
+
+\`\`\`
+FEAT-003 → requires [FEAT-001, FEAT-002]
+FEAT-001 → INDEPENDENT
+\`\`\`
+
+### 3. Implementation phases
+
+Group features into sequential phases. Rules:
+- Phase 1 must contain only INDEPENDENT features
+- No phase may begin until all features in the previous phase are HUMAN VALIDATED
+- Each phase must produce a visually testable UI state
+- Prefer thin vertical slices (UI + logic + data together) over horizontal layers
+
+### 4. Feature tickets
+
+For each feature, produce a ticket in this exact format:
+
+\`\`\`
+---
+FEAT-XXX: [Feature Name]
+Phase: [N]
+Depends on: [FEAT-YYY, FEAT-ZZZ or NONE]
+
+AGENT INSTRUCTIONS:
+- [Precise, unambiguous build steps written for an AI coding agent]
+- Use imperative language: "Create", "Add", "Wire", "Return"
+- Reference exact file paths, component names, or API routes when known
+- End with: "Do not proceed past this ticket until human validation is complete."
+
+HUMAN VALIDATION CHECKLIST:
+□ [Specific visual action the human performs]
+□ [Exact expected result]
+□ [Edge case to test]
+□ [Confirm: "Mark FEAT-XXX VALIDATED before agent continues"]
+
+DEFINITION OF DONE:
+- All checklist items pass
+- No console errors during validation
+- Human has explicitly marked this feature VALIDATED
+---
+\`\`\`
+
+### 5. Agent rules
+
+Emit this block for the human to paste at the top of every new agent session:
+
+\`\`\`
+You are implementing [Project Name]. The active ticket is FEAT-XXX.
+Do not build ahead of the active ticket.
+Do not refactor completed tickets unless instructed.
+After completing this ticket, stop and output: "FEAT-XXX COMPLETE — AWAITING HUMAN VALIDATION"
+Do not continue until the human responds: "FEAT-XXX VALIDATED — PROCEED TO FEAT-YYY"
+\`\`\`
+
+### 6. Validation log template
+
+\`\`\`
+| Ticket   | Feature | Status                              | Notes |
+|----------|---------|-------------------------------------|-------|
+| FEAT-001 | ...     | ⬜ Pending / ✅ Validated / ❌ Failed |       |
+\`\`\`
+
+---
+
+## Planning rules
+
+1. **UI-first sequencing**: Every phase ends with something a human can see and click.
+2. **One ticket, one concern**: Never bundle two features into one ticket.
+3. **Fail fast surfaces**: If a feature can break visually, the validation checklist must test that break.
+4. **No assumed state**: Agent instructions must not assume any state not yet built and validated.
+5. **Stop signals are mandatory**: Every ticket ends with a hard stop. The agent must not auto-continue.
+6. **Regression awareness**: When a new ticket touches a validated component, add a regression check.
+
+---
+
+## Terminology
+
+| Term | Definition |
+|------|-----------|
+| Gate | The human UI validation checkpoint between tickets |
+| Ticket | A single atomic feature with agent instructions and a validation checklist |
+| Phase | A group of tickets built sequentially before a phase-level review |
+| Validation | The human act of visually confirming a feature works and marking it VALIDATED |
+| Stop signal | The mandatory agent output indicating it is awaiting human validation |
+`;
+
+function downloadSkill() {
+  const blob = new Blob([skillContent], { type: 'text/markdown' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'uigate-skill.md';
+  a.click();
+  URL.revokeObjectURL(url);
+  const btn = document.getElementById('dlbtn');
+  btn.textContent = '✓ Downloaded';
+  setTimeout(() => btn.textContent = '↓ Download skill file', 3000);
+}
+</script>
+</body>
+</html>

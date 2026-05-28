@@ -34,6 +34,22 @@ export const navElements: NavElement[] = [
   // },
   {
     id: cuid(),
+    route: "/authority-layer",
+    title: "Authority Layer",
+    anchor: "/authority-layer",
+    isActiveLink: false,
+    subNav: false,
+  },
+  {
+    id: cuid(),
+    route: "/uig",
+    title: "UI-GATE",
+    anchor: "/uig",
+    isActiveLink: false,
+    subNav: false,
+  },
+  {
+    id: cuid(),
     route: "/contact",
     title: "Connect",
     anchor: "#contact",

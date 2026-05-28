@@ -17,7 +17,7 @@ import { useTheme } from "@mui/material/styles"
 import MenuIcon from "@mui/icons-material/Menu"
 
 import { Title } from "../Title"
-import { StyledNavElement } from "./Navigation.styled"
+import { StyledNavElement, StyledNavLink } from "./Navigation.styled"
 
 import { navElements } from "./Navigation.api"
 
@@ -146,16 +146,27 @@ export const Navigation: React.FC<YAxisProps> = ({
             >
               <Box>
                 <Box display="flex" justifyContent="space-between">
-                  {navElements.map(({ id, route, anchor, title }) => (
-                    <StyledNavElement
-                      to={anchor}
-                      key={id}
-                      animate={{ duration: 1000, easing: easeOutQuad }}
-                      active={activeLink === anchor.slice(1)}
-                    >
-                      {title}
-                    </StyledNavElement>
-                  ))}
+                  {navElements.map(({ id, route, anchor, title }) => {
+                    const isScroll = anchor.startsWith("#")
+                    return isScroll ? (
+                      <StyledNavElement
+                        to={anchor}
+                        key={id}
+                        animate={{ duration: 1000, easing: easeOutQuad }}
+                        active={activeLink === anchor.slice(1)}
+                      >
+                        {title}
+                      </StyledNavElement>
+                    ) : (
+                      <StyledNavLink
+                        to={anchor}
+                        key={id}
+                        active={activeLink === anchor.slice(1)}
+                      >
+                        {title}
+                      </StyledNavLink>
+                    )
+                  })}
                 </Box>
                 {/* <SocialLinks /> */}
               </Box>
@@ -192,18 +203,31 @@ export const Navigation: React.FC<YAxisProps> = ({
         }}
       >
         <List>
-          {navElements.map(({ id, route, anchor, title }) => (
-            <ListItem key={id}>
-              <StyledNavElement
-                to={anchor}
-                animate={{ duration: 1000, easing: easeOutQuad }}
-                active={activeLink === anchor.slice(1)}
-                beforeAnimate={() => setDrawerIsOpen(false)}
-              >
-                {title}
-              </StyledNavElement>
-            </ListItem>
-          ))}
+          {navElements.map(({ id, route, anchor, title }) => {
+            const isScroll = anchor.startsWith("#")
+            return (
+              <ListItem key={id}>
+                {isScroll ? (
+                  <StyledNavElement
+                    to={anchor}
+                    animate={{ duration: 1000, easing: easeOutQuad }}
+                    active={activeLink === anchor.slice(1)}
+                    beforeAnimate={() => setDrawerIsOpen(false)}
+                  >
+                    {title}
+                  </StyledNavElement>
+                ) : (
+                  <StyledNavLink
+                    to={anchor}
+                    active={activeLink === anchor.slice(1)}
+                    onClick={() => setDrawerIsOpen(false)}
+                  >
+                    {title}
+                  </StyledNavLink>
+                )}
+              </ListItem>
+            )
+          })}
         </List>
       </Drawer>
     </>

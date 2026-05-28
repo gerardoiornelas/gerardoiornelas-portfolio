@@ -87,7 +87,8 @@ export const verificationScenarios: VerificationScenario[] = [
         network: "Hedera-compatible attestation rail",
         recordType: "authorization_receipt",
         txIdOrHash: "0.0.481921@1715341938.447019294",
-        verifierUrl: "https://hashscan.io/testnet/transaction/1715341938.447019294",
+        verifierUrl:
+          "https://hashscan.io/testnet/transaction/1715341938.447019294",
         proofStatus: "confirmed",
       },
     },
@@ -132,7 +133,8 @@ export const verificationScenarios: VerificationScenario[] = [
         network: "Hedera-compatible attestation rail",
         recordType: "authorization_receipt",
         txIdOrHash: "0.0.481921@1715292843.118775200",
-        verifierUrl: "https://hashscan.io/testnet/transaction/1715292843.118775200",
+        verifierUrl:
+          "https://hashscan.io/testnet/transaction/1715292843.118775200",
         proofStatus: "expired",
       },
     },
@@ -177,7 +179,8 @@ export const verificationScenarios: VerificationScenario[] = [
         network: "Hedera-compatible attestation rail",
         recordType: "authorization_receipt",
         txIdOrHash: "0.0.481921@1715336981.883410973",
-        verifierUrl: "https://hashscan.io/testnet/transaction/1715336981.883410973",
+        verifierUrl:
+          "https://hashscan.io/testnet/transaction/1715336981.883410973",
         proofStatus: "revoked",
       },
     },

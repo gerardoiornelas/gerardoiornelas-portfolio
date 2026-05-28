@@ -2,6 +2,7 @@ import { styled } from "@mui/system"
 import { rem } from "polished"
 import { Box, AppBar } from "@mui/material"
 import { Scrollchor } from "react-scrollchor"
+import { Link } from "gatsby"
 
 const StyledSocialNav = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.light,
@@ -23,9 +24,7 @@ const StyledNavigation = styled(Box)({
   padding: `${rem(1)}`,
 })
 
-const StyledNavElement = styled(Scrollchor, {
-  shouldForwardProp: prop => prop !== "active",
-})<{ active?: boolean }>(({ theme }) => ({
+const navLinkStyles = (theme: any, active?: boolean) => ({
   backgroundColor: "transparent",
   border: 0,
   fontFamily: theme.typography.h6.fontFamily,
@@ -47,7 +46,9 @@ const StyledNavElement = styled(Scrollchor, {
     width: "100%",
     backgroundColor: theme.palette.secondary.main,
     transition: "all 200ms",
-    clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
+    clipPath: active
+      ? "polygon(10% 0, 90% 0, 90% 100%, 10% 100%)"
+      : "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
   },
   "&:hover": {
     color: theme.palette.secondary.light,
@@ -59,7 +60,15 @@ const StyledNavElement = styled(Scrollchor, {
   [theme.breakpoints.down("sm")]: {
     color: theme.palette.text.primary,
   },
-}))
+})
+
+const StyledNavElement = styled(Scrollchor, {
+  shouldForwardProp: prop => prop !== "active",
+})<{ active?: boolean }>(({ theme, active }) => navLinkStyles(theme, active))
+
+const StyledNavLink = styled(Link, {
+  shouldForwardProp: prop => prop !== "active",
+})<{ active?: boolean }>(({ theme, active }) => navLinkStyles(theme, active))
 
 const StyledScheduleCall = styled(Scrollchor)(({ theme }) => ({
   color: "white",
@@ -87,5 +96,6 @@ export {
   StyledAppBar,
   StyledNavigation,
   StyledNavElement,
+  StyledNavLink,
   StyledScheduleCall,
 }

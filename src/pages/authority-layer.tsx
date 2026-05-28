@@ -129,6 +129,18 @@ const AuthorityLayerPage: React.FC = () => {
                 <Link to="/manifesto/">Verifiably Human Manifesto</Link>
               </Typography>
               <Typography>
+                <Link to="/uig/">UI-GATE methodology</Link>
+                <Typography
+                  component="span"
+                  color="text.secondary"
+                  sx={{ fontSize: 14 }}
+                >
+                  {" "}
+                  — ship agentic features with human validation gates between
+                  every ticket
+                </Typography>
+              </Typography>
+              <Typography>
                 <Link to="/blog/securing-autonomy/">
                   Securing Autonomy: APP applied to real agent patterns
                 </Link>

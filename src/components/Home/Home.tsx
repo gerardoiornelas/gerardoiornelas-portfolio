@@ -55,8 +55,18 @@ export const Home: React.FC = () => {
                         I&apos;m Gerardo I. Ornelas, founder of Violetek and
                         author of the Agent Permission Protocol. I write about
                         execution-time authorization, ambient authority,
-                        security UX, and verifiable enforcement so founders can
-                        build AI products that are safe to use in production.
+                        security UX, and verifiable enforcement — and developed{" "}
+                        <a
+                          href="/uig"
+                          style={{
+                            color: "inherit",
+                            textDecorationColor: "secondary",
+                          }}
+                        >
+                          UI-GATE
+                        </a>
+                        , a methodology for shipping agentic features without
+                        compounding hidden failures.
                       </Typography>
                     </AnimateOnScroll>
                   </RowCol>

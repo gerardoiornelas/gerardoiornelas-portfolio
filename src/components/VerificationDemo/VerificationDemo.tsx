@@ -117,13 +117,7 @@ function StepCard({
   )
 }
 
-function KeyValue({
-  label,
-  value,
-}: {
-  label: string
-  value: React.ReactNode
-}) {
+function KeyValue({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <Box>
       <Typography variant="caption" color="text.secondary">
@@ -209,7 +203,9 @@ export const VerificationDemo: React.FC = () => {
                   )
                 })}
               </Stack>
-              <Typography sx={{ mt: 2.5 }}>{selectedScenario.thesis}</Typography>
+              <Typography sx={{ mt: 2.5 }}>
+                {selectedScenario.thesis}
+              </Typography>
             </Box>
           </AnimateOnScroll>
         </RowCol>
@@ -263,7 +259,9 @@ export const VerificationDemo: React.FC = () => {
                   />
                   <KeyValue
                     label="Expires"
-                    value={formatTimestamp(selectedScenario.authorityGrant.expiresAt)}
+                    value={formatTimestamp(
+                      selectedScenario.authorityGrant.expiresAt
+                    )}
                   />
                   <KeyValue
                     label="Policy Hash"
@@ -292,7 +290,9 @@ export const VerificationDemo: React.FC = () => {
                   <Stack direction="row" spacing={1} flexWrap="wrap">
                     <Chip
                       label={selectedScenario.verificationReceipt.status}
-                      color={statusTone[selectedScenario.verificationReceipt.status]}
+                      color={
+                        statusTone[selectedScenario.verificationReceipt.status]
+                      }
                       size="small"
                     />
                     <Chip
@@ -311,15 +311,21 @@ export const VerificationDemo: React.FC = () => {
                   />
                   <KeyValue
                     label="Executed"
-                    value={formatTimestamp(selectedScenario.verificationReceipt.executedAt)}
+                    value={formatTimestamp(
+                      selectedScenario.verificationReceipt.executedAt
+                    )}
                   />
                   <KeyValue
                     label="Proof Rail"
-                    value={selectedScenario.verificationReceipt.proofRef.network}
+                    value={
+                      selectedScenario.verificationReceipt.proofRef.network
+                    }
                   />
                   <KeyValue
                     label="Transaction Reference"
-                    value={selectedScenario.verificationReceipt.proofRef.txIdOrHash}
+                    value={
+                      selectedScenario.verificationReceipt.proofRef.txIdOrHash
+                    }
                   />
                   <Button
                     variant="contained"
@@ -359,8 +365,13 @@ export const VerificationDemo: React.FC = () => {
                       <Typography variant="h5">{proofState.label}</Typography>
                     </Box>
                     <Chip
-                      label={selectedScenario.verificationReceipt.proofRef.proofStatus}
-                      color={statusTone[selectedScenario.verificationReceipt.status]}
+                      label={
+                        selectedScenario.verificationReceipt.proofRef
+                          .proofStatus
+                      }
+                      color={
+                        statusTone[selectedScenario.verificationReceipt.status]
+                      }
                     />
                   </Box>
 
@@ -410,7 +421,8 @@ export const VerificationDemo: React.FC = () => {
                           <KeyValue
                             label="Network"
                             value={
-                              selectedScenario.verificationReceipt.proofRef.network
+                              selectedScenario.verificationReceipt.proofRef
+                                .network
                             }
                           />
                           <KeyValue

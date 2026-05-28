@@ -25,7 +25,7 @@ export const LayoutAlt: React.FC<LayoutAltProps> = ({ children }) => {
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
 
   return (
-    <Box display="flex" flexDirection="column" sx={{ height: "100vh" }}>
+    <Box display="flex" flexDirection="column" sx={{ minHeight: "100vh" }}>
       <Box>
         <AppBar
           position="sticky"
