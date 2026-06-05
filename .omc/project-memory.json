@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1779908547416,
+  "lastScanned": 1780663351311,
   "projectRoot": "/Users/ornelastechnologies/Documents/Git/violetek/gerardoiornelas-portfolio",
   "techStack": {
     "languages": [
@@ -8,13 +8,17 @@
         "name": "JavaScript/TypeScript",
         "version": "18.12.1",
         "confidence": "high",
-        "markers": ["package.json"]
+        "markers": [
+          "package.json"
+        ]
       },
       {
         "name": "TypeScript",
         "version": null,
         "confidence": "high",
-        "markers": ["tsconfig.json"]
+        "markers": [
+          "tsconfig.json"
+        ]
       }
     ],
     "frameworks": [
@@ -57,7 +61,14 @@
   "structure": {
     "isMonorepo": false,
     "workspaces": [],
-    "mainDirectories": ["docs", "public", "scripts", "src", "static", "test"],
+    "mainDirectories": [
+      "docs",
+      "public",
+      "scripts",
+      "src",
+      "static",
+      "test"
+    ],
     "gitBranches": {
       "defaultBranch": "main",
       "branchingStrategy": null
@@ -69,105 +80,145 @@
       "path": "contracts",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1779908547395,
-      "keyFiles": ["Token.sol"]
+      "lastAccessed": 1780663351292,
+      "keyFiles": [
+        "Token.sol"
+      ]
     },
     "docs": {
       "path": "docs",
       "purpose": "Documentation",
       "fileCount": 2,
-      "lastAccessed": 1779908547396,
-      "keyFiles": ["authority-engine.md", "portfolio-campaign-strategy.md"]
+      "lastAccessed": 1780663351292,
+      "keyFiles": [
+        "authority-engine.md",
+        "portfolio-campaign-strategy.md"
+      ]
     },
     "generators": {
       "path": "generators",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1779908547400,
+      "lastAccessed": 1780663351296,
       "keyFiles": []
+    },
+    "plans": {
+      "path": "plans",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1780663351296,
+      "keyFiles": [
+        "ui-gate-discovery.md"
+      ]
     },
     "plugins": {
       "path": "plugins",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1779908547401,
+      "lastAccessed": 1780663351296,
       "keyFiles": []
     },
     "public": {
       "path": "public",
       "purpose": "Public files",
-      "fileCount": 94,
-      "lastAccessed": 1779908547402,
+      "fileCount": 149,
+      "lastAccessed": 1780663351297,
       "keyFiles": [
         "022d3153bf09c36cd784dcdb36ffbd187f9c96d7-33a68a34ec7230888ec2.js",
         "022d3153bf09c36cd784dcdb36ffbd187f9c96d7-33a68a34ec7230888ec2.js.map",
-        "127-d267b18f612ca8d1af66.js",
-        "127-d267b18f612ca8d1af66.js.map",
-        "24ed69a6eefc6bfae9e16d319b56d1b8467e55d4-8e63a66fd54e6fcdce72.js"
+        "022d3153bf09c36cd784dcdb36ffbd187f9c96d7-94265e5b237f16fa1caa.js",
+        "022d3153bf09c36cd784dcdb36ffbd187f9c96d7-94265e5b237f16fa1caa.js.map",
+        "127-4b66a986c02471b2a689.js"
       ]
     },
     "scripts": {
       "path": "scripts",
       "purpose": "Build/utility scripts",
       "fileCount": 1,
-      "lastAccessed": 1779908547402,
-      "keyFiles": ["deploy.js"]
+      "lastAccessed": 1780663351297,
+      "keyFiles": [
+        "deploy.js"
+      ]
     },
     "src": {
       "path": "src",
       "purpose": "Source code",
       "fileCount": 4,
-      "lastAccessed": 1779908547402,
-      "keyFiles": ["config.json", "declarations.d.ts", "mui.d.ts"]
+      "lastAccessed": 1780663351297,
+      "keyFiles": [
+        "config.json",
+        "declarations.d.ts",
+        "mui.d.ts"
+      ]
     },
     "static": {
       "path": "static",
       "purpose": "Static files",
       "fileCount": 1,
-      "lastAccessed": 1779908547403,
-      "keyFiles": ["lone-star-gs.png"]
+      "lastAccessed": 1780663351298,
+      "keyFiles": [
+        "lone-star-gs.png"
+      ]
     },
     "test": {
       "path": "test",
       "purpose": "Test files",
       "fileCount": 1,
-      "lastAccessed": 1779908547403,
-      "keyFiles": ["Token.test.js"]
+      "lastAccessed": 1780663351298,
+      "keyFiles": [
+        "Token.test.js"
+      ]
     },
     "utilities": {
       "path": "utilities",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1779908547404,
+      "lastAccessed": 1780663351298,
       "keyFiles": []
     },
     "src/components": {
       "path": "src/components",
       "purpose": "UI components",
       "fileCount": 0,
-      "lastAccessed": 1779908547405,
+      "lastAccessed": 1780663351299,
       "keyFiles": []
     },
     "src/pages": {
       "path": "src/pages",
       "purpose": "Page components",
-      "fileCount": 7,
-      "lastAccessed": 1779908547406,
-      "keyFiles": ["404.tsx", "authority-layer.tsx", "index.tsx"]
+      "fileCount": 8,
+      "lastAccessed": 1780663351299,
+      "keyFiles": [
+        "404.tsx",
+        "authority-layer.tsx",
+        "index.tsx"
+      ]
     }
   },
   "hotPaths": [
+    {
+      "path": "plans/aidd-gate-fork.md",
+      "accessCount": 14,
+      "lastAccessed": 1780679646164,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/uig.tsx",
+      "accessCount": 9,
+      "lastAccessed": 1780685654807,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Home/Home.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1780663415700,
+      "type": "file"
+    },
     {
       "path": "",
       "accessCount": 4,
       "lastAccessed": 1779912321112,
       "type": "directory"
-    },
-    {
-      "path": "src/components/Home/Home.tsx",
-      "accessCount": 4,
-      "lastAccessed": 1779914076135,
-      "type": "file"
     },
     {
       "path": "src/components/Navigation/Navigation.api.ts",
@@ -179,6 +230,12 @@
       "path": "src/pages/authority-layer.tsx",
       "accessCount": 3,
       "lastAccessed": 1779914076347,
+      "type": "file"
+    },
+    {
+      "path": "plans/uigate/uigate-skill.md",
+      "accessCount": 3,
+      "lastAccessed": 1780679733763,
       "type": "file"
     },
     {
@@ -194,15 +251,21 @@
       "type": "file"
     },
     {
-      "path": "src/pages/uig.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1779913491576,
-      "type": "file"
-    },
-    {
       "path": "src/components/Navigation/Navigation.tsx",
       "accessCount": 2,
       "lastAccessed": 1779913958498,
+      "type": "file"
+    },
+    {
+      "path": "plans/ui-gate-discovery.md",
+      "accessCount": 2,
+      "lastAccessed": 1780663415753,
+      "type": "file"
+    },
+    {
+      "path": "plans/uigate/uigate-page.html",
+      "accessCount": 2,
+      "lastAccessed": 1780663428195,
       "type": "file"
     },
     {
@@ -221,18 +284,6 @@
       "path": "src/components/Social/Social.tsx",
       "accessCount": 1,
       "lastAccessed": 1777571704202,
-      "type": "file"
-    },
-    {
-      "path": "plans/uigate/uigate-skill.md",
-      "accessCount": 1,
-      "lastAccessed": 1779912311988,
-      "type": "file"
-    },
-    {
-      "path": "plans/uigate/uigate-page.html",
-      "accessCount": 1,
-      "lastAccessed": 1779912312104,
       "type": "file"
     },
     {
@@ -296,9 +347,27 @@
       "type": "file"
     },
     {
-      "path": "plans/ui-gate-discovery.md",
+      "path": "src/components/GateDemo/GateDemo.tsx",
       "accessCount": 1,
-      "lastAccessed": 1779913975566,
+      "lastAccessed": 1780663415584,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 1,
+      "lastAccessed": 1780679764107,
+      "type": "file"
+    },
+    {
+      "path": "prd.json",
+      "accessCount": 1,
+      "lastAccessed": 1780680054391,
+      "type": "file"
+    },
+    {
+      "path": "progress.txt",
+      "accessCount": 1,
+      "lastAccessed": 1780680054566,
       "type": "file"
     }
   ],

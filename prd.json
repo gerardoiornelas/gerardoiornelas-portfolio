@@ -1,0 +1,133 @@
+{
+  "name": "uig-fork",
+  "version": "0.4.0",
+  "description": "Fork paralleldrive/aidd with runtime-enforced per-ticket UI-GATE",
+  "created_at": "2026-06-05T17:14:00.000Z",
+  "completed_at": "2026-06-05T18:14:00.000Z",
+  "plan_path": "plans/aidd-gate-fork.md",
+  "fork_target_dir": "../uig",
+  "stories": [
+    {
+      "id": "ST-001",
+      "title": "Phase 0: Bootstrap the fork and rename aidd → uig",
+      "priority": 1,
+      "depends_on": [],
+      "workdir": "../uig",
+      "passes": true,
+      "completed_at": "2026-06-05T17:30:00.000Z",
+      "evidence": [
+        "package.json: name=uig, bin=uig, author=Gerardo I. Ornelas, repo=gerardoiornelas/uig",
+        "bin/aidd.js removed; bin/uig.js created (chmod +x, shebang intact)",
+        "FORK.md written with fork relationship, divergence policy, quarterly re-sync cadence, trademark guidance",
+        "vision.md updated to UI-GATE vision",
+        "Existing AIDD commands (discover, task, review, log, commit, user-test, run-test) still resolve to their skill files (untouched)"
+      ]
+    },
+    {
+      "id": "ST-002",
+      "title": "Phase 1: Gate core modules",
+      "priority": 2,
+      "depends_on": ["ST-001"],
+      "workdir": "../uig",
+      "passes": true,
+      "completed_at": "2026-06-05T17:50:00.000Z",
+      "evidence": [
+        "lib/gate/state-machine.js — 6 statuses, allow-list transitions, transition() returns {ok, error}",
+        "lib/gate/pending-store.js — atomic write, read returns initial state if missing, applyTransition validates against state machine",
+        "lib/gate/validation-log.js — JSON + Markdown in one transaction boundary, appendEntry atomically writes both",
+        "lib/gate/ticket-resolver.js — reads .uig/tickets.json OR derives from plan.md FEAT-XXX lines, firstOpenTicket skips VALIDATED/SKIPPED, never returns ticket N+1 while N awaits",
+        "lib/gate/evidence-hasher.js — SHA-256 of files, hashEvidenceDir by basename, describes missing files",
+        "lib/gate/evidence-integrity.js — compares current hashes to recorded, flags mismatches + missing + extra",
+        "CONTRIBUTOR-GATE.md written with state machine diagram, pending state shape, log schema, resolver contract, forbidden patterns",
+        "5 unit test files: state-machine (12), pending-store (7), validation-log (6), ticket-resolver (13), evidence (7) — 45 tests passing"
+      ]
+    },
+    {
+      "id": "ST-003",
+      "title": "Phase 2: execute wrapper (one-ticket dispatch boundary)",
+      "priority": 3,
+      "depends_on": ["ST-002"],
+      "workdir": "../uig",
+      "passes": true,
+      "completed_at": "2026-06-05T18:00:00.000Z",
+      "evidence": [
+        "lib/gate/execute-wrapper.js — exports runExecute(projectRoot, options)",
+        "Refuses dispatch while AWAITING_HUMAN with the documented gate message",
+        "Resolves one ticket via ticket-resolver.js, never queues ticket N+1",
+        "dry-run short-circuits BEFORE any state mutation (fixed bug: previously mutated to EXECUTING before dry-run check)",
+        "Mark state EXECUTING at start, AWAITING_HUMAN at success, FAILED on agent/capture error",
+        "Captures evidence after agent run, fails gate on capture failure",
+        "Appends PENDING row to validation log on success",
+        "Implementation does NOT parse agent stdout to decide dispatch",
+        "Integration tests: 4 tests passing (dispatch-one, blocks-while-awaiting, no-ticket, already-complete)"
+      ]
+    },
+    {
+      "id": "ST-004",
+      "title": "Phase 3: /validate command and gate-status",
+      "priority": 4,
+      "depends_on": ["ST-003"],
+      "workdir": "../uig",
+      "passes": true,
+      "completed_at": "2026-06-05T18:05:00.000Z",
+      "evidence": [
+        "lib/gate/commands.js — registerGateCommands adds execute, validate, gate-status to the CLI",
+        "validate FEAT-XXX: confirms pending.ticket matches, status is AWAITING_HUMAN",
+        "validate --skip --reason REASON: requires non-empty reason, records SKIPPED, unblocks next",
+        "validate (no flag): requires evidence directory + all required files, hashes them, runs integrity check, records VALIDATED",
+        "gate-status: shows active ticket, status, waiting duration, last decision, resolver verdict",
+        "Tested live: refuses to validate wrong ticket, refuses without evidence, validates with hashes, skip with reason, gate-status shows correct state",
+        "Bug fix: renamed subcommand --dry-run to --no-dispatch to avoid collision with parent aidd --dry-run"
+      ]
+    },
+    {
+      "id": "ST-005",
+      "title": "Phase 4: Playwright evidence capture",
+      "priority": 5,
+      "depends_on": ["ST-004"],
+      "workdir": "../uig",
+      "passes": true,
+      "completed_at": "2026-06-05T18:08:00.000Z",
+      "evidence": [
+        "lib/gate/evidence-capture.js — captureEvidence({ ticketId, primaryRoute, devServerUrl, ... })",
+        "Captures screenshot.png, page.html, console.log into .uig/evidence/FEAT-XXX/",
+        "Subscribes to console.error and pageerror during capture window",
+        "Returns ok=false with consoleErrors attached if any errors fire (gate stays closed)",
+        "Lazy-imports Playwright so projects without it get a clear error message",
+        "network.har capture deferred to v2 (out of scope per plan)",
+        "Tested in validate-refuses-without-evidence.test.js: 2 tests passing"
+      ]
+    },
+    {
+      "id": "ST-006",
+      "title": "Phase 5: Documentation and portfolio surface update",
+      "priority": 6,
+      "depends_on": ["ST-005"],
+      "workdir": ".",
+      "passes": true,
+      "completed_at": "2026-06-05T18:14:00.000Z",
+      "evidence": [
+        "FORK.md documents fork relationship, divergence policy, quarterly re-sync cadence, expected conflict zones",
+        "CONTRIBUTOR-GATE.md documents state machine, pending state shape, log schema, resolver contract, execute wrapper contract, validate command, forbidden patterns",
+        "assets/ui-gate-policy.md vendored — fork-owned copy of the UI-GATE policy (not dependent on portfolio repo)",
+        "vision.md updated to UI-GATE mission",
+        ".uig/config.json sample + .uig/config.schema.json (JSON Schema) committed to the repo",
+        "src/pages/uig.tsx: new 'The three layers' section with methodology/fork/substrate cards, 'Built with UI-GATE' proof block updated to link to gerardoiornelas/uig and preserve '112 atomic features / zero compounding failures' claim"
+      ]
+    },
+    {
+      "id": "ST-007",
+      "title": "E2E gate flow on a 3-ticket demo project",
+      "priority": 7,
+      "depends_on": ["ST-006"],
+      "workdir": "../uig",
+      "passes": true,
+      "completed_at": "2026-06-05T18:14:00.000Z",
+      "evidence": [
+        "Live E2E run on /tmp/uig-e2e-demo with 3-ticket plan: scaffold, gate-status (IDLE), execute (dry-run no state change), execute real (AWAITING_HUMAN FEAT-001), execute again (GATE_BLOCKED exit 2), validate --skip --reason (SKIPPED), execute (FEAT-002), validate without evidence (refused exit 2), validate with evidence (VALIDATED + SHA-256 hashes recorded), execute (FEAT-003), validate --skip (SKIPPED), execute (ALREADY_COMPLETE exit 2)",
+        "validation.log.json + validation.log.md both written, schema-consistent",
+        "All 51 unit + integration tests passing (vitest run lib/gate/__tests__/)"
+      ]
+    }
+  ]
+}

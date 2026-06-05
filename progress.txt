@@ -1,0 +1,69 @@
+# UI-GATE Fork — Progress Log
+
+This Ralph session implemented the plan in `plans/aidd-gate-fork.md` v0.4 (2026-06-05).
+
+## Architecture decisions
+
+- The fork work happens in `../uig/` (sibling directory in the violetek monorepo)
+- The portfolio repo tracks the Ralph session (prd.json + progress.txt live here)
+- `src/pages/uig.tsx` is the only portfolio file modified (Phase 5)
+- The actual GitHub repo creation (gerardoiornelas/uig) is out of scope for this session; the fork lives in `../uig/` ready to push
+
+## Iteration log
+
+### Iteration 1 — bootstrap
+- Read plan, existing uig/ directory, upstream AIDD structure via WebFetch
+- Created prd.json with 7 stories derived from plan's 12 ACs
+- Created progress.txt
+- Cloned paralleldrive/aidd into ../uig/
+
+### Iteration 2 — Phase 0 transforms
+- package.json: name=aidd → uig, bin=aidd → uig, repo/bugs/author updated
+- Renamed bin/aidd.js → bin/uig.js, added FORK.md, updated vision.md
+- Made bin/uig.js executable
+
+### Iteration 3 — Phase 1 gate core
+- Wrote 6 modules: state-machine, pending-store, validation-log, ticket-resolver, evidence-hasher, evidence-integrity
+- Wrote 5 unit test files (45 tests)
+- Wrote CONTRIBUTOR-GATE.md
+- Wrote assets/ui-gate-policy.md (vendored)
+- Wrote .uig/config.json + config.schema.json
+
+### Iteration 4 — Phase 2/3/4 (execute wrapper, validate, evidence capture)
+- Wrote lib/gate/execute-wrapper.js (runExecute)
+- Wrote lib/gate/evidence-capture.js (Playwright)
+- Wrote lib/gate/commands.js (execute, validate, gate-status)
+- Wrote lib/gate/index.js exports
+- Wrote 2 integration test files (6 tests)
+- All 51 tests pass
+
+### Iteration 5 — Phase 5 portfolio update
+- src/pages/uig.tsx: added "The three layers" section (methodology/fork/substrate cards)
+- Updated "Built with UI-GATE" proof block to link to gerardoiornelas/uig and preserve 112/zero claim
+
+### Iteration 6 — E2E + bug fixes
+- Discovered two bugs:
+  1. Commander parent --dry-run consumed the flag before subcommand saw it → renamed to --no-dispatch
+  2. runExecute mutated to EXECUTING before dry-run check → moved dry-run short-circuit to before any state mutation
+- Live E2E on /tmp/uig-e2e-demo (3-ticket plan): every step passed
+- gate-status correctly shows ALREADY_COMPLETE at end of run
+
+## Final state
+- 51/51 unit + integration tests pass
+- Full E2E flow (scaffold → 3 tickets → ALREADY_COMPLETE) works end-to-end
+- 7/7 user stories in prd.json marked passes: true
+- Both repos are ready: portfolio has updated /uig page, fork has the gate protocol
+
+## Learnings
+- AIDD upstream is ESM, name 'aidd', bin 'aidd' → bin/aidd.js
+- AIDD's "execute" is a markdown prompt in ai/commands/execute.md; the actual agent spawner is lib/agent-cli/runner.js
+- The fork wraps lib/agent-cli/runner.js via runExecute to enforce the one-ticket boundary
+- Commander v11 subcommand option parsing: parent options consume flags before subcommand sees them; use unique flag names
+- The dry-run pattern requires short-circuiting BEFORE any state mutation, not after
+- Atomic file writes (temp + rename) are essential for state and log integrity
+- Playwright should be lazy-imported so projects without it get a clear error rather than a hard import failure
+
+## Next time
+- The first upstream merge rehearsal will likely surface conflicts in lib/agent-cli/runner.js, lib/cli-core.js, package.json, and ai/skills/aidd-task-creator/SKILL.md. Document them in FORK.md after the rehearsal.
+- The npm postinstall "playwright install --with-deps chromium" needs network access; may want to make it a separate npm install step in CI.
+- The gate status exit code 2 conflicts with Commander's own error exits; consider standardizing on a small set of exit codes (0 ok, 1 not yet unblocked, 2 invalid usage, 3 internal error).
