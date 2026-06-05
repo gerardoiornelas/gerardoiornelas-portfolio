@@ -990,6 +990,237 @@ const UigPage: React.FC = () => {
         </Box>
       </Container>
 
+      <Box sx={{ py: 10, bgcolor: "background.default" }}>
+        <Container maxWidth="lg">
+          <Box sx={{ mb: 6, maxWidth: 720 }}>
+            <Typography
+              sx={{
+                fontFamily: "monospace",
+                fontSize: 10,
+                fontWeight: 600,
+                letterSpacing: "0.2em",
+                color: "secondary.main",
+                textTransform: "uppercase",
+                mb: 1,
+              }}
+            >
+              The three layers
+            </Typography>
+            <Typography variant="h3" sx={{ color: "text.primary" }}>
+              UI-GATE is the brand.
+              <Box component="span" sx={{ color: "secondary.main" }}>
+                {" "}
+                AIDD is the substrate.
+              </Box>
+            </Typography>
+            <Typography
+              sx={{
+                mt: 2,
+                color: "text.secondary",
+                fontWeight: 300,
+                lineHeight: 1.7,
+              }}
+            >
+              The methodology, the runtime-enforced fork, and the upstream
+              framework are three different things. Knowing which is which
+              matters when you read the proof claim at the bottom of this
+              page.
+            </Typography>
+          </Box>
+
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={4}>
+              <Box
+                sx={{
+                  bgcolor: "background.paper",
+                  border: "1px solid",
+                  borderColor: "divider",
+                  p: 4,
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 2,
+                }}
+              >
+                <GateChip label="methodology" />
+                <Typography variant="h5" sx={{ color: "text.primary" }}>
+                  UI-GATE
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "text.secondary",
+                    fontWeight: 300,
+                    lineHeight: 1.7,
+                    flexGrow: 1,
+                  }}
+                >
+                  The gating discipline. Prompt-portable. Atomic feature
+                  decomposition, per-ticket human validation, mandatory
+                  stop signals, no compounding failures. The
+                  <Box
+                    component="code"
+                    sx={{
+                      fontFamily: "monospace",
+                      fontSize: 13,
+                      color: "secondary.main",
+                      mx: 0.5,
+                    }}
+                  >
+                    uigate-skill.md
+                  </Box>
+                  file at the top of this page is the canonical reference.
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "monospace",
+                    fontSize: 11,
+                    color: "text.disabled",
+                    letterSpacing: "0.05em",
+                  }}
+                >
+                  layer 1 / 3
+                </Typography>
+              </Box>
+            </Grid>
+
+            <Grid item xs={12} md={4}>
+              <Box
+                sx={{
+                  bgcolor: "background.paper",
+                  border: "1px solid",
+                  borderColor: "secondary.main",
+                  p: 4,
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 2,
+                }}
+              >
+                <GateChip label="fork" />
+                <Typography variant="h5" sx={{ color: "text.primary" }}>
+                  uig
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "text.secondary",
+                    fontWeight: 300,
+                    lineHeight: 1.7,
+                    flexGrow: 1,
+                  }}
+                >
+                  The runtime-enforced implementation. A long-term,
+                  intentionally-divergent fork of AIDD that turns the
+                  methodology from a prompt convention into a structural
+                  boundary. The runtime cannot dispatch ticket N+1 before
+                  a human runs
+                  <Box
+                    component="code"
+                    sx={{
+                      fontFamily: "monospace",
+                      fontSize: 13,
+                      color: "secondary.main",
+                      mx: 0.5,
+                    }}
+                  >
+                    uig validate
+                  </Box>
+                  .
+                </Typography>
+                <Button
+                  component="a"
+                  href="https://github.com/gerardoiornelas/uig"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outlined"
+                  size="small"
+                  sx={{
+                    alignSelf: "flex-start",
+                    borderColor: "secondary.main",
+                    color: "secondary.main",
+                    fontFamily: "monospace",
+                    fontSize: 11,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    "&:hover": {
+                      borderColor: "secondary.main",
+                      bgcolor: "rgba(0, 229, 255, 0.08)",
+                    },
+                  }}
+                >
+                  View on GitHub →
+                </Button>
+                <Typography
+                  sx={{
+                    fontFamily: "monospace",
+                    fontSize: 11,
+                    color: "text.disabled",
+                    letterSpacing: "0.05em",
+                  }}
+                >
+                  layer 2 / 3
+                </Typography>
+              </Box>
+            </Grid>
+
+            <Grid item xs={12} md={4}>
+              <Box
+                sx={{
+                  bgcolor: "background.paper",
+                  border: "1px solid",
+                  borderColor: "divider",
+                  p: 4,
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 2,
+                }}
+              >
+                <GateChip label="substrate" />
+                <Typography variant="h5" sx={{ color: "text.primary" }}>
+                  AIDD
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "text.secondary",
+                    fontWeight: 300,
+                    lineHeight: 1.7,
+                    flexGrow: 1,
+                  }}
+                >
+                  The substrate. The upstream AI Driven Development framework
+                  by{" "}
+                  <Box
+                    component="a"
+                    href="https://github.com/paralleldrive/aidd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      color: "secondary.main",
+                      textDecoration: "none",
+                      "&:hover": { textDecoration: "underline" },
+                    }}
+                  >
+                    ParallelDrive
+                  </Box>
+                  . SudoLang Prompt Language, agent runtime, server
+                  framework, scaffold commands. The fork reuses all of it.
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "monospace",
+                    fontSize: 11,
+                    color: "text.disabled",
+                    letterSpacing: "0.05em",
+                  }}
+                >
+                  layer 3 / 3
+                </Typography>
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
       <Box
         sx={{
           bgcolor: "background.paper",
@@ -1028,15 +1259,35 @@ const UigPage: React.FC = () => {
             </Box>
             <Typography
               sx={{
-                maxWidth: 400,
+                maxWidth: 480,
                 color: "text.secondary",
                 fontWeight: 300,
                 textAlign: { xs: "left", md: "right" },
+                lineHeight: 1.7,
               }}
             >
-              This portfolio and its verification engine were built using the
-              UI-GATE methodology. 112 atomic features delivered with zero
-              compounding failures.
+              This portfolio and its verification engine were built using
+              the UI-GATE methodology.{" "}
+              <Box component="span" sx={{ color: "secondary.main" }}>
+                112 atomic features delivered with zero compounding
+                failures.
+              </Box>{" "}
+              The runtime gate is implemented in the
+              <Box
+                component="a"
+                href="https://github.com/gerardoiornelas/uig"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  color: "secondary.main",
+                  textDecoration: "none",
+                  mx: 0.5,
+                  "&:hover": { textDecoration: "underline" },
+                }}
+              >
+                gerardoiornelas/uig
+              </Box>
+              fork. The substrate is AIDD by ParallelDrive.
             </Typography>
           </Stack>
         </Container>
