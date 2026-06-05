@@ -1126,6 +1126,27 @@ const UigPage: React.FC = () => {
                   </Box>
                   .
                 </Typography>
+                <Box
+                  component="pre"
+                  sx={{
+                    m: 0,
+                    bgcolor: "#0a0a09",
+                    border: "1px solid",
+                    borderColor: "divider",
+                    p: 2,
+                    fontFamily: "monospace",
+                    fontSize: 12,
+                    lineHeight: 1.6,
+                    color: "text.secondary",
+                    overflow: "auto",
+                    whiteSpace: "pre",
+                  }}
+                >
+{`$ npx uig --cursor          # scaffold
+$ npx uig execute            # dispatch one ticket
+$ npx uig validate FEAT-001  # human gate
+$ npx uig gate-status`}
+                </Box>
                 <Button
                   component="a"
                   href="https://github.com/gerardoiornelas/uig"
