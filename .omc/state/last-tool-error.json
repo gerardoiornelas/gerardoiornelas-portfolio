@@ -1,7 +1,0 @@
-{
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"cd /Users/ornelastechnologies/Documents/Git/violetek && rmdir uig && mv uig-tmp uig && ls -la uig/ | head -20\",\"description\":\"Replace empty uig with cloned aidd\"}",
-  "error": "Exit code 1\nrmdir: uig: Directory not empty",
-  "timestamp": "2026-06-05T17:21:32.653Z",
-  "retry_count": 2
-}
