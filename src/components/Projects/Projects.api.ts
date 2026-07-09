@@ -4,6 +4,7 @@ import ImgCrittora from "../../images/projects/crittora.png"
 import ImgQVerify from "../../images/projects/qverify.png"
 import ImgAPP from "../../images/projects/app.png"
 import ImgVioletek from "../../images/projects/violetek.png"
+import ImgDonorOps from "../../images/projects/donorops-logo.svg"
 import ImgWUN from "../../images/projects/wun.png"
 
 interface ProjectData {
@@ -78,6 +79,20 @@ const projectsData: ProjectData[] = [
     imgWidth: 128,
     imgHeight: 84,
     url: `https://qriptonverify.com/`,
+  },
+  {
+    id: cuid(),
+    title: `DonorOps`,
+    description: [
+      "DonorOps organizes donor context, surfaces the right people to touch this week, and prepares relationship work for human connection.",
+    ],
+    signal:
+      "The operating layer for nonprofit major donor relationships — built on the Violetek platform with Crittora-backed security.",
+    imgSrc: ImgDonorOps,
+    imgAlt: "DonorOps logo",
+    imgWidth: 128,
+    imgHeight: 84,
+    url: `https://donorops.com/`,
   },
   {
     id: cuid(),
