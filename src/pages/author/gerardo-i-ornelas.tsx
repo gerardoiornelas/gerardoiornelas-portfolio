@@ -16,25 +16,28 @@ const AuthorPage: React.FC = () => {
                 Gerardo I. Ornelas
               </Typography>
               <Typography variant="h6" color="primary" sx={{ mb: 2 }}>
-                Founder of Violetek. Defining the authority layer for agentic
-                systems.
+                Systems architect, founder, and advisor for governed AI and
+                trusted visibility.
               </Typography>
               <Typography paragraph>
-                Gerardo I. Ornelas is a founder, author, and systems builder
-                focused on how intelligent systems are allowed to act in
-                production. His work centers on execution-time authorization,
-                ambient authority, security UX, and verifiable enforcement.
+                Gerardo I. Ornelas works at two points where AI-era businesses
+                win or fail: the authority to act and the ability to be
+                understood. He helps mortgage organizations govern
+                consequential AI with clear controls and evidence, and helps
+                businesses build credible visibility across search and answer
+                engines.
               </Typography>
               <Typography paragraph>
-                He is the founder of Violetek and the author of the Agent
-                Permission Protocol, a framework for separating reasoning from
-                authority so that autonomous systems operate with explicit,
-                bounded, and auditable permissions.
+                His mortgage AI governance practice operates through Crittora.
+                His AI visibility practice includes work as WUN AEO Director
+                and with XEO Labs. He is also the author of the Agent Permission
+                Protocol, a framework for explicit authority and reviewable
+                evidence.
               </Typography>
               <Typography paragraph>
-                His writing helps founders and builders rethink trust boundaries
-                in AI products, especially where machine action, human review,
-                provenance, and secure user experience intersect.
+                His writing and speaking explain the connecting doctrine:
+                high-trust AI needs governed action in operations and reliable
+                public information people can understand and trust.
               </Typography>
               <Box sx={{ mt: 3 }}>
                 <Typography variant="h6" sx={{ mb: 1 }}>
@@ -43,11 +46,11 @@ const AuthorPage: React.FC = () => {
                 <Stack spacing={1}>
                   <Typography>
                     <Link to="/authority-layer/">
-                      The Authority Layer for Agentic Systems
+                      Authority Layer Research
                     </Link>
                   </Typography>
                   <Typography>
-                    <Link to="/manifesto/">Verifiably Human Manifesto</Link>
+                    <Link to="/manifesto/">Verifiably Human Doctrine</Link>
                   </Typography>
                   <Typography>
                     <Link to="/blog/securing-autonomy/">Securing Autonomy</Link>
@@ -79,16 +82,15 @@ export const Head: HeadFC = () => {
     "@type": "Person",
     name: "Gerardo I. Ornelas",
     url: `${seoDefaults.siteUrl}/author/gerardo-i-ornelas/`,
-    jobTitle: "Founder of Violetek",
+      jobTitle: "Systems Architect, Founder, and Advisor",
     description:
-      "Gerardo I. Ornelas defines the authority layer for agentic systems through execution-time authorization, ambient authority, security UX, and verifiable enforcement.",
+      "Gerardo I. Ornelas works on mortgage AI governance, execution evidence, and AI-era visibility systems.",
     knowsAbout: [
-      "Authority layer for agentic systems",
-      "Execution-time authorization",
-      "Ambient authority",
-      "Security UX",
-      "Verifiable enforcement",
-      "Agent permissions",
+      "Mortgage AI governance",
+      "AI controls and evidence",
+      "AI visibility",
+      "Cross-engine strategy",
+      "Agent Permission Protocol",
     ],
     sameAs: [
       "https://www.github.com/gerardoiornelas",
@@ -109,8 +111,8 @@ export const Head: HeadFC = () => {
 
   return (
     <Seo
-      title="Gerardo I. Ornelas | Authority Layer for Agentic Systems"
-      description="Gerardo I. Ornelas defines the authority layer for agentic systems through execution-time authorization, ambient authority, security UX, and verifiable enforcement."
+      title="Gerardo I. Ornelas"
+      description="Gerardo I. Ornelas works on mortgage AI governance, execution evidence, and AI-era visibility systems."
       pathname="/author/gerardo-i-ornelas/"
       jsonLd={[personSchema, profileSchema]}
     />

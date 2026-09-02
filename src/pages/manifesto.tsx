@@ -11,23 +11,21 @@ const ManifestoPage: React.FC = () => {
     <LayoutAlt>
       <Container maxWidth="md" sx={{ py: 8 }}>
         <Title variant="segmentAlt">
-          Verifiably Human: A Doctrine of Sovereign Authority
+          Verifiably Human: A Doctrine of Authority & Evidence
         </Title>
         <Typography variant="h5" sx={{ mt: 2, mb: 4 }}>
-          A practical thesis for the authority layer of agentic systems: how
-          intelligent products are allowed to act, how trust is enforced at
-          execution time, and how accountability becomes legible instead of
-          implied.
+          A practical thesis for high-trust AI: how consequential systems are
+          allowed to act, how evidence makes those actions reviewable, and how
+          public information becomes reliable enough to be understood.
         </Typography>
 
         <Box mb={4}>
           <Typography>
-            Most AI products still collapse reasoning and authority into the
-            same layer. Once a system has access, it can often act too broadly,
-            for too long, with too little proof. This manifesto argues for a
-            different architecture: eliminate ambient authority, authorize
-            actions at execution time, and design the human interface to
-            authority as carefully as the policy itself.
+            High-trust businesses have two related problems. In operations, AI
+            can act too broadly, for too long, with too little proof. In public,
+            a business can be found but still be misunderstood by people and
+            answer engines. This doctrine argues for explicit authority,
+            reviewable evidence, and clear information at both decision points.
           </Typography>
         </Box>
 
@@ -36,23 +34,23 @@ const ManifestoPage: React.FC = () => {
           <ul>
             <li>
               <Typography>
-                Deterministic Authority: permissions are scoped, logged, and
-                revocable at execution-time. We move from ambient authority to
-                explicit, bounded control.
+                Governed Action: consequential permissions are scoped, logged,
+                and reviewable at execution time. Access does not silently
+                become standing permission.
               </Typography>
             </li>
             <li>
               <Typography>
-                Security–UX Convergence: safety is engineered into the
-                interface, not bolted on. If a human cannot audit a permission
-                in 300ms, the system is a liability.
+                Legible Oversight: controls and evidence are designed for the
+                human reviewers who need to understand a decision, its limits,
+                and its outcome.
               </Typography>
             </li>
             <li>
               <Typography>
-                Operational Provenance: every action generates an immutable
-                receipt. If your stack cannot attest to its own integrity in
-                real time, it is a prototype—not production infrastructure.
+                Trustworthy Information: evidence, provenance, and clear
+                public claims let systems and people understand what is true,
+                where it came from, and when it should be trusted.
               </Typography>
             </li>
           </ul>
@@ -69,18 +67,18 @@ const ManifestoPage: React.FC = () => {
 
         <Box mb={4}>
           <Typography>
-            This doctrine codifies patterns from Crittora, the Agent Permission
-            Protocol, and lessons learned architecting for critical
-            infrastructure and regulated environments. It is intentionally
-            operational: how to scope authority, instrument verifiability,
-            design legible review surfaces, and maintain human sovereignty
-            without sacrificing the velocity of autonomy.
+            This doctrine draws on Crittora's mortgage AI control-and-evidence
+            work, the Agent Permission Protocol, AI visibility practice, and
+            lessons from regulated environments. It is intentionally
+            operational: scope authority, preserve reviewable evidence, and
+            design information that can be accurately understood without
+            sacrificing useful speed.
           </Typography>
         </Box>
 
         <Box display="flex" gap={2}>
           <a href="/#contact">Request a Briefing</a>
-          <a href="/authority-layer/">Start with the authority layer</a>
+          <a href="/authority-layer/">Explore authority and evidence research</a>
           <a href="/blog/">Read the research</a>
         </Box>
       </Container>
@@ -90,8 +88,8 @@ const ManifestoPage: React.FC = () => {
 
 export const Head: HeadFC = () => (
   <Seo
-    title="Verifiably Human Manifesto"
-    description="A practical thesis for the authority layer of agentic systems: execution-time authorization, ambient-authority elimination, security UX, and verifiable accountability."
+    title="Verifiably Human Doctrine"
+    description="A practical thesis for governed AI, execution evidence, and trustworthy public information in high-trust markets."
     pathname="/manifesto"
   />
 )

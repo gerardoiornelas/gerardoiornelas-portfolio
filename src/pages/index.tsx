@@ -16,23 +16,23 @@ const faqSchema = {
       name: "Who is Gerardo I. Ornelas?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Gerardo I. Ornelas is the founder of Violetek and the author of the Agent Permission Protocol. His work focuses on authority systems, machine permissions, verification, and execution-runtime authorization.",
+        text: "Gerardo I. Ornelas is a systems architect, founder, and advisor working on mortgage AI governance, execution evidence, and AI-era visibility systems.",
       },
     },
     {
       "@type": "Question",
-      name: "What is the authority layer for agentic systems?",
+      name: "What is mortgage AI governance?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The authority layer is the part of an intelligent system that determines what actions are explicitly allowed, under what constraints, with what proof, and with what human-legible accountability.",
+        text: "Mortgage AI governance defines who or what may act in consequential mortgage workflows, under which limits, and what evidence proves the decision, action, and result.",
       },
     },
     {
       "@type": "Question",
-      name: "What is Violetek?",
+      name: "What is Crittora?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Violetek is the venture platform founded by Gerardo I. Ornelas to build products, systems, and ventures around authority systems, verification, and execution-runtime authorization.",
+        text: "Crittora is a mortgage-specific control and evidence layer designed to help approved AI actions proceed, stop actions outside approved rules, and preserve proof of what occurred.",
       },
     },
     {
@@ -40,7 +40,7 @@ const faqSchema = {
       name: "What is the Agent Permission Protocol?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The Agent Permission Protocol is a framework authored by Gerardo I. Ornelas for defining and enforcing machine authority at execution time.",
+        text: "The Agent Permission Protocol is Gerardo I. Ornelas's authored framework for explicit authority in execution and evidence that can be understood and reviewed.",
       },
     },
     {
@@ -48,23 +48,23 @@ const faqSchema = {
       name: "What does Gerardo I. Ornelas work on?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "His work focuses on the authority layer for agentic systems, including execution-time authorization, ambient authority, security UX, machine permissions, and verifiable enforcement.",
+        text: "He helps mortgage organizations govern consequential AI with controls and evidence, and helps businesses become credible and findable across search and AI answer engines.",
       },
     },
     {
       "@type": "Question",
-      name: "What is ambient authority in AI products?",
+      name: "What is AI visibility and cross-engine strategy?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Ambient authority is when a system can act just because it has access to a tool or credential, rather than because that specific action was explicitly authorized at execution time.",
+        text: "AI visibility and cross-engine strategy help a business be accurately understood and found across search engines, AI-generated answers, content, and conversion surfaces.",
       },
     },
     {
       "@type": "Question",
-      name: "How are Gerardo I. Ornelas and Violetek related?",
+      name: "How does MISMO FRAME relate to this work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Gerardo I. Ornelas is the founder of Violetek. His personal site presents his ideas, writing, and current work, while Violetek is the company platform building ventures and products in this category.",
+        text: "MISMO FRAME is a practical framework for mortgage AI governance. Gerardo's work applies the same operational concerns—policy, inventory, risk, controls, oversight, and documentation—without claiming a MISMO certification or designation.",
       },
     },
   ],
@@ -73,22 +73,22 @@ const faqSchema = {
 const homepageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "Gerardo I. Ornelas | The Authority Layer for Agentic Systems",
+  name: "Gerardo I. Ornelas | Governed AI & Trusted Visibility",
   url: "https://www.gerardoiornelas.com/",
   description:
-    "Gerardo I. Ornelas defines the authority layer for agentic systems through execution-time authorization, ambient-authority elimination, security UX, and verifiable enforcement.",
+    "Gerardo I. Ornelas works on mortgage AI governance, execution evidence, and AI-era visibility systems.",
   about: [
-    { "@type": "Thing", name: "Authority layer for agentic systems" },
-    { "@type": "Thing", name: "Execution-time authorization" },
-    { "@type": "Thing", name: "Ambient authority" },
-    { "@type": "Thing", name: "Security UX" },
+    { "@type": "Thing", name: "Mortgage AI governance" },
+    { "@type": "Thing", name: "AI controls and evidence" },
+    { "@type": "Thing", name: "AI visibility" },
+    { "@type": "Thing", name: "Cross-engine strategy" },
   ],
 }
 
 export const Head: HeadFC = () => (
   <Seo
-    title="The Authority Layer for Agentic Systems"
-    description="Gerardo I. Ornelas defines the authority layer for agentic systems through execution-time authorization, ambient-authority elimination, security UX, and verifiable enforcement."
+    title="Governed AI & Trusted Visibility"
+    description="Gerardo I. Ornelas works on mortgage AI governance, execution evidence, and AI-era visibility systems."
     pathname="/"
     jsonLd={[faqSchema, homepageSchema]}
   />

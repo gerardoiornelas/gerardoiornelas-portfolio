@@ -30,7 +30,8 @@ export const Footer: React.FC = () => {
                 align={isSmall ? "center" : "left"}
                 sx={{ opacity: 0.8 }}
               >
-                Founder of Violetek and author of the Agent Permission Protocol.
+                Systems architect, founder, and advisor for governed AI and
+                trusted visibility.
               </Typography>
             </Box>
           </Grid>

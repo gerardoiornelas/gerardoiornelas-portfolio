@@ -1,96 +1,59 @@
-# Authority Engine Operating Brief
+# Gerardo I. Ornelas Authority & Evidence Canon
 
 ## Purpose
 
-Use this document as the default execution brief for future content and copy
-work on `gerardoiornelas.com`.
+Use this document as the default execution brief for public copy, research, and
+social work on `gerardoiornelas.com`.
 
-The site exists to build Gerardo I. Ornelas into the defining voice for the
-authority layer of agentic systems.
+Gerardo I. Ornelas is a systems architect, founder, and advisor working at two
+points where AI-era businesses win or fail: the authority to act and the
+ability to be understood.
 
-## Message Hierarchy
+## The Three Lanes
 
-### Public category flag
+### 1. Mortgage AI Governance — Control
 
-The authority layer for agentic systems.
+Crittora is 100% mortgage-specific. It is a control and evidence layer for
+mortgage AI: define the authority perimeter for consequential actions, stop
+actions outside approved rules, and retain proof of the decision, action, and
+result.
 
-### Technical spine
+Use practical terms: consequential workflows, controls, evidence, oversight,
+review records, authority perimeter, and implementation. MISMO FRAME may be
+described as a relevant practical governance framework. Never claim a MISMO
+certification, partner designation, or formal relationship without approved
+legal wording from the agreement or public listing.
 
-Execution-time authorization.
+### 2. AI Visibility Systems — Discoverability
 
-### Primary villain
+Through WUN AEO Director and XEO Labs, Gerardo helps businesses become legible,
+credible, and findable across search, AI answers, content, and conversion
+surfaces. Cross-engine strategy joins business performance, SEO, and AEO; it is
+a separate practice from Crittora and must never be described as
+Crittora-backed.
 
-Ambient authority.
+### 3. Authored Systems Doctrine — Research
 
-### Supporting framework
+The Agent Permission Protocol, essays, briefings, speaking, and advisory work
+explain the shared principle: AI needs explicit authority in execution and
+trustworthy evidence in both operations and public information.
 
-Agent Permission Protocol.
+## Messaging Rules
 
-### Supporting edge
+- Lead with the concrete practice before the doctrine.
+- Make mortgage governance the lead public practice; do not make the site a
+  generic AI-consulting profile or a Crittora-only founder page.
+- Preserve the distinction between Crittora, WUN/XEO Labs, and authored
+  research. They share a doctrine, not an offer.
+- Prefer `governed AI`, `control and evidence`, `trusted visibility`, and
+  `high-trust organizations` over broad `agentic systems` claims.
+- Retain `authority`, `evidence`, `reviewable`, and `understood` as the
+  connective vocabulary.
+- Do not use Violetek or Qripton Verify in primary positioning, navigation,
+  structured data, or conversion paths. Historical references may remain only
+  where useful for continuity.
 
-Security UX as the human interface to authority.
+## Desired Reaction
 
-### Supporting proof layer
-
-Blockchain-backed provenance, attestations, receipts, and revocation when
-independent verification matters.
-
-## Permanent Vocabulary
-
-- authority layer
-- ambient authority
-- execution-time authorization
-- secure agentic experiences
-- security UX
-- verifiable enforcement
-- provenance
-- attestations
-- receipts
-- revocation
-- explicit permissions
-- human-legible trust boundaries
-
-## Content Pillars
-
-### 1. Authority Layer
-
-Foundational essays that define the category and explain why intelligent
-systems need an explicit authority model.
-
-### 2. Agent Permission Protocol
-
-Technical writing that shows how execution-time authorization works in real
-architectures, patterns, and product designs.
-
-### 3. Security UX
-
-Writing about permissions, review surfaces, operator trust, and how security
-becomes legible to humans at the moment of action.
-
-### 4. Verifiable Systems
-
-Writing about provenance, blockchain-backed proofs, attestations, receipts,
-and revocation where trust must extend across systems or organizations.
-
-## Style Rules
-
-- Write for founders and builders, not academics.
-- Lead with product risk or architectural failure, then define the model.
-- Translate specialist terms in plain English the first time they appear.
-- Keep blockchain visible, but never let it dominate the core thesis.
-- Treat APP as the formal framework beneath the broader category, not the only
-  story.
-- Reuse the same category language until the site feels unmistakably coherent.
-- Prefer diagrams, named concepts, and operational patterns over generic AI
-  commentary.
-
-## Publishing Cadence
-
-- 1 flagship category or design-pattern essay per month.
-- 1 supporting technical or response post per month.
-- Reuse each flagship post as short-form social language pointing back to the
-  authority-layer page or the full article.
-
-## Default Desired Reaction
-
-He knows how to secure agentic experiences.
+He builds and advises on governed AI and trusted visibility in high-consequence
+markets.

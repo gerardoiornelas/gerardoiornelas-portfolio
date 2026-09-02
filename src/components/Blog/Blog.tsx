@@ -57,7 +57,7 @@ export const Blog: React.FC = () => {
         <RowCol mb={4}>
           <AnimateOnScroll animateIn={`fadeInUp`}>
             <Title variant="segment" align="center">
-              Authority Engine
+              Research & Field Notes
             </Title>
           </AnimateOnScroll>
         </RowCol>
@@ -65,13 +65,13 @@ export const Blog: React.FC = () => {
           <AnimateOnScroll animateIn="fadeInUp" delay={100}>
             <Box textAlign="center" maxWidth="md" mx="auto">
               <Typography color="text.secondary" sx={{ mb: 1.5 }}>
-                A growing body of work on the authority layer for agentic
-                systems: ambient authority, execution-time authorization,
-                security UX, and verifiable enforcement.
+                Essays and field notes on governed AI, execution evidence, and
+                the reliable public information high-trust organizations need to
+                be understood.
               </Typography>
               <Typography>
                 Start with{" "}
-                <Link to="/authority-layer/">The Authority Layer</Link> or
+                <Link to="/authority-layer/">Authority Layer Research</Link> or
                 explore the full <Link to="/blog/">series archive</Link>.
               </Typography>
             </Box>

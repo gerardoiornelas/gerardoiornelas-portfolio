@@ -31,7 +31,7 @@ export const About: React.FC = () => {
                     variant="overline"
                     sx={{ letterSpacing: 2, opacity: 0.7 }}
                   >
-                    From critical infrastructure to intelligent systems.
+                    From critical infrastructure to high-trust AI systems.
                   </Typography>
                 </Box>
                 <Box
@@ -114,8 +114,8 @@ export const About: React.FC = () => {
                           regulated environments. That work led to a consistent
                           conclusion:{" "}
                           <Box component="span" fontWeight={`bold`}>
-                            intelligent systems are only trustworthy when
-                            authority is explicit, bounded, and verifiable
+                            consequential systems are only trustworthy when
+                            authority is explicit, bounded, and provable
                           </Box>
                           .
                         </Typography>
@@ -123,34 +123,28 @@ export const About: React.FC = () => {
 
                       <Box mb={4}>
                         <Typography>
-                          Today I apply that thinking to intelligent systems.
-                          Through{" "}
-                          <Box component="span" fontWeight={`bold`}>
-                            Violetek
-                          </Box>
-                          , I build ventures, products, and frameworks around
-                          the authority layer for agentic systems:
-                          execution-time authorization, ambient-authority
-                          elimination, security UX, and verifiable enforcement.
+                          Today I apply that thinking at two points where AI-era
+                          businesses win or fail: the authority to act and the
+                          ability to be understood. I help mortgage organizations
+                          govern consequential AI with clear controls and
+                          evidence, and help businesses build credible visibility
+                          across search and answer engines.
                         </Typography>
                       </Box>
 
                       <Typography>
-                        My current work includes the{" "}
-                        <Box component="span" fontWeight={`bold`}>
-                          Agent Permission Protocol
-                        </Box>{" "}
-                        and selected ventures such as{" "}
+                        My work includes{" "}
                         <Box component="span" fontWeight={`bold`}>
                           Crittora
                         </Box>{" "}
-                        and{" "}
+                        for mortgage AI governance, work as WUN AEO Director
+                        and with XEO Labs on cross-engine visibility, and the{" "}
                         <Box component="span" fontWeight={`bold`}>
-                          Qripton Verify
+                          Agent Permission Protocol
                         </Box>
-                        , which operationalize these ideas in production
-                        contexts through explicit permissions, provenance, and
-                        human-legible trust boundaries.
+                        . The underlying doctrine is simple: high-trust AI needs
+                        governed action in operations and reliable evidence in
+                        the public information people use to make decisions.
                       </Typography>
                     </Box>
                   </AnimateOnScroll>

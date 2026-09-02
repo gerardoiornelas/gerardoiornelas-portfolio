@@ -28,9 +28,8 @@ const BlogIndexPage: React.FC<PageProps<BlogIndexData>> = ({ data }) => {
           <Box mb={4}>
             <Title variant="segmentAlt">Blog</Title>
             <Typography color="text.secondary">
-              A body of work on the authority layer for agentic systems:
-              execution-time authorization, ambient authority, security UX, and
-              verifiable enforcement.
+              Research and field notes on governed AI, execution evidence, and
+              trusted visibility in high-trust markets.
             </Typography>
           </Box>
 
@@ -40,11 +39,11 @@ const BlogIndexPage: React.FC<PageProps<BlogIndexData>> = ({ data }) => {
             </Typography>
             <Typography>
               <Link to="/authority-layer/">
-                The Authority Layer for Agentic Systems
+                Authority Layer Research
               </Link>
             </Typography>
             <Typography>
-              <Link to="/manifesto/">Verifiably Human Manifesto</Link>
+              <Link to="/manifesto/">Verifiably Human Doctrine</Link>
             </Typography>
             <Typography>
               <Link to="/blog/securing-autonomy/">
@@ -64,11 +63,11 @@ const BlogIndexPage: React.FC<PageProps<BlogIndexData>> = ({ data }) => {
             </Typography>
             <Grid container spacing={3}>
               <Grid item xs={12} md={6}>
-                <Typography variant="subtitle1">Authority Layer</Typography>
+                <Typography variant="subtitle1">Governed Action</Typography>
                 <Typography color="text.secondary">
-                  Foundational essays on how intelligent systems should be
-                  allowed to act, how authority is bounded, and why reasoning
-                  must be separated from action.
+                  Foundational essays on authority perimeters, consequential
+                  workflows, and the evidence reviewers need to understand a
+                  decision.
                 </Typography>
               </Grid>
               <Grid item xs={12} md={6}>
@@ -77,21 +76,21 @@ const BlogIndexPage: React.FC<PageProps<BlogIndexData>> = ({ data }) => {
                 </Typography>
                 <Typography color="text.secondary">
                   Applied patterns, control models, and implementation framing
-                  for execution-time authorization in agentic systems.
+                  for explicit authority in execution.
                 </Typography>
               </Grid>
               <Grid item xs={12} md={6}>
-                <Typography variant="subtitle1">Security UX</Typography>
+                <Typography variant="subtitle1">Trusted Visibility</Typography>
                 <Typography color="text.secondary">
-                  The human interface to authority: how permissions, review, and
-                  trust become legible in real products.
+                  How businesses become clear, credible, and findable across
+                  search, AI answers, content, and conversion surfaces.
                 </Typography>
               </Grid>
               <Grid item xs={12} md={6}>
-                <Typography variant="subtitle1">Verifiable Systems</Typography>
+                <Typography variant="subtitle1">Authority & Evidence</Typography>
                 <Typography color="text.secondary">
-                  Provenance, receipts, attestations, and blockchain-backed
-                  proofs for systems that need durable trust.
+                  Doctrine on evidence, provenance, reviewability, and the
+                  relationship between operational controls and public trust.
                 </Typography>
               </Grid>
             </Grid>
@@ -127,7 +126,7 @@ export const Head: HeadFC<BlogIndexData> = ({ data }) => {
     name: "Blog | Gerardo I. Ornelas",
     url: `${seoDefaults.siteUrl}/blog/`,
     description:
-      "Series-based essays on the authority layer for agentic systems, including execution-time authorization, ambient authority, security UX, and verifiable enforcement.",
+      "Research and field notes on governed AI, execution evidence, and trusted visibility in high-trust markets.",
     hasPart: items.map(post => ({
       "@type": "BlogPosting",
       headline: post.frontmatter.title,
@@ -157,8 +156,8 @@ export const Head: HeadFC<BlogIndexData> = ({ data }) => {
 
   return (
     <Seo
-      title="Blog: The Authority Layer for Agentic Systems"
-      description="Series-based essays on execution-time authorization, ambient authority, security UX, and verifiable enforcement."
+      title="Research & Field Notes"
+      description="Research and field notes on governed AI, execution evidence, and trusted visibility in high-trust markets."
       pathname="/blog/"
       jsonLd={[collectionSchema, breadcrumbSchema]}
     />

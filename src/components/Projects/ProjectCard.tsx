@@ -40,6 +40,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   anchor,
   github,
 }) => {
+  const isExternalUrl = Boolean(
+    url?.startsWith("https://") || url?.startsWith("http://")
+  )
+
   return (
     <Card
       id={id}
@@ -88,8 +92,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <Button
             startIcon={<OpenInBrowserTwoToneIcon sx={{ color: "secondary" }} />}
             href={url}
-            target="_blank"
-            rel="noreferrer"
+            target={isExternalUrl ? "_blank" : undefined}
+            rel={isExternalUrl ? "noreferrer" : undefined}
             size="small"
             color="secondary"
             variant="text"

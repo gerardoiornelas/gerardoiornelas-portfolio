@@ -18,7 +18,7 @@ export const Projects: React.FC = () => {
           <AnimateOnScroll animateIn="fadeInUp">
             <Box>
               <Title variant="segment" align="center">
-                What I&apos;m Building
+                Practices & Research
               </Title>
             </Box>
           </AnimateOnScroll>
@@ -26,9 +26,8 @@ export const Projects: React.FC = () => {
         <RowCol mb={4}>
           <AnimateOnScroll animateIn="fadeInUp" delay={100}>
             <Box textAlign="center" maxWidth="md" mx="auto">
-              My work spans company building, authored frameworks, and selected
-              ventures that operationalize authority and verification in real
-              systems.
+              Two concrete practices and one authored doctrine. Each has a
+              distinct audience, operating model, and proof surface.
             </Box>
           </AnimateOnScroll>
         </RowCol>

@@ -68,7 +68,7 @@ export const Home: React.FC = () => {
                           },
                         }}
                       >
-                        Systems Architect — Authority Control
+                        Systems Architect · Founder · Advisor
                       </Typography>
 
                       <Typography
@@ -84,9 +84,9 @@ export const Home: React.FC = () => {
                           mb: 3,
                         }}
                       >
-                        THE AUTHORITY <Box component="span" sx={{ color: "secondary.main" }}>LAYER</Box>
+                        AI NEEDS <Box component="span" sx={{ color: "secondary.main" }}>PERMISSION</Box>
                         <br />
-                        FOR AGENTIC SYSTEMS
+                        BUSINESSES NEED CLARITY TO BE FOUND
                       </Typography>
 
                       <Typography
@@ -100,21 +100,10 @@ export const Home: React.FC = () => {
                           mb: 3,
                         }}
                       >
-                        I&apos;m Gerardo I. Ornelas, founder of Violetek and
-                        author of the Agent Permission Protocol. I build
-                        frameworks for execution-time authorization, ambient
-                        authority elimination, and developed{" "}
-                        <a
-                          href="/uig"
-                          style={{
-                            color: "secondary.main",
-                            textDecoration: "underline",
-                            fontWeight: 400,
-                          }}
-                        >
-                          UI-GATE
-                        </a>
-                        , a methodology for production-safe agentic engineering.
+                        I work with mortgage and high-trust organizations on AI
+                        governance, execution evidence, and AI-era visibility
+                        systems. My work connects governed action with the
+                        reliable public understanding businesses need to be found.
                       </Typography>
                     </AnimateOnScroll>
                   </RowCol>
@@ -128,7 +117,7 @@ export const Home: React.FC = () => {
                       <Button
                         variant="contained"
                         color="secondary"
-                        href="/authority-layer"
+                        href="https://www.crittora.com/"
                         fullWidth={isSmall}
                         sx={{
                           fontFamily: "monospace",
@@ -137,12 +126,12 @@ export const Home: React.FC = () => {
                           px: 3,
                         }}
                       >
-                        Explore Authority Layer
+                        Mortgage AI Governance
                       </Button>
                       <Button
                         variant="outlined"
                         color="secondary"
-                        href="/#contact"
+                        href="https://xeolabs.ai/"
                         fullWidth={isSmall}
                         sx={{
                           fontFamily: "monospace",
@@ -151,11 +140,11 @@ export const Home: React.FC = () => {
                           px: 3,
                         }}
                       >
-                        Request Briefing
+                        AI Visibility Strategy
                       </Button>
                       <Button
                         variant="text"
-                        href="https://www.violetek.com/"
+                        href="/#contact"
                         fullWidth={isSmall}
                         sx={{
                           fontFamily: "monospace",
@@ -165,7 +154,7 @@ export const Home: React.FC = () => {
                           color: "text.secondary",
                         }}
                       >
-                        Violetek
+                        Request a Briefing
                       </Button>
                     </Stack>
                   </RowCol>

@@ -23,10 +23,9 @@ export const Contact: React.FC = () => {
       </RowCol>
       <RowCol mb={4}>
         <Box textAlign="center" maxWidth="md" mx="auto">
-          Request a briefing for your product, platform, or team. Use this form
-          for founder inquiries, strategic conversations, speaking, research, or
-          advisory work related to agentic security and trustworthy AI
-          experiences.
+          Request a briefing for mortgage AI governance, AI visibility and
+          cross-engine strategy, speaking, research, or senior advisory work in
+          high-trust markets.
         </Box>
       </RowCol>
       <Row justifyContent="center">

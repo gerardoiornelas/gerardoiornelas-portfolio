@@ -130,7 +130,7 @@ const AuthorityLayerPage: React.FC = () => {
               },
             }}
           >
-            System Framework — Intelligence Control
+            Authored Systems Doctrine — Governed AI & Trusted Visibility
           </Typography>
 
           <Typography
@@ -145,7 +145,7 @@ const AuthorityLayerPage: React.FC = () => {
               mb: 3,
             }}
           >
-            THE AUTHORITY <Box component="span" sx={{ color: "secondary.main" }}>LAYER</Box>
+            AUTHORITY & <Box component="span" sx={{ color: "secondary.main" }}>EVIDENCE</Box>
           </Typography>
 
           <Typography
@@ -158,9 +158,9 @@ const AuthorityLayerPage: React.FC = () => {
               fontWeight: 300,
             }}
           >
-            A founder-readable framework for how intelligent products are allowed
-            to act, how those permissions are enforced at execution time, and how
-            trust becomes legible to humans.
+            Research for high-trust organizations: govern consequential AI at
+            the point of action, preserve evidence of what occurred, and make
+            public information clear enough to be accurately understood.
           </Typography>
 
           <Stack
@@ -171,63 +171,59 @@ const AuthorityLayerPage: React.FC = () => {
             <Button
               variant="contained"
               color="secondary"
-              href="/#contact"
+              href="https://www.crittora.com/"
               sx={{ fontFamily: "monospace", fontWeight: 600, fontSize: 12 }}
             >
-              Request A Briefing
+              Explore Mortgage AI Governance
             </Button>
             <Button
               variant="outlined"
               color="secondary"
-              href="/manifesto/"
+              href="https://xeolabs.ai/"
               sx={{ fontFamily: "monospace", fontWeight: 600, fontSize: 12 }}
             >
-              Read The Manifesto
+              Explore AI Visibility Strategy
             </Button>
           </Stack>
 
           <Divider sx={{ mb: 12 }} />
 
-          {/* ── Pillar 1: Ambient Authority ── */}
           <PillarSection
-            eyebrow="The Problem"
-            title="AMBIENT"
-            titleAccent="AUTHORITY"
-            description="Intelligent systems should not act just because they can. Ambient authority makes agents unsafe by default because access silently turns into standing permission."
+            eyebrow="Control"
+            title="AUTHORITY"
+            titleAccent="PERIMETERS"
+            description="Consequential mortgage AI needs an explicit answer to who or what may act, in which workflow, under which limits, and with whose oversight. Policy has to become an operating control at the moment an action could change state."
             image={ambientAuthorityImg}
           />
 
           <Divider sx={{ mb: 12 }} />
 
-          {/* ── Pillar 2: Execution Time ── */}
           <PillarSection
-            eyebrow="The Mechanism"
-            title="EXECUTION-TIME"
-            titleAccent="AUTHORIZATION"
-            description="The enforcement step that evaluates whether a proposed action is allowed right now, for the intended scope, audience, and duration, before the action is executed."
+            eyebrow="Evidence"
+            title="CONTROL +"
+            titleAccent="PROOF"
+            description="Governance cannot stop at policy. A defensible program retains the actor, requested action, authority decision, result, and review record needed to understand what occurred. MISMO FRAME provides a practical reference for the policy, inventory, risk, controls, oversight, and documentation concerns this work addresses."
             image={executionTimeImg}
             imageLeft
           />
 
           <Divider sx={{ mb: 12 }} />
 
-          {/* ── Pillar 3: Security UX ── */}
           <PillarSection
-            eyebrow="The Human Interface"
-            title="SECURITY"
-            titleAccent="UX"
-            description="The human interface to authority. If users cannot understand a permission, review a risky action, or verify the scope of a grant, the system is not truly secure."
+            eyebrow="Discoverability"
+            title="TRUSTED"
+            titleAccent="VISIBILITY"
+            description="Being indexed is not the same as being understood. Businesses need accurate, credible information across search, AI answers, content, and conversion surfaces so people and answer engines can find, interpret, and trust them."
             image={securityUxImg}
           />
 
           <Divider sx={{ mb: 12 }} />
 
-          {/* ── Pillar 4: Verifiable Enforcement ── */}
           <PillarSection
-            eyebrow="The Proof Layer"
-            title="VERIFIABLE"
-            titleAccent="ENFORCEMENT"
-            description="Provenance, attestations, receipts, and revocation. Trust that persists across organizational boundaries."
+            eyebrow="Doctrine"
+            title="AUTHORED"
+            titleAccent="SYSTEMS"
+            description="The Agent Permission Protocol and related research explain the shared principle: authority should be explicit in execution, and evidence should be trustworthy wherever it informs a consequential decision—inside an operating workflow or in the public information around a business."
             image={proofLayerImg}
             imageLeft
           />
@@ -236,25 +232,25 @@ const AuthorityLayerPage: React.FC = () => {
 
           <Box sx={{ mb: 8 }}>
             <Typography variant="h4" sx={{ mb: 4, fontFamily: "'Bebas Neue', sans-serif" }}>
-              START HERE
+              RESEARCH PATH
             </Typography>
             <Stack spacing={2}>
               <Typography sx={{ fontSize: 18, fontWeight: 300 }}>
                 <Link to="/manifesto/" style={{ color: "inherit" }}>
-                  Verifiably Human Manifesto
+                  Verifiably Human Doctrine
                 </Link>
               </Typography>
               <Typography sx={{ fontSize: 18, fontWeight: 300 }}>
                 <Link to="/uig/" style={{ color: "inherit" }}>
-                  UI-GATE methodology
+                  UI-GATES methodology
                 </Link>
                 <Typography component="span" color="text.secondary" sx={{ ml: 1 }}>
-                  — ship agentic features with human validation gates
+                  — a supporting research methodology for governed agentic work
                 </Typography>
               </Typography>
               <Typography sx={{ fontSize: 18, fontWeight: 300 }}>
                 <Link to="/blog/securing-autonomy/" style={{ color: "inherit" }}>
-                  Securing Autonomy: APP applied to real agent patterns
+                  Securing Autonomy: APP applied to agent patterns
                 </Link>
               </Typography>
               <Typography sx={{ fontSize: 18, fontWeight: 300 }}>
@@ -274,23 +270,22 @@ export const Head: HeadFC = () => {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "The Authority Layer for Agentic Systems",
+      name: "Authority Layer Research",
     url: `${seoDefaults.siteUrl}/authority-layer/`,
     description:
-      "A founder-readable framework for execution-time authorization, ambient authority, security UX, and verifiable enforcement in intelligent systems.",
+      "Research on governed AI, execution evidence, AI visibility, and trustworthy public information for high-trust organizations.",
     about: [
-      { "@type": "Thing", name: "Authority layer for agentic systems" },
-      { "@type": "Thing", name: "Execution-time authorization" },
-      { "@type": "Thing", name: "Ambient authority" },
-      { "@type": "Thing", name: "Security UX" },
-      { "@type": "Thing", name: "Verifiable enforcement" },
+      { "@type": "Thing", name: "Mortgage AI governance" },
+      { "@type": "Thing", name: "AI controls and evidence" },
+      { "@type": "Thing", name: "AI visibility" },
+      { "@type": "Thing", name: "Agent Permission Protocol" },
     ],
   }
 
   return (
     <Seo
-      title="The Authority Layer for Agentic Systems"
-      description="A founder-readable framework for execution-time authorization, ambient authority, security UX, and verifiable enforcement in intelligent systems."
+      title="Authority Layer Research"
+      description="Research on governed AI, execution evidence, AI visibility, and trustworthy public information for high-trust organizations."
       pathname="/authority-layer/"
       jsonLd={webPageSchema}
     />
