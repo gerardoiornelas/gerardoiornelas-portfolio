@@ -93,6 +93,15 @@ const BlogIndexPage: React.FC<PageProps<BlogIndexData>> = ({ data }) => {
                   relationship between operational controls and public trust.
                 </Typography>
               </Grid>
+              <Grid item xs={12} md={6}>
+                <Typography variant="subtitle1">
+                  Human–AI Interaction
+                </Typography>
+                <Typography color="text.secondary">
+                  Designing intentional delegation, user agency, and human-in-command
+                  interfaces for autonomous systems in the future of work.
+                </Typography>
+              </Grid>
             </Grid>
           </Box>
 

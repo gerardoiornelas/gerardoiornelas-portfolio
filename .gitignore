@@ -56,6 +56,11 @@ typings/
 
 # gatsby files
 .cache/
+.graphify-out/
+graphify-out/
+.graphify_analysis.json
+.graphify_labels.json
+.serena/
 public
 
 # Mac files

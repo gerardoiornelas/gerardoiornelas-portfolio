@@ -38,6 +38,13 @@ proposes; authority decides.
   current positioning canon and `docs/social-editorial-system.md` as the
   editorial operating model.
 
+## UI-GATES Public Surface
+
+- `/uig/` (`src/pages/uig.tsx`) is the public UI-GATES entrypoint. It must preserve the canon: UI-GATES is the full operating system; UI-GATE is its execution-time authority decision; Compound Engineering is the software-engineering playbook.
+- The canonical distributable source is `https://github.com/gerardoiornelas/uigates`. The downloadable `uig` artifact is a portable Markdown skill, not a runtime dashboard, ticket engine, or enforced control plane.
+- Public diagrams must depict the skill-guided workflow—Intent → Proposal → UI-GATE → Execute → Verify → Receipt → Synthesize—and must not imply that a user receives UI controls or automatic runtime enforcement.
+- The receipt for the public page is `knowledge/receipts/2026-09-01-ui-gates-page.md`.
+
 ## Validation
 
 Run `npm run build` for meaningful site changes. The Gatsby build may need telemetry disabled in restricted environments: `GATSBY_TELEMETRY_DISABLED=1 npm run build`.

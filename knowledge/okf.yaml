@@ -1,0 +1,10 @@
+okf_version: "0.2"
+app_id: gerardoiornelas-portfolio
+title: Gerardo I. Ornelas Portfolio
+description: Public portfolio and authority-layer publication site for Gerardo I. Ornelas.
+root: .
+context: context.md
+status: active
+graphify:
+  scope: .
+  refresh: graphify . --update

@@ -211,6 +211,39 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/labor-day-ai-future-of-work-human-agency": {
+      keywords: [
+        "human agency AI",
+        "future of work",
+        "human AI interaction",
+        "AI agents",
+        "intentional delegation",
+        "human in the loop",
+        "AI governance",
+        "Labor Day AI",
+      ],
+      about: [
+        "Human Agency",
+        "Future of Work",
+        "Human–AI Interaction",
+        "Intentional Delegation",
+        "AI Agent Governance",
+      ],
+      faq: [
+        {
+          q: "What is human agency in AI systems?",
+          a: "Human agency is the practical ability to make meaningful choices about what an AI system may do, understand its behavior, intervene before irreversible consequences occur, and retain ownership and judgment over consequential outcomes.",
+        },
+        {
+          q: "How should humans work with AI agents without losing agency?",
+          a: "Humans should work with AI agents through intentional delegation rather than uncritical automation. This requires systems designed with explicit execution boundaries, understandable rationale, runtime checkpoints for high-impact actions, and clear recovery paths rather than rubber-stamp approval dialogs.",
+        },
+        {
+          q: "What does human agency mean in the future of work?",
+          a: "In the future of work, human agency means ensuring that eliminating mechanical labor does not eliminate human judgment. Workers remain empowered to determine boundaries of delegation, question autonomous reasoning, and direct the purpose of the tools serving them.",
+        },
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {
