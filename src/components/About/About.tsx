@@ -138,11 +138,11 @@ export const About: React.FC = () => {
                           Crittora
                         </Box>{" "}
                         for mortgage AI governance, work as WUN AEO Director
-                        and with XEO Labs on cross-engine visibility, and the{" "}
+                        and with XEO Labs on cross-engine visibility, and{" "}
                         <Box component="span" fontWeight={`bold`}>
-                          Agent Permission Protocol
-                        </Box>
-                        . The underlying doctrine is simple: high-trust AI needs
+                          UI-GATES
+                        </Box>{" "}
+                        for authority-aware agentic work. The underlying doctrine is simple: high-trust AI needs
                         governed action in operations and reliable evidence in
                         the public information people use to make decisions.
                       </Typography>

@@ -117,6 +117,20 @@ export const Home: React.FC = () => {
                       <Button
                         variant="contained"
                         color="secondary"
+                        href="/uig/"
+                        fullWidth={isSmall}
+                        sx={{
+                          fontFamily: "monospace",
+                          fontWeight: 600,
+                          fontSize: 12,
+                          px: 3,
+                        }}
+                      >
+                        UI-GATES Operating System
+                      </Button>
+                      <Button
+                        variant="outlined"
+                        color="secondary"
                         href="https://www.crittora.com/"
                         fullWidth={isSmall}
                         sx={{

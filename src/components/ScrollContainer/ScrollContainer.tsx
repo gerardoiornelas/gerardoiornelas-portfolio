@@ -10,7 +10,7 @@ import { CurriculumVitae } from "../CurriculumVitae"
 import { Blog } from "../Blog"
 import { RobotGallery } from "../RobotGallery"
 import { Contact } from "../Contact"
-import { APP } from "../APP"
+import { UIGates } from "../UIGates"
 import { MicroMedia } from "../MicroMedia"
 // import { VerificationDemo } from "../VerificationDemo"
 
@@ -65,8 +65,9 @@ export const ScrollContainer: React.FC = () => {
           </Box>
         </Segment>
         <Segment>
-          <Box id="app-visualization" sx={{ position: "relative" }}>
-            <APP />
+          <Box id="uigates" sx={{ position: "relative" }}>
+            <Box id="app-visualization" sx={{ position: "absolute", top: topPos }}></Box>
+            <UIGates />
           </Box>
         </Segment>
         {/* <Box id="verification-demo" sx={{ position: "relative" }}>

@@ -49,18 +49,18 @@ const projectsData: ProjectData[] = [
   },
   {
     id: cuid(),
-    title: `Agent Permission Protocol`,
+    title: `UI-GATES Operating System`,
     description: [
-      "The Agent Permission Protocol, essays, briefings, and speaking on governed action and trustworthy public understanding.",
+      "User-Intent Gated Agentic Task Execution & Synthesis: an authority-aware operating model and portable skill for governed agentic work.",
     ],
     signal:
-      "A doctrine for high-trust AI: authority must be explicit in execution, and evidence must be trustworthy in operations and public information.",
+      "An operating system and portable skill for agentic work: reasoning proposes, authority decides, and verified work synthesizes into reusable knowledge.",
     imgSrc: ImgAPP,
-    imgAlt: "execution-time authorization gate",
+    imgAlt: "UI-GATES authority-aware execution operating system",
     imgWidth: 128,
     imgHeight: 84,
-    url: `/authority-layer/`,
-    anchor: "#app-visualization",
+    url: `/uig/`,
+    anchor: "#uigates",
   },
 ]
 
