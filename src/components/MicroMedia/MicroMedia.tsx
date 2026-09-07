@@ -14,21 +14,13 @@ import {
 import OpenInNewIcon from "@mui/icons-material/OpenInNew"
 
 import { Title } from "../Title"
-
-interface YouTubeVideo {
-  title: string
-  description: string
-  url: string
-  date: string
-  videoId: string
-  platform: "YouTube"
-}
+import { microMediaItems, type MicroMediaItem } from "../../content/micro-media"
 
 const CHANNEL_ID = "UCLKKfZvlPkyJGVRO3IIUPRg"
 const RSS_FEED_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`
 const RSS_TO_JSON_API = "https://api.rss2json.com/v1/api.json"
 
-const MicroMediaCard: React.FC<{ item: YouTubeVideo }> = ({ item }) => {
+const MicroMediaCard: React.FC<{ item: MicroMediaItem }> = ({ item }) => {
   return (
     <Card
       sx={{
@@ -37,20 +29,33 @@ const MicroMediaCard: React.FC<{ item: YouTubeVideo }> = ({ item }) => {
         display: "flex",
         flexDirection: "column",
         height: "100%",
-        backgroundColor: "transparent",
-        border: 0,
+        backgroundColor: "rgba(8, 18, 27, 0.6)",
+        border: "1px solid",
+        borderColor: "divider",
+        borderRadius: 1,
+        p: 1.5,
         boxShadow: 0,
       }}
     >
-      <CardContent sx={{ flexGrow: 1 }}>
-        <Stack spacing={1} mb={1}>
+      <CardContent sx={{ flexGrow: 1, p: 1.5, "&:last-child": { pb: 1.5 } }}>
+        <Stack spacing={1.5}>
           <Box
             display="flex"
             justifyContent="space-between"
             alignItems="center"
           >
-            <Chip label="YouTube Short" color="error" size="small" />
-            <Typography variant="body2" color="text.secondary">
+            <Chip
+              label="YouTube Short"
+              color="error"
+              size="small"
+              sx={{
+                fontFamily: "monospace",
+                fontSize: 10,
+                fontWeight: 700,
+                height: 22,
+              }}
+            />
+            <Typography variant="caption" sx={{ color: "text.disabled", fontFamily: "monospace" }}>
               {item.date}
             </Typography>
           </Box>
@@ -62,11 +67,13 @@ const MicroMediaCard: React.FC<{ item: YouTubeVideo }> = ({ item }) => {
               height: 0,
               borderRadius: 1,
               overflow: "hidden",
-              backgroundColor: "rgba(255, 255, 255, 0.7)",
+              backgroundColor: "#050b11",
+              border: "1px solid",
+              borderColor: "rgba(255, 255, 255, 0.08)",
             }}
           >
             <iframe
-              src={`https://www.youtube.com/embed/${item.videoId}`}
+              src={`https://www.youtube-nocookie.com/embed/${item.videoId}?rel=0&modestbranding=1`}
               title={item.title}
               style={{
                 position: "absolute",
@@ -76,30 +83,53 @@ const MicroMediaCard: React.FC<{ item: YouTubeVideo }> = ({ item }) => {
                 height: "100%",
                 border: "none",
               }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             />
           </Box>
 
-          <Typography variant="h6" component="h3">
+          <Typography
+            variant="subtitle1"
+            component="h3"
+            sx={{
+              fontWeight: 600,
+              lineHeight: 1.35,
+              fontSize: 15,
+              color: "text.primary",
+            }}
+          >
             {item.title}
           </Typography>
 
-          <Typography variant="body2" color="text.secondary">
+          <Typography
+            variant="body2"
+            sx={{
+              color: "text.secondary",
+              fontSize: 13,
+              lineHeight: 1.5,
+            }}
+          >
             {item.description}
           </Typography>
         </Stack>
       </CardContent>
 
-      <CardActions sx={{ justifyContent: "flex-end" }}>
+      <CardActions sx={{ justifyContent: "flex-end", px: 1.5, pt: 0 }}>
         <Button
           size="small"
-          endIcon={<OpenInNewIcon />}
+          endIcon={<OpenInNewIcon sx={{ fontSize: 14 }} />}
           href={item.url}
           target="_blank"
           rel="noreferrer"
+          color="secondary"
+          sx={{
+            fontFamily: "monospace",
+            fontSize: 11,
+            fontWeight: 600,
+          }}
         >
-          View
+          Watch on YouTube
         </Button>
       </CardActions>
     </Card>
@@ -107,20 +137,25 @@ const MicroMediaCard: React.FC<{ item: YouTubeVideo }> = ({ item }) => {
 }
 
 export const MicroMedia: React.FC = () => {
-  const [videos, setVideos] = useState<YouTubeVideo[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [videos, setVideos] = useState<MicroMediaItem[]>(microMediaItems)
 
   useEffect(() => {
+    let isMounted = true
     const fetchVideos = async () => {
       try {
         const response = await fetch(
           `${RSS_TO_JSON_API}?rss_url=${encodeURIComponent(RSS_FEED_URL)}`
         )
+        if (!response.ok) return
         const data = await response.json()
 
-        if (data.status === "ok" && data.items) {
-          const fetchedVideos: YouTubeVideo[] = data.items
+        if (data.status === "ok" && Array.isArray(data.items) && data.items.length > 0) {
+          const shortsOnly = data.items.filter((item: { link: string }) =>
+            item.link.includes("/shorts/")
+          )
+          const sourceItems = shortsOnly.length >= 3 ? shortsOnly : data.items
+
+          const fetchedVideos: MicroMediaItem[] = sourceItems
             .slice(0, 3)
             .map(
               (item: {
@@ -136,7 +171,7 @@ export const MicroMedia: React.FC = () => {
                   title: item.title,
                   description: item.description
                     .replace(/<[^>]*>/g, "")
-                    .slice(0, 100),
+                    .slice(0, 120),
                   url: item.link,
                   date: new Date(item.pubDate).toLocaleDateString("en-US", {
                     month: "short",
@@ -148,47 +183,53 @@ export const MicroMedia: React.FC = () => {
                 }
               }
             )
-          setVideos(fetchedVideos)
-        } else {
-          setError("Failed to fetch videos")
+            .filter((v: MicroMediaItem) => Boolean(v.videoId))
+
+          if (isMounted && fetchedVideos.length > 0) {
+            setVideos(fetchedVideos)
+          }
         }
-      } catch (err) {
-        setError("Failed to fetch videos")
-      } finally {
-        setLoading(false)
+      } catch {
+        // Fallback already pre-set to microMediaItems, silent graceful resilience
       }
     }
 
     fetchVideos()
+    return () => {
+      isMounted = false
+    }
   }, [])
 
   return (
     <Box py={6}>
       <Container maxWidth="lg">
-        <Box mb={3} textAlign="center">
+        <Box mb={4} textAlign="center">
+          <Typography
+            sx={{
+              fontFamily: "monospace",
+              fontSize: 10,
+              fontWeight: 700,
+              letterSpacing: "0.2em",
+              color: "secondary.main",
+              textTransform: "uppercase",
+              mb: 1,
+            }}
+          >
+            Field Notes & Observations
+          </Typography>
           <Title variant="segment">Micro-Media</Title>
-          <Typography color="text.secondary">
-            Frequent short-form insights—YouTube Shorts—highlight how authority
-            still matters inside every automation patrol.
+          <Typography color="text.secondary" sx={{ maxWidth: 640, mx: "auto", mt: 1.5 }}>
+            Short-form video analyses exploring execution authority failures, ambient trust vulnerabilities, and AI security incidents.
           </Typography>
         </Box>
-        {loading ? (
-          <Typography color="text.secondary" textAlign="center">
-            Loading latest videos...
-          </Typography>
-        ) : error ? (
-          <Typography color="error" textAlign="center">
-            {error}
-          </Typography>
-        ) : (
-          <Grid container spacing={3} justifyContent="center">
-            {videos.map(video => (
-              <Grid item key={video.url} xs={12} sm={6} md={4}>
-                <MicroMediaCard item={video} />
-              </Grid>
-            ))}
-          </Grid>
-        )}
+
+        <Grid container spacing={3} justifyContent="center" alignItems="stretch">
+          {videos.map(video => (
+            <Grid item key={video.videoId || video.url} xs={12} sm={6} md={4} sx={{ display: "flex" }}>
+              <MicroMediaCard item={video} />
+            </Grid>
+          ))}
+        </Grid>
       </Container>
     </Box>
   )
