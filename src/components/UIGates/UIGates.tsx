@@ -14,7 +14,7 @@ import { RowCol } from "../RowCol"
 import { AnimateOnScroll } from "../AnimateOnScroll"
 import { Segment } from "../Segment"
 import { Title } from "../Title"
-import ImgUigTerminal from "../../images/uig/uigate_terminal.png"
+import ImgUigLogo from "../../images/uig/uigates-logo.jpg"
 
 export const UIGates: React.FC = () => {
   const theme = useTheme()
@@ -246,18 +246,16 @@ export const UIGates: React.FC = () => {
               </Grid>
             </Box>
 
-            {/* Optional Terminal / Visual Preview */}
-            {ImgUigTerminal && (
-              <Box mb={5} sx={{ maxWidth: 880, mx: "auto" }}>
-                <Box
-                  component="img"
-                  src={ImgUigTerminal}
-                  alt="UI-GATES Execution Terminal & Authority Decision"
-                  width="100%"
-                  sx={{ borderRadius: 1, border: "1px solid", borderColor: "divider" }}
-                />
-              </Box>
-            )}
+            {/* Master Brand Logo & Visual Preview */}
+            <Box mb={5} sx={{ maxWidth: 880, mx: "auto" }}>
+              <Box
+                component="img"
+                src={ImgUigLogo}
+                alt="UI-GATES Master Logo with Aligned Brackets and Volumetric Orbital Synthesis Vector"
+                width="100%"
+                sx={{ borderRadius: 1, border: "1px solid", borderColor: "divider" }}
+              />
+            </Box>
 
             {/* CTAs */}
             <Stack
