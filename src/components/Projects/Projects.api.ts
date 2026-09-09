@@ -2,7 +2,7 @@ import cuid from "cuid"
 
 import ImgCrittora from "../../images/projects/crittora.png"
 import ImgWUN from "../../images/projects/wun.png"
-import ImgUIGates from "../../images/projects/uigates.jpg"
+import ImgUIGates from "../../images/projects/uigates.png"
 
 interface ProjectData {
   id: string
@@ -57,8 +57,8 @@ const projectsData: ProjectData[] = [
       "An operating system and portable skill for agentic work: reasoning proposes, authority decides, and verified work synthesizes into reusable knowledge.",
     imgSrc: ImgUIGates,
     imgAlt: "UI-GATES authority-aware execution operating system logo",
-    imgWidth: 128,
-    imgHeight: 84,
+    imgWidth: 110,
+    imgHeight: 96,
     url: `/uig/`,
     anchor: "#uigates",
   },

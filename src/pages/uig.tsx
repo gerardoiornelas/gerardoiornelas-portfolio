@@ -11,6 +11,7 @@ import {
 } from "@mui/material"
 import { LayoutAlt } from "../components/Layout"
 import { Seo, seoDefaults } from "../components/Seo"
+import ImgUigLogo from "../images/uig/uigates-icon-transparent.png"
 
 const skillContent = `---
 name: uig
@@ -77,7 +78,19 @@ const UigPage: React.FC = () => {
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
             <Grid item xs={12} md={7}>
-              <Label>Authority-aware agentic work</Label>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
+                <Box
+                  component="img"
+                  src={ImgUigLogo}
+                  alt="UI-GATES Master Icon"
+                  sx={{
+                    width: { xs: 44, md: 56 },
+                    height: "auto",
+                    filter: "drop-shadow(0 6px 20px rgba(56, 180, 198, 0.35))",
+                  }}
+                />
+                <Label>Authority-aware agentic work</Label>
+              </Box>
               <Typography component="h1" sx={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: { xs: "72px", md: "118px" }, fontWeight: 400, lineHeight: 0.88, letterSpacing: "-0.025em", mb: 3 }}>
                 UI-<Box component="span" sx={{ color: "secondary.main" }}>GATES</Box>
               </Typography>

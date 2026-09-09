@@ -244,6 +244,36 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/generated-ai-interfaces-what-must-stay-fixed": {
+      keywords: [
+        "AI-generated interfaces",
+        "generative UI",
+        "HCI invariants",
+        "predictable interfaces",
+        "Solaris Interface World Model",
+        "accessibility in AI UI",
+        "human agency in UI",
+        "UI governance",
+      ],
+      about: [
+        "AI-Generated Interfaces",
+        "Human-Computer Interaction (HCI)",
+        "Predictable UX & UI Invariants",
+        "Interface World Models",
+        "Accessibility & Semantics",
+        "Authority Layer",
+      ],
+      faq: [
+        {
+          q: "What is an AI-generated interface?",
+          a: "An interface whose visuals or behavior are produced dynamically by AI rather than fully predefined in code.",
+        },
+        {
+          q: "Are generated interfaces accessible?",
+          a: "Only if they expose durable semantic structure to assistive technology; a visual stream alone is insufficient.",
+        },
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {

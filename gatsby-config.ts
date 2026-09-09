@@ -55,6 +55,7 @@ export default {
         host: `https://www.gerardoiornelas.com`,
         sitemap: `https://www.gerardoiornelas.com/sitemap-index.xml`,
         policy: [{ userAgent: `*`, allow: `/` }],
+        configFile: `${__dirname}/robots-txt.config.js`,
       },
     },
   ],

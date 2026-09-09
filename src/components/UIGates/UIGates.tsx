@@ -14,7 +14,7 @@ import { RowCol } from "../RowCol"
 import { AnimateOnScroll } from "../AnimateOnScroll"
 import { Segment } from "../Segment"
 import { Title } from "../Title"
-import ImgUigLogo from "../../images/uig/uigates-logo.jpg"
+import ImgUigLogo from "../../images/uig/uigates-icon-transparent.png"
 
 export const UIGates: React.FC = () => {
   const theme = useTheme()
@@ -247,13 +247,28 @@ export const UIGates: React.FC = () => {
             </Box>
 
             {/* Master Brand Logo & Visual Preview */}
-            <Box mb={5} sx={{ maxWidth: 880, mx: "auto" }}>
+            <Box
+              mb={5}
+              sx={{
+                maxWidth: 420,
+                mx: "auto",
+                textAlign: "center",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                p: { xs: 2, md: 3 },
+              }}
+            >
               <Box
                 component="img"
                 src={ImgUigLogo}
                 alt="UI-GATES Master Logo with Aligned Brackets and Volumetric Orbital Synthesis Vector"
-                width="100%"
-                sx={{ borderRadius: 1, border: "1px solid", borderColor: "divider" }}
+                sx={{
+                  width: "100%",
+                  maxWidth: 320,
+                  height: "auto",
+                  filter: "drop-shadow(0 10px 30px rgba(56, 180, 198, 0.25))",
+                }}
               />
             </Box>
 
