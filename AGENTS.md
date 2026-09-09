@@ -18,6 +18,7 @@ For UI-GATES work, also read:
 - Treat committed repository source and approved decisions as authoritative.
 - Treat Graphify outputs as generated retrieval aids, never as authority over source code or approved knowledge.
 - For a meaningful completed change, capture only warranted learning in the same commit: a task note, decision, reusable pattern, or canon.
+- **Commit & Push Rule**: Always update and sync the OKF bundle (`knowledge/context.md`, `knowledge/okf.yaml`, and associated receipts/learning) and refresh the knowledge graph (`graphify . --update`) before any commit and push.
 - Preserve provenance: link the relevant code, plan, test evidence, and decision rather than writing unsupported summaries.
 - Refresh the graph after material code or knowledge changes with `graphify . --update`.
 

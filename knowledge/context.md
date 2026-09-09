@@ -4,7 +4,7 @@ type: architecture
 description: Operating context for the public portfolio, governed AI, trusted visibility, UI-GATES, and Compound Engineering pages.
 resource: .
 created: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-09
 tags: [app-context, portfolio, authority-layer, ui-gates, gatsby]
 generated: false
 verified: repository-reviewed
@@ -30,6 +30,7 @@ proposes; authority decides.
 ## Knowledge Rules
 
 - `knowledge/` is the committed app-local OKF context bundle and must remain concise, current, and directly useful to future agents.
+- **Commit & Push Requirement**: Always update and verify the OKF context (`knowledge/context.md`, `knowledge/okf.yaml`, and relevant receipts/notes) and refresh the knowledge graph before committing and pushing changes.
 - `docs/compound-engineering/` contains the UI-GATES architecture and its Compound Engineering coding playbook.
 - Graphify outputs are generated navigation aids. They must not override repository source, approved decisions, or executable code.
 - Promote only warranted learning: ephemeral observation → task context → decision → reusable pattern → canon.
