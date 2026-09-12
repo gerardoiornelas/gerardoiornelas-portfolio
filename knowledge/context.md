@@ -4,7 +4,7 @@ type: architecture
 description: Operating context for the public portfolio, governed AI, trusted visibility, UI-GATES, and Compound Engineering pages.
 resource: .
 created: 2026-09-01
-updated: 2026-09-09
+updated: 2026-09-12
 tags: [app-context, portfolio, authority-layer, ui-gates, gatsby]
 generated: false
 verified: repository-reviewed

@@ -102,6 +102,13 @@ const BlogIndexPage: React.FC<PageProps<BlogIndexData>> = ({ data }) => {
                   interfaces for autonomous systems in the future of work.
                 </Typography>
               </Grid>
+              <Grid item xs={12} md={6}>
+                <Typography variant="subtitle1">The Trust Stack</Typography>
+                <Typography color="text.secondary">
+                  Architecture, identity, and the battle for authentic media—exploring
+                  provenance spectra, personhood, and cryptographic trust boundaries.
+                </Typography>
+              </Grid>
             </Grid>
           </Box>
 

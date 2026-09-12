@@ -39,6 +39,8 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
   const topicConfig: Record<
     string,
     {
+      title?: string
+      description?: string
       keywords: string[]
       about: string[]
       faq?: Array<{ q: string; a: string }>
@@ -274,12 +276,53 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/trust-stack-provenance-spectrum-pol-c2pa": {
+      title: "Can C2PA Prove Human Creativity? | The Trust Stack",
+      description:
+        "A practical look at .pol, C2PA and why provenance needs platform support and human meaning.",
+      keywords: [
+        "Trust Stack",
+        "provenance spectrum",
+        "C2PA",
+        "Proof of Life",
+        "pol file format",
+        "content credentials",
+        "human creativity",
+        "synthetic media provenance",
+        "will.i.am",
+      ],
+      about: [
+        "Content Provenance",
+        "C2PA Specification",
+        "Proof of Life (.pol)",
+        "Durable Content Credentials",
+        "Human Provenance Spectrum",
+        "The Trust Stack",
+      ],
+      faq: [
+        {
+          q: "Does C2PA prove an image is real?",
+          a: "It verifies provenance and tamper evidence, not the depicted event.",
+        },
+        {
+          q: "Can credentials be removed?",
+          a: "Embedded credentials can separate; durable credentials aid recovery.",
+        },
+        {
+          q: "Does human involvement prove ownership?",
+          a: "No. Participation, authorship, ownership, consent and authority differ.",
+        },
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {
     keywords: ["AI security", "blockchain", "agentic systems"],
     about: ["AI security", "cryptographic controls"],
   }
+
+  const resolvedTitle = topic.title ?? post.frontmatter.title
+  const resolvedDescription = topic.description ?? post.excerpt
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -288,7 +331,7 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
     datePublished: post.frontmatter.datePublished,
     dateModified: post.frontmatter.datePublished,
     inLanguage: "en-US",
-    description: post.excerpt,
+    description: resolvedDescription,
     keywords: topic.keywords.join(", "),
     author: {
       "@type": "Person",
@@ -353,8 +396,8 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
 
   return (
     <Seo
-      title={post.frontmatter.title}
-      description={post.excerpt}
+      title={resolvedTitle}
+      description={resolvedDescription}
       pathname={pathname}
       image={image}
       type="article"
