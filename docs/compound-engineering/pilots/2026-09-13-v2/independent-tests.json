@@ -1,0 +1,22 @@
+[
+  {
+    "id": "validator-r1-baseline",
+    "exit_code": 0,
+    "command": "npm run okf:test"
+  },
+  {
+    "id": "validator-r1-compact",
+    "exit_code": 0,
+    "command": "npm run okf:test"
+  },
+  {
+    "id": "validator-r2-compact",
+    "exit_code": 0,
+    "command": "npm run okf:test"
+  },
+  {
+    "id": "validator-r2-baseline",
+    "exit_code": 0,
+    "command": "npm run okf:test"
+  }
+]

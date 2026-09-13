@@ -1,8 +1,8 @@
-import { styled } from "@mui/system"
+import { styled, type CSSObject } from "@mui/system"
 import { rem } from "polished"
 import { Box, AppBar } from "@mui/material"
 import { Scrollchor } from "react-scrollchor"
-import { Link } from "gatsby"
+import { Link } from "../../lib/site"
 
 const StyledSocialNav = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.light,
@@ -24,7 +24,7 @@ const StyledNavigation = styled(Box)({
   padding: `${rem(1)}`,
 })
 
-const navLinkStyles = (theme: any, active?: boolean) => ({
+const navLinkStyles = (theme: any, active?: boolean): CSSObject => ({
   backgroundColor: "transparent",
   border: 0,
   fontFamily: theme.typography.h6.fontFamily,

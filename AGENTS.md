@@ -8,10 +8,7 @@ Before changing this repository, read:
 2. the touched route, component, or document
 3. `package.json` when changing the site
 
-For UI-GATES work, also read:
-
-- `docs/compound-engineering/ui-gates-canon.md`
-- `docs/compound-engineering/operating-system.md`
+Use the task routing table in `knowledge/context.md` for additional reading. Read the UI-GATES canon for public terminology or governing behavior changes, and the operating-system document when changing workflow, gates, receipts, or learning behavior. Routine styling or isolated tests do not require the full architecture documents. Expand retrieval whenever scope or evidence requires it.
 
 ## Knowledge and Graph
 
@@ -24,8 +21,8 @@ For UI-GATES work, also read:
 
 ## Authority
 
-UI-GATES is the governing system. Reasoning proposes; authority decides. Do not treat credentials or tool access as authorization. Reading and scoped local editing are allowed for the active task; deploys, pushes, external communication, and production-impacting actions require explicit approval.
+UI-GATES is the governing system. Reasoning proposes; authority decides. Do not treat credentials or tool access as authorization. Reading and scoped local editing are allowed for the active task; deploys, pushes, external communication, and production-impacting actions require explicit approval. Proceed within valid delegated scope; gated actions require approval before execution; prohibited actions stop. Changes to authority, permissions, verification, or completion rules require principal approval. Authorization precedes execution; acceptance follows verification and cannot retroactively authorize work.
 
 ## Validation
 
-Run `npm run build` for meaningful site changes. Use `GATSBY_TELEMETRY_DISABLED=1 npm run build` when the environment blocks Gatsby's global feedback file.
+Run `npm run build` for meaningful site changes. Use `GATSBY_TELEMETRY_DISABLED=1 GATSBY_FEEDBACK_DISABLED=1 npm run build` for restricted telemetry/feedback writes; these flags disable different services. If global configuration still fails, read `knowledge/lessons/gatsby-build.md`. Run `npm run okf:test` for receipt-tooling changes. Required verification and human acceptance remain mandatory regardless of retrieval scope.

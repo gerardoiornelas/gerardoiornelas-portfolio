@@ -42,117 +42,47 @@ Possession of a credential never implies authorization. Authority is bounded by 
 
 ## Compound Engineering: the coding specialization
 
-Compound Engineering applies the UI-GATES loop to repository work — planning, coding, testing, reviewing, and synthesizing lessons. Within the **Plan → Propose → Execute** portion of the loop, use the feature-ticket pattern below so that every consequential UI-facing change is human-validated before the next one is proposed.
+Use small, independently verifiable tickets. Authorization precedes execution; acceptance follows verification. Select the acceptance profile in the plan:
 
-**Rule**: The agent builds one thing. The human sees it working (Verify). The human approves (UI-GATE closes). The agent proposes the next thing.
+- **Delegated:** routine scoped work proceeds through agreed automated checks; continue within the active intent after acceptance evidence passes.
+- **UI acceptance:** name the human interaction and expected result; stop at that checkpoint until the principal accepts it.
+- **Consequential:** prepare the concrete action, then obtain approval before merge, deploy, external communication, or production changes.
 
-### Requirement decomposition
+Backend tickets may demonstrate correctness through fixtures, API responses, or command output. Add regression evidence when changing shared behavior. A failed check stops dependent work. Do not expand scope to repair unrelated failures.
 
-Break the Plan step's scoped slice into atomic, independently testable features. Each feature must:
+### Ticket template
 
-- Do exactly one thing
-- Be visually verifiable by a human (something appears, changes, or responds in the UI)
-- Have zero hidden dependencies on unbuilt features
-- Be labeled: FEAT-001, FEAT-002, etc.
-
-### Dependency map
-
-```text
-FEAT-003 → requires [FEAT-001, FEAT-002]
-FEAT-001 → INDEPENDENT
+```yaml
+ticket: FEAT-001
+intent: <active objective and reference>
+depends_on: []
+proposal:
+  action: <operation>
+  resources: [<exact paths or resources>]
+  risk: <low, medium, high with reason>
+authorization:
+  state: <delegated or gated>
+  source: <existing delegation or explicit principal approval>
+  scope: <approved action and resource boundary>
+  valid_until: <expiry or task completion boundary>
+acceptance:
+  profile: <delegated, UI acceptance, consequential>
+  reviewer: <agent or named human>
+  evidence: [<required check and expected result>]
 ```
 
-### Implementation phases
+Execute only after authorization is established. Report human checkpoints as `FEAT-XXX AWAITING ACCEPTANCE`; report failed evidence as `FEAT-XXX BLOCKED`. A successful ticket records acceptance evidence and a receipt before dependent work continues. Human acceptance does not grant unspecified future authority.
 
-- Phase 1 must contain only INDEPENDENT features
-- No phase may begin until every feature in the previous phase has passed its human validation (its UI-GATE)
-- Each phase must produce a visually testable UI state — never queue backend-only phases unless a UI stub is built in the same phase
-- Prefer thin vertical slices (UI + logic + data together) over horizontal layers (all backend first)
+## Authorization and acceptance
 
-### Feature tickets
+Delegated work proceeds within existing approved scope without repeated permission questions. Gated actions require explicit principal approval before execution. Prohibited actions stop; propose a permissible alternative. Changes to governing rules, permissions, verification requirements, or completion criteria require explicit approval.
 
-Each ticket is one Propose → Execute → Verify cycle:
+Record authorization before execution: intent, principal decision or delegation source, action/resource scope, and validity boundary. Recheck it when scope, actor, conditions, or expiry change, or authority is revoked. Acceptance records the reviewer and result evidence after execution; it never retroactively authorizes work. An approved request to implement a concrete proposal satisfies that proposal's gate.
 
-```
----
-FEAT-XXX: [Feature Name]
-Phase: [N]
-Depends on: [FEAT-YYY, FEAT-ZZZ or NONE]
+## Compact discovery and learning
 
-PROPOSAL (Propose):
-- Resource scope: [exact files / components / routes]
-- Reason: [why this change, tied to the active intent]
-- Risk: [low / medium / high]
-- Requested authority: [delegated / gated]
+Read applicable instructions and required context first, then the project's lesson index. Load only lessons whose applicability matches the task, then affected source and dependencies. Expand retrieval when evidence is missing. Do not load all receipts or rebuild a graph merely to start a routine task; still perform required refreshes after material changes.
 
-AGENT INSTRUCTIONS (Execute):
-- [Precise, unambiguous build steps written for an AI coding agent]
-- Use imperative language: "Create", "Add", "Wire", "Return"
-- Reference exact file paths, component names, or API routes when known
-- End with: "Do not proceed past this ticket until human validation is complete."
+A receipt records this execution. A lesson records an evidence-backed reusable action with applicability, limits, and provenance. Deduplicate before adding a lesson; supersede outdated lessons. No discrepancy, cause unknown, and no new durable learning are valid outcomes. Never infer a cause just to complete an AAR.
 
-HUMAN VALIDATION CHECKLIST (Verify / UI-GATE):
-□ [Specific visual action the human performs]
-□ [Exact expected result]
-□ [Edge case to test]
-□ [Confirm: "Mark FEAT-XXX VALIDATED before agent continues"]
-
-DEFINITION OF DONE (Receipt):
-- All checklist items pass
-- No console errors during validation
-- Human has explicitly marked this feature VALIDATED
----
-```
-
-### Agent rules
-
-Paste at the top of every new agent session:
-
-```
-You are implementing [Project Name]. The active ticket is FEAT-XXX.
-Do not build ahead of the active ticket.
-Do not refactor completed tickets unless instructed.
-After completing this ticket, stop and output: "FEAT-XXX COMPLETE — AWAITING HUMAN VALIDATION"
-Do not continue until the human responds: "FEAT-XXX VALIDATED — PROCEED TO FEAT-YYY"
-```
-
-A lesson that would change this skill or the rules is a **proposal, not an edit**: state it through UI-GATE in the next cycle and do not write it directly — it alters how future authority is evaluated.
-
-### Validation log template
-
-```
-| Ticket   | Feature | Status                              | Notes |
-|----------|---------|-------------------------------------|-------|
-| FEAT-001 | ...     | ⬜ Pending / ✅ Validated / ❌ Failed |       |
-```
-
-### Planning rules
-
-1. **UI-first sequencing**: every phase ends with something a human can see and click.
-2. **One ticket, one concern**: never bundle two features into one ticket.
-3. **Fail fast surfaces**: if a feature can break visually, the validation checklist must test that break explicitly.
-4. **No assumed state**: agent instructions must not assume any state that hasn't been built and validated in a prior ticket.
-5. **Stop signals are mandatory**: every ticket ends with a hard stop. The agent must not auto-continue.
-6. **Regression awareness**: when a new ticket touches a component used by a validated ticket, add a regression check to the new ticket's checklist.
-
-### What this is not
-
-- Not a testing framework — it is a delivery sequencing methodology inside UI-GATES
-- Not slow — the gate takes minutes, the rework it prevents takes days
-- Not Claude-specific — the methodology works with any AI coding agent
-
----
-
-## Terminology
-
-| Term | Definition |
-| --- | --- |
-| UI-GATES | The umbrella system: intent, authority, execution, verification, receipts, and durable learning. |
-| UI-GATE | The execution-time authority decision inside UI-GATES: allow, deny, or escalate. |
-| Compound Engineering | The UI-GATES software-engineering playbook applying the loop to repository work. |
-| Intent | A time-bounded statement of objective, constraints, success evidence, and allowed domain. |
-| Receipt | Evidence of an authorized execution and its verification. |
-| Ticket | A single atomic feature with a proposal, agent instructions, and a validation checklist. |
-| Phase | A group of tickets built sequentially before a phase-level review. |
-| Validation | The human act of visually confirming a feature works as specified and marking it VALIDATED. |
-| Stop signal | The mandatory output from the agent indicating it is awaiting human validation. |
+Learning may improve retrieval, navigation, and verified implementation patterns. Changes to permissions, mandatory verification, or completion criteria remain gated. Measure total tokens through accepted completion, including retries and learning overhead; never remove required checks to meet a token target.

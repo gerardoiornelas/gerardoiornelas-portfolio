@@ -1,9 +1,9 @@
 import React from "react"
 import { render, fireEvent } from "@testing-library/react"
-import { navigate } from "gatsby"
+import { navigate } from "../../lib/site"
 import { Thanks } from "./Thanks"
 
-jest.mock("gatsby", () => ({
+jest.mock("../../lib/site", () => ({
   navigate: jest.fn(),
 }))
 

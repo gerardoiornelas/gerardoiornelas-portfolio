@@ -1,42 +1,19 @@
 import React from "react"
-import { render } from "@testing-library/react"
-import { useStaticQuery } from "gatsby"
-
+import { render, screen } from "@testing-library/react"
+import { usePosts } from "../../lib/site"
 import { Blog } from "./Blog"
 
-// Mock the useStaticQuery hook
-const mockedUseStaticQuery = useStaticQuery as jest.Mock
+jest.mock("../../lib/site", () => ({
+  ...jest.requireActual("../../lib/site"),
+  usePosts: jest.fn(),
+}))
 
-// Provide a mock implementation for the useStaticQuery hook
-const mockStaticQueryData = {
-  allMarkdownRemark: {
-    nodes: [
-      {
-        frontmatter: {
-          author: "John Doe",
-          slug: "/blog-post-1",
-          title: "Blog Post 1",
-          featuredImage: {
-            childImageSharp: {
-              gatsbyImageData: {
-                width: 512,
-              },
-            },
-          },
-        },
-        html: "<p>This is the content of Blog Post 1</p>",
-      },
-      // Add more mock data if needed
-    ],
-  },
-}
-
-beforeEach(() => {
-  // Mock the useStaticQuery hook with the mock data
-  mockedUseStaticQuery.mockReturnValue(mockStaticQueryData)
-})
-
-test("renders Blog component", () => {
+test("renders the supplied article summary and stable route", () => {
+  ;(usePosts as jest.Mock).mockReturnValue([{
+    frontmatter: { author: "John Doe", date: "January 01, 2026", slug: "/blog-post-1", title: "Blog Post 1" },
+    excerpt: "Article summary",
+  }])
   render(<Blog />)
-  // Add your assertions here to verify the rendered output or behavior of the component
+  expect(screen.getByText("Blog Post 1")).toBeTruthy()
+  expect(screen.getByText("Read More").closest("a")?.getAttribute("href")).toBe("/blog/blog-post-1")
 })

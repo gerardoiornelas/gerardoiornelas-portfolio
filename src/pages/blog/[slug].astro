@@ -1,0 +1,19 @@
+---
+import { getPageStyles } from "../../lib/page-styles"
+import Document from "../../layouts/Document.astro"
+import Page, { Head } from "../../templates/blog-post"
+import { getPosts } from "../../lib/content"
+
+export async function getStaticPaths() {
+  return (await getPosts()).map(post => ({
+    params: { slug: post.frontmatter.slug.slice(1) },
+    props: { data: { markdownRemark: post } },
+  }))
+}
+const { data } = Astro.props
+const styles = getPageStyles(Page, { data })
+---
+<Document styles={styles}>
+  <Head slot="head" data={data} />
+  <Page data={data} client:load />
+</Document>

@@ -1,0 +1,346 @@
+[
+  {
+    "id": "ui-r1-baseline",
+    "task": "ui",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "exact_ui_change": true,
+      "filename_preserved": true,
+      "built_label": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true,
+      "receipt_method": true
+    },
+    "changed": [
+      "src/pages/uig.tsx",
+      "knowledge/receipts/2026-09-13-uig-download-label.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "pending",
+    "receipt_errors": [],
+    "agent_final": "Changed the label to `Download UIG skill (.md)` exactly once. Filename, MIME type, click behavior, layout code, and authority language remain unchanged.\n\nBuild passed after retrying a configuration permission failure. Source, generated HTML, receipt validation, and diff checks passed.\n\nOne receipt records all failures and retries. Graphify failed due to the missing backend dependency, limiting operational acceptance. UI is ready for human review; human acceptance remains pending.",
+    "automated_acceptance": "pass",
+    "manual_artifact_review": "pass: requested source diff reviewed; UI exact replacement, validator duplicate/unique behavior and regression, docs preserve existing content with harmless headings/lesson pointers only."
+  },
+  {
+    "id": "ui-r1-compact",
+    "task": "ui",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "exact_ui_change": true,
+      "filename_preserved": true,
+      "built_label": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true,
+      "receipt_method": true
+    },
+    "changed": [
+      "src/pages/uig.tsx",
+      "knowledge/receipts/2026-09-13-uig-download-label.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "pending",
+    "receipt_errors": [],
+    "agent_final": "Changed the label to `Download UIG skill (.md)` exactly once. Filename, MIME type, handler, layout source, and authority language remain unchanged.\n\nChecks passed: source assertions, generated HTML, build after one documented config retry, and receipt validation.\n\nGraphify failed due to the missing `anthropic` dependency; recorded without installation or retry. One receipt created. Human UI acceptance and full operational acceptance remain pending.",
+    "automated_acceptance": "pass",
+    "manual_artifact_review": "pass: requested source diff reviewed; UI exact replacement, validator duplicate/unique behavior and regression, docs preserve existing content with harmless headings/lesson pointers only."
+  },
+  {
+    "id": "validator-r1-baseline",
+    "task": "validator",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "unique_accepted": true,
+      "duplicate_rejected": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true,
+      "receipt_method": true
+    },
+    "changed": [
+      "scripts/validate-okf.js",
+      "scripts/validate-okf.test.js",
+      "knowledge/receipts/2026-09-13-duplicate-receipt-sources.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "agent_final": "Implemented exact duplicate-source rejection with `duplicate source: <path>`, preserving unique sources and existing checks.\n\n- Regression failed before correction; all 15 tests pass afterward.\n- Bundle validation, direct receipt validation, and diff checks passed.\n- One manual receipt records results and warranted learning.\n- Graphify failed: missing `anthropic` backend dependency. No retry or installation.\n- HEAD unchanged; nothing committed.\n\nPilot reviewer acceptance and human UI acceptance remain pending; full operational acceptance is not claimed.",
+    "automated_acceptance": "pass",
+    "manual_artifact_review": "pass: requested source diff reviewed; UI exact replacement, validator duplicate/unique behavior and regression, docs preserve existing content with harmless headings/lesson pointers only.",
+    "independent_test_exit_code": 0
+  },
+  {
+    "id": "validator-r1-compact",
+    "task": "validator",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "unique_accepted": true,
+      "duplicate_rejected": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true,
+      "receipt_method": true
+    },
+    "changed": [
+      "scripts/validate-okf.js",
+      "scripts/validate-okf.test.js",
+      "knowledge/receipts/2026-09-13-duplicate-receipt-sources.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "agent_final": "Implemented duplicate detection with `duplicate source: <path>` errors; unique sources remain accepted.\n\n- Regression failed before the fix; all 15 tests pass afterward.\n- Working-bundle validation, receipt validation and whitespace checks pass.\n- One receipt records failures and retries.\n- Graphify failed because `anthropic` is unavailable; no dependencies installed.\n\nFull operational acceptance remains incomplete. Pilot review and human/UI acceptance are pending.",
+    "automated_acceptance": "pass",
+    "manual_artifact_review": "pass: requested source diff reviewed; UI exact replacement, validator duplicate/unique behavior and regression, docs preserve existing content with harmless headings/lesson pointers only.",
+    "independent_test_exit_code": 0
+  },
+  {
+    "id": "docs-r1-baseline",
+    "task": "docs",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "exact_guidance": true,
+      "existing_docs_preserved": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true,
+      "receipt_method": true
+    },
+    "changed": [
+      "AGENTS.md",
+      "knowledge/README.md",
+      "knowledge/context.md",
+      "knowledge/receipts/2026-09-13-build-troubleshooting-guidance.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "agent_final": "Added the exact sentence once in each requested file. All existing content and commands remain intact; no application code changed. Wrote one receipt.\n\nChecks passed: `npm run okf:validate`, direct receipt validation, exact-text/preservation assertions, and `git diff --check`.\n\nGraphify failed on its single attempt due to missing `anthropic`; no installation or retry performed. Full operational acceptance is limited; pilot review and human acceptance remain pending.",
+    "automated_acceptance": "pass",
+    "manual_artifact_review": "pass: requested source diff reviewed; UI exact replacement, validator duplicate/unique behavior and regression, docs preserve existing content with harmless headings/lesson pointers only."
+  },
+  {
+    "id": "docs-r1-compact",
+    "task": "docs",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "exact_guidance": true,
+      "existing_docs_preserved": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true,
+      "receipt_method": true
+    },
+    "changed": [
+      "AGENTS.md",
+      "knowledge/README.md",
+      "knowledge/context.md",
+      "knowledge/receipts/2026-09-13-build-troubleshooting-guidance.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "agent_final": "Added the exact sentence once in each requested file. Existing commands and requirements are preserved; no application code changed.\n\n- Passed: `npm run okf:validate`, exact-text checks, and `git diff --check`.\n- Created one receipt; no new lesson warranted.\n- Graphify attempted once and failed due to missing `anthropic`; no retries or installs.\n\nFull operational acceptance is blocked by the graph limitation. Pilot review and human acceptance remain pending.",
+    "automated_acceptance": "pass",
+    "manual_artifact_review": "pass: requested source diff reviewed; UI exact replacement, validator duplicate/unique behavior and regression, docs preserve existing content with harmless headings/lesson pointers only."
+  },
+  {
+    "id": "ui-r2-compact",
+    "task": "ui",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "exact_ui_change": true,
+      "filename_preserved": true,
+      "built_label": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true,
+      "receipt_method": true
+    },
+    "changed": [
+      "src/pages/uig.tsx",
+      "knowledge/receipts/2026-09-13-uig-download-label.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "pending",
+    "receipt_errors": [],
+    "agent_final": "Changed only the visible label to `Download UIG skill (.md)`.\n\n- Exact label appears once in source and built HTML; filename, MIME, behavior, layout code and authority language remain unchanged.\n- Build passed after the documented config-directory retry. Receipt validation and diff checks passed.\n- Graphify failed once due to missing `anthropic`; recorded without installation or retry.\n- One receipt written; HEAD unchanged.\n\nHuman UI acceptance remains pending. Full operational acceptance is limited by the graph failure.",
+    "automated_acceptance": "pass",
+    "manual_artifact_review": "pass: requested source diff reviewed; UI exact replacement, validator duplicate/unique behavior and regression, docs preserve existing content with harmless headings/lesson pointers only."
+  },
+  {
+    "id": "ui-r2-baseline",
+    "task": "ui",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "exact_ui_change": true,
+      "filename_preserved": true,
+      "built_label": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true,
+      "receipt_method": true
+    },
+    "changed": [
+      "src/pages/uig.tsx",
+      "knowledge/receipts/2026-09-13-uig-download-label.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "pending",
+    "receipt_errors": [],
+    "agent_final": "Changed the label to `Download UIG skill (.md)` exactly once. Filename, MIME type, click handler, layout code, and authority language are unchanged.\n\nSource and generated-HTML checks, receipt validation, and diff checks passed. Build passed after one temporary-config retry; the initial permission failure is recorded.\n\nOne receipt records the results. Graphify\u2019s single attempt failed due to missing `anthropic`, preventing full operational acceptance. UI is ready for human review; human and pilot acceptance remain pending.",
+    "automated_acceptance": "pass",
+    "manual_artifact_review": "pass: requested source diff reviewed; UI exact replacement, validator duplicate/unique behavior and regression, docs preserve existing content with harmless headings/lesson pointers only."
+  },
+  {
+    "id": "validator-r2-compact",
+    "task": "validator",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "unique_accepted": true,
+      "duplicate_rejected": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true,
+      "receipt_method": true
+    },
+    "changed": [
+      "scripts/validate-okf.js",
+      "scripts/validate-okf.test.js",
+      "knowledge/receipts/2026-09-13-reject-duplicate-sources.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "agent_final": "Implemented exact duplicate-source rejection with `duplicate source: <path>`.\n\n- Regression failed before the fix; all 15 tests pass afterward, including unique-source acceptance.\n- Receipt generated; working-bundle validation and diff checks pass.\n- Graphify failed once due to missing `anthropic`; no installation or retry.\n- Pilot review and human acceptance remain pending; full operational acceptance is not claimed.",
+    "automated_acceptance": "pass",
+    "manual_artifact_review": "pass: requested source diff reviewed; UI exact replacement, validator duplicate/unique behavior and regression, docs preserve existing content with harmless headings/lesson pointers only.",
+    "independent_test_exit_code": 0
+  },
+  {
+    "id": "validator-r2-baseline",
+    "task": "validator",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "unique_accepted": true,
+      "duplicate_rejected": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true,
+      "receipt_method": true
+    },
+    "changed": [
+      "scripts/validate-okf.js",
+      "scripts/validate-okf.test.js",
+      "knowledge/receipts/2026-09-13-validator-duplicate-sources.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "agent_final": "Implemented exact-path duplicate detection with `duplicate source: <path>` errors.\n\n- Regression failed before the fix; all 15 tests pass afterward.\n- Unique sources remain accepted; receipt validation and whitespace checks pass.\n- One manual receipt records evidence and task-level learning.\n- Graphify failed once due to missing `anthropic`; no installation or retry performed.\n\nPilot review, human UI acceptance, and full operational acceptance remain pending.",
+    "automated_acceptance": "pass",
+    "manual_artifact_review": "pass: requested source diff reviewed; UI exact replacement, validator duplicate/unique behavior and regression, docs preserve existing content with harmless headings/lesson pointers only.",
+    "independent_test_exit_code": 0
+  },
+  {
+    "id": "docs-r2-compact",
+    "task": "docs",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "exact_guidance": true,
+      "existing_docs_preserved": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true,
+      "receipt_method": true
+    },
+    "changed": [
+      "AGENTS.md",
+      "knowledge/README.md",
+      "knowledge/context.md",
+      "knowledge/receipts/2026-09-13-build-troubleshooting-guidance.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "agent_final": "Added the exact sentence once in each requested file and generated one receipt. Existing commands and requirements are preserved; no application code changed.\n\nChecks passed: sentence counts, change scope, `git diff --check`, and `npm run okf:validate`.\n\nGraphify\u2019s single attempt failed due to the missing `anthropic` backend dependency. No installation or retry occurred. Full operational acceptance remains blocked; pilot review and human acceptance remain pending.",
+    "automated_acceptance": "pass",
+    "manual_artifact_review": "pass: requested source diff reviewed; UI exact replacement, validator duplicate/unique behavior and regression, docs preserve existing content with harmless headings/lesson pointers only."
+  },
+  {
+    "id": "docs-r2-baseline",
+    "task": "docs",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "exact_guidance": true,
+      "existing_docs_preserved": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true,
+      "receipt_method": true
+    },
+    "changed": [
+      "AGENTS.md",
+      "knowledge/README.md",
+      "knowledge/context.md",
+      "knowledge/receipts/2026-09-13-build-troubleshooting-guidance.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "agent_final": "Added the exact sentence once in all three requested files, preserving existing content and commands. No application code changed.\n\nChecks passed: `npm run okf:validate`, receipt validation, sentence counts, scope verification, and `git diff --check`.\n\nOne manual receipt recorded the results. Graphify failed on its single attempt because `anthropic` was unavailable; no retry or installation occurred. Full operational acceptance is limited; pilot review and human acceptance remain pending.",
+    "automated_acceptance": "pass",
+    "manual_artifact_review": "pass: requested source diff reviewed; UI exact replacement, validator duplicate/unique behavior and regression, docs preserve existing content with harmless headings/lesson pointers only."
+  }
+]

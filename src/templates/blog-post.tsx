@@ -1,5 +1,7 @@
+import type { ImageData } from "../lib/image"
+import { withPage } from "../lib/site"
 import * as React from "react"
-import { graphql, type HeadFC, type PageProps } from "gatsby"
+import { type HeadFC, type PageProps } from "../lib/site"
 import { BlogPostTemplate } from "../components/BlogPostTemplate"
 import { Seo, seoDefaults } from "../components/Seo"
 
@@ -13,12 +15,7 @@ interface BlogPostPageData {
       slug: string
       title: string
       author: string
-      featuredImage?: {
-        publicURL?: string
-        childImageSharp?: {
-          gatsbyImageData: any
-        }
-      }
+      featuredImage?: ImageData
     }
   }
 }
@@ -401,31 +398,10 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
       pathname={pathname}
       image={image}
       type="article"
-      jsonLd={[articleSchema, breadcrumbSchema, faqSchema].filter(Boolean)}
+      jsonLd={[articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])]}
     />
   )
 }
 
-export const pageQuery = graphql`
-  query ($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        datePublished: date(formatString: "YYYY-MM-DD")
-        slug
-        title
-        author
-        featuredImage {
-          publicURL
-          childImageSharp {
-            gatsbyImageData(width: 512)
-          }
-        }
-      }
-    }
-  }
-`
 
-export default BlogPostPage
+export default withPage(BlogPostPage)

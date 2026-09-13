@@ -11,10 +11,10 @@ import {
 import { RowCol } from "../RowCol"
 import { StyledHome } from "../Home/Home.styled"
 import { AnimateOnScroll } from "../AnimateOnScroll"
-import LogoVerizon from "../../images/xp/verizon.svg"
-import LogoGE from "../../images/xp/ge.svg"
-import LogoAmfam from "../../images/xp/amfam.svg"
-import LogoBCBS from "../../images/xp/bcbsfl.svg"
+import LogoVerizon from "../../images/xp/verizon.svg?url"
+import LogoGE from "../../images/xp/ge.svg?url"
+import LogoAmfam from "../../images/xp/amfam.svg?url"
+import LogoBCBS from "../../images/xp/bcbsfl.svg?url"
 
 export const About: React.FC = () => {
   const theme = useTheme()

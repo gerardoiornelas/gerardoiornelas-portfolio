@@ -1,7 +1,6 @@
+import type { ImageData } from "../../lib/image"
 import React from "react"
-import { Link } from "gatsby"
-import cuid from "cuid"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, usePosts } from "../../lib/site"
 import { Container, Box, Typography } from "@mui/material"
 
 import { RowCol } from "../RowCol"
@@ -16,40 +15,13 @@ interface BlogData {
     date: string
     slug: string
     title: string
-    featuredImage?: {
-      childImageSharp?: {
-        gatsbyImageData: any
-      }
-    }
+    featuredImage?: ImageData
   }
-  html: string
   excerpt: string
 }
 
 export const Blog: React.FC = () => {
-  const {
-    allMarkdownRemark: { nodes },
-  } = useStaticQuery(graphql`
-    query MyQuery {
-      allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
-        nodes {
-          frontmatter {
-            author
-            date(formatString: "MMMM DD, YYYY")
-            slug
-            title
-            featuredImage {
-              childImageSharp {
-                gatsbyImageData(width: 512)
-              }
-            }
-          }
-          html
-          excerpt(pruneLength: 200)
-        }
-      }
-    }
-  `)
+  const nodes = usePosts()
 
   return (
     <Box py={6}>
@@ -90,7 +62,7 @@ export const Blog: React.FC = () => {
                 <AnimateOnScroll
                   animateIn="fadeInUp"
                   delay={index * 200}
-                  key={cuid()}
+                  key={data.frontmatter.slug}
                   style={{ display: "flex", marginBottom: "2rem" }}
                 >
                   <BlogCard {...data} />

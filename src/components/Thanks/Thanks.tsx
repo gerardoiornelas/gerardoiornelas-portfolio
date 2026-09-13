@@ -1,5 +1,5 @@
 import React from "react"
-import { navigate } from "gatsby"
+import { navigate } from "../../lib/site"
 import PropTypes from "prop-types"
 import {
   Box,
@@ -13,7 +13,7 @@ import {
 import { Title } from "../Title"
 import { LayoutAlt } from "../Layout"
 
-import ImgThanks from "../../images/thanks.jpg"
+import ImgThanks from "../../images/thanks.jpg?url"
 
 export const Thanks: React.FC = () => {
   const theme = useTheme()

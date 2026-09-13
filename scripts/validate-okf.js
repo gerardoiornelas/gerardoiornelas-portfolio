@@ -1,159 +1,203 @@
 #!/usr/bin/env node
-// Internal repo-authoring tool. Not part of the portable `uig` skill distributed
-// from src/pages/uig.tsx — see knowledge/context.md for that boundary.
-//
-// Checks that the committed OKF context bundle is present and well-formed before
-// a commit ships: knowledge/context.md exists with the expected frontmatter,
-// knowledge/okf.yaml parses as YAML, files changed in the working tree that
-// touch knowledge-relevant areas have a same-day receipt or context update, and
-// any receipt staged today closes the loop with the After Action Review
-// (docs/compound-engineering/ui-gates-canon.md#closing-protocol).
-
+// Internal authoring check, not an authorization engine or part of the portable skill.
 const fs = require("fs")
 const path = require("path")
-const { execSync } = require("child_process")
+const { execFileSync } = require("child_process")
+const YAML = require("yaml")
 
-const repoRoot = path.resolve(__dirname, "..")
-const contextPath = path.join(repoRoot, "knowledge", "context.md")
-const okfPath = path.join(repoRoot, "knowledge", "okf.yaml")
-const receiptsDir = path.join(repoRoot, "knowledge", "receipts")
+const meaningful = value =>
+  typeof value === "string" &&
+  value.trim().length >= 3 &&
+  !/^(tbd|todo|pending|n\/a|\.{3}|<.*>|\[.*\])$/i.test(value.trim())
+const list = value =>
+  Array.isArray(value) && value.length > 0 && value.every(meaningful)
+const receiptPath = file => /^knowledge\/receipts\/.*\.md$/.test(file)
+const governed = file =>
+  /^(docs\/compound-engineering\/|plans\/uigate\/|knowledge\/|src\/components\/UIGates\/)/.test(
+    file
+  ) ||
+  [
+    "AGENTS.md",
+    "src/pages/uig.tsx",
+    "src/pages/uig.astro",
+    "src/views/uig.tsx",
+    "scripts/validate-okf.js",
+    "scripts/validate-okf.test.js",
+    "scripts/create-okf-receipt.js",
+    "scripts/create-okf-receipt.test.js",
+    "package.json",
+    "package-lock.json",
+  ].includes(file)
 
-let failed = false
-
-function fail(message) {
-  console.error(`[okf:validate] FAIL — ${message}`)
-  failed = true
+function frontmatter(raw) {
+  const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/)
+  if (!match) throw Error("missing YAML frontmatter")
+  return YAML.parse(match[1])
 }
-
-function ok(message) {
-  console.log(`[okf:validate] ok — ${message}`)
-}
-
-function parseFrontmatter(raw) {
-  const match = raw.match(/^---\n([\s\S]*?)\n---/)
-  if (!match) return null
-  const fields = {}
-  for (const line of match[1].split("\n")) {
-    const fieldMatch = line.match(/^([a-zA-Z_]+):\s*(.*)$/)
-    if (fieldMatch) fields[fieldMatch[1]] = fieldMatch[2]
+function validate({
+  read,
+  changed,
+  exists = file => {
+    read(file)
+    return true
+  },
+}) {
+  const errors = []
+  function check(file, fn) {
+    try {
+      fn(read(file))
+    } catch (error) {
+      errors.push(`${file}: ${error.message}`)
+    }
   }
-  return fields
-}
-
-function checkContext() {
-  if (!fs.existsSync(contextPath)) {
-    fail(`missing ${path.relative(repoRoot, contextPath)}`)
-    return
+  function requireFields(object, fields) {
+    for (const field of fields)
+      if (!meaningful(object?.[field]))
+        throw Error(`missing or placeholder ${field}`)
   }
-  const raw = fs.readFileSync(contextPath, "utf8")
-  const frontmatter = parseFrontmatter(raw)
-  if (!frontmatter) {
-    fail("knowledge/context.md has no frontmatter block")
-    return
-  }
-  const required = ["title", "type", "updated", "status"]
-  const missing = required.filter((field) => !frontmatter[field])
-  if (missing.length) {
-    fail(`knowledge/context.md frontmatter missing field(s): ${missing.join(", ")}`)
-    return
-  }
-  ok("knowledge/context.md present with required frontmatter")
-}
-
-function checkOkfYaml() {
-  if (!fs.existsSync(okfPath)) {
-    fail(`missing ${path.relative(repoRoot, okfPath)}`)
-    return
-  }
-  const raw = fs.readFileSync(okfPath, "utf8")
-  // Minimal structural check without a YAML dependency: every non-comment,
-  // non-blank top-level or nested line must look like `key:` or `key: value`.
-  const lines = raw.split("\n").filter((line) => line.trim() && !line.trim().startsWith("#"))
-  const malformed = lines.filter((line) => !/^\s*[-]?\s*[A-Za-z0-9_.]+:\s*.*$/.test(line))
-  if (malformed.length) {
-    fail(`knowledge/okf.yaml has malformed line(s): ${malformed.join(" | ")}`)
-    return
-  }
-  if (!/app_id:/.test(raw) || !/graphify:/.test(raw)) {
-    fail("knowledge/okf.yaml missing required keys (app_id, graphify)")
-    return
-  }
-  ok("knowledge/okf.yaml is present and structurally valid")
-}
-
-function checkReceiptsForKnowledgeTouchingChanges() {
-  let changed = []
-  try {
-    changed = execSync("git diff --cached --name-only", { cwd: repoRoot, encoding: "utf8" })
-      .split("\n")
-      .filter(Boolean)
-  } catch {
-    ok("skipped staged-change check (not in a git repository or no commits yet)")
-    return
-  }
-  const knowledgeTouching = changed.filter(
-    (file) => file.startsWith("docs/compound-engineering/") || file.startsWith("plans/uigate/")
+  check("knowledge/context.md", raw =>
+    requireFields(frontmatter(raw), ["title", "type", "updated", "status"])
   )
-  if (!knowledgeTouching.length) {
-    ok("no staged changes require a receipt")
-    return
-  }
-  const today = new Date().toISOString().slice(0, 10)
-  const hasReceiptsDir = fs.existsSync(receiptsDir)
-  const todaysReceipt = hasReceiptsDir
-    ? fs.readdirSync(receiptsDir).some((file) => file.startsWith(today))
-    : false
-  const contextStaged = changed.includes("knowledge/context.md")
-  if (!todaysReceipt && !contextStaged) {
-    fail(
-      `staged change(s) touch ${knowledgeTouching.join(", ")} but neither a ${today}-*.md receipt nor knowledge/context.md is staged`
-    )
-    return
-  }
-  ok("staged knowledge-touching change has a receipt or context update")
-}
-
-function checkReceiptsCloseTheLoop() {
-  const today = new Date().toISOString().slice(0, 10)
-  if (!fs.existsSync(receiptsDir)) return
-  let stagedReceipts = []
-  try {
-    stagedReceipts = execSync("git diff --cached --name-only", { cwd: repoRoot, encoding: "utf8" })
-      .split("\n")
-      .filter(Boolean)
-      .filter(
-        (file) => file.startsWith("knowledge/receipts/") && file.endsWith(".md") && path.basename(file).startsWith(today)
-      )
-  } catch {
-    return
-  }
-  if (!stagedReceipts.length) return
-  const markers = [
-    "## After Action Review",
-    "Why was there a difference",
-    "What will we do differently",
-  ]
-  const missing = stagedReceipts.filter((file) => {
-    const raw = fs.readFileSync(path.join(repoRoot, file), "utf8")
-    return markers.some((marker) => !raw.includes(marker))
+  check("knowledge/okf.yaml", raw => {
+    const data = YAML.parse(raw)
+    requireFields(data, ["okf_version", "app_id", "context", "status"])
+    requireFields(data.graphify, ["refresh"])
+    if (typeof data.graphify.scope !== "string" || !data.graphify.scope.trim())
+      throw Error("missing graphify.scope")
+    if (data.lessons !== "lessons/index.md")
+      throw Error("lessons must route to lessons/index.md")
+    read("knowledge/lessons/index.md")
   })
-  if (missing.length) {
-    fail(
-      `today's receipt(s) ${missing.join(", ")} do not close the loop: add an "## After Action Review" section with the discrepancy analysis (why was there a difference) and the learning action (what will we do differently)`
-    )
-    return
+  const covered = new Set()
+  for (const { file, deleted } of changed.filter(
+    item => receiptPath(item.file) && !item.deleted
+  )) {
+    check(file, raw => {
+      const data = frontmatter(raw)
+      requireFields(data, ["title", "type", "status", "intent"])
+      if (data.type !== "task-receipt") throw Error("type must be task-receipt")
+      if (!list(data.sources))
+        throw Error("sources must list exact repository paths")
+      requireFields(data.authorization, [
+        "state",
+        "source",
+        "scope",
+        "valid_until",
+      ])
+      if (!["delegated", "gated"].includes(data.authorization.state))
+        throw Error("execution requires delegated or approved gated authority")
+      requireFields(data.acceptance, ["status", "reviewer"])
+      if (
+        ![
+          "verified",
+          "verified-with-environment-limit",
+          "failed",
+          "partial",
+          "blocked",
+          "outcome-unknown",
+        ].includes(data.acceptance.status)
+      )
+        throw Error("invalid acceptance.status")
+      if (data.acceptance.human_review !== undefined) {
+        if (
+          !["pending", "accepted", "not-required"].includes(
+            data.acceptance.human_review
+          )
+        )
+          throw Error("invalid acceptance.human_review")
+        if (
+          data.acceptance.human_review === "pending" &&
+          data.status !== "partial"
+        )
+          throw Error("pending human review requires partial status")
+      }
+      if (data.status !== data.acceptance.status)
+        throw Error("status must match acceptance.status")
+      if (!list(data.acceptance.evidence))
+        throw Error("acceptance.evidence must name checks and results")
+      requireFields(data.aar, ["expected", "actual", "difference", "learning"])
+      if (!/^## After Action Review\s*$/m.test(raw))
+        throw Error("missing After Action Review section")
+      for (const source of data.sources) {
+        if (
+          path.posix.isAbsolute(source) ||
+          source.includes("\\") ||
+          source.split("/").some(part => ["..", ".", ""].includes(part))
+        )
+          throw Error(`invalid source path: ${source}`)
+        if (!changed.some(item => item.file === source && item.deleted))
+          if (!exists(source)) throw Error(`missing source: ${source}`)
+      }
+      data.sources.forEach(source => covered.add(source))
+    })
   }
-  ok("today's staged receipt(s) close the loop with the After Action Review")
+  for (const { file } of changed) {
+    if (
+      governed(file) &&
+      !covered.has(file) &&
+      !(receiptPath(file) && !changed.find(item => item.file === file).deleted)
+    ) {
+      errors.push(
+        `${file}: requires an added/modified staged receipt listing this exact path in sources`
+      )
+    }
+  }
+  return errors
 }
-
-checkContext()
-checkOkfYaml()
-checkReceiptsForKnowledgeTouchingChanges()
-checkReceiptsCloseTheLoop()
-
-if (failed) {
-  console.error("\n[okf:validate] One or more checks failed.")
-  process.exit(1)
+function main() {
+  const root = path.resolve(__dirname, "..")
+  const git = args =>
+    execFileSync("git", args, {
+      cwd: root,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+    })
+  try {
+    const changed = git([
+      "diff",
+      "--cached",
+      "--no-renames",
+      "--name-only",
+      "-z",
+    ])
+      .split("\0")
+      .filter(Boolean)
+    const deleted = new Set(
+      git([
+        "diff",
+        "--cached",
+        "--no-renames",
+        "--diff-filter=D",
+        "--name-only",
+        "-z",
+      ]).split("\0")
+    )
+    // No staged change: check only the working bundle, explicitly not commit readiness.
+    const read = changed.length
+      ? file => git(["show", `:${file}`])
+      : file => fs.readFileSync(path.join(root, file), "utf8")
+    const errors = validate({
+      read,
+      exists: changed.length
+        ? file => {
+            git(["cat-file", "-e", `:${file}`])
+            return true
+          }
+        : file => fs.existsSync(path.join(root, file)),
+      changed: changed.map(file => ({ file, deleted: deleted.has(file) })),
+    })
+    errors.forEach(error => console.error(`[okf:validate] FAIL — ${error}`))
+    if (errors.length) process.exitCode = 1
+    else
+      console.log(
+        changed.length
+          ? "[okf:validate] Staged bundle and receipt structure passed; human evidence review remains required."
+          : "[okf:validate] Working bundle passed; no staged changes, so commit receipts were not checked."
+      )
+  } catch (error) {
+    console.error(`[okf:validate] FAIL — ${error.message}`)
+    process.exitCode = 1
+  }
 }
-
-console.log("\n[okf:validate] All checks passed.")
+if (require.main === module) main()
+module.exports = { validate, frontmatter }

@@ -4,12 +4,12 @@ import Masonry from "@mui/lab/Masonry"
 import cuid from "cuid"
 import { AnimateOnScroll } from "../AnimateOnScroll"
 
-import Robot01 from "../../images/gallery/01.jpg"
-import Robot02 from "../../images/gallery/02.jpg"
-import Robot03 from "../../images/gallery/03.jpg"
-import Robot04 from "../../images/gallery/04.jpg"
-import Robot05 from "../../images/gallery/05.jpg"
-import Robot06 from "../../images/gallery/06.jpg"
+import Robot01 from "../../images/gallery/01.jpg?url"
+import Robot02 from "../../images/gallery/02.jpg?url"
+import Robot03 from "../../images/gallery/03.jpg?url"
+import Robot04 from "../../images/gallery/04.jpg?url"
+import Robot05 from "../../images/gallery/05.jpg?url"
+import Robot06 from "../../images/gallery/06.jpg?url"
 
 const imageSizePatterns = {
   id: cuid(),

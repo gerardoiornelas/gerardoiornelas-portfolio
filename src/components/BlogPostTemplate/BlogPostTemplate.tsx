@@ -1,9 +1,9 @@
 import React from "react"
 import replace from "lodash/replace"
-import { Link, navigate } from "gatsby"
+import { Link, navigate } from "../../lib/site"
 import { Grid, Box, Button, Container, Typography } from "@mui/material"
 import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { ResponsiveImage, type ImageData } from "../../lib/image"
 
 import { Footer } from "../Footer"
 
@@ -17,11 +17,7 @@ interface BlogPostTemplateProps {
         date: string
         author: string
         slug: string
-        featuredImage?: {
-          childImageSharp?: {
-            gatsbyImageData: any
-          }
-        }
+        featuredImage?: ImageData
       }
       html: string
     }
@@ -31,9 +27,7 @@ interface BlogPostTemplateProps {
 export const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data }) => {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
-  const featuredImg = getImage(
-    frontmatter.featuredImage?.childImageSharp?.gatsbyImageData ?? null
-  )
+  const featuredImg = frontmatter.featuredImage
   const transformTitle = replace(frontmatter.title, " ", "%20")
   const twitterShare = `https://twitter.com/share?text=I%20just%20read%20%22${transformTitle}%22%20by%20@gerardoiornelas&url=https://www.gerardoiornelas.com/blog${frontmatter.slug}/`
   const linkedInShare = `https://www.linkedin.com/shareArticle?mini=true&url=https://www.gerardoiornelas.com/blog${frontmatter.slug}/`
@@ -53,7 +47,7 @@ export const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data }) => {
               </Box>
               {featuredImg && (
                 <Box mb={3}>
-                  <GatsbyImage
+                  <ResponsiveImage
                     image={featuredImg}
                     alt={`Featured image for ${frontmatter.title}`}
                   />

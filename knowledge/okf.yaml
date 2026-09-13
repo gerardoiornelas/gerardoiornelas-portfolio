@@ -1,4 +1,4 @@
-okf_version: "0.2"
+okf_version: "0.3"
 app_id: gerardoiornelas-portfolio
 title: Gerardo I. Ornelas Portfolio
 description: Public portfolio and authority-layer publication site for Gerardo I. Ornelas.
@@ -8,3 +8,12 @@ status: active
 graphify:
   scope: .
   refresh: graphify . --update
+lessons: lessons/index.md
+pilot_results: ../docs/compound-engineering/pilots/2026-09-13-v2/report.md
+reference: reference.md
+receipt_tool: ../scripts/create-okf-receipt.js
+site_runtime: Astro 7 with React 18
+site_routes: ../src/pages
+site_views: ../src/views
+site_build_output: ../public
+migration_evidence: receipts/2026-09-13-astro-react-migration.md

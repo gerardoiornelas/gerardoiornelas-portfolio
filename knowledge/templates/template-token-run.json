@@ -1,0 +1,20 @@
+{
+  "task": "",
+  "variant": "baseline-or-compact",
+  "starting_commit": "",
+  "model_and_settings": "",
+  "repetition": 1,
+  "telemetry_source": "",
+  "measurement_kind": "unavailable",
+  "input_tokens_including_cache": null,
+  "cached_input_tokens_subset": null,
+  "output_tokens": null,
+  "total_tokens_including_retries_and_learning": null,
+  "repeated_reads": null,
+  "failed_commands": null,
+  "human_requests": null,
+  "lessons_retrieved": [],
+  "lessons_applied": [],
+  "acceptance": { "status": "pending", "reviewer": "", "evidence": [] },
+  "limitations": []
+}

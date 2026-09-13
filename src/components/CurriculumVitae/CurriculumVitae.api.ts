@@ -1,7 +1,7 @@
 import cuid from "cuid"
 
-import LogoAmfam from "../../images/cv/logo-crittora.png"
-import LogoOrnelasTech from "../../images/cv/logo-ornelastechnologies.png"
+import LogoAmfam from "../../images/cv/logo-crittora.png?url"
+import LogoOrnelasTech from "../../images/cv/logo-ornelastechnologies.png?url"
 
 interface Role {
   id: string

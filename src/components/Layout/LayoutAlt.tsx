@@ -1,5 +1,5 @@
 import React from "react"
-import { navigate } from "gatsby"
+import { navigate } from "../../lib/site"
 import PropTypes from "prop-types"
 import {
   AppBar,
@@ -14,7 +14,6 @@ import {
 
 import { Title } from "../Title"
 import { Footer } from "../Footer"
-import { useIsSmall } from "../../hooks/useIsSmall"
 
 interface LayoutAltProps {
   children: React.ReactNode

@@ -31,6 +31,7 @@ export const Contact: React.FC = () => {
       <Row justifyContent="center">
         <Col xs={12} md={6}>
           <form
+            data-astro-reload
             name="contact"
             method="POST"
             action="/thanks"

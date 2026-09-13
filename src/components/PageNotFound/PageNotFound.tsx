@@ -1,5 +1,5 @@
 import React from "react"
-import { navigate } from "gatsby"
+import { navigate } from "../../lib/site"
 import { Grid, Container, Typography, Box, Button } from "@mui/material"
 
 import { Title } from "../Title"

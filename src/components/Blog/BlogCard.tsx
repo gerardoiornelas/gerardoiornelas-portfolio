@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link } from "../../lib/site"
 import ClampLines from "react-clamp-lines"
 import {
   Typography,
@@ -9,7 +9,7 @@ import {
   Button,
 } from "@mui/material"
 import { rem } from "polished"
-import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { ResponsiveImage, type ImageData } from "../../lib/image"
 import ReadMoreIcon from "@mui/icons-material/ReadMore"
 
 interface BlogCardProps {
@@ -17,19 +17,13 @@ interface BlogCardProps {
     date: string
     title: string
     slug: string
-    featuredImage?: {
-      childImageSharp?: {
-        gatsbyImageData: IGatsbyImageData
-      }
-    }
+    featuredImage?: ImageData
   }
   excerpt: string
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ frontmatter, excerpt }) => {
-  const featuredImg = getImage(
-    frontmatter.featuredImage?.childImageSharp?.gatsbyImageData ?? null
-  )
+  const featuredImg = frontmatter.featuredImage
   return (
     <Card
       sx={{
@@ -40,7 +34,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ frontmatter, excerpt }) => {
       }}
     >
       {featuredImg && (
-        <GatsbyImage
+        <ResponsiveImage
           image={featuredImg}
           alt={frontmatter.title}
           style={{ height: rem(210) }}

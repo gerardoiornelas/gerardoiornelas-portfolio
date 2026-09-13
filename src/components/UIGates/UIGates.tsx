@@ -14,7 +14,7 @@ import { RowCol } from "../RowCol"
 import { AnimateOnScroll } from "../AnimateOnScroll"
 import { Segment } from "../Segment"
 import { Title } from "../Title"
-import ImgUigLogo from "../../images/uig/uigates-icon-transparent.png"
+import ImgUigLogo from "../../images/uig/uigates-icon-transparent.png?url"
 
 export const UIGates: React.FC = () => {
   const theme = useTheme()

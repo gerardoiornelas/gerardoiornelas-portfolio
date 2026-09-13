@@ -14,7 +14,7 @@ import { StyledHome } from "./Home.styled"
 import { AnimateOnScroll } from "../AnimateOnScroll"
 import { Social } from "../Social"
 
-import ImgLostwunHero from "../../images/hero-gerardo-i-ornelas.png"
+import ImgLostwunHero from "../../images/hero-gerardo-i-ornelas.png?url"
 
 export const Home: React.FC = () => {
   const theme = useTheme()

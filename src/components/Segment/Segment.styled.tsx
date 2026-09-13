@@ -2,8 +2,8 @@ import { Box } from "@mui/material"
 import { styled } from "@mui/system"
 import { rem } from "polished"
 
-import ImgCurvy from "../../images/curvy-segment.svg"
-import ImgCurvyAlt from "../../images/curvy-segment-alt.svg"
+import ImgCurvy from "../../images/curvy-segment.svg?url"
+import ImgCurvyAlt from "../../images/curvy-segment-alt.svg?url"
 
 const segmentDecorationHeight = 269
 const segmentDecorationAltHeight = 281

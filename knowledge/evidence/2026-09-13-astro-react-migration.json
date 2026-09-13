@@ -1,0 +1,604 @@
+{
+  "date": "2026-09-13",
+  "baseline": "Successful Gatsby 5.16 production build of the initial working tree, including pre-existing local changes.",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 390,
+      "height": 900
+    }
+  ],
+  "articles": [
+    {
+      "source": "src/content/ambient-authority-the-silent-killer-of-agentic-workflows.md",
+      "htmlSha256": "571244b06dc8936804756d7e99e127adbb38629c06b47728b8597fca4ca72937",
+      "baselineHtmlSha256": "571244b06dc8936804756d7e99e127adbb38629c06b47728b8597fca4ca72937",
+      "htmlMatches": true,
+      "excerptMatches": true
+    },
+    {
+      "source": "src/content/generated-ai-interfaces-what-must-stay-fixed.md",
+      "htmlSha256": "924bb41646ab83e0458aeb0f30d62babd8601d8475db396e28a4553cb81c2d50",
+      "baselineHtmlSha256": "924bb41646ab83e0458aeb0f30d62babd8601d8475db396e28a4553cb81c2d50",
+      "htmlMatches": true,
+      "excerptMatches": true
+    },
+    {
+      "source": "src/content/labor-day-ai-future-of-work-human-agency.md",
+      "htmlSha256": "5bd49b06d322e0e0694d5c1f2c8247f394f9d0517ead40f4ceaee1f8f9d1ac22",
+      "baselineHtmlSha256": "5bd49b06d322e0e0694d5c1f2c8247f394f9d0517ead40f4ceaee1f8f9d1ac22",
+      "htmlMatches": true,
+      "excerptMatches": true
+    },
+    {
+      "source": "src/content/one-connection-is-not-security.md",
+      "htmlSha256": "9e0c72e604eb0ad072f9be4ed2aba3a4ec34714f91eca7c6d7ccd81434df5f19",
+      "baselineHtmlSha256": "9e0c72e604eb0ad072f9be4ed2aba3a4ec34714f91eca7c6d7ccd81434df5f19",
+      "htmlMatches": true,
+      "excerptMatches": true
+    },
+    {
+      "source": "src/content/one-verifier-is-not-verification.md",
+      "htmlSha256": "acbd2a8d37959ccbd3af865c6a9f827075027d9d5e054c5b234c97fd13041c17",
+      "baselineHtmlSha256": "acbd2a8d37959ccbd3af865c6a9f827075027d9d5e054c5b234c97fd13041c17",
+      "htmlMatches": true,
+      "excerptMatches": true
+    },
+    {
+      "source": "src/content/securing-autonomy.md",
+      "htmlSha256": "03a75850372f28f3ca52d0275f19a2ce1863e747a11eab1c46ca233c4eebaba3",
+      "baselineHtmlSha256": "03a75850372f28f3ca52d0275f19a2ce1863e747a11eab1c46ca233c4eebaba3",
+      "htmlMatches": true,
+      "excerptMatches": true
+    },
+    {
+      "source": "src/content/the-most-dangerous-ai-failures-still-look-normal.md",
+      "htmlSha256": "87770d43d664dbc3fb8a388636db6dff6acd94d9a469e7c15892982f942513be",
+      "baselineHtmlSha256": "87770d43d664dbc3fb8a388636db6dff6acd94d9a469e7c15892982f942513be",
+      "htmlMatches": true,
+      "excerptMatches": true
+    },
+    {
+      "source": "src/content/the-organizational-singularity.md",
+      "htmlSha256": "f7b8fc5e2da15c2f6ed78322b55c158d11d9bb77d2fe6c4572c43b9713466eea",
+      "baselineHtmlSha256": "f7b8fc5e2da15c2f6ed78322b55c158d11d9bb77d2fe6c4572c43b9713466eea",
+      "htmlMatches": true,
+      "excerptMatches": true
+    },
+    {
+      "source": "src/content/trust-stack-provenance-spectrum-pol-c2pa.md",
+      "htmlSha256": "3bcd13da577d6dc2bc595c33666bd32b745db4ba2b0f9cb50041c6b67d916bf6",
+      "baselineHtmlSha256": "3bcd13da577d6dc2bc595c33666bd32b745db4ba2b0f9cb50041c6b67d916bf6",
+      "htmlMatches": true,
+      "excerptMatches": true
+    },
+    {
+      "source": "src/content/verifiably-human-part-1.md",
+      "htmlSha256": "2e017ee8ddad3ee41f84e78abf066dc983231c4dbd48127e21ca34fe4b3f1f05",
+      "baselineHtmlSha256": "2e017ee8ddad3ee41f84e78abf066dc983231c4dbd48127e21ca34fe4b3f1f05",
+      "htmlMatches": true,
+      "excerptMatches": true
+    },
+    {
+      "source": "src/content/verifiably-human-part-2.md",
+      "htmlSha256": "a28c62764b3597a1c3cb70994367152a86a268f02f457fe498e25fdbfafe3216",
+      "baselineHtmlSha256": "a28c62764b3597a1c3cb70994367152a86a268f02f457fe498e25fdbfafe3216",
+      "htmlMatches": true,
+      "excerptMatches": true
+    },
+    {
+      "source": "src/content/verifiably-human-part-3.md",
+      "htmlSha256": "938990697b86af812b4cf98c9efd6ec255bc0343bc0285fa3eb2549f32aaca85",
+      "baselineHtmlSha256": "938990697b86af812b4cf98c9efd6ec255bc0343bc0285fa3eb2549f32aaca85",
+      "htmlMatches": true,
+      "excerptMatches": true
+    },
+    {
+      "source": "src/content/what-building-with-hedera-is-teaching-me-about-real-world-blockchain-adoption.md",
+      "htmlSha256": "cd472b3231a0a277f05ab712c17d55b92014bf33e774147420b44e7a3cc65e39",
+      "baselineHtmlSha256": "cd472b3231a0a277f05ab712c17d55b92014bf33e774147420b44e7a3cc65e39",
+      "htmlMatches": true,
+      "excerptMatches": true
+    }
+  ],
+  "routes": [
+    {
+      "route": "/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/uig/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/compound-engineering/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/authority-layer/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/manifesto/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/author/gerardo-i-ornelas/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/stats/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/privacy-policy/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/thanks/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/404.html",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/trust-stack-provenance-spectrum-pol-c2pa/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/generated-ai-interfaces-what-must-stay-fixed/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/labor-day-ai-future-of-work-human-agency/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/one-connection-is-not-security/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/one-verifier-is-not-verification/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/ambient-authority-the-silent-killer-of-agentic-workflows/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/what-building-with-hedera-is-teaching-me-about-real-world-blockchain-adoption/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/the-organizational-singularity/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/the-most-dangerous-ai-failures-still-look-normal/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/verifiably-human-part-3/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/verifiably-human-part-2/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/verifiably-human-part-1/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/securing-autonomy/",
+      "width": 1440,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/uig/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/compound-engineering/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/authority-layer/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/manifesto/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/author/gerardo-i-ornelas/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/stats/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/privacy-policy/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/thanks/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/404.html",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/trust-stack-provenance-spectrum-pol-c2pa/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/generated-ai-interfaces-what-must-stay-fixed/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/labor-day-ai-future-of-work-human-agency/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/one-connection-is-not-security/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/one-verifier-is-not-verification/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/ambient-authority-the-silent-killer-of-agentic-workflows/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/what-building-with-hedera-is-teaching-me-about-real-world-blockchain-adoption/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/the-organizational-singularity/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/the-most-dangerous-ai-failures-still-look-normal/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/verifiably-human-part-3/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/verifiably-human-part-2/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/verifiably-human-part-1/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    },
+    {
+      "route": "/blog/securing-autonomy/",
+      "width": 390,
+      "textMatches": true,
+      "headingGeometryMatches": true,
+      "metadataMatches": true,
+      "browserErrors": []
+    }
+  ],
+  "screenshots": [
+    {
+      "baseline": "gatsby-1440-_.png",
+      "changedPixelPercent": 1.321
+    },
+    {
+      "baseline": "gatsby-1440-_blog_.png",
+      "changedPixelPercent": 0
+    },
+    {
+      "baseline": "gatsby-1440-_blog_trust-stack-provenance-spectrum-pol-c2pa_.png",
+      "changedPixelPercent": 0
+    },
+    {
+      "baseline": "gatsby-1440-_uig_.png",
+      "changedPixelPercent": 0
+    },
+    {
+      "baseline": "gatsby-1440-section-blog.png",
+      "changedPixelPercent": 0.02
+    },
+    {
+      "baseline": "gatsby-1440-section-contact.png",
+      "changedPixelPercent": 0.629
+    },
+    {
+      "baseline": "gatsby-1440-section-hero.png",
+      "changedPixelPercent": 0
+    },
+    {
+      "baseline": "gatsby-1440-section-practices.png",
+      "changedPixelPercent": 0
+    },
+    {
+      "baseline": "gatsby-1440-section-uig.png",
+      "changedPixelPercent": 0
+    },
+    {
+      "baseline": "gatsby-390-_.png",
+      "changedPixelPercent": 0.356
+    },
+    {
+      "baseline": "gatsby-390-_blog_.png",
+      "changedPixelPercent": 0
+    },
+    {
+      "baseline": "gatsby-390-_blog_trust-stack-provenance-spectrum-pol-c2pa_.png",
+      "changedPixelPercent": 0.035
+    },
+    {
+      "baseline": "gatsby-390-_uig_.png",
+      "changedPixelPercent": 0
+    },
+    {
+      "baseline": "gatsby-390-section-blog.png",
+      "changedPixelPercent": 0
+    },
+    {
+      "baseline": "gatsby-390-section-contact.png",
+      "changedPixelPercent": 0
+    },
+    {
+      "baseline": "gatsby-390-section-hero.png",
+      "changedPixelPercent": 0
+    },
+    {
+      "baseline": "gatsby-390-section-practices.png",
+      "changedPixelPercent": 0
+    },
+    {
+      "baseline": "gatsby-390-section-uig.png",
+      "changedPixelPercent": 0
+    }
+  ],
+  "browserSuite": {
+    "routes": 24,
+    "viewports": [
+      1440,
+      390
+    ],
+    "checks": [
+      "1440px: all routes hydrate, metadata parses, and all images decode",
+      "1440px: navigation, history, and contact anchor work",
+      "1440px: article navigation and Back restore the blog anchor",
+      "1440px: both Markdown skill downloads work",
+      "1440px: validation and POST payload preserved; submission intercepted",
+      "390px: all routes hydrate, metadata parses, and all images decode",
+      "390px: navigation, history, and contact anchor work",
+      "390px: article navigation and Back restore the blog anchor",
+      "390px: both Markdown skill downloads work",
+      "390px: validation and POST payload preserved; submission intercepted"
+    ]
+  },
+  "checks": {
+    "build": "passed: 24 Astro pages",
+    "typecheck": "passed",
+    "contentTests": "2 passed",
+    "okfTests": "14 passed",
+    "gitDiffCheck": "passed",
+    "developmentSmoke": "passed: homepage and article HTTP 200, correct titles, no browser errors",
+    "sitemap": "same 23 URLs as Gatsby",
+    "manifest": "byte-identical manifest; same favicon and all 8 Apple touch icons"
+  },
+  "limits": [
+    "Chromium desktop/mobile viewport checks; no claim of every browser or device.",
+    "Screenshot differences include remote YouTube thumbnail variability, lazy loading, and image re-encoding; no screenshot comparison is claimed universally exact.",
+    "SEO comparison normalizes generated image URLs and HTML entities and excludes framework-only metadata. Titles compare original server HTML because the Gatsby browser baseline cleared document.title after hydration.",
+    "Contact POST was intercepted; production delivery and deployment were not exercised.",
+    "Human visual acceptance is pending."
+  ],
+  "localArtifacts": "/private/tmp/portfolio-parity/"
+}

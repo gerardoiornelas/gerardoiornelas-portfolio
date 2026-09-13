@@ -1,0 +1,313 @@
+[
+  {
+    "id": "ui-r1-baseline",
+    "task": "ui",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "exact_ui_change": true,
+      "filename_preserved": true,
+      "built_label": true,
+      "receipt_coverage": false,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true
+    },
+    "changed": [
+      "src/pages/uig.tsx",
+      "knowledge/receipts/2026-09-13-uig-download-label.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "pending",
+    "receipt_errors": [
+      "knowledge/receipts/2026-09-13-uig-download-label.md: missing or placeholder status",
+      "src/pages/uig.tsx: requires an added/modified staged receipt listing this exact path in sources"
+    ],
+    "automated_acceptance": "fail"
+  },
+  {
+    "id": "ui-r1-compact",
+    "task": "ui",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "exact_ui_change": true,
+      "filename_preserved": true,
+      "built_label": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true
+    },
+    "changed": [
+      "src/pages/uig.tsx",
+      "knowledge/receipts/2026-09-13-uig-download-label.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "pending",
+    "receipt_errors": [],
+    "automated_acceptance": "pass"
+  },
+  {
+    "id": "validator-r1-baseline",
+    "task": "validator",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "unique_accepted": true,
+      "duplicate_rejected": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true
+    },
+    "changed": [
+      "knowledge/lessons/index.md",
+      "scripts/validate-okf.js",
+      "scripts/validate-okf.test.js",
+      "knowledge/receipts/2026-09-13-duplicate-receipt-sources.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "automated_acceptance": "pass"
+  },
+  {
+    "id": "validator-r1-compact",
+    "task": "validator",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "unique_accepted": true,
+      "duplicate_rejected": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true
+    },
+    "changed": [
+      "scripts/validate-okf.js",
+      "scripts/validate-okf.test.js",
+      "knowledge/receipts/2026-09-13-duplicate-receipt-sources.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "automated_acceptance": "pass"
+  },
+  {
+    "id": "docs-r1-baseline",
+    "task": "docs",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "commands": true,
+      "explanations": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true
+    },
+    "changed": [
+      "AGENTS.md",
+      "knowledge/README.md",
+      "knowledge/context.md",
+      "knowledge/receipts/2026-09-13-gatsby-build-troubleshooting.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "automated_acceptance": "pass"
+  },
+  {
+    "id": "docs-r1-compact",
+    "task": "docs",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "commands": true,
+      "explanations": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true
+    },
+    "changed": [
+      "AGENTS.md",
+      "knowledge/README.md",
+      "knowledge/context.md",
+      "knowledge/receipts/2026-09-13-gatsby-build-troubleshooting.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "automated_acceptance": "pass"
+  },
+  {
+    "id": "ui-r2-compact",
+    "task": "ui",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "exact_ui_change": true,
+      "filename_preserved": true,
+      "built_label": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true
+    },
+    "changed": [
+      "src/pages/uig.tsx",
+      "knowledge/receipts/2026-09-13-uig-download-label.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "pending",
+    "receipt_errors": [],
+    "automated_acceptance": "pass"
+  },
+  {
+    "id": "ui-r2-baseline",
+    "task": "ui",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "exact_ui_change": true,
+      "filename_preserved": true,
+      "built_label": true,
+      "receipt_coverage": false,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true
+    },
+    "changed": [
+      "src/pages/uig.tsx",
+      "knowledge/receipts/2026-09-13-uig-download-label.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "pending",
+    "receipt_errors": [
+      "knowledge/receipts/2026-09-13-uig-download-label.md: missing or placeholder status",
+      "src/pages/uig.tsx: requires an added/modified staged receipt listing this exact path in sources"
+    ],
+    "automated_acceptance": "fail"
+  },
+  {
+    "id": "validator-r2-compact",
+    "task": "validator",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "unique_accepted": true,
+      "duplicate_rejected": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true
+    },
+    "changed": [
+      "scripts/validate-okf.js",
+      "scripts/validate-okf.test.js",
+      "knowledge/receipts/2026-09-13-duplicate-receipt-sources.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "automated_acceptance": "pass"
+  },
+  {
+    "id": "validator-r2-baseline",
+    "task": "validator",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "unique_accepted": true,
+      "duplicate_rejected": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true
+    },
+    "changed": [
+      "scripts/validate-okf.js",
+      "scripts/validate-okf.test.js",
+      "knowledge/receipts/2026-09-13-duplicate-receipt-sources.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "automated_acceptance": "pass"
+  },
+  {
+    "id": "docs-r2-compact",
+    "task": "docs",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "commands": true,
+      "explanations": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true
+    },
+    "changed": [
+      "AGENTS.md",
+      "knowledge/README.md",
+      "knowledge/context.md",
+      "knowledge/receipts/2026-09-13-gatsby-build-docs.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "automated_acceptance": "pass"
+  },
+  {
+    "id": "docs-r2-baseline",
+    "task": "docs",
+    "checks": {
+      "no_commit": true,
+      "scope": true,
+      "commands": true,
+      "explanations": true,
+      "receipt_coverage": true,
+      "graph_attempted": true,
+      "tests_observed": true,
+      "build_observed": true
+    },
+    "changed": [
+      "AGENTS.md",
+      "knowledge/README.md",
+      "knowledge/context.md",
+      "knowledge/receipts/2026-09-13-gatsby-build-troubleshooting.md"
+    ],
+    "limitations": [
+      "Graph semantic backend unavailable; full operational acceptance not established."
+    ],
+    "human_acceptance": "not-required",
+    "receipt_errors": [],
+    "automated_acceptance": "pass"
+  }
+]

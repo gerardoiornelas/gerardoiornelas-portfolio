@@ -1,22 +1,20 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "target": "es2016" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */ /* Specify a set of bundled library declaration files that describe the target runtime environment. */,
-    "jsx": "react-jsx" /* Specify what JSX code is generated. */,
-    "lib": ["dom", "es2015"],
-    // "preserveSymlinks": true,                         /* Disable resolving symlinks to their realpath. This correlates to the same flag in node. */
-
-    /* Type Checking */
-
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
     "allowJs": true,
-    "skipLibCheck": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true
-  }
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": false
+  },
+  "include": [
+    ".astro/types.d.ts",
+    "src/**/*"
+  ],
+  "exclude": [
+    "public",
+    "node_modules",
+    "src/**/*.test.*"
+  ]
 }

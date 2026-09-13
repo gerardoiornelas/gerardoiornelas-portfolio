@@ -152,7 +152,7 @@ receipt:
   discrepancy_analysis: # AAR: why actual differed from intended
     expected: <from the intent's success_evidence>
     actual: <summarized from the verification results>
-    root_cause: <one named cause>
+    root_cause: <supported cause, no discrepancy, or cause unknown>
   learning_action: # AAR: what this loop will do differently
     sustain: <promoted to which knowledge level>
     improve: <corrective; a procedural fix to the skill/rules is gated>
@@ -189,3 +189,9 @@ Run the first complete cycle in a single project before migrating broad knowledg
 7. Promote one warranted lesson.
 
 Only then expand into knowledge migration, multi-agent orchestration, automated verification, broader delegated authority, and cross-project operation.
+
+## Authorization and acceptance
+
+Delegated work proceeds within existing approved scope without repeated permission questions. Gated actions require explicit principal approval before execution. Prohibited actions stop; propose a permissible alternative. Changes to governing rules, permissions, verification requirements, or completion criteria require explicit approval.
+
+Record authorization before execution: intent, principal decision or delegation source, action/resource scope, and validity boundary. Recheck it when scope, actor, conditions, or expiry change, or authority is revoked. Acceptance records the reviewer and result evidence after execution; it never retroactively authorizes work. An approved request to implement a concrete proposal satisfies that proposal's gate.

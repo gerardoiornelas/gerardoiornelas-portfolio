@@ -1,3 +1,4 @@
+# For committed Markdown use template-receipt.md: its frontmatter is the validated repository format.
 # UI-GATES receipt schema.
 #
 # In this repo, receipts are committed as Markdown files under knowledge/receipts/,
@@ -34,7 +35,7 @@ receipt:
   discrepancy_analysis: # AAR Q3 — why actual differed from intended
     expected: "" # from the intent's success_evidence
     actual: "" # summarized from verification results
-    root_cause: "" # one named cause
+    root_cause: "" # supported cause, no discrepancy, or cause unknown
   learning_action: # AAR Q4 — what this loop will do differently
     sustain: "" # what is promoted, and to which knowledge level
     improve: "" # the corrective; a procedural fix to the skill/rules is gated by default

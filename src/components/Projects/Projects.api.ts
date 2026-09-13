@@ -1,8 +1,8 @@
 import cuid from "cuid"
 
-import ImgCrittora from "../../images/projects/crittora.png"
-import ImgWUN from "../../images/projects/wun.png"
-import ImgUIGates from "../../images/projects/uigates.png"
+import ImgCrittora from "../../images/projects/crittora.png?url"
+import ImgWUN from "../../images/projects/wun.png?url"
+import ImgUIGates from "../../images/projects/uigates.png?url"
 
 interface ProjectData {
   id: string

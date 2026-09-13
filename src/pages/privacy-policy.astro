@@ -1,0 +1,10 @@
+---
+import { getPageStyles } from "../lib/page-styles"
+import Document from "../layouts/Document.astro"
+import Page, { Head } from "../views/privacy-policy.tsx"
+const styles = getPageStyles(Page, {})
+---
+<Document styles={styles}>
+  <Head slot="head" />
+  <Page client:load />
+</Document>
