@@ -16,9 +16,11 @@ Pending human review: status and acceptance.status = partial;
 acceptance.human_review = pending. Use accepted only after actual human acceptance,
 or not-required when applicable. Partial records do not close the task.
 The same validator checks the completed input before creating a receipt.
+For an instrumented task, set UIG_LEARNING_RUN to the ID returned by uig:learn start.
+Each receipt attempt is then recorded locally with redacted field shapes.
 Existing files are never overwritten. This command does not stage, commit or push.
 `
-function createReceipt(root, slug, data) {
+function writeReceipt(root, slug, data) {
   if (!/^\d{4}-\d{2}-\d{2}-[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))
     throw Error("receipt name must be YYYY-MM-DD-slug")
   const date = slug.slice(0, 10)
@@ -57,6 +59,26 @@ function createReceipt(root, slug, data) {
   })
   if (errors.length) throw Error(errors.join("\n"))
   fs.writeFileSync(path.join(root, file), raw, { flag: "wx" })
+  return file
+}
+function createReceipt(
+  root,
+  slug,
+  data,
+  { learningRun = process.env.UIG_LEARNING_RUN } = {}
+) {
+  if (!learningRun) return writeReceipt(root, slug, data)
+  const { Learning } = require("./uig-learning")
+  const learning = new Learning(root)
+  learning.assertRun(learningRun)
+  let file
+  try {
+    file = writeReceipt(root, slug, data)
+  } catch (error) {
+    learning.record(learningRun, data, false)
+    throw error
+  }
+  learning.record(learningRun, data, true)
   return file
 }
 function main(args) {

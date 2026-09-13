@@ -47,3 +47,14 @@ npm run test:browser
 Browser tests require Playwright Chromium (`npx playwright install chromium` if it is not already installed). Set `SITE_URL` to test another local preview port. They cover all pages at desktop and mobile widths, image decoding, hydration, metadata, navigation/history, anchors, downloads, and an intercepted contact-form submission. They do not send a message. The older component test files are retained; the executable migration checks are the scripts above.
 
 The original Gatsby baseline and visual-comparison findings are documented in [the migration receipt](knowledge/receipts/2026-09-13-astro-react-migration.md). Repository knowledge and authority requirements start in [AGENTS.md](AGENTS.md) and [knowledge/context.md](knowledge/context.md).
+
+## UI-GATES documentation
+
+The public `/uig/#learning` section explains the receipt-learning model and current evidence; `/compound-engineering/` connects it to the coding workflow. The portable skill downloads remain workflow guides, separate from this repository's local tools.
+
+- [Receipt learning](docs/compound-engineering/receipt-learning.md): instrument tasks, derive candidates, evaluate unseen tasks, record principal approval, retrieve applicable lessons, and retire stale guidance.
+- [Receipt authoring](knowledge/receipt-authoring.md): generate and validate receipts, including pending human review.
+- [Workflow comparison](docs/compound-engineering/pilots/2026-09-13-v2/report.md): 12.61% fewer total worker tokens in twelve controlled runs, with fixed lessons and documented accounting limits.
+- [UI-GATES canon](docs/compound-engineering/ui-gates-canon.md) and [operating system](docs/compound-engineering/operating-system.md): authority, verification, and knowledge promotion.
+
+Start local tooling with `npm run uig:learn -- --help`. `npm run okf:test` covers the learning mechanism and accounting boundaries. Experience records are local and ignored by Git. Paired fixtures verify the mechanism; real-agent experiential learning and additional token savings remain unproven.

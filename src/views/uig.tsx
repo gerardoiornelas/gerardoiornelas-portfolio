@@ -156,11 +156,39 @@ const UigPage: React.FC = () => {
       </Container>
 
       <Divider />
+      <Container id="learning" component="section" aria-labelledby="learning-title" maxWidth="lg" sx={{ py: 10, px: 3, scrollMarginTop: 96 }}>
+        <Label>Learning from experience</Label>
+        <Typography id="learning-title" component="h2" variant="h3" sx={{ maxWidth: 850, mb: 3 }}>A lesson must earn its place in the next task.</Typography>
+        <Typography color="text.secondary" sx={{ maxWidth: 850, fontWeight: 300, lineHeight: 1.8, mb: 4 }}>
+          UI-GATES treats learning as a traceable change in future behavior: experience produces a lesson, an approved lesson guides a later task, and verification tests whether it helped. The first implementation focuses on receipt authoring.
+        </Typography>
+        <Grid container spacing={3}>
+          {[
+            ["Capture and propose", "Instrumented receipt attempts record validation failures and successful corrections. A matching correction across two distinct tasks can produce a candidate lesson, with supporting evidence and conditions for reuse."],
+            ["Evaluate and approve", "Candidates are tested on unseen tasks against a control that receives no lesson. Evaluation and principal approval precede live reuse. Learning cannot supply authorization or waive human review."],
+            ["Reuse and retire", "Later tasks receive only applicable, approved lessons. Source changes and expired approvals stop stale reuse; acceptance regressions retire the affected lessons. Failed attempts and learning overhead stay in the comparison."],
+          ].map(([title, body]) => <Grid item xs={12} md={4} key={title}><Box sx={{ height: "100%", border: "1px solid", borderColor: "divider", p: 3.5 }}><Typography component="h3" variant="h5" sx={{ mb: 1.5 }}>{title}</Typography><Typography color="text.secondary" sx={{ fontWeight: 300, lineHeight: 1.75 }}>{body}</Typography></Box></Grid>)}
+        </Grid>
+        <Box sx={{ mt: 4, borderLeft: "2px solid", borderColor: "secondary.main", pl: 3, maxWidth: 900 }}>
+          <Typography component="h3" variant="h6" sx={{ mb: 1 }}>Implemented; transfer tested in fixtures</Typography>
+          <Typography color="text.secondary" sx={{ fontWeight: 300, lineHeight: 1.8 }}>
+            The local tools cover recording, lesson proposals, approval, selective reuse, and controlled evaluation. Six unseen paired fixtures exercise the learning mechanism. A real coding-agent comparison is still required to establish learning-driven improvement. The implementation uses persistent memory; it does not retrain the underlying model.
+          </Typography>
+          <Typography color="text.secondary" sx={{ fontWeight: 300, lineHeight: 1.8, mt: 2 }}>
+            A separate 12-run workflow comparison measured 12.6% fewer total worker tokens with the same automated checks passing. That comparison held lessons fixed, excluded parent and reviewer model usage, and left human UI and full operational acceptance pending. It does not demonstrate learned-memory gains or lower billing costs.
+          </Typography>
+        </Box>
+        <Typography color="text.secondary" sx={{ maxWidth: 850, fontSize: 14, lineHeight: 1.75, mt: 3 }}>
+          These learning tools are local to this repository. The portable UIG download provides workflow guidance; it does not install the recorder, lesson store, evaluator, or a runtime control plane.
+        </Typography>
+      </Container>
+
+      <Divider />
       <Container maxWidth="lg" sx={{ py: 10, px: 3 }}>
         <Label>The immediate value</Label>
         <Grid container spacing={5}>
           <Grid item xs={12} md={6}><Typography sx={{ fontFamily: "monospace", fontSize: 10, letterSpacing: "0.14em", color: "text.disabled", mb: 1.5 }}>WITHOUT UI-GATES</Typography><Typography color="text.secondary" sx={{ fontWeight: 300, lineHeight: 1.8 }}>An agent can make rapid local progress while decisions stay implicit, permission is inferred from credentials, verification is uneven, and the next task must rediscover what the last task learned.</Typography></Grid>
-          <Grid item xs={12} md={6}><Typography sx={{ fontFamily: "monospace", fontSize: 10, letterSpacing: "0.14em", color: "secondary.main", mb: 1.5 }}>WITH UI-GATES</Typography><Typography color="text.secondary" sx={{ fontWeight: 300, lineHeight: 1.8 }}>The agent knows its scope, asks before consequential actions, proves its result, and leaves a concise traceable lesson. Future work begins with better context instead of a blank slate.</Typography></Grid>
+          <Grid item xs={12} md={6}><Typography sx={{ fontFamily: "monospace", fontSize: 10, letterSpacing: "0.14em", color: "secondary.main", mb: 1.5 }}>WITH UI-GATES</Typography><Typography color="text.secondary" sx={{ fontWeight: 300, lineHeight: 1.8 }}>The agent knows its scope, asks before consequential actions, proves its result, and records what the evidence supports. A reusable lesson is retained only when warranted; no new lesson is a valid outcome.</Typography></Grid>
         </Grid>
         <Grid container spacing={3} sx={{ mt: 4 }}>
           {[

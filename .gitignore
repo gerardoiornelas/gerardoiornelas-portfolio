@@ -76,3 +76,6 @@ yarn-error.log
 # Astro generated files
 dist/
 .astro/
+
+# Local UI-GATES experience, review artifacts and approval records
+.uig-learning/

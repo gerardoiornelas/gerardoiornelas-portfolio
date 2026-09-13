@@ -165,6 +165,19 @@ const CompoundEngineeringPage: React.FC = () => {
       </Container>
 
       <Divider />
+      <Container component="section" aria-labelledby="receipt-learning-title" maxWidth="lg" sx={{ py: 10, px: 3 }}>
+        <Label>From evidence to reuse</Label>
+        <Typography id="receipt-learning-title" component="h2" variant="h3" sx={{ mb: 3, maxWidth: 800 }}>Learning that can be traced and tested.</Typography>
+        <Typography color="text.secondary" sx={{ maxWidth: 850, fontWeight: 300, lineHeight: 1.8, mb: 3 }}>
+          The first local implementation learns candidate guidance from repeated receipt-validation failures and successful corrections. Lessons move through evaluation and principal approval before live reuse. Source changes invalidate stale guidance, and controlled comparisons include failed attempts and learning overhead.
+        </Typography>
+        <Typography color="text.secondary" sx={{ maxWidth: 850, fontWeight: 300, lineHeight: 1.8, mb: 3 }}>
+          The mechanism has passed paired fixture tests. Demonstrating improvement on real coding-agent tasks remains the next evidence requirement. These repository tools are separate from the portable skill download.
+        </Typography>
+        <Button component="a" href="/uig/#learning" variant="outlined" color="secondary" sx={{ fontFamily: "monospace" }}>Read the learning model and evidence →</Button>
+      </Container>
+
+      <Divider />
       <Container maxWidth="lg" sx={{ py: 10, px: 3 }}>
         <Label>Original synthesis</Label>
         <Grid container spacing={3}>

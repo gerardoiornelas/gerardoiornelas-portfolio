@@ -171,7 +171,7 @@ export const UIGates: React.FC = () => {
                     Compounding Knowledge
                   </Typography>
                   <Typography color="text.secondary" sx={{ lineHeight: 1.7, fontSize: 14 }}>
-                    Every meaningful execution produces a verifiable receipt. Validated decisions and reusable patterns are promoted into repository knowledge so future tasks compound on proven context.
+                    Receipts preserve the evidence behind each change. The first local learning tools derive candidate lessons from repeated receipt corrections, evaluate them, and require approval before reuse. The mechanism is fixture-tested; real-agent transfer remains to be measured.
                   </Typography>
                 </Box>
               </Grid>

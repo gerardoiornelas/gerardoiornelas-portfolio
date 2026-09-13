@@ -17,3 +17,7 @@ site_routes: ../src/pages
 site_views: ../src/views
 site_build_output: ../public
 migration_evidence: receipts/2026-09-13-astro-react-migration.md
+receipt_learning: ../docs/compound-engineering/receipt-learning.md
+receipt_recoverability: ../scripts/uig-recoverability.js
+learning_store: ../.uig-learning/
+learning_public_route: /uig/#learning

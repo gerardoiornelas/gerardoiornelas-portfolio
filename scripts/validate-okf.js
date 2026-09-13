@@ -25,6 +25,13 @@ const governed = file =>
     "scripts/validate-okf.test.js",
     "scripts/create-okf-receipt.js",
     "scripts/create-okf-receipt.test.js",
+    "scripts/uig-learning.js",
+    "scripts/uig-learning-cli.js",
+    "scripts/uig-learning.test.js",
+    "scripts/uig-recoverability.js",
+    "scripts/uig-recoverability.test.js",
+    "scripts/uig-runner.test.js",
+    "runner.cjs",
     "package.json",
     "package-lock.json",
   ].includes(file)
@@ -33,6 +40,87 @@ function frontmatter(raw) {
   const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/)
   if (!match) throw Error("missing YAML frontmatter")
   return YAML.parse(match[1])
+}
+function fail(code, field, message) {
+  throw Object.assign(new Error(message), { code, field })
+}
+function receiptStructure(raw) {
+  function requireFields(object, fields, prefix) {
+    for (const field of fields)
+      if (!meaningful(object?.[field]))
+        fail(
+          "required-field",
+          prefix ? `${prefix}.${field}` : field,
+          `missing or placeholder ${field}`
+        )
+  }
+  const data = frontmatter(raw)
+  requireFields(data, ["title", "type", "status", "intent"], "")
+  if (data.type !== "task-receipt")
+    fail("receipt-type", "type", "type must be task-receipt")
+  if (!list(data.sources))
+    fail(
+      "sources-required",
+      "sources",
+      "sources must list exact repository paths"
+    )
+  requireFields(
+    data.authorization,
+    ["state", "source", "scope", "valid_until"],
+    "authorization"
+  )
+  if (!["delegated", "gated"].includes(data.authorization.state))
+    fail(
+      "authority-state",
+      "authorization.state",
+      "execution requires delegated or approved gated authority"
+    )
+  requireFields(data.acceptance, ["status", "reviewer"], "acceptance")
+  if (
+    ![
+      "verified",
+      "verified-with-environment-limit",
+      "failed",
+      "partial",
+      "blocked",
+      "outcome-unknown",
+    ].includes(data.acceptance.status)
+  )
+    fail("acceptance-status", "acceptance.status", "invalid acceptance.status")
+  if (data.acceptance.human_review !== undefined) {
+    if (
+      !["pending", "accepted", "not-required"].includes(
+        data.acceptance.human_review
+      )
+    )
+      fail(
+        "human-review-status",
+        "acceptance.human_review",
+        "invalid acceptance.human_review"
+      )
+    if (data.acceptance.human_review === "pending" && data.status !== "partial")
+      fail(
+        "human-review-pending",
+        "status",
+        "pending human review requires partial status"
+      )
+  }
+  if (data.status !== data.acceptance.status)
+    fail("status-mismatch", "status", "status must match acceptance.status")
+  if (!list(data.acceptance.evidence))
+    fail(
+      "evidence-required",
+      "acceptance.evidence",
+      "acceptance.evidence must name checks and results"
+    )
+  requireFields(
+    data.aar,
+    ["expected", "actual", "difference", "learning"],
+    "aar"
+  )
+  if (!/^## After Action Review\s*$/m.test(raw))
+    fail("aar-section", "aar", "missing After Action Review section")
+  return data
 }
 function validate({
   read,
@@ -73,51 +161,7 @@ function validate({
     item => receiptPath(item.file) && !item.deleted
   )) {
     check(file, raw => {
-      const data = frontmatter(raw)
-      requireFields(data, ["title", "type", "status", "intent"])
-      if (data.type !== "task-receipt") throw Error("type must be task-receipt")
-      if (!list(data.sources))
-        throw Error("sources must list exact repository paths")
-      requireFields(data.authorization, [
-        "state",
-        "source",
-        "scope",
-        "valid_until",
-      ])
-      if (!["delegated", "gated"].includes(data.authorization.state))
-        throw Error("execution requires delegated or approved gated authority")
-      requireFields(data.acceptance, ["status", "reviewer"])
-      if (
-        ![
-          "verified",
-          "verified-with-environment-limit",
-          "failed",
-          "partial",
-          "blocked",
-          "outcome-unknown",
-        ].includes(data.acceptance.status)
-      )
-        throw Error("invalid acceptance.status")
-      if (data.acceptance.human_review !== undefined) {
-        if (
-          !["pending", "accepted", "not-required"].includes(
-            data.acceptance.human_review
-          )
-        )
-          throw Error("invalid acceptance.human_review")
-        if (
-          data.acceptance.human_review === "pending" &&
-          data.status !== "partial"
-        )
-          throw Error("pending human review requires partial status")
-      }
-      if (data.status !== data.acceptance.status)
-        throw Error("status must match acceptance.status")
-      if (!list(data.acceptance.evidence))
-        throw Error("acceptance.evidence must name checks and results")
-      requireFields(data.aar, ["expected", "actual", "difference", "learning"])
-      if (!/^## After Action Review\s*$/m.test(raw))
-        throw Error("missing After Action Review section")
+      const data = receiptStructure(raw)
       for (const source of data.sources) {
         if (
           path.posix.isAbsolute(source) ||
@@ -200,4 +244,4 @@ function main() {
   }
 }
 if (require.main === module) main()
-module.exports = { validate, frontmatter }
+module.exports = { validate, frontmatter, receiptStructure }

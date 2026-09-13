@@ -7,3 +7,5 @@ Both status fields start as `partial`, with `acceptance.human_review: pending`. 
 A partial, failed, or blocked receipt can validly preserve evidence and cover source paths in a commit. Structural validation is a record-quality check, not a completion or deployment gate. It never grants authority, proves evidence, or replaces human review. Historical receipts without human_review remain compatible.
 
 Only list exact paths this task covers. Deleted sources must be tracked deletions. The helper checks working files; `npm run okf:validate` checks the staged bundle when the index contains changes. Before committing, follow the OKF and graph requirements in `AGENTS.md`.
+
+For a learning-enabled task, use `npm run uig:learn -- start /tmp/run.json` and set the returned run ID as `UIG_LEARNING_RUN` for every receipt attempt. Failures and successful corrections are then recorded automatically with redacted field shapes. See [receipt learning](../docs/compound-engineering/receipt-learning.md) for discovery, approval, live retrieval, and controlled evaluation. Normal uninstrumented receipt generation remains available.
