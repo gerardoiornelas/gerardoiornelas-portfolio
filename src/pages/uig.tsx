@@ -29,8 +29,8 @@ Reasoning proposes. Authority decides. Verified work synthesizes into reusable k
 5. Pass UI-GATE — the gate allows, denies, or escalates the proposal before execution.
 6. Execute only delegated work. Escalate gated or prohibited actions to the principal.
 7. Verify with evidence proportionate to the risk.
-8. Record a receipt that preserves provenance.
-9. Synthesize — promote only warranted learning into committed knowledge.
+8. Record a receipt that preserves provenance and the discrepancy analysis.
+9. Synthesize — promote only warranted learning into committed knowledge. Close with the After Action Review: what was supposed to happen, what actually happened, why the difference, and what will be done differently.
 
 Authority states: observe, delegated, gated, prohibited.
 
@@ -75,9 +75,9 @@ const UigPage: React.FC = () => {
     ["04", "Propose", "The agent names the specific action, resource scope, impact, risk, authority requested, and verification plan before a consequential change."],
     ["05", "UI-GATE", "At execution time, the gate allows, denies, or escalates the proposal. It evaluates who may do what, to which resource, under which intent, right now."],
     ["06", "Execute", "Only the authorized action is performed. Execution never implies authorization on its own."],
-    ["07", "Verify", "Authorized work is verified in the right surface: tests, live UI, review, security checks, or explicit human judgment. A passing build is evidence—not universal proof."],
-    ["08", "Receipt", "Evidence of the authorized execution and its verification is preserved so a future agent can trace the decision."],
-    ["09", "Synthesize", "Only evidence-backed decisions and reusable patterns are promoted into committed project knowledge for the next task."],
+    ["07", "Verify", "Authorized work is verified in the right surface: tests, live UI, review, security checks, or explicit human judgment. A passing build is evidence—not universal proof. This answers what actually happened."],
+    ["08", "Receipt", "Evidence of the authorized execution and its verification is preserved so a future agent can trace the decision. Its discrepancy analysis answers why actual differed from intent."],
+    ["09", "Synthesize", "Only evidence-backed decisions and reusable patterns are promoted into committed project knowledge for the next task. This answers what will be done differently: sustain what worked, improve what did not."],
   ]
 
   return (
@@ -147,6 +147,9 @@ const UigPage: React.FC = () => {
         <Box sx={{ maxWidth: 960 }}>
           {loop.map(([number, title, body], index) => <Box key={number} sx={{ display: "grid", gridTemplateColumns: { xs: "48px 1fr", md: "92px 1fr" }, gap: { xs: 2, md: 4 }, py: 3.5, borderTop: index ? "1px solid" : "none", borderColor: "divider" }}><Typography sx={{ fontFamily: "monospace", color: "secondary.main", fontSize: { xs: 14, md: 18 }, pt: 0.4 }}>{number}</Typography><Box><Typography variant="h4" sx={{ mb: 1.2 }}>{title}</Typography><Typography color="text.secondary" sx={{ maxWidth: 700, fontWeight: 300, lineHeight: 1.75 }}>{body}</Typography></Box></Box>)}
         </Box>
+        <Typography color="text.secondary" sx={{ maxWidth: 900, fontWeight: 300, lineHeight: 1.75, mt: 5, fontStyle: "italic" }}>
+          The final three steps close the loop with the After Action Review — what was supposed to happen, what actually happened, why the difference, and what will be done differently. A loop that returns without answering all four has not closed.
+        </Typography>
       </Container>
 
       <Divider />

@@ -27,9 +27,9 @@ export const UIGates: React.FC = () => {
     { label: "Propose", desc: "Agent states scope, risk & plan" },
     { label: "UI-GATE", desc: "Execution-time authority decision", isGate: true },
     { label: "Execute", desc: "Perform only delegated scope" },
-    { label: "Verify", desc: "Validate evidence on real surfaces" },
-    { label: "Receipt", desc: "Record immutable execution receipt" },
-    { label: "Synthesize", desc: "Compound learning into knowledge" },
+    { label: "Verify", desc: "Answers what actually happened" },
+    { label: "Receipt", desc: "Explains why actual differed from intent" },
+    { label: "Synthesize", desc: "Decides sustain vs improve" },
   ]
 
   return (
@@ -246,6 +246,9 @@ export const UIGates: React.FC = () => {
                   </Grid>
                 ))}
               </Grid>
+              <Typography color="text.secondary" sx={{ fontSize: 12, lineHeight: 1.6, textAlign: "center", mt: 3, fontStyle: "italic" }}>
+                The loop closes with the After Action Review: what was supposed to happen, what actually happened, why the difference, and what will be done differently. A loop that returns without answering all four has not closed.
+              </Typography>
             </Box>
 
             {/* Master Brand Logo & Visual Preview */}

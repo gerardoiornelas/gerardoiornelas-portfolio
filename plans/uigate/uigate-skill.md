@@ -22,8 +22,10 @@ Intent → Discover → Plan → Propose → UI-GATE → Execute → Verify → 
 5. **UI-GATE** — the authority plane allows, denies, or escalates the proposal at execution time. This is the one question UI-GATE exists to answer: *is this actor authorized to perform this action, on this resource, under this intent, right now?*
 6. **Execute** — perform only the authorized action. Execution never implies authorization.
 7. **Verify** — gather evidence proportionate to risk: tests, live UI validation, review, security checks, or explicit human judgment.
-8. **Receipt** — preserve evidence of the authorized execution and its verification so a future agent can trace the decision.
+8. **Receipt** — preserve evidence of the authorized execution and its verification, including the discrepancy analysis — why actual differed from intended.
 9. **Synthesize** — promote only warranted learning into committed knowledge: `Ephemeral → Task → Decision → Knowledge → Canon`.
+
+The last three steps close the loop with the **After Action Review** (AAR) — the public four-question review: (1) what was supposed to happen (Intent + Plan), (2) what actually happened (Verify), (3) why was there a difference (the Receipt's discrepancy analysis), and (4) what will be done differently (Synthesize: sustain what worked, improve what did not). A loop that does not answer all four has not closed. A procedural lesson — a fix that would change this skill or the rules that govern future work — is not executed directly: it becomes a normal proposal through UI-GATE and is **gated** by default, because it alters how future authority is evaluated.
 
 ## Authority states
 
@@ -113,6 +115,8 @@ Do not refactor completed tickets unless instructed.
 After completing this ticket, stop and output: "FEAT-XXX COMPLETE — AWAITING HUMAN VALIDATION"
 Do not continue until the human responds: "FEAT-XXX VALIDATED — PROCEED TO FEAT-YYY"
 ```
+
+A lesson that would change this skill or the rules is a **proposal, not an edit**: state it through UI-GATE in the next cycle and do not write it directly — it alters how future authority is evaluated.
 
 ### Validation log template
 

@@ -6,6 +6,13 @@
 # cross-reference for linking a receipt to an intent — it is metadata inside the
 # file, not a filename convention. Do not rename existing receipts to match it.
 #
+# A receipt closes the loop with the After Action Review
+# (docs/compound-engineering/ui-gates-canon.md#closing-protocol): the intent answers
+# "what was supposed to happen", the verification answers "what actually happened",
+# and the two fields below answer "why was there a difference" and
+# "what will we do differently". Committed Markdown receipts carry these as the
+# `## After Action Review` section; `npm run okf:validate` requires it.
+#
 # See docs/compound-engineering/operating-system.md#execution-receipt for the canon.
 
 receipt:
@@ -24,4 +31,11 @@ receipt:
   verification:
     evidence: []
     status: "" # e.g. verified, verified-with-environment-limit
+  discrepancy_analysis: # AAR Q3 — why actual differed from intended
+    expected: "" # from the intent's success_evidence
+    actual: "" # summarized from verification results
+    root_cause: "" # one named cause
+  learning_action: # AAR Q4 — what this loop will do differently
+    sustain: "" # what is promoted, and to which knowledge level
+    improve: "" # the corrective; a procedural fix to the skill/rules is gated by default
   reuse: "" # what future work should learn from this

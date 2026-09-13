@@ -94,10 +94,19 @@ This is the same nine-step loop defined in [`ui-gates-canon.md`](ui-gates-canon.
 4. **UI-GATE** — the authority plane allows, denies, or escalates the proposal at execution time.
 5. **Execute** — perform only the authorized action.
 6. **Verify** — gather proportionate evidence from tests, live UI, review, or other named checks.
-7. **Receipt** — preserve evidence of the authorized execution and its verification.
+7. **Receipt** — preserve evidence of the authorized execution and its verification, including the discrepancy analysis: why actual differed from intended.
 8. **Synthesize** — promote durable learning into the appropriate knowledge level.
 
 Execution never implies authorization.
+
+The final three steps close the loop with the **After Action Review** protocol — the public, institution-owned four-question review:
+
+1. **What was supposed to happen?** — Intent + Plan.
+2. **What actually happened?** — Verify.
+3. **Why was there a difference?** — the Receipt's discrepancy analysis.
+4. **What will we do differently?** — Synthesize's promotion decision, or a procedural fix proposed back through the loop.
+
+A loop that closes without answering all four questions has not closed. A procedural lesson — a fix to the skill or rules that govern future work — rides the same Propose → UI-GATE → Execute path as a **gated** change, because it alters how future authority is evaluated.
 
 ## Action proposal
 
@@ -140,6 +149,13 @@ receipt:
   verification:
     regression: pass
     coherence: 96
+  discrepancy_analysis: # AAR: why actual differed from intended
+    expected: <from the intent's success_evidence>
+    actual: <summarized from the verification results>
+    root_cause: <one named cause>
+  learning_action: # AAR: what this loop will do differently
+    sustain: <promoted to which knowledge level>
+    improve: <corrective; a procedural fix to the skill/rules is gated>
   provenance:
     session: session-id
 ```

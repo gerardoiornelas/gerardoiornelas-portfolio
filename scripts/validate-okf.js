@@ -4,8 +4,10 @@
 //
 // Checks that the committed OKF context bundle is present and well-formed before
 // a commit ships: knowledge/context.md exists with the expected frontmatter,
-// knowledge/okf.yaml parses as YAML, and files changed in the working tree that
-// touch knowledge-relevant areas have a same-day receipt or context update.
+// knowledge/okf.yaml parses as YAML, files changed in the working tree that
+// touch knowledge-relevant areas have a same-day receipt or context update, and
+// any receipt staged today closes the loop with the After Action Review
+// (docs/compound-engineering/ui-gates-canon.md#closing-protocol).
 
 const fs = require("fs")
 const path = require("path")
@@ -111,9 +113,43 @@ function checkReceiptsForKnowledgeTouchingChanges() {
   ok("staged knowledge-touching change has a receipt or context update")
 }
 
+function checkReceiptsCloseTheLoop() {
+  const today = new Date().toISOString().slice(0, 10)
+  if (!fs.existsSync(receiptsDir)) return
+  let stagedReceipts = []
+  try {
+    stagedReceipts = execSync("git diff --cached --name-only", { cwd: repoRoot, encoding: "utf8" })
+      .split("\n")
+      .filter(Boolean)
+      .filter(
+        (file) => file.startsWith("knowledge/receipts/") && file.endsWith(".md") && path.basename(file).startsWith(today)
+      )
+  } catch {
+    return
+  }
+  if (!stagedReceipts.length) return
+  const markers = [
+    "## After Action Review",
+    "Why was there a difference",
+    "What will we do differently",
+  ]
+  const missing = stagedReceipts.filter((file) => {
+    const raw = fs.readFileSync(path.join(repoRoot, file), "utf8")
+    return markers.some((marker) => !raw.includes(marker))
+  })
+  if (missing.length) {
+    fail(
+      `today's receipt(s) ${missing.join(", ")} do not close the loop: add an "## After Action Review" section with the discrepancy analysis (why was there a difference) and the learning action (what will we do differently)`
+    )
+    return
+  }
+  ok("today's staged receipt(s) close the loop with the After Action Review")
+}
+
 checkContext()
 checkOkfYaml()
 checkReceiptsForKnowledgeTouchingChanges()
+checkReceiptsCloseTheLoop()
 
 if (failed) {
   console.error("\n[okf:validate] One or more checks failed.")
