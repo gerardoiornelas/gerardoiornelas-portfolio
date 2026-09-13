@@ -59,7 +59,9 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "generate:component": "node ./generators/generator/generate-component"
+    "generate:component": "node ./generators/generator/generate-component",
+    "okf:validate": "node ./scripts/validate-okf.js",
+    "okf:sync": "npm run okf:validate && echo \"Reminder: run 'graphify . --update' to refresh the knowledge graph before committing.\""
   },
   "repository": {
     "type": "git",

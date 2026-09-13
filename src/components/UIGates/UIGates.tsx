@@ -22,7 +22,9 @@ export const UIGates: React.FC = () => {
 
   const steps = [
     { label: "Intent", desc: "Principal bounds objective & constraints" },
-    { label: "Proposal", desc: "Agent states scope, risk & plan" },
+    { label: "Discover", desc: "Agent reads task-relevant knowledge" },
+    { label: "Plan", desc: "Agent scopes the smallest slice" },
+    { label: "Propose", desc: "Agent states scope, risk & plan" },
     { label: "UI-GATE", desc: "Execution-time authority decision", isGate: true },
     { label: "Execute", desc: "Perform only delegated scope" },
     { label: "Verify", desc: "Validate evidence on real surfaces" },
@@ -200,7 +202,7 @@ export const UIGates: React.FC = () => {
               </Typography>
               <Grid container spacing={2}>
                 {steps.map((s, idx) => (
-                  <Grid item xs={12} sm={6} md={12 / 7} key={s.label}>
+                  <Grid item xs={12} sm={6} md={4} key={s.label}>
                     <Box
                       sx={{
                         p: 2,

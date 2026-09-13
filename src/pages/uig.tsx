@@ -22,11 +22,15 @@ description: Run the UI-GATES authority-aware learning workflow for meaningful w
 
 Reasoning proposes. Authority decides. Verified work synthesizes into reusable knowledge.
 
-1. Read repository instructions and task-relevant committed knowledge.
-2. Bound the intent: objective, constraints, success evidence, authority scope, and expiry.
-3. Propose consequential actions with their resource, reason, impact, risk, requested authority, and verification plan.
-4. Execute only delegated work. Escalate gated or prohibited actions to the principal.
-5. Verify with evidence, record a receipt, and promote only warranted learning with provenance.
+1. Bound the intent: objective, constraints, success evidence, authority scope, and expiry.
+2. Discover the task-relevant committed knowledge and repository instructions.
+3. Plan the smallest scoped slice that produces verifiable evidence.
+4. Propose the consequential action: resource, reason, impact, risk, requested authority, and verification plan.
+5. Pass UI-GATE — the gate allows, denies, or escalates the proposal before execution.
+6. Execute only delegated work. Escalate gated or prohibited actions to the principal.
+7. Verify with evidence proportionate to the risk.
+8. Record a receipt that preserves provenance.
+9. Synthesize — promote only warranted learning into committed knowledge.
 
 Authority states: observe, delegated, gated, prohibited.
 
@@ -66,10 +70,14 @@ const UigPage: React.FC = () => {
 
   const loop = [
     ["01", "Intent", "A principal defines the outcome, constraints, success evidence, allowed domain, and expiry. Technical capability never becomes authority by itself."],
-    ["02", "Proposal", "An agent names the specific action, resource scope, impact, risk, authority requested, and verification plan before a consequential change."],
-    ["03", "UI-GATE", "At execution time, the gate allows, denies, or escalates the proposal. It evaluates who may do what, to which resource, under which intent, right now."],
-    ["04", "Evidence", "Authorized work is verified in the right surface: tests, live UI, review, security checks, or explicit human judgment. A passing build is evidence—not universal proof."],
-    ["05", "Learning", "A receipt preserves provenance. Only evidence-backed decisions and reusable patterns are promoted into committed project knowledge for the next task."],
+    ["02", "Discover", "The agent reads task-relevant committed knowledge and repository instructions before proposing anything."],
+    ["03", "Plan", "The agent defines the smallest scoped slice of work and the evidence that will prove it worked."],
+    ["04", "Propose", "The agent names the specific action, resource scope, impact, risk, authority requested, and verification plan before a consequential change."],
+    ["05", "UI-GATE", "At execution time, the gate allows, denies, or escalates the proposal. It evaluates who may do what, to which resource, under which intent, right now."],
+    ["06", "Execute", "Only the authorized action is performed. Execution never implies authorization on its own."],
+    ["07", "Verify", "Authorized work is verified in the right surface: tests, live UI, review, security checks, or explicit human judgment. A passing build is evidence—not universal proof."],
+    ["08", "Receipt", "Evidence of the authorized execution and its verification is preserved so a future agent can trace the decision."],
+    ["09", "Synthesize", "Only evidence-backed decisions and reusable patterns are promoted into committed project knowledge for the next task."],
   ]
 
   return (
@@ -104,11 +112,11 @@ const UigPage: React.FC = () => {
             </Grid>
             <Grid item xs={12} md={5}>
               <Box sx={{ width: "100%", position: "relative", "&::after": { content: '\"\"', position: "absolute", inset: -20, border: "1px solid", borderColor: "rgba(56, 180, 198, 0.1)", zIndex: -1 } }}>
-                <Box role="img" aria-label="UI-GATES workflow: intent, proposal, UI-GATE, execute, verify, receipt, and synthesize" sx={{ border: "1px solid", borderColor: "divider", bgcolor: "rgba(8, 18, 27, 0.72)", p: { xs: 3, md: 4 }, boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }}>
+                <Box role="img" aria-label="UI-GATES workflow: intent, discover, plan, propose, UI-GATE, execute, verify, receipt, and synthesize" sx={{ border: "1px solid", borderColor: "divider", bgcolor: "rgba(8, 18, 27, 0.72)", p: { xs: 3, md: 4 }, boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }}>
                   <Typography sx={{ fontFamily: "monospace", color: "secondary.main", fontSize: 11, fontWeight: 700, letterSpacing: "0.16em", mb: 1.5 }}>SKILL-GUIDED WORKFLOW</Typography>
                   <Typography sx={{ color: "text.secondary", fontWeight: 300, fontSize: 14, lineHeight: 1.65, mb: 3 }}>A portable Markdown skill guides the agent through this sequence. It does not install a ticketing interface or a runtime control panel.</Typography>
                   <Stack spacing={1.25}>
-                    {["Intent", "Proposal", "UI-GATE", "Execute", "Verify", "Receipt", "Synthesize"].map((step, index) => <Box key={step} sx={{ display: "flex", alignItems: "center", gap: 1.5 }}><Typography sx={{ fontFamily: "monospace", color: "text.disabled", fontSize: 11, width: 20 }}>{String(index + 1).padStart(2, "0")}</Typography><Box sx={{ flex: 1, border: "1px solid", borderColor: step === "UI-GATE" ? "secondary.main" : "divider", bgcolor: step === "UI-GATE" ? "rgba(56, 180, 198, 0.12)" : "transparent", px: 2, py: 1.15 }}><Typography sx={{ fontFamily: "monospace", color: step === "UI-GATE" ? "secondary.main" : "text.primary", fontSize: 12, fontWeight: 700, letterSpacing: "0.08em" }}>{step.toUpperCase()}{step === "UI-GATE" ? "  ·  ALLOW / DENY / ESCALATE" : ""}</Typography></Box></Box>)}
+                    {["Intent", "Discover", "Plan", "Propose", "UI-GATE", "Execute", "Verify", "Receipt", "Synthesize"].map((step, index) => <Box key={step} sx={{ display: "flex", alignItems: "center", gap: 1.5 }}><Typography sx={{ fontFamily: "monospace", color: "text.disabled", fontSize: 11, width: 20 }}>{String(index + 1).padStart(2, "0")}</Typography><Box sx={{ flex: 1, border: "1px solid", borderColor: step === "UI-GATE" ? "secondary.main" : "divider", bgcolor: step === "UI-GATE" ? "rgba(56, 180, 198, 0.12)" : "transparent", px: 2, py: 1.15 }}><Typography sx={{ fontFamily: "monospace", color: step === "UI-GATE" ? "secondary.main" : "text.primary", fontSize: 12, fontWeight: 700, letterSpacing: "0.08em" }}>{step.toUpperCase()}{step === "UI-GATE" ? "  ·  ALLOW / DENY / ESCALATE" : ""}</Typography></Box></Box>)}
                   </Stack>
                   <Typography sx={{ fontFamily: "monospace", color: "text.disabled", fontSize: 10, letterSpacing: "0.08em", mt: 3 }}>REASONING PROPOSES · AUTHORITY DECIDES · VERIFIED WORK SYNTHESIZES</Typography>
                 </Box>

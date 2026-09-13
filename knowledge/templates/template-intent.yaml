@@ -1,0 +1,18 @@
+# UI-GATES intent template.
+# Copy this into a task's working notes (not committed to knowledge/ unless promoted).
+# See docs/compound-engineering/operating-system.md#intent for the canon this implements.
+
+intent:
+  id: INT-YYYY-NNNN # sequential per year, e.g. INT-2026-0001
+  principal: gerardo
+  objective: "" # one outcome, stated plainly
+  project: "" # project slug within this repo, e.g. uig-page
+  desired_outcomes:
+    - "" # measurable outcome one
+  constraints:
+    - "" # e.g. no production writes without explicit approval
+  success_evidence:
+    - "" # e.g. relevant regression checks pass
+  allowed_domain:
+    - "" # scoped paths or resources this intent may touch
+  expires: YYYY-MM-DD

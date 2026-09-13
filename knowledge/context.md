@@ -45,6 +45,12 @@ proposes; authority decides.
 - The canonical distributable source is `https://github.com/gerardoiornelas/uigates`. The downloadable `uig` artifact is a portable Markdown skill, not a runtime dashboard, ticket engine, or enforced control plane.
 - Public diagrams must depict the skill-guided workflow—Intent → Proposal → UI-GATE → Execute → Verify → Receipt → Synthesize—and must not imply that a user receives UI controls or automatic runtime enforcement.
 - The receipt for the public page is `knowledge/receipts/2026-09-01-ui-gates-page.md`.
+- `docs/compound-engineering/ui-gates-canon.md` is the single source of truth for the nine-step loop (`Intent → Discover → Plan → Propose → UI-GATE → Execute → Verify → Receipt → Synthesize`). `operating-system.md`, `src/pages/uig.tsx`, `src/components/UIGates/UIGates.tsx` (homepage section), and `plans/uigate/uigate-skill.md` must all restate the same loop; see `knowledge/receipts/2026-09-12-uigates-operationalization.md` for the reconciliation and a note on how to find every copy.
+
+## Templates and Internal Tooling
+
+- `knowledge/templates/template-intent.yaml` and `knowledge/templates/template-receipt.yaml` are schema templates for intents and receipts. Receipt filenames stay `YYYY-MM-DD-slug.md`; the template's `RCP-YYYY-NNNN` id is optional internal metadata, not a filename convention.
+- `scripts/validate-okf.js` (`npm run okf:validate`, `npm run okf:sync`) is internal repo-authoring tooling that checks the OKF bundle is present and that knowledge-touching staged changes carry a receipt or context update. It is **not** part of the portable `uig` skill distributed from `/uig/` — do not describe it in public copy as part of the distributable.
 
 ## Validation
 

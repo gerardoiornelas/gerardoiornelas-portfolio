@@ -1,0 +1,27 @@
+# UI-GATES receipt schema.
+#
+# In this repo, receipts are committed as Markdown files under knowledge/receipts/,
+# named YYYY-MM-DD-slug.md (see knowledge/receipts/2026-09-01-ui-gates-page.md for
+# the actual frontmatter shape). The `id` field below is an optional internal
+# cross-reference for linking a receipt to an intent — it is metadata inside the
+# file, not a filename convention. Do not rename existing receipts to match it.
+#
+# See docs/compound-engineering/operating-system.md#execution-receipt for the canon.
+
+receipt:
+  id: RCP-YYYY-NNNN # optional, sequential per year, e.g. RCP-2026-0001
+  intent: INT-YYYY-NNNN # the intent this execution was authorized under
+  agent: "" # e.g. claude
+  proposed_action: "" # e.g. repository.write
+  scope:
+    - "" # affected files or resources
+  authority:
+    state: "" # observe | delegated | gated | prohibited
+    source: "" # e.g. intent delegation, principal approval
+  executed_at: "" # ISO-8601 timestamp
+  result:
+    commit: "" # git sha, if applicable
+  verification:
+    evidence: []
+    status: "" # e.g. verified, verified-with-environment-limit
+  reuse: "" # what future work should learn from this
