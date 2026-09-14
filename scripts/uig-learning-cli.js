@@ -2,7 +2,7 @@
 const fs = require("fs")
 const path = require("path")
 const { Learning } = require("./uig-learning")
-const { Usage } = require("./uig-usage")
+const { Usage, formatUsage } = require("./uig-usage")
 const help = `Local UI-GATES receipt learning (no model calls, commits or deployments):
   npm run uig:learn -- start run.json
   npm run uig:learn -- propose
@@ -82,19 +82,6 @@ function main(args) {
 
 function usageReport(root) {
   return formatUsage(new Usage().summarize(root))
-}
-
-function formatUsage(u) {
-  return [
-    `runs started:       ${u.runs_started}`,
-    `runs completed:     ${u.runs_completed}  (${u.completed_in_this_repo} in this repo)`,
-    `receipts written:    ${u.receipts_written}  (this repo, knowledge/receipts/)`,
-    `gated approvals:     ${u.gated_approvals}`,
-    `sessions (hook):     ${u.sessions_seen} seen, ${u.uig_sessions} ran uig`,
-    `tokens measured:     ${u.tokens_measured} across ${u.measured_uig_sessions} uig session(s) (input+output; cache reported separately)`,
-    `first event:         ${u.first_event_at || "none yet"}`,
-    `malformed lines:     ${u.malformed}`,
-  ].join("\n")
 }
 
 function formatStats(s) {

@@ -78,6 +78,7 @@
     "typecheck": "tsc --noEmit",
     "test:browser": "node scripts/site-browser.mjs",
     "uig:learn": "node scripts/uig-learning-cli.js",
+    "uig:usage": "node scripts/uig-usage.js",
     "uig:recover": "node scripts/uig-recoverability.js",
     "skills:sync": "node scripts/sync-skills.js"
   }

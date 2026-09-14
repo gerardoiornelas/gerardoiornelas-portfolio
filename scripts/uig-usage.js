@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // Out-of-the-box usage ledger for the portable uig skill.
 // The skill itself and a Claude Code SessionEnd hook append JSONL events to a
 // global log (~/.uig/tracking.jsonl by default). This module reads that log and
@@ -91,4 +92,29 @@ class Usage {
   }
 }
 
-module.exports = { Usage }
+module.exports = { Usage, formatUsage }
+
+// Human-readable usage report for the current working directory. Running this
+// file directly as `uig-usage` (installed by skills:sync) prints the all-time
+// ledger plus this repo's receipts with no npm prefix.
+function formatUsage(u) {
+  return [
+    `runs started:       ${u.runs_started}`,
+    `runs completed:     ${u.runs_completed}  (${u.completed_in_this_repo} in this repo)`,
+    `receipts written:    ${u.receipts_written}  (this repo, knowledge/receipts/)`,
+    `gated approvals:     ${u.gated_approvals}`,
+    `sessions (hook):     ${u.sessions_seen} seen, ${u.uig_sessions} ran uig`,
+    `tokens measured:     ${u.tokens_measured} across ${u.measured_uig_sessions} uig session(s) (input+output; cache reported separately)`,
+    `first event:         ${u.first_event_at || "none yet"}`,
+    `malformed lines:     ${u.malformed}`,
+  ].join("\n")
+}
+
+if (require.main === module) {
+  try {
+    console.log(formatUsage(new Usage().summarize(process.cwd())))
+  } catch (error) {
+    console.error("[uig-usage] " + (error && error.message ? error.message : error))
+    process.exitCode = 1
+  }
+}
