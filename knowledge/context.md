@@ -14,7 +14,7 @@ Read the touched source and only the matching references below. Expand if the ta
 
 | Task | Read next |
 | --- | --- |
-| UI-GATES public copy, loop, authority, or portable skill | `docs/compound-engineering/ui-gates-canon.md` and `knowledge/lessons/uig-consistency.md` |
+| UI-GATES public copy, loop, authority, or portable skill | the portable skill source `skills/uig/SKILL.md` and `docs/compound-engineering/ui-gates-canon.md` plus `knowledge/lessons/uig-consistency.md` |
 | UI-GATES workflow, gates, receipts, or learning behavior | Canon above and `docs/compound-engineering/operating-system.md` |
 | Public positioning or social content | `docs/authority-engine.md`; for social, `docs/social-editorial-system.md` |
 | Site framework, builds, routes, or migration parity | `README.md` and `knowledge/receipts/2026-09-13-astro-react-migration.md` |

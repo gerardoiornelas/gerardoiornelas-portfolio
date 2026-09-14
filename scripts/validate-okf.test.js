@@ -153,11 +153,10 @@ test("CLI validates index, not unstaged repairs; fails outside Git", () => {
 })
 
 test("distributed skill preserves the authority and learning contract", () => {
-  const page = fs.readFileSync(
-    path.resolve(__dirname, "../src/views/uig.tsx"),
+  const download = fs.readFileSync(
+    path.resolve(__dirname, "../skills/uig/SKILL.md"),
     "utf8"
   )
-  const download = page.split("const skillContent = `")[1].split("`")[0]
   for (const file of [
     "docs/compound-engineering/ui-gates-canon.md",
     "docs/compound-engineering/operating-system.md",
