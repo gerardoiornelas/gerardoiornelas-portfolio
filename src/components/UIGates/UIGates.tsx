@@ -26,7 +26,7 @@ export const UIGates: React.FC = () => {
     { label: "Plan", desc: "Agent scopes the smallest slice" },
     { label: "Propose", desc: "Agent states scope, risk & plan" },
     { label: "UI-GATE", desc: "Execution-time authority decision", isGate: true },
-    { label: "Execute", desc: "Perform only delegated scope" },
+    { label: "Execute", desc: "Delegated scope only; log delta before retry" },
     { label: "Verify", desc: "Answers what actually happened" },
     { label: "Receipt", desc: "Explains why actual differed from intent" },
     { label: "Synthesize", desc: "Decides sustain vs improve" },

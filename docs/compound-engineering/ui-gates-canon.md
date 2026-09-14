@@ -28,6 +28,10 @@ Intent → Discover → Plan → Propose → UI-GATE → Execute → Verify → 
 
 The final synthesis step is what makes the system compound. A future agent can trace an action to its intent, authority, evidence, and the lesson it produced.
 
+## Execute discipline
+
+Execute is not a single leap from authorized to done. After each step within Execute, record an observation — **Expected**, **Actual**, **Delta** — before moving on. A delta is not retried immediately: the loop returns to Plan to address the root cause, and only re-proposes if the revision changes the requested authority or scope. This keeps multi-step execution from degrading into guess-and-check; it is distinct from the Receipt's discrepancy analysis, which closes the whole loop rather than one step of it.
+
 ## Closing protocol
 
 Every meaningful loop closes with the **After Action Review** — the public, institution-owned four-question review of an executed task. Its questions are answered, in order, by the loop's existing steps:

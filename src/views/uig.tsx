@@ -52,7 +52,7 @@ const UigPage: React.FC = () => {
     ["03", "Plan", "The agent defines the smallest scoped slice of work and the evidence that will prove it worked."],
     ["04", "Propose", "The agent names the specific action, resource scope, impact, risk, authority requested, and verification plan before a consequential change."],
     ["05", "UI-GATE", "At execution time, the gate allows, denies, or escalates the proposal. It evaluates who may do what, to which resource, under which intent, right now."],
-    ["06", "Execute", "Only the authorized action is performed. Execution never implies authorization on its own."],
+    ["06", "Execute", "Only the authorized action is performed. Execution never implies authorization on its own. After each step, the agent records what was expected, what actually happened, and the delta—and does not retry a delta without first returning to Plan to address its root cause."],
     ["07", "Verify", "Authorized work is verified in the right surface: tests, live UI, review, security checks, or explicit human judgment. A passing build is evidence—not universal proof. This answers what actually happened."],
     ["08", "Receipt", "Evidence of the authorized execution and its verification is preserved so a future agent can trace the decision. Its discrepancy analysis answers why actual differed from intent."],
     ["09", "Synthesize", "Only evidence-backed decisions and reusable patterns are promoted into committed project knowledge for the next task. This answers what will be done differently: sustain what worked, improve what did not."],
