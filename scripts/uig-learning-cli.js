@@ -12,6 +12,7 @@ const help = `Local UI-GATES receipt learning (no model calls, commits or deploy
   npm run uig:learn -- approve LESSON_ID approval.json
   npm run uig:learn -- retire LESSON_ID "reason"
   npm run uig:learn -- list
+  npm run uig:learn -- stats
 
 start returns a run ID and bounded guidance. Use UIG_LEARNING_RUN=RUN_ID with
 okf:receipt for automatic recording. Discovery requires two distinct corrected
@@ -35,6 +36,7 @@ function main(args) {
     approve: 2,
     retire: 2,
     list: 0,
+    stats: 0,
   }
   if (!(command in arity) || rest.length !== arity[command]) throw Error(help)
   switch (command) {
@@ -62,7 +64,34 @@ function main(args) {
         evidence: l.evidence,
         usage: learning.stats(l.id),
       }))
+    case "stats":
+      return formatStats(learning.summary())
   }
+}
+
+function formatStats(s) {
+  const mode = Object.entries(s.runs.by_mode)
+    .map(([k, v]) => `${k}: ${v}`)
+    .join(", ") || "none"
+  const acceptance = Object.entries(s.outcomes.by_acceptance)
+    .map(([k, v]) => `${k}: ${v}`)
+    .join(", ") || "none"
+  const state = Object.entries(s.lessons.by_state)
+    .map(([k, v]) => `${k}: ${v}`)
+    .join(", ") || "none"
+  const tokenState = s.tokens.complete_telemetry
+    ? `${s.tokens.measured} total from ${s.tokens.known_outcomes} outcome(s) with actual telemetry`
+    : `${s.tokens.measured} measured from ${s.tokens.known_outcomes} outcome(s): ${s.tokens.unknown_outcomes} unavailable outcome(s) never counted as zero`
+  return [
+    `runs:      ${s.runs.total} total [${mode}]  finished ${s.runs.finished}, pending ${s.runs.pending}`,
+    `attempts:  ${s.attempts}`,
+    `outcomes:  ${s.outcomes.total} total [${acceptance}]  failures ${s.outcomes.failures}, limitations ${s.outcomes.limitations}`,
+    `lessons:   ${s.lessons.total} total [${state}]  stale ${s.lessons.stale}`,
+    `plans:     ${s.plans.total} frozen`,
+    `costs:     ${s.costs.phases} phase(s) recorded${s.costs.unknown ? `, ${s.costs.unknown} unknown (uncounted)` : ""}`,
+    `tokens:    ${tokenState}`,
+    `overhead:  ${s.tokens.overhead} measured token(s)`,
+  ].join("\n")
 }
 try {
   const result = main(process.argv.slice(2))

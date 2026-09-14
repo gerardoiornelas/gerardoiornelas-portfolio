@@ -18,7 +18,7 @@ Read the touched source and only the matching references below. Expand if the ta
 | UI-GATES workflow, gates, receipts, or learning behavior | Canon above and `docs/compound-engineering/operating-system.md` |
 | Public positioning or social content | `docs/authority-engine.md`; for social, `docs/social-editorial-system.md` |
 | Site framework, builds, routes, or migration parity | `README.md` and `knowledge/receipts/2026-09-13-astro-react-migration.md` |
-| Learning from receipt failures or evaluating lessons | `docs/compound-engineering/receipt-learning.md`; `npm run uig:learn -- --help`; `npm run uig:recover -- --help` grades a frozen payload's recoverability |
+| Learning from receipt failures or evaluating lessons | `docs/compound-engineering/receipt-learning.md`; `npm run uig:learn -- --help`; `npm run uig:learn -- stats` prints token usage and learning lifecycle totals; `npm run uig:recover -- --help` grades a frozen payload's recoverability |
 | Creating a receipt | `npm run okf:receipt -- --help`; `knowledge/receipt-authoring.md` only if needed |
 | Validator or receipt generator changes | `scripts/validate-okf.js`, affected helper/tests; run `npm run okf:test` |
 | Evaluating token efficiency | `docs/compound-engineering/pilots/2026-09-13-v2/report.md` |

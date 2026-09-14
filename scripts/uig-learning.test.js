@@ -778,3 +778,89 @@ test("an all-unclear recoverability payload caps any claim at unverified-novelty
   assert.equal(r.claim_altitude, "unverified-novelty")
   assert.equal(r.allowed_claim, "unverified-novelty")
 })
+test("aggregate summary reports an empty store as zero, never as fabricated telemetry", t => {
+  const env = setup(t)
+  const s = env.learning.summary()
+  assert.equal(s.runs.total, 0)
+  assert.equal(s.attempts, 0)
+  assert.equal(s.outcomes.total, 0)
+  assert.equal(s.lessons.total, 0)
+  assert.equal(s.plans.total, 0)
+  assert.equal(s.tokens.measured, 0)
+  assert.equal(s.tokens.unknown_outcomes, 0)
+  assert.equal(s.tokens.complete_telemetry, false)
+  assert.deepEqual(s.runs.by_mode, {})
+})
+test("aggregate summary counts lifecycle and only measures actual telemetry", t => {
+  const env = setup(t),
+    lesson = trained(env),
+    plan = planned(env, lesson)
+  runPairs(env, lesson, plan, { tokens: true })
+  const s = env.learning.summary()
+  // trained() leaves two discovery runs pending with one failed record each;
+  // runPairs finishes all six holdout tasks as control/treatment pairs.
+  assert.equal(s.runs.total, 14)
+  assert.deepEqual(s.runs.by_mode, { discovery: 2, control: 6, treatment: 6 })
+  assert.equal(s.runs.finished, 12)
+  assert.equal(s.runs.pending, 2)
+  assert.equal(s.attempts, 22)
+  assert.equal(s.outcomes.total, 12)
+  assert.deepEqual(s.outcomes.by_acceptance, { accepted: 12 })
+  assert.equal(s.outcomes.failures, 6)
+  assert.equal(s.lessons.total, 1)
+  assert.equal(s.plans.total, 1)
+  assert.equal(s.tokens.measured, 1020)
+  assert.equal(s.tokens.known_outcomes, 12)
+  assert.equal(s.tokens.unknown_outcomes, 0)
+  assert.equal(s.tokens.complete_telemetry, true)
+})
+test("aggregate summary records unknown telemetry as unknown, never zero", t => {
+  const env = setup(t),
+    lesson = trained(env),
+    plan = planned(env, lesson)
+  runPairs(env, lesson, plan, {}) // no usage_jsonl: telemetry unavailable
+  const s = env.learning.summary()
+  assert.equal(s.tokens.measured, 0)
+  assert.equal(s.tokens.known_outcomes, 0)
+  assert.equal(s.tokens.unknown_outcomes, 12)
+  assert.equal(s.tokens.complete_telemetry, false)
+})
+test("aggregate summary counts a recorded limitation and descriptive failures", t => {
+  const env = setup(t),
+    lesson = trained(env),
+    plan = planned(env, lesson)
+  pairArm(env, lesson, plan, plan.tasks[0], "treatment", {
+    failures: 1,
+    limitation: "Wall-clock timeout after the first failed receipt attempt",
+  })
+  for (const task of plan.tasks.slice(1))
+    pairArm(env, lesson, plan, task, "control")
+  for (const task of plan.tasks.slice(1)) pairArm(env, lesson, plan, task, "treatment")
+  pairArm(env, lesson, plan, plan.tasks[0], "control", { failures: 0 })
+  const s = env.learning.summary()
+  assert.equal(s.outcomes.limitations, 1)
+  assert.ok(s.outcomes.failures >= 1)
+  assert.equal(s.runs.finished, 12)
+})
+test("CLI stats renders a human-readable report honoring unknown telemetry", () => {
+  const command = path.join(ROOT, "scripts/uig-learning-cli.js")
+  const help = spawnSync(process.execPath, [command, "--help"], {
+    encoding: "utf8",
+  })
+  assert.match(help.stdout, /stats/)
+  // CLI resolves the store from the repository root; this is a smoke test that
+  // the report command runs and prints the expected human shape.
+  const call = spawnSync(process.execPath, [command, "stats"], {
+    encoding: "utf8",
+  })
+  assert.equal(call.status, 0)
+  assert.match(call.stdout, /^runs:/m)
+  assert.match(call.stdout, /^tokens:/m)
+  // The token line either reports measured totals or states that unavailable
+  // telemetry is never counted as zero — both honor the accounting contract.
+  assert.match(
+    call.stdout,
+    /never counted as zero|total from \d+ outcome\(s\) with actual telemetry/
+  )
+})
+

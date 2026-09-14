@@ -1,6 +1,8 @@
 ---
 name: ui-gates
 description: Use this skill for authority-aware agentic work — any task that should be bounded by an explicit intent, pass through an execution-time authority decision, and leave verifiable evidence and reusable learning behind. Triggers include "UI-GATES", "UI-GATE", "gated agentic", "human-in-the-loop development", or requests for a methodical, human-validated agentic build. Within software delivery this specializes into Compound Engineering: decomposing requirements into agent-ready tickets with human UI validation checkpoints. Do NOT use for exploratory or read-only work — UI-GATES governs consequential action, not observation.
+version: 0.2.0
+updated: 2026-09-13
 ---
 
 # UI-GATES

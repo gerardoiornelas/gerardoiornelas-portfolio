@@ -828,6 +828,76 @@ class Learning {
           : null,
     }
   }
+  summary() {
+    const runs = this.all("runs")
+    const outcomes = this.all("outcomes")
+    const lessons = this.all("lessons")
+    const plans = this.all("plans")
+    const costs = this.all("costs")
+    const attempts = runs.reduce(
+      (n, r) => n + this.all("attempts/" + r.id).length,
+      0
+    )
+    const byMode = {}
+    for (const r of runs) byMode[r.mode] = (byMode[r.mode] || 0) + 1
+    const finished = new Set(outcomes.map(o => o.run_id))
+    const byAcceptance = {}
+    let limitations = 0
+    let failures = 0
+    for (const o of outcomes) {
+      byAcceptance[o.acceptance] = (byAcceptance[o.acceptance] || 0) + 1
+      if (o.limitation) limitations++
+      failures += o.failures
+    }
+    const byState = {}
+    let stale = 0
+    for (const l of lessons) {
+      const state = this.state(l.id)
+      byState[state] = (byState[state] || 0) + 1
+      if (state !== "retired" && !this.fresh(this.lesson(l.id).body)) stale++
+    }
+    // Token accounting follows the contract: unavailable telemetry stays
+    // unknown, never zero; only actual telemetry is measured.
+    const actualOutcomes = outcomes.filter(o => o.usage.kind === "actual")
+    const measuredTokens = actualOutcomes.reduce(
+      (n, o) => n + (o.usage.total || 0),
+      0
+    )
+    const unknownOutcomes = outcomes.filter(
+      o => o.usage.kind === "unavailable"
+    ).length
+    const knownCosts = costs.filter(c => c.usage.kind !== "unavailable")
+    const overheadTokens = knownCosts.reduce(
+      (n, c) => n + (c.usage.total || 0),
+      0
+    )
+    return {
+      runs: {
+        total: runs.length,
+        by_mode: byMode,
+        finished: finished.size,
+        pending: runs.length - finished.size,
+      },
+      attempts,
+      outcomes: {
+        total: outcomes.length,
+        by_acceptance: byAcceptance,
+        limitations,
+        failures,
+      },
+      lessons: { total: lessons.length, by_state: byState, stale },
+      plans: { total: plans.length },
+      costs: { phases: costs.length, unknown: costs.length - knownCosts.length },
+      tokens: {
+        measured: measuredTokens,
+        known_outcomes: actualOutcomes.length,
+        unknown_outcomes: unknownOutcomes,
+        complete_telemetry:
+          outcomes.length > 0 && actualOutcomes.length === outcomes.length,
+        overhead: overheadTokens,
+      },
+    }
+  }
   approve(key, approval) {
     ensure(
       this.state(key) === "evaluated",

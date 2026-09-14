@@ -41,6 +41,24 @@ The AAR is the closing protocol, not a tenth step. Verify → Receipt → Synthe
 
 A procedural lesson — a fix that would change the skill or rules that govern future work — is not executed directly. It becomes a normal proposal and passes UI-GATE as a **gated** change, because it alters how future authority is evaluated.
 
+## Learning promotion
+
+Verified work synthesizes into reusable knowledge through a promotion ladder. A learning artifact must earn each rung; every durable artifact retains provenance to its source and evidence.
+
+```text
+Ephemeral → Task → Decision → Knowledge → Canon
+```
+
+| Rung | Meaning | Earned by |
+| --- | --- | --- |
+| Ephemeral | holds within the working context only | completing a task receipt |
+| Task | a specific instance is captured durably | a receipt whose evidence outlives the session |
+| Decision | the instance generalizes to a ruling or rule | evidence-backed selection between alternatives |
+| Knowledge | the ruling is reusable across future tasks | supporting evidence, applicability, and limits |
+| Canon | the rule governs how the system itself works | promotion through the normal gate because it alters authority evaluation |
+
+Promotion is never automatic and never self-awarded: a candidate must carry provenance to its source, the evidence for it, and stated conditions for reuse. Items that lose validity are retired, not retained. The canonical ladder spelling is `Ephemeral → Task → Decision → Knowledge → Canon`.
+
 ## Usage
 
 Use `UI-GATES` when referring to the entire system. Use `UI-GATE` when referring specifically to an approval or authorization decision. Use `Compound Engineering` only for the coding specialization.
