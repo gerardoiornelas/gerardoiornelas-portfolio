@@ -1,8 +1,8 @@
 ---
 name: uig
 description: Run the UI-GATES authority-aware learning workflow for meaningful work that needs repository knowledge, explicit intent, verification evidence, and reusable learning. Use when the user invokes /uig or asks to run UI-GATES. Do NOT use for exploratory or read-only questions — UI-GATES governs consequential, authorized work.
-version: 0.3.0
-updated: 2026-09-13
+version: 0.4.0
+updated: 2026-09-14
 ---
 
 # UIG — UI-GATES short entrypoint
@@ -20,7 +20,7 @@ updated: 2026-09-13
 3. **Plan** — define the smallest scoped slice and the evidence that will prove it worked.
 4. **Propose** — name the exact action, affected resource, reason, impact, risk, requested authority, and verification plan.
 5. **UI-GATE** — at execution time the gate allows, denies, or escalates the proposal. It answers whether this actor may perform this action on this resource under this intent now.
-6. **Execute** — perform only the authorized action. Execution never implies authorization.
+6. **Execute** — perform only the authorized action. Execution never implies authorization. After each execution step, record an observation — Expected, Actual, Delta — before moving on. On a delta, do not retry immediately: return to Plan to address the root cause, and re-propose only if the revision changes the requested authority or scope.
 7. **Verify** — gather evidence proportionate to risk: tests, live UI validation, review, security checks, or explicit human judgment.
 8. **Receipt** — preserve evidence of the authorized execution and its verification, including the discrepancy analysis of why actual differed from intended.
 9. **Synthesize** — promote only warranted learning into committed knowledge: `Ephemeral → Task → Decision → Knowledge → Canon`. Close the loop with the After Action Review: what was supposed to happen, what actually happened, why the difference, and what will be done differently.

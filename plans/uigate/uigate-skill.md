@@ -1,8 +1,8 @@
 ---
 name: ui-gates
 description: Use this skill for authority-aware agentic work — any task that should be bounded by an explicit intent, pass through an execution-time authority decision, and leave verifiable evidence and reusable learning behind. Triggers include "UI-GATES", "UI-GATE", "gated agentic", "human-in-the-loop development", or requests for a methodical, human-validated agentic build. Within software delivery this specializes into Compound Engineering: decomposing requirements into agent-ready tickets with human UI validation checkpoints. Do NOT use for exploratory or read-only work — UI-GATES governs consequential action, not observation.
-version: 0.2.0
-updated: 2026-09-13
+version: 0.3.0
+updated: 2026-09-14
 ---
 
 # UI-GATES
@@ -22,7 +22,7 @@ Intent → Discover → Plan → Propose → UI-GATE → Execute → Verify → 
 3. **Plan** — define the smallest vertical slice of work and the evidence that will prove it worked.
 4. **Propose** — name the exact action, resource scope, reason, impact, risk, and requested authority.
 5. **UI-GATE** — the authority plane allows, denies, or escalates the proposal at execution time. This is the one question UI-GATE exists to answer: *is this actor authorized to perform this action, on this resource, under this intent, right now?*
-6. **Execute** — perform only the authorized action. Execution never implies authorization.
+6. **Execute** — perform only the authorized action. Execution never implies authorization. After each step, record Expected/Actual/Delta; on a delta, return to Plan and address the root cause before retrying.
 7. **Verify** — gather evidence proportionate to risk: tests, live UI validation, review, security checks, or explicit human judgment.
 8. **Receipt** — preserve evidence of the authorized execution and its verification, including the discrepancy analysis — why actual differed from intended.
 9. **Synthesize** — promote only warranted learning into committed knowledge: `Ephemeral → Task → Decision → Knowledge → Canon`.

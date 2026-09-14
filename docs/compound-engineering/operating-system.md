@@ -92,7 +92,7 @@ This is the same nine-step loop defined in [`ui-gates-canon.md`](ui-gates-canon.
 2. **Plan** — define the smallest vertical slices and acceptance evidence.
 3. **Propose** — state the exact action, affected scope, risk, and requested authority.
 4. **UI-GATE** — the authority plane allows, denies, or escalates the proposal at execution time.
-5. **Execute** — perform only the authorized action.
+5. **Execute** — perform only the authorized action. After each step, record Expected/Actual/Delta; on a delta, return to Plan and address the root cause before retrying.
 6. **Verify** — gather proportionate evidence from tests, live UI, review, or other named checks.
 7. **Receipt** — preserve evidence of the authorized execution and its verification, including the discrepancy analysis: why actual differed from intended.
 8. **Synthesize** — promote durable learning into the appropriate knowledge level.
@@ -149,6 +149,10 @@ receipt:
   verification:
     regression: pass
     coherence: 96
+  observations: # per-step Execute log; omit for a single-step loop
+    - expected: <planned outcome of the step>
+      actual: <raw result: test/log/diff/browser state>
+      delta: <gap from expected, or "none">
   discrepancy_analysis: # AAR: why actual differed from intended
     expected: <from the intent's success_evidence>
     actual: <summarized from the verification results>
