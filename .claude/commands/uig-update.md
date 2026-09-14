@@ -1,21 +1,25 @@
 ---
-description: Sync every portable skill source to the installed Claude Code skill directory, then commit and push so the /uig download stays current.
+description: Sync every portable skill source and the usage hook to their installed locations, then commit and push so the /uig download stays current.
 ---
 
 # Update the UIG skill (and publish)
 
 The portable skills live in this repository under `skills/<name>/SKILL.md`
 (the source of truth). The installed copies Claude Code actually invokes live
-under `~/.claude/skills/<name>/SKILL.md`. This command brings the installed
-copies up to date and publishes the source change.
+under `~/.claude/skills/<name>/SKILL.md`. The usage hook's live copy lives at
+`~/.uig/uig-stop-hook.js`. This command brings all installed copies up to date
+and publishes the source change.
 
 ## Run the sync
 
 1. `npm run skills:sync` — copies each `skills/<name>/SKILL.md` to
-   `~/.claude/skills/<name>/SKILL.md`, creating the directory if needed.
+   `~/.claude/skills/<name>/SKILL.md`, creating the directory if needed, and
+   copies `scripts/uig-stop-hook.js` to `~/.uig/uig-stop-hook.js` (the live
+   SessionEnd hook registered in `~/.claude/settings.json`).
 2. Verify the sync actually happened: byte-compare each installed copy against
-   its repo source (`cmp -s ~/.claude/skills/<name>/SKILL.md skills/<name>/SKILL.md`)
-   and report which skills were `updated` vs `unchanged`.
+   its repo source (`cmp -s ~/.claude/skills/<name>/SKILL.md skills/<name>/SKILL.md`
+   and `cmp -s ~/.uig/uig-stop-hook.js scripts/uig-stop-hook.js`)
+   and report which files were `updated` vs `unchanged`.
 
 ## Publish, if anything changed
 

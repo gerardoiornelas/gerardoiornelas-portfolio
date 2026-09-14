@@ -154,7 +154,7 @@ const UigPage: React.FC = () => {
           </Typography>
         </Box>
         <Typography color="text.secondary" sx={{ maxWidth: 850, fontSize: 14, lineHeight: 1.75, mt: 3 }}>
-          These learning tools are local to this repository. The portable UIG download provides workflow guidance; it does not install the recorder, lesson store, evaluator, or a runtime control plane.
+          Usage is tracked out of the box: the portable download records each invocation and completion to a local log, so <Box component="code" sx={{ fontFamily: "monospace", fontSize: 13 }}>npm run uig:learn -- stats</Box> reports real all-time runs and receipts across your projects. The evaluation harness (lesson store, evaluator, frozen plans) and any runtime control plane remain repository-local — the download is a workflow guide plus a usage ledger, not an installed system.
         </Typography>
       </Container>
 

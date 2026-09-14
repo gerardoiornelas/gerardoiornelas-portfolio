@@ -2,6 +2,7 @@
 const fs = require("fs")
 const path = require("path")
 const { Learning } = require("./uig-learning")
+const { Usage } = require("./uig-usage")
 const help = `Local UI-GATES receipt learning (no model calls, commits or deployments):
   npm run uig:learn -- start run.json
   npm run uig:learn -- propose
@@ -12,6 +13,7 @@ const help = `Local UI-GATES receipt learning (no model calls, commits or deploy
   npm run uig:learn -- approve LESSON_ID approval.json
   npm run uig:learn -- retire LESSON_ID "reason"
   npm run uig:learn -- list
+  npm run uig:learn -- usage
   npm run uig:learn -- stats
 
 start returns a run ID and bounded guidance. Use UIG_LEARNING_RUN=RUN_ID with
@@ -36,6 +38,7 @@ function main(args) {
     approve: 2,
     retire: 2,
     list: 0,
+    usage: 0,
     stats: 0,
   }
   if (!(command in arity) || rest.length !== arity[command]) throw Error(help)
@@ -64,9 +67,34 @@ function main(args) {
         evidence: l.evidence,
         usage: learning.stats(l.id),
       }))
+    case "usage":
+      return usageReport(learning.root)
     case "stats":
-      return formatStats(learning.summary())
+      return [
+        `USAGE — auto-tracked, all-time (global ${new Usage().log})`,
+        usageReport(learning.root),
+        "",
+        "HARNESS — instrumented evaluation only (.uig-learning/, NOT usage)",
+        formatStats(learning.summary()),
+      ].join("\n")
   }
+}
+
+function usageReport(root) {
+  return formatUsage(new Usage().summarize(root))
+}
+
+function formatUsage(u) {
+  return [
+    `runs started:       ${u.runs_started}`,
+    `runs completed:     ${u.runs_completed}  (${u.completed_in_this_repo} in this repo)`,
+    `receipts written:    ${u.receipts_written}  (this repo, knowledge/receipts/)`,
+    `gated approvals:     ${u.gated_approvals}`,
+    `sessions (hook):     ${u.sessions_seen} seen, ${u.uig_sessions} ran uig`,
+    `tokens measured:     ${u.tokens_measured} across ${u.measured_uig_sessions} uig session(s) (input+output; cache reported separately)`,
+    `first event:         ${u.first_event_at || "none yet"}`,
+    `malformed lines:     ${u.malformed}`,
+  ].join("\n")
 }
 
 function formatStats(s) {

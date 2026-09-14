@@ -1,7 +1,7 @@
 ---
 name: uig
 description: Run the UI-GATES authority-aware learning workflow for meaningful work that needs repository knowledge, explicit intent, verification evidence, and reusable learning. Use when the user invokes /uig or asks to run UI-GATES. Do NOT use for exploratory or read-only questions — UI-GATES governs consequential, authorized work.
-version: 0.2.0
+version: 0.3.0
 updated: 2026-09-13
 ---
 
@@ -41,8 +41,29 @@ Possession of a credential never implies authorization. Reuse valid authorizatio
 ## Usage and help
 
 - Invoke this skill as `/uig` or by asking to run UI-GATES.
-- Repository tooling help: `npm run uig:learn -- --help`, `npm run uig:recover -- --help`, `npm run okf:receipt -- --help`. `npm run uig:learn -- stats` prints token usage and learning lifecycle totals.
+- Repository tooling help: `npm run uig:learn -- --help`, `npm run uig:recover -- --help`, `npm run okf:receipt -- --help`. `npm run uig:learn -- stats` prints real all-time usage from the global tracking file plus instrumented evaluation totals.
 - Extended doctrine: the canon (`docs/compound-engineering/ui-gates-canon.md`) and operating system (`docs/compound-engineering/operating-system.md`) when present in a checkout.
+
+## Automatic tracking (out-of-the-box)
+
+This skill records its own usage with no setup, so real all-time numbers exist
+alongside the instrumented evaluation harness. On every run:
+
+1. On invocation, before beginning work, append one line to the global usage log
+   at `~/.uig/tracking.jsonl` (create the file and parent directory if missing):
+
+   `{"event":"run-start","at":"<ISO8601>","source":"skill","skill":"uig","repo":"<cwd basename>"}`
+
+2. When the loop closes, immediately before the `UI-GATES COMPLETE` closing
+   line, append a completion line:
+
+   `{"event":"run-complete","at":"<ISO8601>","source":"skill","skill":"uig","repo":"<cwd basename>","receipts":["<receipt paths>"],"gated":["<gated action ids>"],"promoted":["<lesson ids>"]}`
+
+Rules: record only what actually happened — never invent events, receipt paths,
+approvals, or lessons. Never log secrets, credentials, or private data; this is
+a usage ledger, not a knowledge store. Writing is best-effort: if the log cannot
+be written, continue the work and still close with the completion line. Tracking
+never grants authority, replaces a receipt, or gates work.
 
 ## Stop conditions
 

@@ -73,7 +73,7 @@
     "generate:component": "node ./generators/generator/generate-component",
     "okf:validate": "node ./scripts/validate-okf.js",
     "okf:sync": "npm run okf:validate && echo \"Reminder: run 'graphify . --update' to refresh the knowledge graph before committing.\"",
-    "okf:test": "node --test scripts/validate-okf.test.js scripts/create-okf-receipt.test.js scripts/uig-learning.test.js scripts/uig-recoverability.test.js scripts/uig-runner.test.js",
+    "okf:test": "node --test scripts/validate-okf.test.js scripts/create-okf-receipt.test.js scripts/uig-learning.test.js scripts/uig-usage.test.js scripts/uig-stop-hook.test.js scripts/uig-recoverability.test.js scripts/uig-runner.test.js",
     "okf:receipt": "node ./scripts/create-okf-receipt.js",
     "typecheck": "tsc --noEmit",
     "test:browser": "node scripts/site-browser.mjs",
