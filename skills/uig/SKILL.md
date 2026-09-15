@@ -1,8 +1,8 @@
 ---
 name: uig
 description: Run the UI-GATES authority-aware learning workflow for meaningful work that needs repository knowledge, explicit intent, verification evidence, and reusable learning. Use when the user invokes /uig or asks to run UI-GATES. Do NOT use for exploratory or read-only questions — UI-GATES governs consequential, authorized work.
-version: 0.4.0
-updated: 2026-09-14
+version: 0.5.0
+updated: 2026-09-15
 ---
 
 # UIG — UI-GATES short entrypoint
@@ -37,6 +37,8 @@ Read required context, then a compact lesson index when available; load only app
 | prohibited | cannot be authorized by this workflow | expose secrets, disable audit, expand own authority, alter authority records |
 
 Possession of a credential never implies authorization. Reuse valid authorization within its scope; recheck on changed scope, actor, conditions, expiry, or revocation. Gated actions require explicit principal approval before execution. Prohibited actions stop; propose a permissible alternative. Acceptance records evidence after execution and never retroactively authorizes work. Changes to governing rules, permissions, verification requirements, or completion criteria require explicit approval.
+
+An authorization may carry an optional retry budget (`authorization.budget.max_retries`). When set, exceeding it during Execute → Verify is a trip wire: the receipt must show escalation to gated authority and an accepted human review, not a narrative note, before the work can be recorded as complete.
 
 ## Usage and help
 

@@ -83,6 +83,10 @@ intent:
 
 Authority is bounded by actor, action, resource, intent, time, and policy. Possession of a credential never implies authorization.
 
+### Permissions and trip wires
+
+A delegation may carry a `budget` — today, `max_retries`: the number of Execute → Verify cycles authorized before the work must stop and escalate. A budget is optional; when absent, nothing changes. When present, it is not advisory. `npm run okf:validate` enforces it deterministically: a receipt reporting more retries than its budget must show `authorization.state: gated` **and** `acceptance.human_review: accepted` — a real escalation and a real approval, not a note in the discrepancy analysis. This is the one trip wire this repository can check without a live runtime: it does not watch a session as it happens, but nothing exceeding its authorized retry budget can be recorded as complete without proof that a principal actually saw and approved it.
+
 ## Operating cycle
 
 This is the same nine-step loop defined in [`ui-gates-canon.md`](ui-gates-canon.md): `Intent → Discover → Plan → Propose → UI-GATE → Execute → Verify → Receipt → Synthesize`.
@@ -143,6 +147,7 @@ receipt:
     state: delegated
     source: intent delegation
     policy: UIGATE-DEV-02
+    budget: { max_retries: 2 } # optional; exceeding it forces gated + accepted human_review
   executed_at: ISO-8601 timestamp
   result:
     commit: git-sha
@@ -153,6 +158,7 @@ receipt:
     - expected: <planned outcome of the step>
       actual: <raw result: test/log/diff/browser state>
       delta: <gap from expected, or "none">
+  retries: 0 # count of Execute → Verify cycles before acceptance; checked against authority.budget.max_retries
   discrepancy_analysis: # AAR: why actual differed from intended
     expected: <from the intent's success_evidence>
     actual: <summarized from the verification results>

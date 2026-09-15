@@ -1,8 +1,8 @@
 ---
 name: ui-gates
 description: Use this skill for authority-aware agentic work — any task that should be bounded by an explicit intent, pass through an execution-time authority decision, and leave verifiable evidence and reusable learning behind. Triggers include "UI-GATES", "UI-GATE", "gated agentic", "human-in-the-loop development", or requests for a methodical, human-validated agentic build. Within software delivery this specializes into Compound Engineering: decomposing requirements into agent-ready tickets with human UI validation checkpoints. Do NOT use for exploratory or read-only work — UI-GATES governs consequential action, not observation.
-version: 0.3.0
-updated: 2026-09-14
+version: 0.4.0
+updated: 2026-09-15
 ---
 
 # UI-GATES
@@ -67,10 +67,12 @@ authorization:
   source: <existing delegation or explicit principal approval>
   scope: <approved action and resource boundary>
   valid_until: <expiry or task completion boundary>
+  budget: <optional, e.g. {max_retries: 2}; exceeding it forces gated + accepted human_review>
 acceptance:
   profile: <delegated, UI acceptance, consequential>
   reviewer: <agent or named human>
   evidence: [<required check and expected result>]
+  retries: <count of Execute → Verify cycles before acceptance>
 ```
 
 Execute only after authorization is established. Report human checkpoints as `FEAT-XXX AWAITING ACCEPTANCE`; report failed evidence as `FEAT-XXX BLOCKED`. A successful ticket records acceptance evidence and a receipt before dependent work continues. Human acceptance does not grant unspecified future authority.
@@ -78,6 +80,8 @@ Execute only after authorization is established. Report human checkpoints as `FE
 ## Authorization and acceptance
 
 Delegated work proceeds within existing approved scope without repeated permission questions. Gated actions require explicit principal approval before execution. Prohibited actions stop; propose a permissible alternative. Changes to governing rules, permissions, verification requirements, or completion criteria require explicit approval.
+
+An authorization may carry a retry budget (`authorization.budget.max_retries`). It is optional and, when absent, nothing changes. When set, it is a trip wire, not a suggestion: a ticket that needed more Execute → Verify cycles than its budget must escalate to gated authority and receive an accepted human review before its receipt can record completion — `npm run okf:validate` enforces this structurally.
 
 Record authorization before execution: intent, principal decision or delegation source, action/resource scope, and validity boundary. Recheck it when scope, actor, conditions, or expiry change, or authority is revoked. Acceptance records the reviewer and result evidence after execution; it never retroactively authorizes work. An approved request to implement a concrete proposal satisfies that proposal's gate.
 

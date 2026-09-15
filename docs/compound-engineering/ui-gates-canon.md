@@ -71,4 +71,6 @@ Use `UI-GATES` when referring to the entire system. Use `UI-GATE` when referring
 
 Delegated work proceeds within existing approved scope without repeated permission questions. Gated actions require explicit principal approval before execution. Prohibited actions stop; propose a permissible alternative. Changes to governing rules, permissions, verification requirements, or completion criteria require explicit approval.
 
+An authorization may carry a retry budget (`authorization.budget.max_retries`). It is optional and, when absent, nothing changes. When set, it is a trip wire, not a suggestion: a ticket that needed more Execute → Verify cycles than its budget must escalate to gated authority and receive an accepted human review before its receipt can record completion — `npm run okf:validate` enforces this structurally.
+
 Record authorization before execution: intent, principal decision or delegation source, action/resource scope, and validity boundary. Recheck it when scope, actor, conditions, or expiry change, or authority is revoked. Acceptance records the reviewer and result evidence after execution; it never retroactively authorizes work. An approved request to implement a concrete proposal satisfies that proposal's gate.
