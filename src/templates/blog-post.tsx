@@ -311,6 +311,44 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/trust-stack-proof-of-personhood-vs-authority": {
+      title: "Proof of Personhood vs. Proof of Authority | Trust Stack",
+      description:
+        "Proof of personhood can establish uniqueness without revealing identity. It cannot, by itself, show what a person or AI agent is allowed to do.",
+      keywords: [
+        "Trust Stack",
+        "proof of personhood",
+        "proof of authority",
+        "World ID",
+        "World whitepapers",
+        "W3C DID",
+        "ambient authority",
+        "agentic trust",
+        "capability-based security",
+      ],
+      about: [
+        "Proof of Personhood",
+        "Proof of Authority",
+        "World ID",
+        "W3C Decentralized Identifiers (DID)",
+        "Ambient Authority",
+        "The Trust Stack",
+      ],
+      faq: [
+        {
+          q: "What does proof of personhood prove?",
+          a: "Evidence that a participant is a unique human.",
+        },
+        {
+          q: "What is the difference between authentication and authorization?",
+          a: "One proves control; the other determines permission.",
+        },
+        {
+          q: "Can proof of personhood stop AI agents?",
+          a: "It can gate actions to humans, but a human may direct an agent.",
+        },
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {
