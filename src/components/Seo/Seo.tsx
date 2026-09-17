@@ -6,7 +6,7 @@ const DEFAULT_TITLE =
   "Gerardo I. Ornelas | Governed AI & Trusted Visibility"
 const DEFAULT_DESCRIPTION =
   "Gerardo I. Ornelas is a systems architect, founder, and advisor working on mortgage AI governance, execution evidence, and AI-era visibility systems."
-const DEFAULT_IMAGE = "/lone-star-gs.png"
+const DEFAULT_IMAGE = "/brand.png"
 
 interface SeoProps {
   title?: string

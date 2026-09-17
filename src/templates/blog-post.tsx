@@ -378,7 +378,7 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
       url: seoDefaults.siteUrl,
       logo: {
         "@type": "ImageObject",
-        url: `${seoDefaults.siteUrl}/lone-star-gs.png`,
+        url: `${seoDefaults.siteUrl}/brand.png`,
       },
     },
     mainEntityOfPage: `${seoDefaults.siteUrl}${pathname}`,
