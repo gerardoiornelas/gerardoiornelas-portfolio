@@ -864,3 +864,212 @@ test("CLI stats renders a human-readable report honoring unknown telemetry", () 
   )
 })
 
+// Lesson history is plain files. These tests forge that history directly, the way an
+// agent with file access could, and require the store to refuse to be talked into
+// treating a lesson as approved. The gate must live in the data, not only in approve().
+const digestOf = value => {
+  const canonical = v =>
+    Array.isArray(v)
+      ? v.map(canonical)
+      : v && typeof v === "object"
+      ? Object.fromEntries(
+          Object.keys(v)
+            .sort()
+            .map(k => [k, canonical(v[k])])
+        )
+      : v
+  return require("crypto")
+    .createHash("sha256")
+    .update(JSON.stringify(canonical(value)))
+    .digest("hex")
+}
+const forge = (env, lesson, state, evidence) => {
+  const n = env.learning.all("history/" + lesson.id).length
+  return env.learning.put(
+    "history/" + lesson.id,
+    "event-" + String(n).padStart(6, "0"),
+    { state, evidence, at: new Date().toISOString() }
+  )
+}
+const selfApproval = lesson => ({
+  approval: {
+    principal: "the-agent-itself",
+    source: "self",
+    scope: "everything",
+    expires_at: new Date(Date.now() + 86400000 * 365).toISOString(),
+  },
+  body_sha256: digestOf(lesson.body),
+})
+const evaluated = (env, lesson) => {
+  const plan = planned(env, lesson)
+  runPairs(env, lesson, plan)
+  env.learning.evaluate(plan.id)
+  return plan
+}
+test("control: a lesson that really was evaluated and approved is trusted", t => {
+  const env = setup(t),
+    lesson = trained(env)
+  evaluated(env, lesson)
+  env.learning.approve(lesson.id, approval())
+  assert.equal(env.learning.state(lesson.id), "approved")
+  assert.equal(env.learning.retrieve({ family: "receipt-authoring" }).length, 1)
+})
+test("a hand-written approval cannot promote a lesson that was never evaluated", t => {
+  const env = setup(t),
+    lesson = trained(env)
+  assert.equal(env.learning.state(lesson.id), "candidate")
+  forge(env, lesson, "approved", selfApproval(lesson))
+  assert.equal(env.learning.state(lesson.id), "invalid-history")
+  assert.deepEqual(env.learning.retrieve({ family: "receipt-authoring" }), [])
+  assert.throws(() => env.learning.approve(lesson.id, approval()), /evaluated/)
+  const next = env.learning.start({
+    task_id: "later-task",
+    family: "receipt-authoring",
+    mode: "live",
+  })
+  assert.equal(next.lessons.length, 0)
+})
+test("a forged evaluation cannot vouch for a lesson: it must name a real plan and report", t => {
+  const env = setup(t),
+    lesson = trained(env)
+  forge(env, lesson, "evaluated", { plan_id: "no-such-plan" })
+  assert.equal(env.learning.state(lesson.id), "invalid-history")
+  assert.throws(() => env.learning.approve(lesson.id, approval()), /evaluated/)
+})
+test("a frozen plan that was never evaluated is not an evaluation", t => {
+  const env = setup(t),
+    lesson = trained(env),
+    plan = planned(env, lesson)
+  forge(env, lesson, "evaluated", { plan_id: plan.id })
+  assert.equal(env.learning.state(lesson.id), "invalid-history")
+  assert.deepEqual(env.learning.retrieve({ family: "receipt-authoring" }), [])
+})
+test("an approval recorded for different lesson content is refused", t => {
+  const env = setup(t),
+    lesson = trained(env)
+  evaluated(env, lesson)
+  assert.equal(env.learning.state(lesson.id), "evaluated")
+  forge(env, lesson, "approved", {
+    ...selfApproval(lesson),
+    body_sha256: digestOf({ some: "other lesson" }),
+  })
+  assert.equal(env.learning.state(lesson.id), "invalid-history")
+  assert.deepEqual(env.learning.retrieve({ family: "receipt-authoring" }), [])
+})
+test("an approval without a principal, source, scope or expiry is refused", t => {
+  const env = setup(t),
+    lesson = trained(env)
+  evaluated(env, lesson)
+  forge(env, lesson, "approved", {
+    approval: { principal: "x" },
+    body_sha256: digestOf(lesson.body),
+  })
+  assert.equal(env.learning.state(lesson.id), "invalid-history")
+})
+test("retirement is terminal: a later forged approval cannot revive a lesson", t => {
+  const env = setup(t),
+    lesson = trained(env)
+  evaluated(env, lesson)
+  env.learning.approve(lesson.id, approval())
+  env.learning.retire(lesson.id, "Fixture lesson superseded")
+  forge(env, lesson, "approved", selfApproval(lesson))
+  assert.equal(env.learning.state(lesson.id), "retired")
+  assert.deepEqual(env.learning.retrieve({ family: "receipt-authoring" }), [])
+})
+test("a retirement without a reason is not accepted as history", t => {
+  const env = setup(t),
+    lesson = trained(env)
+  forge(env, lesson, "retired", {})
+  assert.equal(env.learning.state(lesson.id), "invalid-history")
+})
+test("a lesson with invalid history can be neither planned nor supplied, and is counted", t => {
+  const env = setup(t),
+    lesson = trained(env)
+  forge(env, lesson, "approved", selfApproval(lesson))
+  assert.throws(() => planned(env, lesson, { id: "later-plan" }), /invalid/)
+  assert.equal(env.learning.summary().lessons.by_state["invalid-history"], 1)
+})
+test("a real evaluation of one lesson cannot be borrowed to vouch for a co-selected lesson that earned nothing", t => {
+  const env = setup(t),
+    first = trained(env)
+  for (const task_id of ["mismatch-one", "mismatch-two"]) {
+    const run = env.learning.start({
+        task_id,
+        family: "receipt-authoring",
+        mode: "discovery",
+      }),
+      d = data()
+    d.acceptance.human_review = "not-required"
+    d.acceptance.status = "partial"
+    env.learning.record(run.id, d, false)
+    d.status = "partial"
+    env.learning.record(run.id, d, true)
+  }
+  const second = env.learning.propose().find(l => l.id !== first.id)
+  const plan = planned(env, first, { lesson_ids: [first.id, second.id] })
+  for (const task of plan.tasks)
+    for (const mode of ["control", "treatment"]) {
+      const run = env.learning.start({
+        task_id: task,
+        family: "receipt-authoring",
+        mode,
+        plan_id: plan.id,
+      })
+      if (mode === "control") env.learning.record(run.id, data(), false)
+      env.learning.record(run.id, repair(data(), first), true)
+      env.learning.finish(
+        run.id,
+        finishInput(env, run, {
+          applied_lessons: mode === "treatment" ? [first.id] : [],
+        })
+      )
+    }
+  const report = env.learning.evaluate(plan.id)
+  assert.equal(report.transfer_supported, true)
+  assert.equal(env.learning.state(first.id), "evaluated")
+  assert.equal(env.learning.state(second.id), "candidate")
+  // The plan and report both list `second`, and the report says transfer was supported.
+  forge(env, second, "evaluated", { plan_id: plan.id })
+  assert.equal(env.learning.state(second.id), "invalid-history")
+  forge(env, second, "approved", selfApproval(second))
+  assert.deepEqual(
+    env.learning.retrieve({ family: "receipt-authoring" }).map(l => l.id),
+    []
+  )
+  assert.equal(env.learning.state(first.id), "evaluated")
+})
+test("an evaluation report altered after the fact no longer vouches for its lesson", t => {
+  const env = setup(t),
+    lesson = trained(env),
+    plan = evaluated(env, lesson)
+  assert.equal(env.learning.state(lesson.id), "evaluated")
+  const file = path.join(env.learning.directory, "evaluations", plan.id + ".json"),
+    report = JSON.parse(fs.readFileSync(file, "utf8"))
+  fs.writeFileSync(file, JSON.stringify({ ...report, transfer_supported: false }))
+  assert.equal(env.learning.state(lesson.id), "invalid-history")
+  fs.writeFileSync(
+    file,
+    JSON.stringify({ ...report, lesson_transfer_pairs: { [lesson.id]: 0 } })
+  )
+  assert.equal(env.learning.state(lesson.id), "invalid-history")
+})
+test("a plan changed after evaluation no longer vouches for its lesson", t => {
+  const env = setup(t),
+    lesson = trained(env),
+    plan = evaluated(env, lesson)
+  const file = path.join(env.learning.directory, "plans", plan.id + ".json"),
+    stored = JSON.parse(fs.readFileSync(file, "utf8"))
+  fs.writeFileSync(file, JSON.stringify({ ...stored, model: "a-different-model" }))
+  assert.equal(env.learning.state(lesson.id), "invalid-history")
+  assert.deepEqual(env.learning.retrieve({ family: "receipt-authoring" }), [])
+})
+test("history cannot regress: an evaluation recorded after approval is refused", t => {
+  const env = setup(t),
+    lesson = trained(env),
+    plan = evaluated(env, lesson)
+  env.learning.approve(lesson.id, approval())
+  assert.equal(env.learning.retrieve({ family: "receipt-authoring" }).length, 1)
+  forge(env, lesson, "evaluated", { plan_id: plan.id })
+  assert.equal(env.learning.state(lesson.id), "invalid-history")
+  assert.deepEqual(env.learning.retrieve({ family: "receipt-authoring" }), [])
+})

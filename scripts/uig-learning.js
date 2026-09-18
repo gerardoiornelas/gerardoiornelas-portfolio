@@ -221,8 +221,77 @@ class Learning {
     )
     return lesson
   }
+  // History is plain files, so anyone who can write a file can append an event. The
+  // state is therefore never read from the last event alone: the history is replayed,
+  // and every step must be backed by the artifact the real transition leaves behind
+  // (an evaluated event by a stored plan and report naming this lesson version; an
+  // approved event by an approval bound to this lesson's content). An event that
+  // cannot be backed makes the whole lesson "invalid-history", which nothing uses.
+  // Limit: this raises the bar from one forged file to a mutually consistent set of
+  // forged files. Closing that needs an approval signed with a key the agent cannot
+  // read, which this local store does not have.
+  audit(key) {
+    let lesson
+    try {
+      lesson = this.lesson(key)
+    } catch (error) {
+      return { state: "invalid-history", reason: error.message }
+    }
+    let state = "candidate",
+      evidence = null
+    for (const [index, event] of this.all("history/" + id(key)).entries()) {
+      if (state === "retired") break // terminal: nothing recorded later can revive it
+      const fault = this.fault(lesson, state, event)
+      if (fault)
+        return { state: "invalid-history", reason: `event ${index}: ${fault}` }
+      state = event.state
+      evidence = event.evidence
+    }
+    return { state, evidence }
+  }
+  fault(lesson, from, event) {
+    try {
+      const evidence = event.evidence || {}
+      if (event.state === "retired")
+        return text(evidence.reason) ? null : "retirement without a reason"
+      if (event.state === "evaluated") {
+        if (from !== "candidate") return `evaluated from ${from}`
+        const planId = id(evidence.plan_id),
+          plan = this.get("plans", planId),
+          report = this.get("evaluations", planId)
+        if (report.plan_sha256 !== digest(plan))
+          return "evaluation is for a different plan"
+        if (report.transfer_supported !== true)
+          return "evaluation did not support transfer"
+        // A plan may cover several lessons; only one that itself showed transfer earns this.
+        if (!(report.lesson_transfer_pairs?.[lesson.id] >= 2))
+          return "evaluation showed no transfer for this lesson"
+        return null
+      }
+      if (event.state === "approved") {
+        if (from !== "evaluated") return `approved from ${from}`
+        if (evidence.body_sha256 !== digest(lesson.body))
+          return "approval is for different lesson content"
+        const approval = evidence.approval
+        if (
+          !approval ||
+          !["principal", "source", "scope"].every(k => text(approval[k])) ||
+          !Number.isFinite(Date.parse(approval.expires_at))
+        )
+          return "approval lacks principal, source, scope or expiry"
+        return null
+      }
+      return `unknown state ${event.state}`
+    } catch (error) {
+      return `unverifiable: ${error.message}`
+    }
+  }
   state(key) {
-    return this.all("history/" + id(key)).at(-1)?.state || "candidate"
+    return this.audit(key).state
+  }
+  // A lesson may be planned or supplied only while its history is intact and unretired.
+  usable(key) {
+    return ["candidate", "evaluated", "approved"].includes(this.state(key))
   }
   transition(key, state, evidence) {
     const history = this.all("history/" + id(key))
@@ -240,11 +309,10 @@ class Learning {
     const selected = this.all("lessons")
       .map(l => this.lesson(l.id))
       .filter(l => {
-        const decisions = this.all("history/" + l.id),
-          latest = decisions.at(-1)
+        const audited = this.audit(l.id)
         return (
-          latest?.state === "approved" &&
-          Date.parse(latest.evidence.approval.expires_at) > Date.now() &&
+          audited.state === "approved" &&
+          Date.parse(audited.evidence.approval.expires_at) > Date.now() &&
           this.fresh(l.body) &&
           (!codes.length || codes.includes(l.body.trigger.code))
         )
@@ -290,8 +358,8 @@ class Learning {
       )
       if (input.mode === "treatment") {
         ensure(
-          plan.lessons.every(l => this.state(l.id) !== "retired"),
-          "evaluation lesson retired"
+          plan.lessons.every(l => this.usable(l.id)),
+          "evaluation lesson retired or invalid"
         )
         selected = plan.lessons
       }
@@ -322,11 +390,11 @@ class Learning {
     const run = this.get("runs", runId)
     if (run.plan_id) authority(this.get("plans", run.plan_id).authorization)
     for (const lesson of run.lessons) {
-      ensure(this.state(lesson.id) !== "retired", "supplied lesson retired")
+      ensure(this.usable(lesson.id), "supplied lesson retired or invalid")
       if (run.mode === "live") {
-        const latest = this.all("history/" + lesson.id).at(-1)
-        ensure(latest?.state === "approved", "live lesson no longer approved")
-        authority(latest.evidence.approval)
+        const audited = this.audit(lesson.id)
+        ensure(audited.state === "approved", "live lesson no longer approved")
+        authority(audited.evidence.approval)
       }
     }
     ensure(
@@ -497,8 +565,8 @@ class Learning {
     const lessons = input.lesson_ids.map(key => {
       const l = this.lesson(key)
       ensure(
-        this.state(key) !== "retired" && this.fresh(l.body),
-        "lesson retired or stale"
+        this.usable(key) && this.fresh(l.body),
+        "lesson retired, invalid or stale"
       )
       return { id: key, version: digest(l.body), body: l.body }
     })
