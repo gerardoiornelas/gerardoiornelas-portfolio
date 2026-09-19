@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 // Internal authoring check, not an authorization engine or part of the portable skill.
+// Enforces the one trip wire this repo can check deterministically: a receipt
+// that reports more retries than its authorization.budget.max_retries must show
+// a real escalation (gated authorization, accepted human review), not a
+// narrative note. See docs/compound-engineering/operating-system.md#authority-states.
 const fs = require("fs")
 const path = require("path")
 const { execFileSync } = require("child_process")
@@ -75,6 +79,20 @@ function receiptStructure(raw) {
       "authorization.state",
       "execution requires delegated or approved gated authority"
     )
+  if (data.authorization.budget !== undefined) {
+    const budget = data.authorization.budget
+    if (
+      budget === null ||
+      typeof budget !== "object" ||
+      !Number.isInteger(budget.max_retries) ||
+      budget.max_retries < 0
+    )
+      fail(
+        "budget-invalid",
+        "authorization.budget.max_retries",
+        "authorization.budget.max_retries must be a non-negative integer"
+      )
+  }
   requireFields(data.acceptance, ["status", "reviewer"], "acceptance")
   if (
     ![
@@ -113,6 +131,32 @@ function receiptStructure(raw) {
       "acceptance.evidence",
       "acceptance.evidence must name checks and results"
     )
+  if (data.acceptance.retries !== undefined) {
+    if (!Number.isInteger(data.acceptance.retries) || data.acceptance.retries < 0)
+      fail(
+        "retries-invalid",
+        "acceptance.retries",
+        "acceptance.retries must be a non-negative integer"
+      )
+    // Trip wire: a ticket authorized with a retry budget that actually needed
+    // more retries did not self-clear. It must show a real escalation to
+    // gated authority and an accepted human review, not just a narrative note.
+    const maxRetries = data.authorization.budget?.max_retries
+    if (typeof maxRetries === "number" && data.acceptance.retries > maxRetries) {
+      if (data.authorization.state !== "gated")
+        fail(
+          "trip-wire",
+          "authorization.state",
+          `acceptance.retries (${data.acceptance.retries}) exceeds authorization.budget.max_retries (${maxRetries}); exceeding the budget requires gated authorization`
+        )
+      if (data.acceptance.human_review !== "accepted")
+        fail(
+          "trip-wire",
+          "acceptance.human_review",
+          `acceptance.retries (${data.acceptance.retries}) exceeds authorization.budget.max_retries (${maxRetries}); exceeding the budget requires accepted human review`
+        )
+    }
+  }
   requireFields(
     data.aar,
     ["expected", "actual", "difference", "learning"],

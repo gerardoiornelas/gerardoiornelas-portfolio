@@ -9,11 +9,13 @@ authorization:
   source: ""
   scope: ""
   valid_until: ""
+  # budget: { max_retries: 2 } # optional; exceeding it requires state: gated and human_review: accepted
 acceptance:
   status: partial
   human_review: pending
   reviewer: ""
   evidence: []
+  # retries: 0 # optional; count of Execute -> Verify cycles before this receipt
 aar:
   expected: ""
   actual: ""

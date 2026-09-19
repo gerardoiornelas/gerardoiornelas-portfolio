@@ -26,12 +26,14 @@ receipt:
   authority:
     state: "" # observe | delegated | gated | prohibited
     source: "" # e.g. intent delegation, principal approval
+    budget: {} # optional, e.g. { max_retries: 2 }; see operating-system.md#authority-states
   executed_at: "" # ISO-8601 timestamp
   result:
     commit: "" # git sha, if applicable
   verification:
     evidence: []
     status: "" # e.g. verified, verified-with-environment-limit
+    retries: 0 # count of Execute → Verify cycles before acceptance; checked against authority.budget.max_retries
   discrepancy_analysis: # AAR Q3 — why actual differed from intended
     expected: "" # from the intent's success_evidence
     actual: "" # summarized from verification results

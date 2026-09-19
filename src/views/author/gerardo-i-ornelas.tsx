@@ -115,6 +115,7 @@ export const Head: HeadFC = () => {
       title="Gerardo I. Ornelas"
       description="Gerardo I. Ornelas works on mortgage AI governance, execution evidence, and AI-era visibility systems."
       pathname="/author/gerardo-i-ornelas/"
+      image={ImgAuthor}
       jsonLd={[personSchema, profileSchema]}
     />
   )

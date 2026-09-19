@@ -85,6 +85,60 @@ test("placeholder AAR, missing evidence and prohibited authority fail", () => {
     assert.ok(run(f).length)
   }
 })
+test("retry budget within limit needs no escalation", () => {
+  const f = fixture(),
+    d = data()
+  d.authorization.budget = { max_retries: 2 }
+  d.acceptance.retries = 1
+  f[receipt] = render(d)
+  assert.deepEqual(run(f), [])
+})
+test("exceeding the retry budget without gated + accepted human review fails", () => {
+  for (const mutate of [
+    d => {
+      d.authorization.budget = { max_retries: 2 }
+      d.acceptance.retries = 3
+      // state stays "gated" (fixture default) but human_review is unset
+    },
+    d => {
+      d.authorization.budget = { max_retries: 2 }
+      d.acceptance.retries = 3
+      d.authorization.state = "delegated"
+      d.acceptance.human_review = "accepted"
+    },
+  ]) {
+    const f = fixture(),
+      d = data()
+    mutate(d)
+    f[receipt] = render(d)
+    assert.ok(run(f).length)
+  }
+})
+test("exceeding the retry budget with gated authorization and accepted review passes", () => {
+  const f = fixture(),
+    d = data()
+  d.authorization.budget = { max_retries: 2 }
+  d.acceptance.retries = 3
+  d.authorization.state = "gated"
+  d.acceptance.human_review = "accepted"
+  f[receipt] = render(d)
+  assert.deepEqual(run(f), [])
+})
+test("invalid budget or retries values fail", () => {
+  for (const mutate of [
+    d => (d.authorization.budget = { max_retries: -1 }),
+    d => (d.authorization.budget = { max_retries: "two" }),
+    d => (d.authorization.budget = "unbounded"),
+    d => (d.acceptance.retries = -1),
+    d => (d.acceptance.retries = "none"),
+  ]) {
+    const f = fixture(),
+      d = data()
+    mutate(d)
+    f[receipt] = render(d)
+    assert.ok(run(f).length)
+  }
+})
 test("invalid YAML and duplicate keys fail", () => {
   for (const yaml of ["app_id: [", "app_id: first\napp_id: second"]) {
     const f = fixture()

@@ -8,4 +8,6 @@ A partial, failed, or blocked receipt can validly preserve evidence and cover so
 
 Only list exact paths this task covers. Deleted sources must be tracked deletions. The helper checks working files; `npm run okf:validate` checks the staged bundle when the index contains changes. Before committing, follow the OKF and graph requirements in `AGENTS.md`.
 
+A delegation may set `authorization.budget.max_retries` — the number of Execute → Verify cycles authorized before work must stop and escalate. It is optional; omit it and nothing changes. When set, `okf:validate` enforces it: a receipt whose `acceptance.retries` exceeds the budget must have `authorization.state: gated` and `acceptance.human_review: accepted`, or the receipt fails structural validation. This is the one trip wire checked deterministically today — see [operating-system.md#authority-states](../docs/compound-engineering/operating-system.md).
+
 For a learning-enabled task, use `npm run uig:learn -- start /tmp/run.json` and set the returned run ID as `UIG_LEARNING_RUN` for every receipt attempt. Failures and successful corrections are then recorded automatically with redacted field shapes. See [receipt learning](../docs/compound-engineering/receipt-learning.md) for discovery, approval, live retrieval, and controlled evaluation. Normal uninstrumented receipt generation remains available.
