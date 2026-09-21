@@ -349,6 +349,43 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/where-should-ai-end-creative-work": {
+      title: "How to Use AI Without Losing Creative Agency",
+      description:
+        "A five-year study of digital painters suggests the healthiest AI workflow is not all-human or all-AI, but built around boundaries creators can revise.",
+      keywords: [
+        "creative agency",
+        "human-AI interaction",
+        "digital painters AI",
+        "authorship boundaries",
+        "longitudinal agency partitioning",
+        "content provenance",
+        "The Trust Stack",
+        "HCI",
+      ],
+      about: [
+        "Creative Agency",
+        "Human–AI Interaction",
+        "Content Provenance",
+        "Authorship Boundaries",
+        "Digital Painting Workflows",
+        "The Trust Stack",
+      ],
+      faq: [
+        {
+          q: "What is creative agency in AI workflows?",
+          a: "Setting goals, deciding delegation, and retaining final responsibility across the workflow.",
+        },
+        {
+          q: "Does using AI erase authorship?",
+          a: "Not necessarily; contribution, control, stage-level human involvement, and context matter far more than binary labels.",
+        },
+        {
+          q: "What is a human-only zone?",
+          a: "A specific stage, asset, or decision (such as the initial sketch, facial features, or final polish pass) explicitly reserved for human execution and protected from automated AI transformation.",
+        },
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {
