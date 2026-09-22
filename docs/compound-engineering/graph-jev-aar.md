@@ -1,6 +1,6 @@
 # Graph + Jev + AAR: an alternative to human-gated UI-GATE
 
-**Status: proposal, not canon.** Per [ui-gates-canon.md](ui-gates-canon.md)'s own rule ("changes to governing rules... require explicit approval"), adopting any part of this is itself a gated decision for the principal — this doc does not change canon by existing.
+**Status: decided direction, canon not yet updated.** On 2026-09-22 the principal chose the solo-workflow fork over the team/compliance-gated product (see "What changes vs. what doesn't" below and the open questions this resolves). `uigates advise` (the TypeSafe/Jev backend) is live and proven against real records. What's still open is *how* `advise`'s APPROVE becomes authority-granting rather than advisory-only — see the updated open questions. [ui-gates-canon.md](ui-gates-canon.md) itself ("Gated actions require explicit principal approval before execution") has not been edited yet; that edit is the actual canon change this decision implies, and per canon's own rule it still needs its own explicit sign-off before landing.
 
 ## Problem
 
@@ -47,13 +47,14 @@ Nothing here touches the closing protocol. [ui-gates-canon.md](ui-gates-canon.md
 | Verify → Receipt → Synthesize (AAR) | unchanged | unchanged |
 | Knowledge promotion ladder | unchanged | unchanged, but fed by the graph instead of (or in addition to) `.uigates/knowledge` |
 
-## Open questions before this is more than a proposal
+## Resolved
 
-1. **Data boundary**: is sending flagged commands + policy text to a third-party API (TypeSafe/OpenRouter) acceptable, per project? This needs an explicit, per-project opt-in — never a silent default.
-2. **What counts as "ordinary" vs. "genuine" risk** — canon's low/medium/high impact framing already exists; does Jev's APPROVE/DENY/ESCALATE map onto it directly, or does the risk boundary need to be redrawn?
-3. **Where does `uigates` end and Hermes/Jev begin** — is this a pluggable decision-backend interface inside `uigates authorize` (smallest change, opt-in via env var), or a deeper redesign that retires the human-gate path entirely for some projects?
-4. **Graph provenance** — canon requires every durable artifact to retain provenance to its source and evidence. A cross-project graph needs the same discipline graphify's knowledge graph already has, not a downgrade in exchange for reach.
+1. **Data boundary**: acceptable, opt-in per invocation (`UIGATES_JEV_BACKEND=typesafe` + `TYPESAFE_API_KEY`, read from a gitignored `.env` or the real environment — never a project default, never a CLI flag). Live and working.
+2. **Which fork**: solo workflow, decided 2026-09-22. Graph context + advisory judgment + AAR, human gate reserved for genuinely irreversible/high-blast-radius work — not the team/compliance product where every gate needs a provable human yes.
 
-## Smallest next step
+## Open questions, now that `advise` is proven and the fork is decided
 
-A spike: an optional, env-var-gated decision backend inside `uigates authorize`, tried against a stubbed/local judge first (no external call, no credential needed) to prove the integration point, before wiring a live `jev-approvals` call that any project would have to opt into explicitly.
+3. **How does APPROVE grant authority, not just advise it?** `GovernanceEngine.authorize()` today hard-requires `principalId === intent.principalId` — it has no concept of a non-human approver. Making `advise`'s APPROVE actually authorize means either (a) a new authorization path that records a distinct, honest identity for a machine-granted approval (e.g. `authorizedBy: "jev:typesafe-jev"`, never impersonating the human principal), or (b) keeping `authorize --approved-by` as-is and building `advise`-then-auto-authorize as a wrapper that still writes `--approved-by <principal>` — which would be dishonest provenance (claiming the human decided when a model did). (a) is the honest option.
+4. **Does a Jev-approved authorization change what `uigates audit`'s consent check means?** Today's INFO finding ("principal consent cannot be proven from records... confirm a user message approved it") assumes the only path to gated authority is a human. A machine approval's own API response (verdict, confidence, the six signals) is hashable, storable evidence — arguably *stronger* provenance than today's bare `--approved-by <string>`, which proves nothing on its own. The audit should likely distinguish the two paths, not flag a machine approval as unprovable in the same way.
+5. **Where's the line for "still needs a human"?** Not every gate should auto-resolve on APPROVE even in the solo-workflow fork — canon's `ResourceProtectionPolicy` (CI, secrets, deployment config) and cumulative-risk escalation exist for a reason. Does APPROVE bypass the human gate for all gate-class resources uniformly, or does some subset (secrets, deploy, CI) stay human-only regardless of what Jev says?
+6. **Canon edit**: once 3–5 are settled, [ui-gates-canon.md](ui-gates-canon.md)'s "Gated actions require explicit principal approval before execution" needs an explicit edit — not a silent drift — to state the machine-approval path as a first-class alternative.
