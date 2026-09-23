@@ -349,6 +349,50 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/trust-stack-hardware-capture-attestation": {
+      title: "Can Secure Cameras Prove a Photo Is Real? | Trust Stack",
+      description:
+        "Hardware capture can anchor media to a device and moment. It cannot prove the scene is true or its use is authorized.",
+      keywords: [
+        "Trust Stack",
+        "silicon root of trust",
+        "hardware capture attestation",
+        "Content Credentials",
+        "C2PA",
+        "Leica M11-P",
+        "Sony Camera Authenticity",
+        "Truepic",
+        "Starling Lab",
+        "synthetic media",
+        "secure capture",
+      ],
+      about: [
+        "Hardware Capture Attestation",
+        "Silicon Root of Trust",
+        "Content Credentials",
+        "C2PA",
+        "Camera Authenticity",
+        "The Trust Stack",
+      ],
+      faq: [
+        {
+          q: "Can C2PA prove truth?",
+          a: "No; it verifies provenance claims.",
+        },
+        {
+          q: "What is capture attestation?",
+          a: "Signed evidence about capture.",
+        },
+        {
+          q: "Can a verified camera photograph a deepfake?",
+          a: "Yes.",
+        },
+        {
+          q: "Does missing provenance mean fake?",
+          a: "No.",
+        },
+      ],
+    },
     "/where-should-ai-end-creative-work": {
       title: "How to Use AI Without Losing Creative Agency",
       description:
