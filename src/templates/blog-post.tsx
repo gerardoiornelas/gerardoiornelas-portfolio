@@ -430,6 +430,43 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/autonomous-systems-controls-that-push-back": {
+      title: "Why Autonomous Systems Need Controls That Push Back",
+      description:
+        "As automation moves into the background, interfaces must make system state legible and preserve a reliable path to intervention.",
+      keywords: [
+        "autonomous systems controls",
+        "physically stateful interfaces",
+        "human-AI interaction",
+        "human agency",
+        "execution-time intervention",
+        "Agent Permission Protocol",
+        "Authority Layer",
+        "HCI",
+      ],
+      about: [
+        "Autonomous Systems",
+        "Physically Stateful Interfaces",
+        "Human-AI Interaction (HCI)",
+        "Human Agency",
+        "Authority Layer",
+        "Execution-Time Intervention",
+      ],
+      faq: [
+        {
+          q: "What is a physically stateful interface?",
+          a: "A control whose state changes to communicate or constrain automation.",
+        },
+        {
+          q: "Why do autonomous systems need overrides?",
+          a: "They can continue acting after the initiating command.",
+        },
+        {
+          q: "Can digital controls use the idea?",
+          a: "Yes: preserve legible state, feedforward and dependable intervention.",
+        },
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {
