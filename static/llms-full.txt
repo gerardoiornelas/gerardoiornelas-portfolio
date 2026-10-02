@@ -1,0 +1,80 @@
+# Gerardo I. Ornelas — Full Knowledge & Doctrine Corpus (llms-full.txt)
+
+## Entity & Role Definition
+
+Gerardo I. Ornelas is a systems architect, founder, and advisor working across two core operational domains:
+1. **Mortgage AI Governance (Crittora):** A dedicated control and evidence layer for mortgage AI. Crittora establishes the authority perimeter for consequential workflows, halts actions outside approved parameters, and preserves cryptographic proof of decisions, actions, and results.
+2. **AI Visibility Systems (WUN AEO Director & XEO Labs):** Cross-engine visibility, answer engine optimization (AEO), and technical discoverability strategies that ensure businesses are accurately understood and cited across LLMs, AI agents, and semantic search engines.
+3. **Authored Systems Doctrine (The Authority Layer & APP):** Research exploring execution-time authorization, hardware capture attestation, and capability-based provenance.
+
+---
+
+## Canonical Direct Answers (AEO Fast Extracts)
+
+### Capability-Based Provenance (The Trust Stack Part IV)
+- **Target Question:** How can people tell what humans and AI contributed—and what each participant may do?
+- **Direct Answer:** Identity tells us who or what is acting. Provenance records origin and history. Authenticity tells us whether evidence is credible. None grants authority. Trustworthy human–AI systems need explicit capabilities: permission for a specific actor to perform a specific action on a specific asset, within limits, until expiry or revocation—checked again where the action becomes consequential.
+- **Core Axiom:** Provenance claims describe context. Capabilities govern action.
+
+### Silicon Root of Trust & Secure Capture (The Trust Stack Part III)
+- **Target Question:** Can hardware capture attestation prove that a photo or video is real?
+- **Direct Answer:** Hardware capture attestation can show that a device produced a file under recorded conditions and that its provenance was not silently altered. It cannot prove the scene was truthful, the operator had consent, or a publisher is authorized to use the media. Secure capture strengthens the first link in the evidence chain; it does not complete the judgment.
+
+### Proof of Personhood vs. Proof of Authority (The Trust Stack Part II)
+- **Target Question:** Is proving someone is human enough to make an online action trustworthy?
+- **Direct Answer:** Proof of personhood can show that an online participant is a unique human, often without revealing who that person is. That is useful for resisting bots, duplicate accounts and some forms of fraud. It does not establish the person’s role, intent, consent or authority for a particular action. Trustworthy systems must keep identity evidence separate from the permissions attached to a consequential act.
+
+### The Provenance Spectrum (The Trust Stack Part I)
+- **Target Question:** Can C2PA or a new file format prove media was made by a human?
+- **Direct Answer:** A provenance manifest can record cryptographic claims about creation, tools, and edits. It cannot unilaterally prove an asset was produced entirely by a human or guarantee its commercial or artistic value. Provenance is a spectrum of recorded claims, not a binary proof of truth.
+
+### Ambient Authority in Agentic Systems
+- **Target Question:** What is ambient authority and why is it dangerous in AI agents?
+- **Direct Answer:** Ambient authority is the condition where an agent exercises broad, persistent permissions simply because it possesses a valid credential or session token. In autonomous workflows, ambient authority allows prompt injections or logic drift to execute unauthorized consequential actions. Mitigating ambient authority requires per-action, execution-time authorization with scoped, time-bound, and revocable capabilities.
+
+### Controls That Push Back in Autonomous Systems
+- **Target Question:** What controls should autonomous and automated systems give people?
+- **Direct Answer:** Autonomous systems must provide physically or digitally stateful interfaces that make system state legible, provide feedforward, and preserve a dependable, non-bypassable path to human intervention before irreversible consequences occur.
+
+### Human Agency in Creative AI Workflows
+- **Target Question:** How can creative professionals use AI without losing authorship or agency?
+- **Direct Answer:** Creative agency requires human creators to set intent, define delegation boundaries, retain final approval, and establish revisable human-only zones across production stages rather than relying on binary all-or-nothing automation.
+
+---
+
+## Six-Layer Trust Stack Architecture
+
+1. **Identity:** Who or what is acting.
+2. **Provenance:** Where the asset came from and its transformation history.
+3. **Authenticity:** Whether the supporting evidence and signature chain is credible.
+4. **Authority:** The right of an actor to perform a specific action in a specific context.
+5. **Capability:** The machine-enforceable, scoped, time-bound, and revocable grant.
+6. **Trust:** The composite judgment made from the preceding signals.
+
+---
+
+## UI-GATES Operating Loop
+
+```text
+Intent → Discover → Plan → Propose → UI-GATE → Execute → Verify → Receipt → Synthesize
+```
+
+- **Core Rule:** Reasoning proposes; authority decides.
+- **Execute Discipline:** Expected → Actual → Delta recorded per step; no guess-and-check loops.
+- **After Action Review (AAR):**
+  1. What was supposed to happen? (Intent & Plan)
+  2. What actually happened? (Verify & Evidence)
+  3. Why was there a difference? (Receipt Discrepancy Analysis)
+  4. What will we do differently? (Synthesize & Promotion Ladder)
+- **Promotion Ladder:** Ephemeral → Task → Decision → Knowledge → Canon.
+
+---
+
+## Technical Standards & Citations Grounding
+
+- **RFC 9396:** OAuth 2.0 Rich Authorization Requests (RAR)
+- **RFC 9700:** OAuth 2.0 Security Best Current Practice
+- **C2PA 2.4:** Coalition for Content Provenance and Authenticity Technical Specification & Harms Modeling
+- **W3C VC 2.0:** Verifiable Credentials Data Model v2.0
+- **W3C DID v1.0:** Decentralized Identifiers
+- **Agent Permission Protocol (APP):** Cryptographic execution-time authorization layer for autonomous agent tool invocations

@@ -1,0 +1,35 @@
+# Gerardo I. Ornelas
+
+> Systems architect, founder, and advisor working on mortgage AI governance, execution evidence, and AI-era visibility systems.
+
+Gerardo I. Ornelas operates across two interconnected domains where AI-era businesses succeed or fail: the authority to act (governed execution) and the ability to be understood (cross-engine visibility and AEO).
+
+## Core Practices & Domains
+
+- [Crittora — Mortgage AI Governance](https://www.gerardoiornelas.com/): Control and evidence layer for mortgage AI. Defines the authority perimeter for consequential workflows, halts actions outside approved rules, and retains cryptographic proof of decisions and results.
+- [AI Visibility Systems & AEO](https://www.gerardoiornelas.com/): Through WUN AEO Director and XEO Labs, helps businesses achieve discoverability, credibility, and citations across LLMs and search answer engines.
+- [The Authority Layer](https://www.gerardoiornelas.com/authority-layer/): Architectural framework connecting human-readable intent to machine-enforceable capabilities for autonomous agents.
+- [UI-GATES Operating System](https://www.gerardoiornelas.com/uig/): User-Intent Gated Agentic Task Execution & Synthesis — an authority-aware, learning operating system for agentic work.
+- [Compound Engineering Playbook](https://www.gerardoiornelas.com/compound-engineering/): Playbook applying intent, authority, verification receipts, and synthesized lessons to compound engineering velocity.
+
+## Authored Research: The Trust Stack Series
+
+- [The Trust Stack Part I: The Provenance Spectrum](https://www.gerardoiornelas.com/blog/trust-stack-provenance-spectrum-pol-c2pa/): Why a provenance label alone cannot protect human creativity or convey rights.
+- [The Trust Stack Part II: Proof of Personhood vs. Proof of Authority](https://www.gerardoiornelas.com/blog/trust-stack-proof-of-personhood-vs-authority/): Why proving humanity does not grant execution-time authorization for consequential actions.
+- [The Trust Stack Part III: The Silicon Root of Trust](https://www.gerardoiornelas.com/blog/trust-stack-hardware-capture-attestation/): What hardware secure capture can—and cannot—prove about real-world capture truth.
+- [The Trust Stack Part IV: Beyond the Badge: Capability-Based Provenance](https://www.gerardoiornelas.com/blog/beyond-the-badge-capability-based-provenance/): Why provenance requires explicit, scoped, time-bound, and revocable capabilities at consequential boundaries.
+
+## Key Articles on AI Governance & Agentic Systems
+
+- [Ambient Authority: The Silent Killer of Agentic Workflows](https://www.gerardoiornelas.com/blog/ambient-authority-the-silent-killer-of-agentic-workflows/): How permanent or ambient credentials create catastrophic failure modes in autonomous agents.
+- [Securing Autonomy: Applying the Agent Permission Protocol (APP) to LangGraph](https://www.gerardoiornelas.com/blog/securing-autonomy/): Practical execution-time authorization patterns for multi-agent workflows.
+- [Why Autonomous Systems Need Controls That Push Back](https://www.gerardoiornelas.com/blog/autonomous-systems-controls-that-push-back/): Human agency and physical/digital stateful interfaces that preserve dependable intervention.
+- [When Software Generates Its Own Interface, What Must Stay Fixed?](https://www.gerardoiornelas.com/blog/generated-ai-interfaces-what-must-stay-fixed/): HCI invariants, predictability, and accessibility in generative user interfaces.
+- [Where Should AI End in Creative Work?](https://www.gerardoiornelas.com/blog/where-should-ai-end-creative-work/): Maintaining creative agency and revisable authorship boundaries in human-AI collaboration.
+- [Labor Day in the Age of AI: The Future of Work Is a Human Agency Problem](https://www.gerardoiornelas.com/blog/labor-day-ai-future-of-work-human-agency/): Preserving intentional delegation and human judgment.
+- [The Organizational Singularity](https://www.gerardoiornelas.com/blog/the-organizational-singularity/): Solo operators running bounded AI agent fleets to replace traditional overhead.
+
+## Optional & Deep Dive
+
+- [Full LLM Ingestion Manifest](https://www.gerardoiornelas.com/llms-full.txt): Complete structured text and direct answers for LLM ingestion.
+- [Author Profile](https://www.gerardoiornelas.com/author/gerardo-i-ornelas/): Biographical details, official profiles, and known entity mappings.
