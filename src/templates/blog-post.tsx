@@ -467,6 +467,51 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/beyond-the-badge-capability-based-provenance": {
+      title: "Beyond the Badge: Capability-Based Provenance | Gerardo Iornelas",
+      description:
+        "Provenance shows where media came from. It cannot grant permission. A human-first model for explicit, scoped and revocable authority.",
+      keywords: [
+        "Trust Stack",
+        "capability-based provenance",
+        "content credentials",
+        "C2PA",
+        "W3C Verifiable Credentials",
+        "RFC 9396",
+        "Rich Authorization Requests",
+        "ambient authority",
+        "Agent Permission Protocol",
+        "Authority Layer",
+        "consequential boundary",
+      ],
+      about: [
+        "Capability-Based Provenance",
+        "Content Credentials",
+        "C2PA",
+        "W3C Verifiable Credentials",
+        "OAuth Rich Authorization Requests (RFC 9396)",
+        "Authority Layer",
+        "The Trust Stack",
+      ],
+      faq: [
+        {
+          q: "What is capability-based provenance?",
+          a: "A model where origin records (provenance) are coupled with explicit, scoped, time-bound, and revocable permissions (capabilities) governing what actors may do with an asset.",
+        },
+        {
+          q: "Can Content Credentials grant permission?",
+          a: "No. Content Credentials and C2PA manifests record origin and transformation history; they do not convey authorization or legal permission to distribute, license, or execute actions.",
+        },
+        {
+          q: "How is authority different from identity?",
+          a: "Identity proves who or what an actor is. Authority specifies what that actor is permitted to do in a specific context on a specific asset.",
+        },
+        {
+          q: "Does this require blockchain?",
+          a: "No. Blockchain is optional for multi-party decentralized settlement or public revocation, but signed registries and centralized policy enforcement layers can execute capability checks without a distributed ledger.",
+        },
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {
