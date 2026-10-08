@@ -49,17 +49,17 @@ const projectsData: ProjectData[] = [
   },
   {
     id: cuid(),
-    title: `UI-GATES Operating System`,
+    title: `UI-GATES Research`,
     description: [
-      "User-Intent Gated Agentic Task Execution & Synthesis: an authority-aware operating model and portable skill for governed agentic work.",
+      "An experimental project investigating evidence in AI-assisted software work, with a reference workflow, engine, and evaluation tools.",
     ],
     signal:
-      "An operating system and portable skill for agentic work: reasoning proposes, authority decides, and verified work synthesizes into reusable knowledge.",
+      "No demonstrated token savings or learning benefit. Verification claims at handoff are open research, with no results yet. Read the findings.",
     imgSrc: ImgUIGates,
-    imgAlt: "UI-GATES authority-aware execution operating system logo",
+    imgAlt: "UI-GATES logo",
     imgWidth: 110,
     imgHeight: 96,
-    url: `/uig/`,
+    url: `/uig/#measured`,
     anchor: "#uigates",
   },
 ]

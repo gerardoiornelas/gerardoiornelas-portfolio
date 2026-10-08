@@ -1,7 +1,7 @@
 ---
 title: Gerardo I. Ornelas Portfolio Context
 type: architecture
-updated: 2026-09-28
+updated: 2026-10-08
 status: active
 sources: [AGENTS.md, knowledge/reference.md]
 ---
@@ -25,6 +25,8 @@ Read the touched source and only the matching references below. Expand if the ta
 | Other lessons or historical context | `knowledge/lessons/index.md` or `knowledge/reference.md`, only as needed |
 
 Astro routes live in `src/pages/`; React page bodies and metadata live in `src/views/`. `static/` supplies public assets and `npm run build` writes `public/`. The existing React/MUI design, Markdown dialect, route slugs, forms, and downloadable skills are preserved.
+
+Public positioning changed under WUN-19 on 2026-10-08: UI-GATES is presented as an experimental evidence project. `/uig/#measured` leads with negative and inconclusive findings; `/uig/#research` describes an unvalidated handoff-claim question and stop rule. No checker or replacement product is announced. The workflow is a reference design; existing authority rules are unchanged. See [the task receipt](receipts/2026-10-08-wun-19-public-rewrite.md).
 
 The `/uig/#learning` section documents the local receipt-learning implementation, fixture evidence, and pending real-agent evaluation. The `/uig/` download is a portable Markdown skill, not an enforced runtime control plane; it also records its own invocations and completions to `~/.uig/tracking.jsonl` (out-of-the-box usage tracking). UI-GATES is the operating system; UI-GATE is the execution-time authority decision; Compound Engineering is its coding playbook.
 

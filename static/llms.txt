@@ -9,8 +9,15 @@ Gerardo I. Ornelas operates across two interconnected domains where AI-era busin
 - [Crittora — Mortgage AI Governance](https://www.gerardoiornelas.com/): Control and evidence layer for mortgage AI. Defines the authority perimeter for consequential workflows, halts actions outside approved rules, and retains cryptographic proof of decisions and results.
 - [AI Visibility Systems & AEO](https://www.gerardoiornelas.com/): Through WUN AEO Director and XEO Labs, helps businesses achieve discoverability, credibility, and citations across LLMs and search answer engines.
 - [The Authority Layer](https://www.gerardoiornelas.com/authority-layer/): Architectural framework connecting human-readable intent to machine-enforceable capabilities for autonomous agents.
-- [UI-GATES Operating System](https://www.gerardoiornelas.com/uig/): User-Intent Gated Agentic Task Execution & Synthesis — an authority-aware, learning operating system for agentic work.
-- [Compound Engineering Playbook](https://www.gerardoiornelas.com/compound-engineering/): Playbook applying intent, authority, verification receipts, and synthesized lessons to compound engineering velocity.
+- [UI-GATES Research](https://www.gerardoiornelas.com/uig/): An experimental project investigating evidence in AI-assisted software work. Existing workflow, engine, and evaluation tools have not demonstrated token savings or a learning benefit. Verification claims at handoff are open research; no feature or results yet.
+- [Compound Engineering Playbook](https://www.gerardoiornelas.com/compound-engineering/): Reference workflow for planning changes, recording verification evidence, and candidate lessons. Efficiency and learning benefits remain unestablished.
+
+## UI-GATES Findings and Research Status
+
+As of 2026-10-08: Workboard observed 85.3% higher mean weighted tokens for ceremony on 14 complete triples, but acceptance imbalance meant no verdict. Knowledge reuse showed no measured learning benefit. Hook-first savings were not demonstrated; that experiment also returned no verdict. Gate rules depend on model cooperation; enforcement remains the host’s sandbox and permission controls. Records are tamper-evident to engine checks, not tamper-proof.
+
+- [Findings and source records](https://www.gerardoiornelas.com/uig/#measured)
+- [Open question and stop rule](https://www.gerardoiornelas.com/uig/#research): Review 10–20 consecutive sessions. Continue only if costly-to-check or contradicted verification claims recur and evidence already existed at handoff; otherwise stop. No checker or evidence-packet product is announced.
 
 ## Authored Research: The Trust Stack Series
 

@@ -48,9 +48,9 @@ const CompoundEngineeringPage: React.FC = () => {
   const steps = [
     ["01", "Establish principal intent", "Turn a request into a time-bounded intent: outcome, constraints, success evidence, authority domain, and expiry. Capability is never treated as authority."],
     ["02", "Plan and propose", "Translate intent into vertical slices, then name the exact action, resource scope, impact, risk, and authority requested. A plan is ready when another agent can execute it without guessing."],
-    ["03", "Authorize at execution time", "UI-GATE allows, denies, or escalates the proposed action. User-facing work also pauses for live validation before unvalidated behavior can stack."],
-    ["04", "Execute, verify, and receipt", "Perform only the authorized action. Gather the right evidence—tests, live UI, security review, or human judgment—then preserve why it happened and what proved it."],
-    ["05", "Compound the warranted lesson", "Promote only durable decisions and verified patterns. The next loop begins with better context, without turning memory into an AI-generated junk drawer."],
+    ["03", "Authorize at execution time", "The reference workflow instructs the agent to obtain required authorization before acting and seek appropriate human validation. Enforcement depends on the host’s sandbox and permission controls."],
+    ["04", "Execute, verify, and receipt", "Perform only the authorized action. Gather the right evidence—tests, live UI, security review, or human judgment—then preserve why it happened and what evidence was gathered."],
+    ["05", "Record a warranted lesson", "Record decisions, evidence, and candidate lessons for the next loop. Whether this improves later work has not been established."],
   ]
 
   return (
@@ -59,14 +59,15 @@ const CompoundEngineeringPage: React.FC = () => {
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
             <Grid item xs={12} md={8}>
-              <Label>Methodology — durable agentic engineering</Label>
+              <Label>Reference playbook · benefits unestablished</Label>
               <Typography component="h1" sx={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: { xs: "70px", md: "118px" }, fontWeight: 400, lineHeight: 0.88, letterSpacing: "-0.025em", mb: 3 }}>
                 COMPOUND<br />
                 <Box component="span" sx={{ color: "secondary.main" }}>ENGINEERING</Box>
               </Typography>
               <Typography variant="h5" sx={{ maxWidth: 650, color: "text.secondary", fontWeight: 300, lineHeight: 1.65, mb: 4 }}>
-                An authority-aware operating system for a one-person, AI-native organization—where every meaningful change creates better context, clearer decisions, and stronger proof for the next one.
+                A documented UI-GATES workflow for planning software changes, gathering verification evidence, and recording decisions. Its intended learning and efficiency benefits have not been established.
               </Typography>
+              <Typography color="text.secondary" sx={{ maxWidth: 650, mb: 3, lineHeight: 1.8 }}>Current UI-GATES work is an open research question about verification claims at handoff, with no claim-checking feature or results yet. <Box component="a" href="/uig/#research" sx={{ color: "secondary.main" }}>Read the research status.</Box></Typography>
               <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
                 <Button variant="contained" color="secondary" onClick={() => document.getElementById("loop")?.scrollIntoView({ behavior: "smooth" })} sx={{ fontFamily: "monospace" }}>Explore the loop ↓</Button>
                 <Button variant="outlined" color="secondary" onClick={downloadSkill} sx={{ fontFamily: "monospace" }}>Download the skill file</Button>
@@ -74,8 +75,8 @@ const CompoundEngineeringPage: React.FC = () => {
             </Grid>
             <Grid item xs={12} md={4}>
               <Box sx={{ border: "1px solid", borderColor: "divider", p: 3.5, bgcolor: "rgba(56, 180, 198, 0.06)", position: "relative", "&::before": { content: '\"\"', position: "absolute", top: -1, left: -1, width: 56, height: 2, bgcolor: "secondary.main" } }}>
-                <Typography sx={{ fontFamily: "monospace", color: "secondary.main", fontSize: 11, letterSpacing: "0.14em", mb: 3 }}>THE AUTHORITY CHAIN</Typography>
-                {["principal intent", "scoped proposal", "execution-time gate", "verified receipt"].map((item, index) => <Box key={item} sx={{ display: "flex", gap: 2, py: 1.3, borderTop: index ? "1px solid" : "none", borderColor: "divider" }}><Typography sx={{ fontFamily: "monospace", color: "text.disabled", fontSize: 11 }}>0{index + 1}</Typography><Typography sx={{ fontWeight: 300 }}>{item}</Typography></Box>)}
+                <Typography sx={{ fontFamily: "monospace", color: "secondary.main", fontSize: 11, letterSpacing: "0.14em", mb: 3 }}>REFERENCE WORKFLOW</Typography>
+                {["principal intent", "scoped proposal", "execution-time gate", "verification receipt"].map((item, index) => <Box key={item} sx={{ display: "flex", gap: 2, py: 1.3, borderTop: index ? "1px solid" : "none", borderColor: "divider" }}><Typography sx={{ fontFamily: "monospace", color: "text.disabled", fontSize: 11 }}>0{index + 1}</Typography><Typography sx={{ fontWeight: 300 }}>{item}</Typography></Box>)}
               </Box>
             </Grid>
           </Grid>
@@ -84,19 +85,19 @@ const CompoundEngineeringPage: React.FC = () => {
 
       <Divider />
       <Container maxWidth="lg" sx={{ py: 10, px: 3 }}>
-        <Label>The premise</Label>
+        <Label>The intended outcome</Label>
         <Box sx={{ borderLeft: "2px solid", borderColor: "secondary.main", pl: { xs: 3, md: 4 }, py: 1, maxWidth: 920 }}>
           <Typography sx={{ fontSize: { xs: 23, md: 30 }, lineHeight: 1.4, fontWeight: 300 }}>“Reasoning proposes. Authority decides. Every meaningful unit of engineering work should make the next unit easier—not merely add more code.”</Typography>
         </Box>
         <Grid container spacing={5} sx={{ mt: 3 }}>
-          <Grid item xs={12} md={6}><Typography sx={{ fontFamily: "monospace", fontSize: 10, letterSpacing: "0.14em", color: "text.disabled", mb: 1.5 }}>WITHOUT A COMPOUND LOOP</Typography><Typography color="text.secondary" sx={{ fontWeight: 300, lineHeight: 1.8 }}>Agents can make fast local progress while the project accumulates unrecorded decisions, untested assumptions, and hidden complexity. The next task pays to rediscover what the previous task learned.</Typography></Grid>
-          <Grid item xs={12} md={6}><Typography sx={{ fontFamily: "monospace", fontSize: 10, letterSpacing: "0.14em", color: "secondary.main", mb: 1.5 }}>WITH A COMPOUND LOOP</Typography><Typography color="text.secondary" sx={{ fontWeight: 300, lineHeight: 1.8 }}>Principal intent bounds work. Agents propose actions. UI-GATE authorizes consequential ones at execution time. Verification and receipts turn one-off work into leverage the next agent can immediately use.</Typography></Grid>
+          <Grid item xs={12} md={6}><Typography sx={{ fontFamily: "monospace", fontSize: 10, letterSpacing: "0.14em", color: "text.disabled", mb: 1.5 }}>PROBLEM THE DESIGN ADDRESSES</Typography><Typography color="text.secondary" sx={{ fontWeight: 300, lineHeight: 1.8 }}>Agents can make fast local progress while the project accumulates unrecorded decisions, untested assumptions, and hidden complexity. The next task pays to rediscover what the previous task learned.</Typography></Grid>
+          <Grid item xs={12} md={6}><Typography sx={{ fontFamily: "monospace", fontSize: 10, letterSpacing: "0.14em", color: "secondary.main", mb: 1.5 }}>WHAT THE DESIGN RECORDS</Typography><Typography color="text.secondary" sx={{ fontWeight: 300, lineHeight: 1.8 }}>The reference workflow records intent, proposed actions, authority decisions, and verification output. Those records are available for later inspection; their existence does not establish a performance benefit.</Typography></Grid>
         </Grid>
       </Container>
 
       <Divider />
       <Container id="loop" maxWidth="lg" sx={{ py: 10, px: 3 }}>
-        <Label>The operating loop</Label>
+        <Label>Reference workflow</Label>
         <Box sx={{ maxWidth: 960 }}>
           {steps.map(([number, title, body], index) => <Box key={number} sx={{ display: "grid", gridTemplateColumns: { xs: "48px 1fr", md: "92px 1fr" }, gap: { xs: 2, md: 4 }, py: 3.5, borderTop: index ? "1px solid" : "none", borderColor: "divider" }}><Typography sx={{ fontFamily: "monospace", color: "secondary.main", fontSize: { xs: 14, md: 18 }, pt: 0.4 }}>{number}</Typography><Box><Typography variant="h4" sx={{ mb: 1.2 }}>{title}</Typography><Typography color="text.secondary" sx={{ maxWidth: 690, fontWeight: 300, lineHeight: 1.75 }}>{body}</Typography></Box></Box>)}
         </Box>
@@ -105,14 +106,14 @@ const CompoundEngineeringPage: React.FC = () => {
       <Divider />
       <Container component="section" aria-labelledby="receipt-learning-title" maxWidth="lg" sx={{ py: 10, px: 3 }}>
         <Label>From evidence to reuse</Label>
-        <Typography id="receipt-learning-title" component="h2" variant="h3" sx={{ mb: 3, maxWidth: 800 }}>Learning that can be traced and tested.</Typography>
+        <Typography id="receipt-learning-title" component="h2" variant="h3" sx={{ mb: 3, maxWidth: 800 }}>Learning remains an evaluation question.</Typography>
         <Typography color="text.secondary" sx={{ maxWidth: 850, fontWeight: 300, lineHeight: 1.8, mb: 3 }}>
-          The first local implementation learns candidate guidance from repeated receipt-validation failures and successful corrections. Lessons move through evaluation and principal approval before live reuse. Source changes invalidate stale guidance, and controlled comparisons include failed attempts and learning overhead.
+          The evaluation design derives candidate guidance from receipt corrections and tests it against a control. Approval, source freshness, failed attempts, and learning overhead are part of that design. These mechanisms do not establish that agents learn useful lessons.
         </Typography>
         <Typography color="text.secondary" sx={{ maxWidth: 850, fontWeight: 300, lineHeight: 1.8, mb: 3 }}>
-          The mechanism has passed paired fixture tests. Demonstrating improvement on real coding-agent tasks remains the next evidence requirement. These repository tools are separate from the portable skill download.
+          Real-agent evaluations have not demonstrated token savings or a learning benefit. The full Workboard run observed 85.3% higher weighted tokens for ceremony versus control on 14 complete triples, with no formal verdict because acceptance differed. These repository tools are separate from the portable skill download.
         </Typography>
-        <Button component="a" href="/uig/#learning" variant="outlined" color="secondary" sx={{ fontFamily: "monospace" }}>Read the learning model and evidence →</Button>
+        <Button component="a" href="/uig/#measured" variant="outlined" color="secondary" sx={{ fontFamily: "monospace" }}>Read the findings and their limits →</Button>
       </Container>
 
       <Divider />
@@ -121,22 +122,22 @@ const CompoundEngineeringPage: React.FC = () => {
         <Grid container spacing={3}>
           {[
             ["AIDD", "Specification-driven flow", "Frame work with a durable vision, deliberate planning, and explicit execution."],
-            ["UI-GATE", "Human validation gates", "Require live, visual proof before unvalidated work can stack on top of it."],
-            ["COMPOUND", "Reusable organizational memory", "Capture decisions and evidence in the project so every future loop starts stronger."],
+            ["UI-GATE", "Human validation gates", "Request appropriate visual inspection and human review as part of verification."],
+            ["COMPOUND", "Reusable organizational memory", "Capture decisions and evidence for later inspection; improved future performance is an unvalidated aim."],
           ].map(([name, title, body]) => <Grid item xs={12} md={4} key={name}><Box sx={{ height: "100%", border: "1px solid", borderColor: "divider", p: 3.5 }}><Typography sx={{ color: "secondary.main", fontFamily: "monospace", letterSpacing: "0.16em", fontSize: 11, mb: 3 }}>{name}</Typography><Typography variant="h5" sx={{ mb: 1.5 }}>{title}</Typography><Typography color="text.secondary" sx={{ fontWeight: 300, lineHeight: 1.7 }}>{body}</Typography></Box></Grid>)}
         </Grid>
       </Container>
 
       <Box id="download" sx={{ borderTop: "1px solid", borderColor: "divider", bgcolor: "rgba(56, 180, 198, 0.06)", py: 10, px: 3 }}>
-        <Container maxWidth="lg"><Stack direction={{ xs: "column", md: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", md: "center" }} spacing={4}><Box><Label>Start a durable loop</Label><Typography variant="h3" sx={{ maxWidth: 620 }}>Make your next change leave the system wiser.</Typography></Box><Button variant="contained" color="secondary" onClick={downloadSkill} sx={{ fontFamily: "monospace", flexShrink: 0 }}>Download compound-engineering-skill.md</Button></Stack></Container>
+        <Container maxWidth="lg"><Stack direction={{ xs: "column", md: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", md: "center" }} spacing={4}><Box><Label>Inspect the reference skill</Label><Typography variant="h3" sx={{ maxWidth: 620 }}>Read the workflow and its instructions.</Typography></Box><Button variant="contained" color="secondary" onClick={downloadSkill} sx={{ fontFamily: "monospace", flexShrink: 0 }}>Download compound-engineering-skill.md</Button></Stack></Container>
       </Box>
     </LayoutAlt>
   )
 }
 
 export const Head: HeadFC = () => {
-  const schema = { "@context": "https://schema.org", "@type": "WebPage", name: "Compound Engineering", url: `${seoDefaults.siteUrl}/compound-engineering/`, description: "A durable agentic engineering methodology that turns every meaningful change into better context, proof, and reusable learning." }
-  return <Seo title="Compound Engineering" description="An authority-aware operating system where every meaningful agentic change creates better context, clearer decisions, and stronger proof for the next one." pathname="/compound-engineering/" jsonLd={schema} />
+  const schema = { "@context": "https://schema.org", "@type": "WebPage", name: "Compound Engineering", url: `${seoDefaults.siteUrl}/compound-engineering/`, description: "A reference UI-GATES workflow for software changes, verification records, and candidate lessons. Learning and efficiency benefits remain unestablished." }
+  return <Seo title="Compound Engineering" description="A documented software workflow for planning, verification evidence, and recorded decisions. Read its design and the limits of the measured results." pathname="/compound-engineering/" jsonLd={schema} />
 }
 
 export default withPage(CompoundEngineeringPage)

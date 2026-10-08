@@ -53,7 +53,30 @@ Gerardo I. Ornelas is a systems architect, founder, and advisor working across t
 
 ---
 
-## UI-GATES Operating Loop
+## UI-GATES: Experimental Project, Findings, and Open Research
+
+UI-GATES investigates evidence in AI-assisted software work. Its existing portable workflow skill, reference engine, and evaluation tools record proposals, verification output, and repository lessons. Token savings and learning benefits have not been demonstrated. Status as of 2026-10-08.
+
+### What has been measured
+
+- Full 16-task Workboard run: ceremony used 85.3% more mean weighted tokens than control on 14 complete triples. Accepted tasks: control 16/16, ceremony 15/16, learned 14/16. The declared comparability rule returned no verdict. Learning’s incremental effect was indistinguishable from zero. Source: https://github.com/gerardoiornelas/uigates/blob/3cf008ef4f24137b15e975662ae83f393febe698/evaluations/token-ab/PLAN.md#full-workboard-run-2026-09-22
+- Hook-first experiment: no demonstrated saving, no verdict (control 20/24 accepted, treatment 23/24). On 20 mutually accepted pairs, saving was −0.6%, with 95% interval −10.3% to +9.0%. Source: https://github.com/gerardoiornelas/uigates/blob/5f6b913b42b4bcd866983612dc64244fe74b37ed/evaluations/token-ab/PLAN.md#savings-ab-result-2026-09-23
+- Audit tests cover rejection of vacuous verification such as bare git diff; this does not establish the adequacy of every check. Source: https://github.com/gerardoiornelas/uigates/blob/3cf008ef4f24137b15e975662ae83f393febe698/plugins/uigates/cli/audit_test.ts
+- Gates are instructions the model follows. Real enforcement remains the host’s sandbox and permission controls. Records are tamper-evident to engine checks, not tamper-proof against a hostile agent. Source: https://github.com/gerardoiornelas/uigates/blob/3cf008ef4f24137b15e975662ae83f393febe698/plugins/uigates/core/README.md
+- Jev: project status reports live advisory approval but no live gate-class APPROVE. Live records are not published here; this is reported status, not gate-class validation. Source (access required): https://violetek-37043527.atlassian.net/browse/WUN-19
+- No real-agent learning certificate has passed. Source: https://github.com/gerardoiornelas/uigates/blob/3cf008ef4f24137b15e975662ae83f393febe698/evaluations/real-project-v1/REPORT.md
+- Agent handoff claim accuracy has not been evaluated. The token experiments measured code acceptance and costs, not truthfulness of statements.
+
+### Open research — no results yet
+
+Do reviewers repeatedly spend time checking narrow verification claims when resolving evidence already existed at handoff? A retrospective of 10–20 consecutive sessions comes before implementation. Continue only if contradicted or effortful-to-confirm claims recur and existing evidence could resolve them. Stop if effort is rare, new verification is needed, or most claims remain ambiguous or unobservable. Missing records do not establish dishonesty. Existing CI output, diffs, and concise handoffs are alternatives. A later prospective comparison must measure review effort and defect detection; faster approval with worse defect detection is a failure.
+
+No checker, extractor, runner, evidence-packet feature, or replacement product is available or announced. Public status: https://www.gerardoiornelas.com/uig/#research
+
+### Reference workflow (design, not demonstrated benefit)
+
+Compound Engineering is the software-work reference playbook: https://www.gerardoiornelas.com/compound-engineering/ . Recording decisions and lessons does not establish improved future performance. The evaluation harness exercises a design; fixture success is not a learning result.
+
 
 ```text
 Intent → Discover → Plan → Propose → UI-GATE → Execute → Verify → Receipt → Synthesize
