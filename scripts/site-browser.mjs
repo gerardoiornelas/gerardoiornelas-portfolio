@@ -5,7 +5,7 @@ import path from "node:path"
 import { chromium } from "playwright"
 
 const baseURL = process.env.SITE_URL || "http://127.0.0.1:9000"
-const routes = ["/", "/uig/", "/compound-engineering/", "/authority-layer/", "/manifesto/", "/blog/", "/author/gerardo-i-ornelas/", "/stats/", "/privacy-policy/", "/thanks/", "/404.html"]
+const routes = ["/", "/uig/", "/compound-engineering/", "/authority-layer/", "/manifesto/", "/research/", "/research/verifiably-human/", "/research/trust-stack/", "/corrections/", "/blog/", "/author/gerardo-i-ornelas/", "/stats/", "/privacy-policy/", "/thanks/", "/404.html"]
 for (const f of (await readdir("src/content")).filter(f => f.endsWith(".md"))) {
   const source = await readFile(path.join("src/content", f), "utf8")
   routes.push(`/blog${source.match(/^slug: "([^"]+)"/m)[1]}/`)
@@ -43,13 +43,14 @@ try {
     } else {
       await page.getByRole("link", { name: "Research", exact: true }).first().click()
     }
-    await page.waitForURL(url => /^\/authority-layer\/?$/.test(url.pathname))
+    await page.waitForURL(url => /^\/research\/?$/.test(url.pathname))
     await page.goBack()
     await page.waitForURL(baseURL + "/")
     await page.waitForFunction(() => [...document.querySelectorAll("astro-island")].every(el => !el.hasAttribute("ssr")))
     if (width === 390) await page.getByRole("button", { name: "open drawer" }).click()
     await page.getByRole("link", { name: "Connect", exact: true }).last().click()
     await page.waitForFunction(() => window.scrollY > 1000)
+    assert.deepEqual(errors, [], `${width}px: primary navigation browser errors`)
     result.checks.push(`${width}px: navigation, history, and contact anchor work`)
 
     await page.goto(baseURL + "/blog/", { waitUntil: "networkidle" })
@@ -58,6 +59,7 @@ try {
     await page.getByRole("button", { name: "Back", exact: true }).click()
     await page.waitForURL("**/#blog")
     await page.waitForFunction(() => window.scrollY > 1000)
+    assert.deepEqual(errors, [], `${width}px: article navigation browser errors`)
     result.checks.push(`${width}px: article navigation and Back restore the blog anchor`)
 
     const downloads = await mkdtemp(path.join(tmpdir(), "portfolio-downloads-"))
@@ -93,6 +95,7 @@ try {
     await form.getByRole("button", { name: "Send Message" }).click()
     await page.waitForURL("**/thanks")
     assert.equal(new URLSearchParams(submitted).get("email"), "test@example.com")
+    assert.deepEqual(errors, [], `${width}px: form browser errors`)
     result.checks.push(`${width}px: validation and POST payload preserved; submission intercepted`)
     await page.unroute("**/thanks")
     for (const [route, button] of [["/thanks/", "Back to Home"], ["/404.html", "Take me Home"]]) {

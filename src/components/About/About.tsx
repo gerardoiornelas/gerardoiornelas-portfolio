@@ -114,8 +114,8 @@ export const About: React.FC = () => {
                           regulated environments. That work led to a consistent
                           conclusion:{" "}
                           <Box component="span" fontWeight={`bold`}>
-                            consequential systems are only trustworthy when
-                            authority is explicit, bounded, and provable
+                            consequential systems need explicit, bounded
+                            authority and reviewable evidence
                           </Box>
                           .
                         </Typography>
@@ -142,7 +142,7 @@ export const About: React.FC = () => {
                         <Box component="span" fontWeight={`bold`}>
                           UI-GATES
                         </Box>{" "}
-                        for authority-aware agentic work. The underlying doctrine is simple: high-trust AI needs
+                        as an experimental project on evidence in AI-assisted software work. The underlying doctrine is simple: high-trust AI needs
                         governed action in operations and reliable evidence in
                         the public information people use to make decisions.
                       </Typography>

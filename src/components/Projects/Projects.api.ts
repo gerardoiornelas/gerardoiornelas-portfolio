@@ -23,10 +23,10 @@ const projectsData: ProjectData[] = [
     id: cuid(),
     title: `Mortgage AI Governance`,
     description: [
-      "Through Crittora: define who or what may act in consequential mortgage workflows, under which limits, and what evidence proves the result.",
+      "Through Crittora: design controls for who or what may act in consequential mortgage workflows, under which limits, and what evidence should be retained for review.",
     ],
     signal:
-      "Crittora is the control and evidence layer for mortgage AI—designed to govern approved actions, stop actions outside the rules, and retain defensible proof.",
+      "Crittora is being designed as a control and evidence layer for mortgage AI. Public implementation and outcome evidence are maintained separately from this positioning statement.",
     imgSrc: ImgCrittora,
     imgAlt: "Crittora mortgage AI governance logo",
     imgWidth: 128,

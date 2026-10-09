@@ -6,11 +6,20 @@ Gerardo I. Ornelas operates across two interconnected domains where AI-era busin
 
 ## Core Practices & Domains
 
-- [Crittora — Mortgage AI Governance](https://www.gerardoiornelas.com/): Control and evidence layer for mortgage AI. Defines the authority perimeter for consequential workflows, halts actions outside approved rules, and retains cryptographic proof of decisions and results.
+- [Crittora — Mortgage AI Governance](https://www.gerardoiornelas.com/): Work on designing controls and evidence practices for consequential mortgage AI workflows. Public implementation and outcome evidence are maintained separately from this positioning statement.
 - [AI Visibility Systems & AEO](https://www.gerardoiornelas.com/): Through WUN AEO Director and XEO Labs, helps businesses achieve discoverability, credibility, and citations across LLMs and search answer engines.
 - [The Authority Layer](https://www.gerardoiornelas.com/authority-layer/): Architectural framework connecting human-readable intent to machine-enforceable capabilities for autonomous agents.
 - [UI-GATES Research](https://www.gerardoiornelas.com/uig/): An experimental project investigating evidence in AI-assisted software work. Existing workflow, engine, and evaluation tools have not demonstrated token savings or a learning benefit. Verification claims at handoff are open research; no feature or results yet.
 - [Compound Engineering Playbook](https://www.gerardoiornelas.com/compound-engineering/): Reference workflow for planning changes, recording verification evidence, and candidate lessons. Efficiency and learning benefits remain unestablished.
+
+## Research & Field Notes
+
+- [Research hub](https://www.gerardoiornelas.com/research/): Human–AI Interaction; Authority & Trust; and Human–Technology Futures, with each body of work labeled by status.
+- [Verifiably Human](https://www.gerardoiornelas.com/research/verifiably-human/): Evolving research program. Process evidence, attributable declarations, accountability, and authority are reported separately; missing evidence means unknown origin. No authorship detector, deployed certification standard, or protocol is announced.
+- [UI-GATES](https://www.gerardoiornelas.com/uig/): Experimental engineering project with negative and inconclusive measurements published alongside its mechanisms and open questions.
+- [The Trust Stack](https://www.gerardoiornelas.com/research/trust-stack/): Published argument. Four numbered installments are present in site source; no fifth numbered article was verified.
+- [The Authority Layer](https://www.gerardoiornelas.com/authority-layer/): Published argument.
+- [Corrections](https://www.gerardoiornelas.com/corrections/): Public record of material corrections, beginning with Verifiably Human Parts I–III.
 
 ## UI-GATES Findings and Research Status
 
@@ -19,7 +28,7 @@ As of 2026-10-08: Workboard observed 85.3% higher mean weighted tokens for cerem
 - [Findings and source records](https://www.gerardoiornelas.com/uig/#measured)
 - [Open question and stop rule](https://www.gerardoiornelas.com/uig/#research): Review 10–20 consecutive sessions. Continue only if costly-to-check or contradicted verification claims recur and evidence already existed at handoff; otherwise stop. No checker or evidence-packet product is announced.
 
-## Authored Research: The Trust Stack Series
+## Authored Research: The Trust Stack Series (Four Published Installments)
 
 - [The Trust Stack Part I: The Provenance Spectrum](https://www.gerardoiornelas.com/blog/trust-stack-provenance-spectrum-pol-c2pa/): Why a provenance label alone cannot protect human creativity or convey rights.
 - [The Trust Stack Part II: Proof of Personhood vs. Proof of Authority](https://www.gerardoiornelas.com/blog/trust-stack-proof-of-personhood-vs-authority/): Why proving humanity does not grant execution-time authorization for consequential actions.

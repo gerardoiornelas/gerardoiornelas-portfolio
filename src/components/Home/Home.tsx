@@ -135,7 +135,7 @@ export const Home: React.FC = () => {
                             boxShadow: "0 4px 14px rgba(56, 180, 198, 0.25)",
                           }}
                         >
-                          UI-GATES Operating System ↗
+                          UI-GATES Findings ↗
                         </Button>
                         <Button
                           variant="outlined"

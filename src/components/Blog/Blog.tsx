@@ -42,8 +42,8 @@ export const Blog: React.FC = () => {
                 be understood.
               </Typography>
               <Typography>
-                Start with{" "}
-                <Link to="/authority-layer/">Authority Layer Research</Link> or
+                Start with the{" "}
+                <Link to="/research/">Research &amp; Field Notes hub</Link> or
                 explore the full <Link to="/blog/">series archive</Link>.
               </Typography>
             </Box>

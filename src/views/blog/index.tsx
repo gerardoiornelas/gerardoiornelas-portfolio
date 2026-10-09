@@ -39,12 +39,10 @@ const BlogIndexPage: React.FC<PageProps<BlogIndexData>> = ({ data }) => {
               Start Here
             </Typography>
             <Typography>
-              <Link to="/authority-layer/">
-                Authority Layer Research
-              </Link>
+              <Link to="/research/">Research &amp; Field Notes hub</Link>
             </Typography>
             <Typography>
-              <Link to="/manifesto/">Verifiably Human Doctrine</Link>
+              <Link to="/research/verifiably-human/">Verifiably Human research status</Link>
             </Typography>
             <Typography>
               <Link to="/blog/securing-autonomy/">

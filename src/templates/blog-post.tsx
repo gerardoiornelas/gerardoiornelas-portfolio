@@ -1,4 +1,4 @@
-import type { ImageData } from "../lib/image"
+import type { BlogPost } from "../lib/types"
 import { withPage } from "../lib/site"
 import * as React from "react"
 import { type HeadFC, type PageProps } from "../lib/site"
@@ -6,18 +6,8 @@ import { BlogPostTemplate } from "../components/BlogPostTemplate"
 import { Seo, seoDefaults } from "../components/Seo"
 
 interface BlogPostPageData {
-  markdownRemark: {
-    excerpt: string
-    html: string
-    frontmatter: {
-      date: string
-      datePublished: string
-      slug: string
-      title: string
-      author: string
-      featuredImage?: ImageData
-    }
-  }
+  markdownRemark: BlogPost
+  seriesPosts?: Array<Pick<BlogPost["frontmatter"], "slug" | "title" | "part">>
 }
 
 const BlogPostPage: React.FC<PageProps<BlogPostPageData>> = ({ data }) => (
@@ -519,15 +509,15 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
     about: ["AI security", "cryptographic controls"],
   }
 
-  const resolvedTitle = topic.title ?? post.frontmatter.title
-  const resolvedDescription = topic.description ?? post.excerpt
+  const resolvedTitle = post.frontmatter.metaTitle ?? topic.title ?? post.frontmatter.title
+  const resolvedDescription = post.frontmatter.description ?? topic.description ?? post.excerpt
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.frontmatter.title,
     datePublished: post.frontmatter.datePublished,
-    dateModified: post.frontmatter.datePublished,
+    dateModified: post.frontmatter.updated ?? post.frontmatter.datePublished,
     inLanguage: "en-US",
     description: resolvedDescription,
     keywords: topic.keywords.join(", "),
@@ -577,16 +567,16 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
     ],
   }
 
-  const faqSchema = topic.faq
+  const faqSchema = post.frontmatter.faq?.length
     ? {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: topic.faq.map(item => ({
+        mainEntity: post.frontmatter.faq.map(item => ({
           "@type": "Question",
-          name: item.q,
+          name: item.question,
           acceptedAnswer: {
             "@type": "Answer",
-            text: item.a,
+            text: item.answer,
           },
         })),
       }

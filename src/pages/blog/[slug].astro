@@ -5,10 +5,23 @@ import Page, { Head } from "../../templates/blog-post"
 import { getPosts } from "../../lib/content"
 
 export async function getStaticPaths() {
-  return (await getPosts()).map(post => ({
-    params: { slug: post.frontmatter.slug.slice(1) },
-    props: { data: { markdownRemark: post } },
-  }))
+  const posts = await getPosts()
+  return posts.map(post => {
+    const seriesPosts = post.frontmatter.series
+      ? posts
+          .filter(candidate => candidate.frontmatter.series === post.frontmatter.series)
+          .sort((a, b) => (a.frontmatter.part ?? 0) - (b.frontmatter.part ?? 0))
+          .map(candidate => ({
+            slug: candidate.frontmatter.slug,
+            title: candidate.frontmatter.title,
+            part: candidate.frontmatter.part,
+          }))
+      : []
+    return {
+      params: { slug: post.frontmatter.slug.slice(1) },
+      props: { data: { markdownRemark: post, seriesPosts } },
+    }
+  })
 }
 const { data } = Astro.props
 const styles = getPageStyles(Page, { data })

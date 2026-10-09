@@ -51,7 +51,7 @@ const AuthorPage: React.FC = () => {
                     </Link>
                   </Typography>
                   <Typography>
-                    <Link to="/manifesto/">Verifiably Human Doctrine</Link>
+                    <Link to="/research/verifiably-human/">Verifiably Human research status</Link>
                   </Typography>
                   <Typography>
                     <Link to="/blog/securing-autonomy/">Securing Autonomy</Link>

@@ -3,15 +3,29 @@
 ## Entity & Role Definition
 
 Gerardo I. Ornelas is a systems architect, founder, and advisor working across two core operational domains:
-1. **Mortgage AI Governance (Crittora):** A dedicated control and evidence layer for mortgage AI. Crittora establishes the authority perimeter for consequential workflows, halts actions outside approved parameters, and preserves cryptographic proof of decisions, actions, and results.
+1. **Mortgage AI Governance (Crittora):** Work on designing controls and evidence practices for consequential mortgage AI workflows. Public implementation and outcome evidence are maintained separately from this positioning statement.
 2. **AI Visibility Systems (WUN AEO Director & XEO Labs):** Cross-engine visibility, answer engine optimization (AEO), and technical discoverability strategies that ensure businesses are accurately understood and cited across LLMs, AI agents, and semantic search engines.
 3. **Authored Systems Doctrine (The Authority Layer & APP):** Research exploring execution-time authorization, hardware capture attestation, and capability-based provenance.
 
 ---
 
+## Research & Field Notes Status
+
+- **Verifiably Human — evolving research program:** Studies what evidence justifies claims of human creation. Process evidence, attributable declarations, accountability, and authority are separate dimensions. Missing evidence means unknown origin. No authorship detector, deployed certification standard, or novel protocol is claimed. Current status: https://www.gerardoiornelas.com/research/verifiably-human/
+- **UI-GATES — experimental engineering project:** Publishes mechanisms, negative and inconclusive measurements, limitations, and open questions. Current status: https://www.gerardoiornelas.com/uig/
+- **The Trust Stack — published argument:** Four numbered installments are present in site source. No fifth numbered article was verified. Series status: https://www.gerardoiornelas.com/research/trust-stack/
+- **The Authority Layer — published argument:** https://www.gerardoiornelas.com/authority-layer/
+- **Corrections:** Material corrections are recorded at https://www.gerardoiornelas.com/corrections/
+
+### Verifiably Human Correction to Parts I–III
+
+Authorized issuance is not verified origin. A person can retype or revise AI-produced text and issue a valid signed declaration. Missing provenance means unknown origin, not synthetic origin. Capture, authorship, approval, and AI assistance can coexist. A dispute requires governed review rather than automatic invalidation. An issuer's claimed time is not independent proof of when a record existed. The original essays remain available with visible editor's notes; their AI-assistance history is not documented in the source record.
+
+---
+
 ## Canonical Direct Answers (AEO Fast Extracts)
 
-### Capability-Based Provenance (The Trust Stack Part IV)
+### Capability-Based Provenance (The Trust Stack Part IV of Four Published Installments)
 - **Target Question:** How can people tell what humans and AI contributed—and what each participant may do?
 - **Direct Answer:** Identity tells us who or what is acting. Provenance records origin and history. Authenticity tells us whether evidence is credible. None grants authority. Trustworthy human–AI systems need explicit capabilities: permission for a specific actor to perform a specific action on a specific asset, within limits, until expiry or revocation—checked again where the action becomes consequential.
 - **Core Axiom:** Provenance claims describe context. Capabilities govern action.

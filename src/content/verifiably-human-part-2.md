@@ -4,6 +4,23 @@ date: "2026-02-08"
 title: "Verifiably Human — Part II: The Death of Ambient Authority"
 author: "Gerardo I. Ornelas"
 featuredImage: "../images/blog/verifiably-human-part-2.png"
+description: "An early Verifiably Human argument about authority, now retained with a correction separating authority from evidence of creation."
+metaTitle: "Verifiably Human Part II — Original Argument and Correction"
+territory: "Authority & Trust"
+series: "Verifiably Human"
+part: 2
+status: "argument"
+updated: "2026-10-08"
+aiAssistance: "Not documented in the source record."
+corrections:
+  - date: "2026-10-08"
+    what: "Process evidence, attributable declarations, accountability, and authority are distinct dimensions. Capture, authorship, approval, and AI assistance can coexist."
+    why: "The original scope ladder conflated permission to assert a claim with evidence that the claim was true."
+sources:
+  - title: "C2PA Technical Specification 2.4"
+    url: "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"
+  - title: "CAWG Identity Assertion 1.3"
+    url: "https://cawg.io/identity/1.3/"
 ---
 
 In Part I, we established that **detection is a losing game**. In a world where machines can convincingly imitate humans, trying to _catch_ AI will always trail behind it. The only viable path forward is **explicit provenance**.

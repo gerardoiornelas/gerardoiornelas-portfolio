@@ -34,9 +34,9 @@ export const navElements: NavElement[] = [
   // },
   {
     id: cuid(),
-    route: "/authority-layer",
+    route: "/research",
     title: "Research",
-    anchor: "/authority-layer",
+    anchor: "/research/",
     isActiveLink: false,
     subNav: false,
   },

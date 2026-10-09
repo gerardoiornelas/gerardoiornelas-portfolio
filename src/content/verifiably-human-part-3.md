@@ -4,6 +4,25 @@ date: "2026-02-13"
 title: "Verifiably Human — Part III: Sealing the Moment of Creation"
 author: "Gerardo I. Ornelas"
 featuredImage: "../images/blog/verifiably-human-part-3.png"
+description: "An early cryptographic proposal for human-origin claims, retained with corrections about evidence, disputes, timing, expiry, and authority."
+metaTitle: "Verifiably Human Part III — Original Proposal and Correction"
+territory: "Authority & Trust"
+series: "Verifiably Human"
+part: 3
+status: "argument"
+updated: "2026-10-08"
+aiAssistance: "Not documented in the source record."
+corrections:
+  - date: "2026-10-08"
+    what: "A signed policy is an attributable declaration, not proof of human authorship. A dispute requires review rather than automatic invalidation; claimed issue time is not independent time evidence; historical evidence and current permission have different lifecycles."
+    why: "The original mechanism protected a record but did not establish the truth of its creation claim, and several lifecycle rules conflated evidence with authority."
+sources:
+  - title: "C2PA Technical Specification 2.4"
+    url: "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"
+  - title: "CAWG Identity Assertion 1.3"
+    url: "https://cawg.io/identity/1.3/"
+  - title: "RFC 4998 — Evidence Record Syntax"
+    url: "https://www.rfc-editor.org/rfc/rfc4998.html"
 ---
 
 In Part II, we dismantled ambient authority and reframed human origin as a permissioned claim, not an inferred property.

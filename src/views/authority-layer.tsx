@@ -237,8 +237,8 @@ const AuthorityLayerPage: React.FC = () => {
             </Typography>
             <Stack spacing={2}>
               <Typography sx={{ fontSize: 18, fontWeight: 300 }}>
-                <Link to="/manifesto/" style={{ color: "inherit" }}>
-                  Verifiably Human Doctrine
+                <Link to="/research/verifiably-human/" style={{ color: "inherit" }}>
+                  Verifiably Human research status
                 </Link>
               </Typography>
               <Typography sx={{ fontSize: 18, fontWeight: 300 }}>
