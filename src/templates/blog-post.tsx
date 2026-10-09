@@ -512,6 +512,40 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/ai-rehearsal-after-interface": {
+      title: "AI as Rehearsal: What Happens After the Interface",
+      description:
+        "A field experiment suggests AI’s most important effect may appear after the screen is gone—in what people feel able to do without it.",
+      keywords: [
+        "AI as rehearsal",
+        "human-AI interaction",
+        "HCI",
+        "transfer beyond the interface",
+        "active student engagement",
+        "voice AI discussion partner",
+        "residual value",
+        "human agency",
+        "afterlife metric",
+      ],
+      about: [
+        "Human–AI Interaction (HCI)",
+        "AI as Rehearsal",
+        "Transfer Beyond the Interface",
+        "Active Student Engagement",
+        "Human Agency",
+        "Residual Value",
+      ],
+      faq: [
+        {
+          q: "Does practicing with AI improve learning?",
+          a: "This study found greater later class participation and perceived learning, not proof of durable learning. The distinction should remain explicit.",
+        },
+        {
+          q: "Should AI replace human discussion practice?",
+          a: "No. The strongest use case is rehearsal that prepares a person for human participation, not substitution for the human setting.",
+        },
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {
