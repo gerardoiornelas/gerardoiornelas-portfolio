@@ -1,6 +1,6 @@
 ---
 slug: "/digital-ownership-without-exit"
-date: "2026-10-08"
+date: "2026-10-10"
 title: "Ownership Without Exit Is Just Tenancy"
 author: "Gerardo I. Ornelas"
 category: "Authority & Trust"
