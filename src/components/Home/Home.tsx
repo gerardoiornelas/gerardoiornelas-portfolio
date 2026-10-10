@@ -122,8 +122,7 @@ export const Home: React.FC = () => {
                         <Button
                           variant="contained"
                           color="secondary"
-                          href="https://github.com/gerardoiornelas/uigates"
-                          fullWidth={isSmall}
+                          href="/#contact"
                           sx={{
                             fontFamily: "monospace",
                             fontWeight: 700,
@@ -133,23 +132,6 @@ export const Home: React.FC = () => {
                             py: 1.3,
                             whiteSpace: "nowrap",
                             boxShadow: "0 4px 14px rgba(56, 180, 198, 0.25)",
-                          }}
-                        >
-                          UI-GATES Operating System ↗
-                        </Button>
-                        <Button
-                          variant="outlined"
-                          color="secondary"
-                          href="/#contact"
-                          fullWidth={isSmall}
-                          sx={{
-                            fontFamily: "monospace",
-                            fontWeight: 600,
-                            fontSize: 12,
-                            letterSpacing: "0.06em",
-                            px: 3,
-                            py: 1.3,
-                            whiteSpace: "nowrap",
                           }}
                         >
                           Request a Briefing
@@ -228,6 +210,31 @@ export const Home: React.FC = () => {
                           }}
                         >
                           XEO Labs · AI Visibility ↗
+                        </Button>
+                        <Button
+                          component="a"
+                          href="https://github.com/gerardoiornelas/uigates"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          size="small"
+                          sx={{
+                            fontFamily: "monospace",
+                            fontSize: 11,
+                            color: "text.secondary",
+                            border: "1px solid",
+                            borderColor: "rgba(255, 255, 255, 0.12)",
+                            bgcolor: "rgba(255, 255, 255, 0.02)",
+                            px: 1.75,
+                            py: 0.6,
+                            whiteSpace: "nowrap",
+                            "&:hover": {
+                              borderColor: "secondary.main",
+                              color: "secondary.main",
+                              bgcolor: "rgba(56, 180, 198, 0.08)",
+                            },
+                          }}
+                        >
+                          UI-GATES · Methodology ↗
                         </Button>
                       </Box>
                     </Box>

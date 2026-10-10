@@ -2,7 +2,6 @@ import cuid from "cuid"
 
 import ImgCrittora from "../../images/projects/crittora.png?url"
 import ImgWUN from "../../images/projects/wun.png?url"
-import ImgUIGates from "../../images/projects/uigates.png?url"
 
 interface ProjectData {
   id: string
@@ -49,17 +48,17 @@ const projectsData: ProjectData[] = [
   },
   {
     id: cuid(),
-    title: `UI-GATES Operating System`,
+    title: `AI Governance Advisory`,
     description: [
-      "User-Intent Gated Agentic Task Execution & Synthesis: an authority-aware operating model and portable skill for governed agentic work.",
+      "Direct advisory for boards and leadership teams adopting consequential AI: authority design, control selection, and evidence standards that hold up under scrutiny.",
     ],
     signal:
-      "An operating system and portable skill for agentic work: reasoning proposes, authority decides, and verified work synthesizes into reusable knowledge.",
-    imgSrc: ImgUIGates,
-    imgAlt: "UI-GATES authority-aware execution operating system logo",
-    imgWidth: 110,
-    imgHeight: 96,
-    url: `https://github.com/gerardoiornelas/uigates`,
+      "From approval workflows to audit-ready execution evidence: govern approved AI actions, stop actions outside the rules, and prove what occurred.",
+    imgSrc: ImgCrittora,
+    imgAlt: "Crittora mortgage AI governance logo",
+    imgWidth: 128,
+    imgHeight: 84,
+    url: `/#contact`,
   },
 ]
 
