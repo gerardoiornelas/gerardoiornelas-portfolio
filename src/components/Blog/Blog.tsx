@@ -1,7 +1,8 @@
 import type { ImageData } from "../../lib/image"
 import React from "react"
 import { Link, usePosts } from "../../lib/site"
-import { Container, Box, Typography } from "@mui/material"
+import { Container, Box, Typography, Button } from "@mui/material"
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 
 import { RowCol } from "../RowCol"
 import { Title } from "../Title"
@@ -20,8 +21,11 @@ interface BlogData {
   excerpt: string
 }
 
+const FEATURED_POST_COUNT = 6
+
 export const Blog: React.FC = () => {
   const nodes = usePosts()
+  const displayPosts = nodes.slice(0, FEATURED_POST_COUNT)
 
   return (
     <Box py={6}>
@@ -57,11 +61,11 @@ export const Blog: React.FC = () => {
             justifyContent={`space-evenly`}
             alignItems="stretch"
           >
-            {nodes.map((data: BlogData, index: number) => {
+            {displayPosts.map((data: BlogData, index: number) => {
               return (
                 <AnimateOnScroll
                   animateIn="fadeInUp"
-                  delay={index * 200}
+                  delay={index * 150}
                   key={data.frontmatter.slug}
                   style={{ display: "flex", marginBottom: "2rem" }}
                 >
@@ -71,6 +75,34 @@ export const Blog: React.FC = () => {
             })}
           </Box>
         </RowCol>
+        {nodes.length > FEATURED_POST_COUNT && (
+          <RowCol mt={2}>
+            <AnimateOnScroll animateIn="fadeInUp" delay={200}>
+              <Box display="flex" justifyContent="center">
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  size="large"
+                  component={Link}
+                  to="/blog/"
+                  endIcon={<ArrowForwardIcon />}
+                  sx={{
+                    fontFamily: "monospace",
+                    fontWeight: 700,
+                    fontSize: 13,
+                    letterSpacing: "0.06em",
+                    px: 4,
+                    py: 1.5,
+                    borderRadius: 2,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  View All Articles & Series ({nodes.length})
+                </Button>
+              </Box>
+            </AnimateOnScroll>
+          </RowCol>
+        )}
       </Container>
     </Box>
   )
