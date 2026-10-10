@@ -546,6 +546,40 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/digital-ownership-without-exit": {
+      title: "Do You Own a Digital Asset If You Cannot Leave?",
+      description:
+        "A ledger can prove control, but meaningful digital ownership also requires continuity, recognition, and a credible way to leave.",
+      keywords: [
+        "digital ownership",
+        "NFT tenancy",
+        "ERC-721",
+        "blockchain portability",
+        "Authority Layer",
+        "The Trust Stack",
+        "digital asset exit test",
+        "agentic trust",
+        "interaction contract",
+      ],
+      about: [
+        "Digital Ownership",
+        "ERC-721 Non-Fungible Token Standard",
+        "The Trust Stack",
+        "Authority Layer",
+        "Interaction Contract",
+        "Blockchain Portability",
+      ],
+      faq: [
+        {
+          q: "Does owning an NFT include copyright?",
+          a: "Not automatically. Token control and intellectual-property rights are separate unless a license connects them.",
+        },
+        {
+          q: "Can blockchain make an asset portable?",
+          a: "It can make control and provenance portable; another system must still recognize and support the claim.",
+        },
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {
