@@ -122,7 +122,7 @@ export const Home: React.FC = () => {
                         <Button
                           variant="contained"
                           color="secondary"
-                          href="/uig/"
+                          href="https://github.com/gerardoiornelas/uigates"
                           fullWidth={isSmall}
                           sx={{
                             fontFamily: "monospace",

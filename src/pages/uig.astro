@@ -1,10 +1,15 @@
 ---
-import { getPageStyles } from "../lib/page-styles"
 import Document from "../layouts/Document.astro"
-import Page, { Head } from "../views/uig.tsx"
-const styles = getPageStyles(Page, {})
+const styles: any[] = []
 ---
 <Document styles={styles}>
-  <Head slot="head" />
-  <Page client:load />
+  <meta http-equiv="refresh" content="0; url=https://github.com/gerardoiornelas/uigates" slot="head" />
+  <script is:inline>
+    window.location.replace("https://github.com/gerardoiornelas/uigates")
+  </script>
+  <p style="font-family: monospace; padding: 4rem 2rem; text-align: center;">
+    UI-GATES has moved to
+    <a href="https://github.com/gerardoiornelas/uigates">github.com/gerardoiornelas/uigates</a>.
+    Redirecting…
+  </p>
 </Document>

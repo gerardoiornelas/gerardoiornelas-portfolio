@@ -38,18 +38,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What is UI-GATES?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "UI-GATES (User-Intent Gated Agentic Task Execution & Synthesis) is an authority-aware operating system and portable skill for agentic work that unifies intent bounding, execution-time authority gates, verification evidence, and durable knowledge synthesis.",
-      },
-    },
-    {
-      "@type": "Question",
       name: "What does Gerardo I. Ornelas work on?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "He helps mortgage organizations govern consequential AI with controls and evidence, authors the UI-GATES operating system for agentic work, and helps businesses become credible and findable across search and AI answer engines.",
+        text: "He helps mortgage organizations govern consequential AI with controls and evidence, authors the open-source UI-GATES methodology (github.com/gerardoiornelas/uigates), and helps businesses become credible and findable across search and AI answer engines.",
       },
     },
     {
@@ -77,10 +69,10 @@ const homepageSchema = {
   name: "Gerardo I. Ornelas | Governed AI & Trusted Visibility",
   url: "https://www.gerardoiornelas.com/",
   description:
-    "Gerardo I. Ornelas works on mortgage AI governance, execution evidence, UI-GATES agentic operating system, and AI-era visibility systems.",
+    "Gerardo I. Ornelas works on mortgage AI governance, execution evidence, agentic-work governance, and AI-era visibility systems.",
   about: [
     { "@type": "Thing", name: "Mortgage AI governance" },
-    { "@type": "Thing", name: "UI-GATES operating system" },
+    { "@type": "Thing", name: "AI answer-engine visibility" },
     { "@type": "Thing", name: "AI controls and evidence" },
     { "@type": "Thing", name: "AI visibility" },
     { "@type": "Thing", name: "Cross-engine strategy" },

@@ -242,9 +242,9 @@ const AuthorityLayerPage: React.FC = () => {
                 </Link>
               </Typography>
               <Typography sx={{ fontSize: 18, fontWeight: 300 }}>
-                <Link to="/uig/" style={{ color: "inherit" }}>
+                <a href="https://github.com/gerardoiornelas/uigates" style={{ color: "inherit" }}>
                   UI-GATES methodology
-                </Link>
+                </a>
                 <Typography component="span" color="text.secondary" sx={{ ml: 1 }}>
                   — a supporting research methodology for governed agentic work
                 </Typography>

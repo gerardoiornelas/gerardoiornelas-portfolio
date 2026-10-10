@@ -59,8 +59,7 @@ const projectsData: ProjectData[] = [
     imgAlt: "UI-GATES authority-aware execution operating system logo",
     imgWidth: 110,
     imgHeight: 96,
-    url: `/uig/`,
-    anchor: "#uigates",
+    url: `https://github.com/gerardoiornelas/uigates`,
   },
 ]
 
