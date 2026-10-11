@@ -2,6 +2,7 @@ import cuid from "cuid"
 
 import ImgCrittora from "../../images/projects/crittora.png?url"
 import ImgWUN from "../../images/projects/wun.png?url"
+import ImgXEOLabs from "../../images/projects/xeo-labs-wordmark.svg?url"
 
 interface ProjectData {
   id: string
@@ -34,31 +35,31 @@ const projectsData: ProjectData[] = [
   },
   {
     id: cuid(),
-    title: `AI Visibility & Cross-Engine Strategy`,
+    title: `XEO Director by XEO Labs`,
     description: [
-      "Through WUN AEO Director and XEO Labs: make businesses legible, credible, and findable across search, AI answers, content, and conversion surfaces.",
+      "Through XEO Director by XEO Labs: make businesses legible, credible, and findable across search, AI answers, content, and conversion surfaces.",
     ],
     signal:
       "Cross-engine strategy joins business performance, SEO, and answer-engine optimization into one visibility system.",
-    imgSrc: ImgWUN,
-    imgAlt: "WUN AI visibility systems logo",
-    imgWidth: 128,
-    imgHeight: 84,
+    imgSrc: ImgXEOLabs,
+    imgAlt: "XEO Labs wordmark logo",
+    imgWidth: 160,
+    imgHeight: 36,
     url: `https://xeolabs.ai/`,
   },
   {
     id: cuid(),
-    title: `AI Governance Advisory`,
+    title: `WUN.ai Ecosystem Engineering`,
     description: [
-      "Direct advisory for boards and leadership teams adopting consequential AI: authority design, control selection, and evidence standards that hold up under scrutiny.",
+      "Through WUN.ai: govern how AI work ships - Shortcake governed releases, MCP tooling, and execution-time authorization behind the WUN ecosystem.",
     ],
     signal:
-      "From approval workflows to audit-ready execution evidence: govern approved AI actions, stop actions outside the rules, and prove what occurred.",
-    imgSrc: ImgCrittora,
-    imgAlt: "Crittora mortgage AI governance logo",
+      "The WUN ecosystem pairs governed release workflows with MCP-native agent infrastructure so AI-assisted work ships with evidence, not guesswork.",
+    imgSrc: ImgWUN,
+    imgAlt: "WUN AI visibility systems logo",
     imgWidth: 128,
     imgHeight: 84,
-    url: `/#contact`,
+    url: `https://wun.ai/`,
   },
 ]
 
