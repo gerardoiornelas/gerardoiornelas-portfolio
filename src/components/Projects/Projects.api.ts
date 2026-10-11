@@ -35,16 +35,16 @@ const projectsData: ProjectData[] = [
   },
   {
     id: cuid(),
-    title: `XEO Director by XEO Labs`,
+    title: `XEO Director`,
     description: [
-      "Through XEO Director by XEO Labs: make businesses legible, credible, and findable across search, AI answers, content, and conversion surfaces.",
+      "Through XEO Director, by XEO Labs: make businesses legible, credible, and findable across search, AI answers, content, and conversion surfaces.",
     ],
     signal:
       "Cross-engine strategy joins business performance, SEO, and answer-engine optimization into one visibility system.",
     imgSrc: ImgXEOLabs,
     imgAlt: "XEO Labs wordmark logo",
-    imgWidth: 160,
-    imgHeight: 36,
+    imgWidth: 200,
+    imgHeight: 84,
     url: `https://xeolabs.ai/`,
   },
   {
