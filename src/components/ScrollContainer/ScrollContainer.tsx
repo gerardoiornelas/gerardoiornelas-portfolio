@@ -73,8 +73,6 @@ export const ScrollContainer: React.FC = () => {
             ref={refBlog}
           ></Box>
           <Blog />
-        </Segment>
-        <Segment variant="secondary" segmentDecoration>
           <MicroMedia />
         </Segment>
         {/* <Segment>

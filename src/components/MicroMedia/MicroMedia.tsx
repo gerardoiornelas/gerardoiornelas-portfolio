@@ -201,8 +201,19 @@ export const MicroMedia: React.FC = () => {
   }, [])
 
   return (
-    <Box py={6}>
+    <Box pt={8} pb={6}>
       <Container maxWidth="lg">
+        <Box
+          sx={{
+            width: 48,
+            height: "2px",
+            bgcolor: "secondary.main",
+            opacity: 0.35,
+            borderRadius: 1,
+            mx: "auto",
+            mb: 6,
+          }}
+        />
         <Box mb={4} textAlign="center">
           <Typography
             sx={{
