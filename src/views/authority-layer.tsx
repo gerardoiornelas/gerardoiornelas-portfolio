@@ -173,7 +173,6 @@ const AuthorityLayerPage: React.FC = () => {
               variant="contained"
               color="secondary"
               href="https://www.crittora.com/"
-              sx={{ fontFamily: "monospace", fontWeight: 600, fontSize: 12 }}
             >
               Explore Mortgage AI Governance
             </Button>
@@ -181,7 +180,6 @@ const AuthorityLayerPage: React.FC = () => {
               variant="outlined"
               color="secondary"
               href="https://xeolabs.ai/"
-              sx={{ fontFamily: "monospace", fontWeight: 600, fontSize: 12 }}
             >
               Explore AI Visibility Strategy
             </Button>

@@ -68,8 +68,8 @@ const CompoundEngineeringPage: React.FC = () => {
                 An authority-aware operating system for a one-person, AI-native organization—where every meaningful change creates better context, clearer decisions, and stronger proof for the next one.
               </Typography>
               <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-                <Button variant="contained" color="secondary" onClick={() => document.getElementById("loop")?.scrollIntoView({ behavior: "smooth" })} sx={{ fontFamily: "monospace" }}>Explore the loop ↓</Button>
-                <Button variant="outlined" color="secondary" onClick={downloadSkill} sx={{ fontFamily: "monospace" }}>Download the skill file</Button>
+                <Button variant="contained" color="secondary" onClick={() => document.getElementById("loop")?.scrollIntoView({ behavior: "smooth" })}>Explore the loop ↓</Button>
+                <Button variant="outlined" color="secondary" onClick={downloadSkill}>Download the skill file</Button>
               </Stack>
             </Grid>
             <Grid item xs={12} md={4}>
@@ -112,7 +112,7 @@ const CompoundEngineeringPage: React.FC = () => {
         <Typography color="text.secondary" sx={{ maxWidth: 850, fontWeight: 300, lineHeight: 1.8, mb: 3 }}>
           The mechanism has passed paired fixture tests. Demonstrating improvement on real coding-agent tasks remains the next evidence requirement. These repository tools are separate from the portable skill download.
         </Typography>
-        <Button component="a" href="https://github.com/gerardoiornelas/uigates" variant="outlined" color="secondary" sx={{ fontFamily: "monospace" }}>Read the learning model and evidence →</Button>
+        <Button component="a" href="https://github.com/gerardoiornelas/uigates" variant="outlined" color="secondary">Read the learning model and evidence →</Button>
       </Container>
 
       <Divider />
@@ -128,7 +128,7 @@ const CompoundEngineeringPage: React.FC = () => {
       </Container>
 
       <Box id="download" sx={{ borderTop: "1px solid", borderColor: "divider", bgcolor: "rgba(56, 180, 198, 0.06)", py: 10, px: 3 }}>
-        <Container maxWidth="lg"><Stack direction={{ xs: "column", md: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", md: "center" }} spacing={4}><Box><Label>Start a durable loop</Label><Typography variant="h3" sx={{ maxWidth: 620 }}>Make your next change leave the system wiser.</Typography></Box><Button variant="contained" color="secondary" onClick={downloadSkill} sx={{ fontFamily: "monospace", flexShrink: 0 }}>Download compound-engineering-skill.md</Button></Stack></Container>
+        <Container maxWidth="lg"><Stack direction={{ xs: "column", md: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", md: "center" }} spacing={4}><Box><Label>Start a durable loop</Label><Typography variant="h3" sx={{ maxWidth: 620 }}>Make your next change leave the system wiser.</Typography></Box><Button variant="contained" color="secondary" onClick={downloadSkill} sx={{ flexShrink: 0 }}>Download compound-engineering-skill.md</Button></Stack></Container>
       </Box>
     </LayoutAlt>
   )

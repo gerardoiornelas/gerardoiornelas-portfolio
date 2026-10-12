@@ -122,16 +122,10 @@ export const Home: React.FC = () => {
                         <Button
                           variant="contained"
                           color="secondary"
+                          size="large"
                           href="/#contact"
                           sx={{
-                            fontFamily: "monospace",
-                            fontWeight: 700,
-                            fontSize: 12,
-                            letterSpacing: "0.06em",
-                            px: 3,
-                            py: 1.3,
                             whiteSpace: "nowrap",
-                            boxShadow: "0 4px 14px rgba(56, 180, 198, 0.25)",
                           }}
                         >
                           Request a Briefing
@@ -168,8 +162,6 @@ export const Home: React.FC = () => {
                           rel="noopener noreferrer"
                           size="small"
                           sx={{
-                            fontFamily: "monospace",
-                            fontSize: 11,
                             color: "text.secondary",
                             border: "1px solid",
                             borderColor: "rgba(255, 255, 255, 0.12)",
@@ -193,8 +185,6 @@ export const Home: React.FC = () => {
                           rel="noopener noreferrer"
                           size="small"
                           sx={{
-                            fontFamily: "monospace",
-                            fontSize: 11,
                             color: "text.secondary",
                             border: "1px solid",
                             borderColor: "rgba(255, 255, 255, 0.12)",
@@ -218,8 +208,6 @@ export const Home: React.FC = () => {
                           rel="noopener noreferrer"
                           size="small"
                           sx={{
-                            fontFamily: "monospace",
-                            fontSize: 11,
                             color: "text.secondary",
                             border: "1px solid",
                             borderColor: "rgba(255, 255, 255, 0.12)",

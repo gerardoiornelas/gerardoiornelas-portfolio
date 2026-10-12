@@ -287,41 +287,27 @@ export const UIGates: React.FC = () => {
               <Button
                 variant="contained"
                 color="secondary"
+                size="large"
                 href="/uig/"
-                sx={{
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  fontSize: 13,
-                  px: 3.5,
-                  py: 1.25,
-                }}
               >
                 Explore UI-GATES System ↗
               </Button>
               <Button
                 variant="outlined"
                 color="secondary"
+                size="large"
                 href="/compound-engineering/"
-                sx={{
-                  fontFamily: "monospace",
-                  fontWeight: 600,
-                  fontSize: 13,
-                  px: 3,
-                  py: 1.25,
-                }}
               >
                 Compound Engineering Playbook
               </Button>
               <Button
                 variant="text"
                 color="secondary"
+                size="large"
                 href="https://github.com/gerardoiornelas/uigates"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{
-                  fontFamily: "monospace",
-                  fontWeight: 600,
-                  fontSize: 13,
                   opacity: 0.85,
                 }}
               >

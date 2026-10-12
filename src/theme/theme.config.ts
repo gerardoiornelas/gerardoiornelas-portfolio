@@ -21,11 +21,13 @@ const metaKeywords: string =
   "react, hardhat, solidity, web3, UX, UI, blockchain"
 
 const googleFonts: string =
-  "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+  "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap"
 
 const fontFamilies: string = "'Inter', sans-serif"
 const headlineFont: string = "'Bebas Neue', 'Inter', sans-serif"
 const bodyFont: string = "'Inter', sans-serif"
+const monoFont: string =
+  "'DM Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
 
 const headlineFontStyles: React.CSSProperties = {
   fontFamily: headlineFont,
@@ -78,4 +80,5 @@ export {
   metaKeywords,
   appTitle,
   customColorStyles,
+  monoFont,
 }

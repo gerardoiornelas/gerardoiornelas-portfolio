@@ -123,11 +123,6 @@ const MicroMediaCard: React.FC<{ item: MicroMediaItem }> = ({ item }) => {
           target="_blank"
           rel="noreferrer"
           color="secondary"
-          sx={{
-            fontFamily: "monospace",
-            fontSize: 11,
-            fontWeight: 600,
-          }}
         >
           Watch on YouTube
         </Button>

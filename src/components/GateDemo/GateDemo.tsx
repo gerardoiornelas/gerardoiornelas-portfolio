@@ -241,11 +241,6 @@ export const GateDemo: React.FC = () => {
           color="secondary"
           disabled={isGated}
           onClick={handleNext}
-          sx={{
-            fontFamily: "'DM Mono', monospace",
-            fontSize: 12,
-            letterSpacing: "0.05em",
-          }}
         >
           Unlock Next Ticket ▸
         </Button>

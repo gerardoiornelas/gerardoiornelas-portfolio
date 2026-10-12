@@ -84,8 +84,8 @@ const UigPage: React.FC = () => {
                 UI-GATES—User-Intent Gated Agentic Task Execution & Synthesis—is an authority-aware operating system and portable skill for agentic work. It brings intent, authority, verification, and durable knowledge into the same loop—so agents move quickly without treating access as permission or experience as forgotten context.
               </Typography>
               <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-                <Button component="a" href="https://github.com/gerardoiornelas/uigates" target="_blank" rel="noopener noreferrer" variant="contained" color="secondary" sx={{ fontFamily: "monospace" }}>Explore UIGATES on GitHub ↗</Button>
-                <Button variant="outlined" color="secondary" onClick={() => document.getElementById("operating-loop")?.scrollIntoView({ behavior: "smooth" })} sx={{ fontFamily: "monospace" }}>See how it works ↓</Button>
+                <Button component="a" href="https://github.com/gerardoiornelas/uigates" target="_blank" rel="noopener noreferrer" variant="contained" color="secondary">Explore UIGATES on GitHub ↗</Button>
+                <Button variant="outlined" color="secondary" onClick={() => document.getElementById("operating-loop")?.scrollIntoView({ behavior: "smooth" })}>See how it works ↓</Button>
               </Stack>
             </Grid>
             <Grid item xs={12} md={5}>
@@ -176,7 +176,7 @@ const UigPage: React.FC = () => {
 
       <Divider />
       <Box sx={{ bgcolor: "rgba(56, 180, 198, 0.06)", py: 10, px: 3 }}>
-        <Container maxWidth="lg"><Stack direction={{ xs: "column", md: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", md: "center" }} spacing={4}><Box><Label>Start with a real task</Label><Typography variant="h3" sx={{ maxWidth: 650 }}>Use the short <Box component="span" sx={{ color: "secondary.main" }}>UIG</Box> skill to make the next meaningful change safer and more useful than the last.</Typography></Box><Stack direction={{ xs: "column", sm: "row" }} spacing={2}><Button component="a" href="https://github.com/gerardoiornelas/uigates" target="_blank" rel="noopener noreferrer" variant="contained" color="secondary" sx={{ fontFamily: "monospace", flexShrink: 0 }}>View canonical source ↗</Button><Button variant="outlined" color="secondary" onClick={downloadSkill} sx={{ fontFamily: "monospace", flexShrink: 0 }}>Download uig-skill.md</Button></Stack></Stack></Container>
+        <Container maxWidth="lg"><Stack direction={{ xs: "column", md: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", md: "center" }} spacing={4}><Box><Label>Start with a real task</Label><Typography variant="h3" sx={{ maxWidth: 650 }}>Use the short <Box component="span" sx={{ color: "secondary.main" }}>UIG</Box> skill to make the next meaningful change safer and more useful than the last.</Typography></Box><Stack direction={{ xs: "column", sm: "row" }} spacing={2}><Button component="a" href="https://github.com/gerardoiornelas/uigates" target="_blank" rel="noopener noreferrer" variant="contained" color="secondary" sx={{ flexShrink: 0 }}>View canonical source ↗</Button><Button variant="outlined" color="secondary" onClick={downloadSkill} sx={{ flexShrink: 0 }}>Download uig-skill.md</Button></Stack></Stack></Container>
       </Box>
     </LayoutAlt>
   )

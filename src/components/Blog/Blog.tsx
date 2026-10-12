@@ -87,13 +87,6 @@ export const Blog: React.FC = () => {
                   to="/blog/"
                   endIcon={<ArrowForwardIcon />}
                   sx={{
-                    fontFamily: "monospace",
-                    fontWeight: 700,
-                    fontSize: 13,
-                    letterSpacing: "0.06em",
-                    px: 4,
-                    py: 1.5,
-                    borderRadius: 2,
                     textTransform: "uppercase",
                   }}
                 >

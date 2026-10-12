@@ -12,6 +12,7 @@ import {
   brandBg,
   brandSurface,
   brandOffWhite,
+  monoFont,
 } from "./theme.config"
 
 // A custom theme for this app
@@ -80,9 +81,10 @@ const theme = createTheme({
       fontFamily: bodyFont,
     },
     button: {
-      fontFamily: headlineFontStyles.fontFamily,
+      fontFamily: monoFont,
       textTransform: "none",
       fontWeight: 600,
+      letterSpacing: "0.06em",
     },
     caption: {
       fontFamily: bodyFont,
@@ -114,7 +116,28 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 0,
-          fontFamily: headlineFontStyles.fontFamily,
+          fontFamily: monoFont,
+          fontWeight: 600,
+          letterSpacing: "0.06em",
+          textTransform: "none",
+        },
+        containedSecondary: {
+          boxShadow: "0 4px 14px rgba(56, 180, 198, 0.25)",
+          "&:hover": {
+            boxShadow: "0 6px 18px rgba(56, 180, 198, 0.35)",
+          },
+        },
+        sizeSmall: {
+          fontSize: 11,
+          padding: "4px 12px",
+        },
+        sizeMedium: {
+          fontSize: 12,
+          padding: "6px 16px",
+        },
+        sizeLarge: {
+          fontSize: 13,
+          padding: "10px 24px",
         },
       },
     },
