@@ -8,68 +8,13 @@ const ScrollContainerPage: React.FC = () => {
   return <ScrollContainer />
 }
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Who is Gerardo I. Ornelas?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Gerardo I. Ornelas is a systems architect, founder, and advisor working on mortgage AI governance, execution evidence, and AI-era visibility systems.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is mortgage AI governance?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Mortgage AI governance defines who or what may act in consequential mortgage workflows, under which limits, and what evidence proves the decision, action, and result.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is Crittora?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Crittora is a mortgage-specific control and evidence layer designed to help approved AI actions proceed, stop actions outside approved rules, and preserve proof of what occurred.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What does Gerardo I. Ornelas work on?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "He helps mortgage organizations govern consequential AI with controls and evidence, authors the open-source UI-GATES methodology (github.com/gerardoiornelas/uigates), and helps businesses become credible and findable across search and AI answer engines.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is AI visibility and cross-engine strategy?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "AI visibility and cross-engine strategy help a business be accurately understood and found across search engines, AI-generated answers, content, and conversion surfaces.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How does MISMO FRAME relate to this work?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "MISMO FRAME is a practical framework for mortgage AI governance. Gerardo's work applies the same operational concerns—policy, inventory, risk, controls, oversight, and documentation—without claiming a MISMO certification or designation.",
-      },
-    },
-  ],
-}
-
 const homepageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Gerardo I. Ornelas | Governed AI & Trusted Visibility",
   url: "https://www.gerardoiornelas.com/",
   description:
-    "Gerardo I. Ornelas works on mortgage AI governance, execution evidence, agentic-work governance, and AI-era visibility systems.",
+    "Gerardo I. Ornelas works on mortgage AI governance, execution evidence, AI-era visibility systems, and experimental research on evidence in AI-assisted software work.",
   about: [
     { "@type": "Thing", name: "Mortgage AI governance" },
     { "@type": "Thing", name: "AI answer-engine visibility" },
@@ -84,7 +29,7 @@ export const Head: HeadFC = () => (
     title="Governed AI & Trusted Visibility"
     description="Gerardo I. Ornelas works on mortgage AI governance, execution evidence, and AI-era visibility systems."
     pathname="/"
-    jsonLd={[faqSchema, homepageSchema]}
+    jsonLd={homepageSchema}
   />
 )
 

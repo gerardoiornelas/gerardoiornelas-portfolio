@@ -17,6 +17,17 @@ export function parsePost(source) {
     if (typeof frontmatter[key] !== "string" || !frontmatter[key]) throw new Error(`Missing ${key}`)
   }
   if (!/^\d{4}-\d{2}-\d{2}$/.test(frontmatter.date) || Number.isNaN(Date.parse(frontmatter.date))) throw new Error("Invalid publication date")
+  if (frontmatter.updated && (!/^\d{4}-\d{2}-\d{2}$/.test(frontmatter.updated) || Number.isNaN(Date.parse(frontmatter.updated)))) throw new Error("Invalid updated date")
+  if (frontmatter.part !== undefined && (!Number.isInteger(frontmatter.part) || frontmatter.part < 1)) throw new Error("Invalid series part")
+  for (const correction of frontmatter.corrections ?? []) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(correction.date ?? "") || !correction.what || !correction.why) throw new Error("Invalid correction")
+  }
+  for (const source of frontmatter.sources ?? []) {
+    if (!source.title || !/^https?:\/\//.test(source.url ?? "")) throw new Error("Invalid source")
+  }
+  for (const item of frontmatter.faq ?? []) {
+    if (!item.question || !item.answer) throw new Error("Invalid FAQ")
+  }
   const ast = parser.parse(content)
   const text = []
   visit(ast, node => {

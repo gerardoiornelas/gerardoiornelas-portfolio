@@ -12,10 +12,19 @@ const ManifestoPage: React.FC = () => {
     <LayoutAlt>
       <Container maxWidth="md" sx={{ py: 8 }}>
         <Title variant="segmentAlt">
-          Verifiably Human: A Doctrine of Authority & Evidence
+          Verifiably Human: An Earlier Argument
         </Title>
+        <Box sx={{ mt: 3, mb: 4, p: 3, borderLeft: "3px solid", borderColor: "warning.main", bgcolor: "rgba(237, 108, 2, 0.06)" }}>
+          <Typography variant="overline">Historical status · corrected 2026-10-08</Typography>
+          <Typography sx={{ mt: 1 }}>
+            This page preserves an earlier synthesis. It does not represent the current Verifiably Human research thesis. Attributable provenance can preserve a claim and its supporting record; it does not establish that the claim is true or that content was human-authored. Missing evidence means unknown origin.
+          </Typography>
+          <Typography sx={{ mt: 1.5 }}>
+            <a href="/research/verifiably-human/">Read the current research statement</a> · <a href="/corrections/">Read the correction record</a>
+          </Typography>
+        </Box>
         <Typography variant="h5" sx={{ mt: 2, mb: 4 }}>
-          A practical thesis for high-trust AI: how consequential systems are
+          An earlier thesis for high-trust AI: how consequential systems are
           allowed to act, how evidence makes those actions reviewable, and how
           public information becomes reliable enough to be understood.
         </Typography>
@@ -26,7 +35,7 @@ const ManifestoPage: React.FC = () => {
             can act too broadly, for too long, with too little proof. In public,
             a business can be found but still be misunderstood by people and
             answer engines. This doctrine argues for explicit authority,
-            reviewable evidence, and clear information at both decision points.
+            reviewable evidence, and clear information at both decision points. These are design arguments, not verified outcomes.
           </Typography>
         </Box>
 
@@ -49,9 +58,9 @@ const ManifestoPage: React.FC = () => {
             </li>
             <li>
               <Typography>
-                Trustworthy Information: evidence, provenance, and clear
-                public claims let systems and people understand what is true,
-                where it came from, and when it should be trusted.
+                Bounded Information: evidence, provenance, and clear public
+                claims can show what was recorded, who asserted it, and what
+                remains unresolved. They do not independently establish truth.
               </Typography>
             </li>
           </ul>
@@ -68,8 +77,8 @@ const ManifestoPage: React.FC = () => {
 
         <Box mb={4}>
           <Typography>
-            This doctrine draws on Crittora's mortgage AI control-and-evidence
-            work, the Agent Permission Protocol, AI visibility practice, and
+            This earlier argument draws on Crittora's mortgage AI control-and-evidence
+            design, the Agent Permission Protocol, AI visibility practice, and
             lessons from regulated environments. It is intentionally
             operational: scope authority, preserve reviewable evidence, and
             design information that can be accurately understood without
@@ -79,8 +88,8 @@ const ManifestoPage: React.FC = () => {
 
         <Box display="flex" gap={2}>
           <a href="/#contact">Request a Briefing</a>
-          <a href="/authority-layer/">Explore authority and evidence research</a>
-          <a href="/blog/">Read the research</a>
+          <a href="/research/verifiably-human/">Current Verifiably Human research</a>
+          <a href="/research/">Research &amp; Field Notes</a>
         </Box>
       </Container>
     </LayoutAlt>
@@ -89,8 +98,8 @@ const ManifestoPage: React.FC = () => {
 
 export const Head: HeadFC = () => (
   <Seo
-    title="Verifiably Human Doctrine"
-    description="A practical thesis for governed AI, execution evidence, and trustworthy public information in high-trust markets."
+    title="Verifiably Human — Earlier Argument and Correction"
+    description="An earlier Verifiably Human argument retained with a prominent correction and a link to the current research statement."
     pathname="/manifesto"
   />
 )

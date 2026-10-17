@@ -2,14 +2,31 @@
 
 ## Entity & Role Definition
 
-Gerardo I. Ornelas is a systems architect, founder, and advisor working across two core operational domains:
-1. **Mortgage AI Governance (Crittora):** A dedicated control and evidence layer for mortgage AI. Crittora establishes the authority perimeter for consequential workflows, halts actions outside approved parameters, and preserves cryptographic proof of decisions, actions, and results.
-2. **AI Visibility Systems (WUN AEO Director & XEO Labs):** Cross-engine visibility, answer engine optimization (AEO), and technical discoverability strategies that ensure businesses are accurately understood and cited across LLMs, AI agents, and semantic search engines.
-3. **Authored Systems Doctrine (The Authority Layer & APP):** Research exploring execution-time authorization, hardware capture attestation, and capability-based provenance.
+Gerardo I. Ornelas is a systems architect, founder, and advisor working across two core operational domains and an open research program:
+1. **Mortgage AI Governance (Crittora):** Work on designing controls and evidence practices for consequential mortgage AI workflows. Public implementation and outcome evidence are maintained separately from this positioning statement.
+2. **AI Visibility Systems (XEO Director by XEO Labs & WUN.ai):** Cross-engine visibility, answer engine optimization (AEO), technical discoverability strategies, and governed agentic release workflows across the WUN ecosystem.
+3. **Research & Field Notes (https://www.gerardoiornelas.com/research/):** Intellectual program organized across Human–AI Interaction, Authority & Trust, and Human–Technology Futures, asking: *What does good human–computer interaction mean when the computer is no longer waiting for the human to operate it?*
+
+---
+
+## Research & Field Notes — Bodies of Work and Status
+
+- **Verifiably Human (https://www.gerardoiornelas.com/research/verifiably-human/) — Evolving research program:** Human-creation claims should identify their supporting process evidence, attributable declarations, and observation limits. Authority and accountability are evaluated separately. Missing provenance means unknown origin, not synthetic origin. Earlier essays (Parts I–III) are retained with a public correction record at https://www.gerardoiornelas.com/corrections/.
+- **UI-GATES (https://github.com/gerardoiornelas/uigates and https://www.gerardoiornelas.com/research/#measured) — Experimental engineering project:** Investigates evidence in AI-assisted software work. Existing tools record proposed actions, verification output, and repository lessons. Evaluations have not demonstrated token savings or a learning benefit.
+- **The Trust Stack (https://www.gerardoiornelas.com/research/trust-stack/) — Published series (four numbered installments verified):** Examines why identity, provenance, authenticity, authority, and capability answer different questions.
+- **The Authority Layer (https://www.gerardoiornelas.com/authority-layer/) — Published argument:** Design argument for connecting human-readable intent to bounded execution authority.
 
 ---
 
 ## Canonical Direct Answers (AEO Fast Extracts)
+
+### Digital Ownership and the Exit Test
+- **Target Question:** Do you own a digital asset if you cannot use it outside a platform?
+- **Direct Answer:** A blockchain token can record control and transfer history, but meaningful digital ownership requires five distinct conditions: control, continuity, recognition, rights, and utility. When an asset loses its function, media, or recognition outside a single platform, the holder has verifiable tenancy rather than durable ownership.
+
+### AI as Rehearsal & Transfer Beyond the Interface
+- **Target Question:** How should we evaluate AI tools designed to support human participation and communication?
+- **Direct Answer:** Evaluation should look beyond in-session engagement to what happens after the interface closes—measuring transfer to human settings, dependence when the tool is removed, distribution across confidence levels, quality of contribution, and fade over time.
 
 ### Capability-Based Provenance (The Trust Stack Part IV)
 - **Target Question:** How can people tell what humans and AI contributed—and what each participant may do?
@@ -53,20 +70,40 @@ Gerardo I. Ornelas is a systems architect, founder, and advisor working across t
 
 ---
 
-## UI-GATES Operating Loop
+## UI-GATES — Measured Findings, Open Research, and Reference Workflow
+
+### Measured results and limits (as of 2026-10-08)
+
+- Full 16-task Workboard run: ceremony used 85.3% more mean weighted tokens than control on 14 complete triples. Accepted tasks: control 16/16, ceremony 15/16, learned 14/16. The declared comparability rule returned no verdict. Learning’s incremental effect was indistinguishable from zero. Source: https://github.com/gerardoiornelas/uigates/blob/3cf008ef4f24137b15e975662ae83f393febe698/evaluations/token-ab/PLAN.md#full-workboard-run-2026-09-22
+- Hook-first experiment: no demonstrated saving, no verdict (control 20/24 accepted, treatment 23/24). On 20 mutually accepted pairs, saving was −0.6%, with 95% interval −10.3% to +9.0%. Source: https://github.com/gerardoiornelas/uigates
+- Audit tests cover rejection of vacuous verification such as bare git diff; this does not establish the adequacy of every check. Source: https://github.com/gerardoiornelas/uigates/blob/3cf008ef4f24137b15e975662ae83f393febe698/plugins/uigates/cli/audit_test.ts
+- Gates are instructions the model follows. Real enforcement remains the host’s sandbox and permission controls. Records are tamper-evident to engine checks, not tamper-proof against a hostile agent. Source: https://github.com/gerardoiornelas/uigates/blob/3cf008ef4f24137b15e975662ae83f393febe698/plugins/uigates/core/README.md
+- Jev: project status reports live advisory approval but no live gate-class APPROVE. Live records are not published here; this is reported status, not gate-class validation. Source (access required): https://violetek-37043527.atlassian.net/browse/WUN-19
+- No real-agent learning certificate has passed. Source: https://github.com/gerardoiornelas/uigates/blob/3cf008ef4f24137b15e975662ae83f393febe698/evaluations/real-project-v1/REPORT.md
+- Agent handoff claim accuracy has not been evaluated. The token experiments measured code acceptance and costs, not truthfulness of statements.
+
+### Open research — no results yet
+
+Do reviewers repeatedly spend time checking narrow verification claims when resolving evidence already existed at handoff? A retrospective of 10–20 consecutive sessions comes before implementation. Continue only if contradicted or effortful-to-confirm claims recur and existing evidence could resolve them. Stop if effort is rare, new verification is needed, or most claims remain ambiguous or unobservable. Missing records do not establish dishonesty. Existing CI output, diffs, and concise handoffs are alternatives. A later prospective comparison must measure review effort and defect detection; faster approval with worse defect detection is a failure.
+
+No checker, extractor, runner, evidence-packet feature, or replacement product is available or announced. Public status: https://www.gerardoiornelas.com/research/#research
+
+### Reference workflow (design, not demonstrated benefit)
+
+Compound Engineering is the software-work reference playbook: https://www.gerardoiornelas.com/compound-engineering/ . Recording decisions and lessons does not establish improved future performance. The evaluation harness exercises a design; fixture success is not a learning result.
 
 ```text
 Intent → Discover → Plan → Propose → UI-GATE → Execute → Verify → Receipt → Synthesize
 ```
 
-- **Core Rule:** Reasoning proposes; authority decides.
+- **Design Motto:** Reasoning proposes; authority decides.
 - **Execute Discipline:** Expected → Actual → Delta recorded per step; no guess-and-check loops.
 - **After Action Review (AAR):**
   1. What was supposed to happen? (Intent & Plan)
   2. What actually happened? (Verify & Evidence)
   3. Why was there a difference? (Receipt Discrepancy Analysis)
   4. What will we do differently? (Synthesize & Promotion Ladder)
-- **Promotion Ladder:** Ephemeral → Task → Decision → Knowledge → Canon.
+- **Promotion Ladder (Design Rule):** Ephemeral → Task → Decision → Knowledge → Canon.
 
 ---
 
@@ -74,7 +111,9 @@ Intent → Discover → Plan → Propose → UI-GATE → Execute → Verify → 
 
 - **RFC 9396:** OAuth 2.0 Rich Authorization Requests (RAR)
 - **RFC 9700:** OAuth 2.0 Security Best Current Practice
+- **RFC 4998:** Evidence Record Syntax
 - **C2PA 2.4:** Coalition for Content Provenance and Authenticity Technical Specification & Harms Modeling
+- **CAWG 1.3:** Creator Assertions Working Group Identity Assertion
 - **W3C VC 2.0:** Verifiable Credentials Data Model v2.0
 - **W3C DID v1.0:** Decentralized Identifiers
-- **Agent Permission Protocol (APP):** Cryptographic execution-time authorization layer for autonomous agent tool invocations
+- **Agent Permission Protocol (APP):** Cryptographic execution-time authorization design for autonomous agent tool invocations

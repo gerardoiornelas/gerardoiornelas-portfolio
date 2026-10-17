@@ -4,6 +4,23 @@ date: "2026-02-07"
 title: "Verifiably Human — Part I: Everything Is Synthetic by Default"
 author: "Gerardo I. Ornelas"
 featuredImage: "../images/blog/verifiably-human-part-1.png"
+description: "An early Verifiably Human argument for explicit provenance, now retained with a correction separating missing evidence from synthetic origin."
+metaTitle: "Verifiably Human Part I — Original Argument and Correction"
+territory: "Authority & Trust"
+series: "Verifiably Human"
+part: 1
+status: "argument"
+updated: "2026-10-08"
+aiAssistance: "Not documented in the source record."
+corrections:
+  - date: "2026-10-08"
+    what: "Missing provenance means origin is unknown, not synthetic. A valid declaration or signature does not by itself establish human authorship."
+    why: "The original argument treated absent proof as synthetic origin and moved too quickly from attributable claims to verified creation."
+sources:
+  - title: "C2PA Technical Specification 2.4"
+    url: "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"
+  - title: "CAWG Identity Assertion 1.3"
+    url: "https://cawg.io/identity/1.3/"
 ---
 
 I started thinking about this after watching a video that felt completely real.

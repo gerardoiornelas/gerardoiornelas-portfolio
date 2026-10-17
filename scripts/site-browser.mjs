@@ -5,7 +5,7 @@ import path from "node:path"
 import { chromium } from "playwright"
 
 const baseURL = process.env.SITE_URL || "http://127.0.0.1:9000"
-const routes = ["/", "/uig/", "/compound-engineering/", "/authority-layer/", "/manifesto/", "/blog/", "/author/gerardo-i-ornelas/", "/stats/", "/privacy-policy/", "/thanks/", "/404.html"]
+const routes = ["/", "/research/", "/research/verifiably-human/", "/research/trust-stack/", "/corrections/", "/compound-engineering/", "/authority-layer/", "/manifesto/", "/blog/", "/author/gerardo-i-ornelas/", "/stats/", "/privacy-policy/", "/thanks/", "/404.html"]
 for (const f of (await readdir("src/content")).filter(f => f.endsWith(".md"))) {
   const source = await readFile(path.join("src/content", f), "utf8")
   routes.push(`/blog${source.match(/^slug: "([^"]+)"/m)[1]}/`)
@@ -43,7 +43,7 @@ try {
     } else {
       await page.getByRole("link", { name: "Research", exact: true }).first().click()
     }
-    await page.waitForURL(url => /^\/authority-layer\/?$/.test(url.pathname))
+    await page.waitForURL(url => /^\/research\/?$/.test(url.pathname))
     await page.goBack()
     await page.waitForURL(baseURL + "/")
     await page.waitForFunction(() => [...document.querySelectorAll("astro-island")].every(el => !el.hasAttribute("ssr")))
@@ -61,7 +61,7 @@ try {
     result.checks.push(`${width}px: article navigation and Back restore the blog anchor`)
 
     const downloads = await mkdtemp(path.join(tmpdir(), "portfolio-downloads-"))
-    for (const [route, name] of [["/uig/", "uig-skill.md"], ["/compound-engineering/", "compound-engineering-skill.md"]]) {
+    for (const [route, name] of [["/compound-engineering/", "compound-engineering-skill.md"]]) {
       await page.goto(baseURL + route, { waitUntil: "networkidle" })
       const pending = page.waitForEvent("download")
       await page.getByRole("button", { name: `Download ${name}`, exact: true }).click()
@@ -71,7 +71,7 @@ try {
       await download.saveAs(file)
       assert.ok((await readFile(file, "utf8")).includes("UI-GATE"))
     }
-    result.checks.push(`${width}px: both Markdown skill downloads work`)
+    result.checks.push(`${width}px: Markdown skill download works`)
 
     await page.goto(baseURL + "/#contact", { waitUntil: "networkidle" })
     const form = page.locator('form[name="contact"]')
