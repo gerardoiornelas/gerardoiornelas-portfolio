@@ -570,6 +570,36 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/ai-search-form-the-question": {
+      title: "Why AI Search Needs an Exploration Mode",
+      description:
+        "AI search excels when the question is clear. Early inquiry needs room to wander, compare, and form the question itself.",
+      keywords: [
+        "AI search",
+        "exploratory search",
+        "exploration mode",
+        "question formation",
+        "berrypicking",
+        "creative reading trace",
+        "human-AI interaction",
+        "HCI",
+        "knowledge work",
+      ],
+      about: [
+        "Human–AI Interaction (HCI)",
+        "Exploratory Search",
+        "AI-Mediated Search",
+        "Berrypicking Model",
+        "Knowledge Work",
+        "Exploratory Reading",
+      ],
+      faq: [
+        {
+          q: "What is exploratory search?",
+          a: "Search used to learn, investigate, and refine the question—not only retrieve a known answer.",
+        },
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {
