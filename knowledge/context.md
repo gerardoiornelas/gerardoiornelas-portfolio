@@ -1,7 +1,7 @@
 ---
 title: Gerardo I. Ornelas Portfolio Context
 type: architecture
-updated: 2026-10-20
+updated: 2026-10-23
 status: active
 sources: [AGENTS.md, knowledge/reference.md]
 ---

@@ -600,6 +600,37 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/ai-memory-wearables-bystander-role": {
+      title: "AI Memory Wearables Need a Bystander Role",
+      description:
+        "AI memory wearables capture shared moments. Good design must account for bystanders, consent, redaction, inference and retention—not only the wearer.",
+      keywords: [
+        "AI memory wearables",
+        "lifelogging wearables",
+        "bystander privacy",
+        "ambient computing",
+        "Looki L1",
+        "human-AI interaction",
+        "HCI",
+        "AI consent",
+        "human agency",
+        "interaction design",
+      ],
+      about: [
+        "Human–AI Interaction (HCI)",
+        "AI Memory Wearables",
+        "Lifelogging Wearables",
+        "Ambient Computing",
+        "Bystander Privacy & Rights",
+        "Interaction Design",
+      ],
+      faq: [
+        {
+          q: "Are AI memory wearables always recording?",
+          a: "No. Capture varies by product and mode. Looki describes mode-dependent capture and indicators; these claims need independent evaluation.",
+        },
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {
