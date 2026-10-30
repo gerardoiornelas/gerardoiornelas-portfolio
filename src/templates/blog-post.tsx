@@ -631,6 +631,30 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         },
       ],
     },
+    "/always-on-ai-interruption-contract": {
+      title: "When Should Voice AI Interrupt?",
+      description:
+        "Always-on voice AI needs more than fast turn-taking. It needs a visible, human-configurable contract for when intervention is justified.",
+      keywords: [
+        "always-on voice AI",
+        "interruption contract",
+        "full-duplex voice AI",
+        "ambient assistants",
+        "turn-taking",
+        "human-AI interaction",
+        "HCI",
+        "human agency",
+        "interaction contract",
+      ],
+      about: [
+        "Human–AI Interaction (HCI)",
+        "Always-On Voice AI",
+        "Full-Duplex Speech",
+        "Interruption Contract",
+        "Ambient Assistants",
+        "Turn-Taking vs Intervention",
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {
