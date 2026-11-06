@@ -655,6 +655,32 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         "Turn-Taking vs Intervention",
       ],
     },
+    "/agency-is-not-another-click": {
+      title: "Human Agency in Proactive Automation",
+      description:
+        "Proactive systems can preserve agency without asking first—if they reveal uncertainty, explain changes, and provide contest and recovery.",
+      keywords: [
+        "human agency",
+        "proactive automation",
+        "human-AI interaction",
+        "HCI",
+        "automated valuation models",
+        "AVM",
+        "mortgage insurance cancellation",
+        "Executive Order 14438",
+        "contest and recovery",
+        "AI governance",
+      ],
+      about: [
+        "Human Agency",
+        "Proactive Automation",
+        "Human–AI Interaction (HCI)",
+        "Automated Valuation Models (AVM)",
+        "Uncertainty Disclosure",
+        "Contest and Recovery",
+        "Public-Service Systems",
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {
