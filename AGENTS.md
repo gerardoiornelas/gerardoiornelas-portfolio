@@ -10,6 +10,10 @@ Before changing this repository, read:
 
 Use the task routing table in `knowledge/context.md` for additional reading. Read the UI-GATES canon for public terminology or governing behavior changes, and the operating-system document when changing workflow, gates, receipts, or learning behavior. Routine styling or isolated tests do not require the full architecture documents. Expand retrieval whenever scope or evidence requires it.
 
+## Images
+
+Before generating or requesting any image for the site, read `docs/image-prompt.md`: it is the standing style brief, the same one the Gemini Gem uses.
+
 ## Knowledge and Graph
 
 - Treat committed repository source and approved decisions as authoritative.
