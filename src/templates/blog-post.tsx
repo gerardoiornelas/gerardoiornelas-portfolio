@@ -681,6 +681,30 @@ export const Head: HeadFC<BlogPostPageData> = ({ data }) => {
         "Public-Service Systems",
       ],
     },
+    "/system-prompt-is-not-the-policy": {
+      title: "The System Prompt Is Not the Policy",
+      description:
+        "AI may obey countable rules and ignore behaviors that matter. Human control needs observable, testable interaction rules.",
+      keywords: [
+        "system prompt",
+        "AI assistant behavior",
+        "behavioral audit",
+        "conversational AI",
+        "human-AI interaction",
+        "HCI",
+        "AI governance",
+        "decision pressure",
+        "human control",
+      ],
+      about: [
+        "System Prompts",
+        "Behavioral Audit",
+        "Conversational AI",
+        "Human–AI Interaction (HCI)",
+        "Human Agency",
+        "Observable Interaction Rules",
+      ],
+    },
   }
 
   const topic = topicConfig[slug] ?? {
